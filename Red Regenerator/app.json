@@ -1,0 +1,33 @@
+{
+  "id": "c01aa9a9-ac64-490f-bdc4-a61f7f4ff05e",
+  "name": "Red Regenerator",
+  "publisher": "Red and Bundle",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "https://redandbundle.com/privacy/",
+  "EULA": "https://redink.redandbundle.com/eula",
+  "help": "https://redink.redandbundle.com/docs/introduction",
+  "url": "https://redink.redandbundle.com/",
+  "logo": "images/Logo_appsource_large.png",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "24.0.0.0",
+  "idRanges": [
+    {
+      "from": 11311113,
+      "to": 11311212
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": false,
+    "includeSourceInSymbolFile": false,
+    "allowDownloadingSource": false
+  },
+  "runtime": "13.0",
+  "features": [
+    "TranslationFile",
+    "NoImplicitWith"
+  ]
+}
