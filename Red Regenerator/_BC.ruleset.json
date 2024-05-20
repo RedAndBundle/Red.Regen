@@ -1,0 +1,47 @@
+{
+    "name": "BC",
+    "description": "Rules",
+    "generalAction" : "Hidden",
+    "rules": [
+        {
+            "id": "AA0214",
+            "action": "None",
+            "justification": "Not possible to solve"
+        },
+        {
+            "id": "AA0139",
+            "action": "None",
+            "justification": "Pointless rule"
+        },
+        {
+            "id": "AA0210",
+            "action": "None",
+            "justification": "Pointless rule"
+        },
+        {
+            "id": "AA0204",
+            "action": "None",
+            "justification": "Pointless rule"
+        },
+        {
+            "id": "AA0205",
+            "action": "None",
+            "justification": "Pointless rule"
+        },
+        {
+            "id": "AA0072",
+            "action": "None",
+            "justification": "Pointless rule"
+        },
+        {
+            "id": "AS0084",
+            "action": "None",
+            "justification": "App going to appsource. Need rules"
+        },
+        {
+            "id": "AS0081",
+            "action": "None",
+            "justification": "App going to appsource. Need rules"
+        }
+    ]
+}

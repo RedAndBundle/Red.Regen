@@ -1,18 +1,18 @@
 table 11311115 "Red Reg Sales Contract Header"
 {
-    DataClassification = ToBeClassified;
     Caption = 'Red Reg Sales Contract Header';
+    DataClassification = CustomerContent;
 
     fields
     {
         field(1; "No."; Code[20])
         {
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
             Caption = 'No.';
         }
         field(2; "Sell-to Customer No."; Code[20])
         {
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
             Caption = 'Sell-to Customer No.';
             TableRelation = Customer;
         }
@@ -128,17 +128,18 @@ table 11311115 "Red Reg Sales Contract Header"
         }
         field(11311114; "Type"; Code[20])
         {
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
             Caption = 'Type';
+            TableRelation = "Red Reg Contract Type";
         }
         field(11311115; "Start Date"; Date)
         {
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
             Caption = 'Start Date';
         }
         field(11311116; "End Date"; Date)
         {
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
             Caption = 'End Date';
         }
     }

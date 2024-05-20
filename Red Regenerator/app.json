@@ -3,8 +3,8 @@
   "name": "Red Regenerator",
   "publisher": "Red and Bundle",
   "version": "1.0.0.0",
-  "brief": "",
-  "description": "",
+  "brief": "A lightwight extension to create and renew contract",
+  "description": "Create and renew contracts for licenses, extended warranties, rentals, etc.",
   "privacyStatement": "https://redandbundle.com/privacy/",
   "EULA": "https://redreg.redandbundle.com/eula",
   "help": "https://redreg.redandbundle.com/docs/introduction",
@@ -12,7 +12,7 @@
   "logo": "images/Logo_appsource_large.png",
   "dependencies": [],
   "screenshots": [],
-  "platform": "1.0.0.0",
+  "platform": "24.0.0.0",
   "application": "24.0.0.0",
   "idRanges": [
     {
@@ -20,11 +20,13 @@
       "to": 11311212
     }
   ],
+  "contextSensitiveHelpUrl": "https://redink.redandbundle.com/docs/introduction",
   "resourceExposurePolicy": {
     "allowDebugging": false,
     "includeSourceInSymbolFile": false,
     "allowDownloadingSource": false
   },
+  "target": "Cloud",
   "runtime": "13.0",
   "features": [
     "TranslationFile",
