@@ -71,6 +71,12 @@ table 11311117 "Red Reg Generator"
             DataClassification = CustomerContent;
             ToolTip = 'Specifies the duration of the contract in a date formula. If you do not specify a duration you must set one manually after the contract is generated.';
         }
+        field(11311124; "Red Reg Billing Period"; DateFormula)
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Billing Period';
+            ToolTip = 'Specifies the billing period of the contract. If you do not specify a billing period the contract duration is used.';
+        }
     }
 
     keys

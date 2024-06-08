@@ -27,6 +27,7 @@ page 11311118 "Red Reg Generator List"
                 field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
+                    // TODO lookup number
                 }
                 field("Description"; Rec.Description)
                 {

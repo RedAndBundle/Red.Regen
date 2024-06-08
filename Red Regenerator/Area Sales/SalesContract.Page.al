@@ -229,6 +229,17 @@ page 11311116 "Red Reg Sales Contract"
                     Importance = Promoted;
                     QuickEntry = false;
                 }
+                field("Red Reg Billing Period"; Rec."Red Reg Billing Period")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Importance = Promoted;
+                }
+                field("Red Reg Next Billing Date"; Rec."Red Reg Next Billing Date")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Importance = Promoted;
+                    Editable = false;
+                }
                 field("Red Reg Group"; Rec."Red Reg Group")
                 {
                     ApplicationArea = Basic, Suite;
@@ -1408,7 +1419,7 @@ page 11311116 "Red Reg Sales Contract"
 
                     trigger OnAction()
                     begin
-                        Rec.Regenerate();
+                        Rec.RedRegenerate();
                     end;
                 }
                 action(RegenerateAndPost)
@@ -1421,7 +1432,7 @@ page 11311116 "Red Reg Sales Contract"
 
                     trigger OnAction()
                     begin
-                        Rec.RegenerateAndPost();
+                        Rec.RedRegenerateAndPost();
                     end;
                 }
                 action("Remove From Job Queue")
@@ -1453,7 +1464,7 @@ page 11311116 "Red Reg Sales Contract"
                     trigger OnAction()
                     begin
                         // DocPrint.EmailSalesHeader(Rec);
-                        Rec.SendContract();
+                        Rec.RedRegSendContract();
                     end;
                 }
                 group(Action96)
@@ -1469,7 +1480,7 @@ page 11311116 "Red Reg Sales Contract"
 
                         trigger OnAction()
                         begin
-                            Rec.PrintContract();
+                            Rec.RedRegPrintContract();
                         end;
                     }
                 }

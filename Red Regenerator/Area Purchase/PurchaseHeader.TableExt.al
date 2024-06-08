@@ -18,7 +18,7 @@ tableextension 11311115 "Red Reg Purchase Header" extends "Purchase Header"
             DataClassification = CustomerContent;
             Caption = 'End Date';
         }
-        field(11311117; "Red Reg Org. Document Type"; Enum "Red Reg Document Type")
+        field(11311117; "Red Reg Org. Document Type"; Enum "Sales Document Type")
         {
             DataClassification = CustomerContent;
             Caption = 'Originating Document Type';

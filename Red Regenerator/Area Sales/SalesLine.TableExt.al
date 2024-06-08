@@ -2,7 +2,7 @@ tableextension 11311114 "Red Reg Sales Line" extends "Sales Line"
 {
     fields
     {
-        field(11311113; "Red Reg Org. Document Type"; Enum "Red Reg Document Type")
+        field(11311113; "Red Reg Org. Document Type"; Enum "Sales Document Type")
         {
             DataClassification = CustomerContent;
             Caption = 'Originating Document Type';
@@ -39,4 +39,21 @@ tableextension 11311114 "Red Reg Sales Line" extends "Sales Line"
             Caption = 'Contract Line No.';
         }
     }
+
+    internal procedure RedRegInitNewLine(SalesHeader: Record "Sales Header")
+    var
+        SalesLine: Record "Sales Line";
+    begin
+        "Document Type" := SalesHeader."Document Type";
+        "Document No." := SalesHeader."No.";
+
+        SalesLine.SetRange("Document Type", "Document Type");
+        SalesLine.SetRange("Document No.", "Document No.");
+        if SalesLine.FindLast() then
+            "Line No." := SalesLine."Line No."
+        else
+            "Line No." := 0;
+
+        "Line No." += 10000;
+    end;
 }

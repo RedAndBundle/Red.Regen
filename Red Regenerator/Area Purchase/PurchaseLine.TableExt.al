@@ -2,7 +2,7 @@ tableextension 11311116 "Red Reg Purchase Line" extends "Purchase Line"
 {
     fields
     {
-        field(11311117; "Red Reg Org. Document Type"; Enum "Red Reg Document Type")
+        field(11311117; "Red Reg Org. Document Type"; Enum "Sales Document Type")
         {
             DataClassification = CustomerContent;
             Caption = 'Originating Document Type';

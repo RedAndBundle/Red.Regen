@@ -2,7 +2,7 @@ tableextension 11311113 "Red Reg Sales Header" extends "Sales Header"
 {
     fields
     {
-        field(11311113; "Red Reg Org. Document Type"; Enum "Red Reg Document Type")
+        field(11311113; "Red Reg Org. Document Type"; Enum "Sales Document Type")
         {
             DataClassification = CustomerContent;
             Caption = 'Originating Document Type';
@@ -37,7 +37,7 @@ tableextension 11311113 "Red Reg Sales Header" extends "Sales Header"
 
             trigger OnValidate()
             begin
-                CalculateDates();
+                RedRegCalculateDates();
             end;
         }
         field(11311122; "Red Reg End Date"; Date)
@@ -51,44 +51,92 @@ tableextension 11311113 "Red Reg Sales Header" extends "Sales Header"
         {
             DataClassification = CustomerContent;
             Caption = 'Duration';
-            ToolTip = 'Specifies the duration of the contract.';
+            ToolTip = 'Specifies the duration of the contract. If left empty, the contract is valid indefinetely.';
 
             trigger OnValidate()
             begin
-                CalculateDates();
+                RedRegCalculateDates();
             end;
+        }
+        field(11311124; "Red Reg Billing Period"; DateFormula)
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Billing Period';
+            ToolTip = 'Specifies the billing period of the contract.';
+
+            trigger OnValidate()
+            begin
+                RedRegCalculateBillingPeriod();
+            end;
+        }
+        field(11311125; "Red Reg Next Billing Date"; Date)
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Next Billing Date';
+            ToolTip = 'Specifies the date of the next billing.';
+            Editable = false;
         }
     }
 
-    local procedure CalculateDates()
+    keys
+    {
+        key("Red Reg Generator"; "Red Reg Org. Document Type", "Red Reg Org. Document No.", "Red Reg Org. Shipment No.", "Red Reg Group", "Red Reg Duration")
+        {
+        }
+    }
+
+    local procedure RedRegCalculateDates()
     var
-        EmpptyDateFormula: DateFormula;
+        EmptyDateFormula: DateFormula;
     begin
         case true of
             "Red Reg Start Date" = 0D,
-            "Red Reg Duration" = EmpptyDateFormula:
+            "Red Reg Duration" = EmptyDateFormula:
                 exit;
         end;
 
         "Red Reg End Date" := CalcDate("Red Reg Duration", "Red Reg Start Date");
+        if "Red Reg Billing Period" <> EmptyDateFormula then
+            exit;
+
+        Validate("Red Reg Billing Period", "Red Reg Duration");
     end;
 
-    internal procedure Regenerate()
+    local procedure RedRegCalculateBillingPeriod()
+    var
+        EmptyDateFormula: DateFormula;
+    begin
+        if "Red Reg Billing Period" = EmptyDateFormula then begin
+            "Red Reg Next Billing Date" := 0D;
+            exit;
+        end;
+    end;
+
+    internal procedure RedRegCalculateNextBillingDate()
+    begin
+        TestField("Red Reg Billing Period");
+        if "Red Reg Next Billing Date" = 0D then
+            "Red Reg Next Billing Date" := "Red Reg Start Date"
+        else
+            "Red Reg Next Billing Date" := CalcDate("Red Reg Billing Period", "Red Reg Next Billing Date");
+    end;
+
+    internal procedure RedRegenerate()
     begin
 
     end;
 
-    internal procedure RegenerateAndPost()
+    internal procedure RedRegenerateAndPost()
     begin
 
     end;
 
-    internal procedure SendContract()
+    internal procedure RedRegSendContract()
     begin
 
     end;
 
-    internal procedure PrintContract()
+    internal procedure RedRegPrintContract()
     begin
 
     end;
