@@ -28,10 +28,12 @@ codeunit 11311115 "Red Reg Sales Events"
     local procedure OnAfterPostSalesDoc(var SalesHeader: Record "Sales Header"; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; SalesShptHdrNo: Code[20]; RetRcpHdrNo: Code[20]; SalesInvHdrNo: Code[20]; SalesCrMemoHdrNo: Code[20]; CommitIsSuppressed: Boolean; InvtPickPutaway: Boolean; var CustLedgerEntry: Record "Cust. Ledger Entry"; WhseShip: Boolean; WhseReceiv: Boolean; PreviewMode: Boolean)
     var
         Generator: Codeunit "Red Reg Generator";
+        Regenerator: Codeunit "Red Reg Regenerator";
     begin
         if PreviewMode then
             exit;
 
         Generator.GenerateContractsAfterSalesPost(SalesHeader, SalesShptHdrNo, SalesInvHdrNo, CommitIsSuppressed, CustLedgerEntry);
+        Regenerator.ActivateContract(SalesHeader);
     end;
 }

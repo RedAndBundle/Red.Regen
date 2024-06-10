@@ -2,7 +2,7 @@ codeunit 11311113 "Red Reg Generator"
 {
     TableNo = "Red Reg Generator";
     Access = Internal;
-    Permissions = tabledata "Sales Header" = rimd, tabledata "Sales Line" = rimd, tabledata "Sales Shipment Header" = r, tabledata "Sales Shipment Line" = r;
+    Permissions = tabledata "Red Reg Setup" = rimd, tabledata "Red Reg Generator" = rimd, tabledata "Sales Header" = rimd, tabledata "Sales Line" = rimd, tabledata "Sales Shipment Header" = r, tabledata "Sales Shipment Line" = r;
 
     trigger OnRun()
     begin
@@ -98,6 +98,7 @@ codeunit 11311113 "Red Reg Generator"
         ContractSalesHeader."Document Type" := SalesHeader."Document Type"::"Red Regenerator";
         ContractSalesHeader.TransferFields(SalesHeader, false);
         ContractSalesHeader.Status := ContractSalesHeader.Status::Open;
+        ContractSalesHeader."Red Reg Contract Status" := ContractSalesHeader."Red Reg Contract Status"::Active;
 
         ContractSalesHeader."Red Reg Org. Document Type" := SalesHeader."Document Type";
         ContractSalesHeader."Red Reg Org. Document No." := SalesHeader."No.";
@@ -127,6 +128,7 @@ codeunit 11311113 "Red Reg Generator"
         SalesLine.SetRange("Red Reg Org. Shipment Line No.", SalesShipmentLine."Line No.");
         if SalesLine.FindFirst() then begin
             SalesLine.Validate("Quantity", SalesShipmentLine.Quantity);
+            SalesLine.Modify(true);
             exit;
         end;
 

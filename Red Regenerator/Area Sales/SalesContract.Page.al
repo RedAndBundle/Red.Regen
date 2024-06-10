@@ -208,6 +208,12 @@ page 11311116 "Red Reg Sales Contract"
                     Importance = Promoted;
                     ToolTip = 'Specifies the date when the related document was created.';
                 }
+                field("Red Reg Contract Status"; Rec."Red Reg Contract Status")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Importance = Promoted;
+                    Editable = false;
+                }
                 field("Red Reg Start Date"; Rec."Red Reg Start Date")
                 {
                     ApplicationArea = Basic, Suite;
@@ -302,30 +308,23 @@ page 11311116 "Red Reg Sales Contract"
                     ToolTip = 'Specifies the status of a job queue entry or task that handles the regeneration of sales contracts.';
                     Visible = JobQueuesUsed;
                 }
-                field(Status; Rec.Status)
+            }
+            group(WorkDescription)
+            {
+                Caption = 'Work Description';
+                field(WorkDescriptionField; WorkDescription)
                 {
-                    ApplicationArea = Suite;
-                    Importance = Promoted;
-                    StyleExpr = StatusStyleTxt;
-                    QuickEntry = false;
-                    ToolTip = 'Specifies whether the document is open, waiting to be approved, has been invoiced for prepayment, or has been released to the next stage of processing.';
-                }
-                group("Work Description")
-                {
-                    Caption = 'Work Description';
-                    field(WorkDescription; WorkDescription)
-                    {
-                        ApplicationArea = Basic, Suite;
-                        Importance = Additional;
-                        MultiLine = true;
-                        ShowCaption = false;
-                        ToolTip = 'Specifies the products or service being offered.';
+                    ApplicationArea = Basic, Suite;
+                    Importance = Additional;
+                    MultiLine = true;
+                    ShowCaption = false;
+                    ExtendedDatatype = RichContent;
+                    ToolTip = 'Specifies the products or service being offered.';
 
-                        trigger OnValidate()
-                        begin
-                            Rec.SetWorkDescription(WorkDescription);
-                        end;
-                    }
+                    trigger OnValidate()
+                    begin
+                        Rec.SetWorkDescription(WorkDescription);
+                    end;
                 }
             }
             part(SalesLines; "Red Reg Sales Contract Subform")
@@ -458,28 +457,6 @@ page 11311116 "Red Reg Sales Contract"
                     begin
                         ShortcutDimension2CodeOnAfterV();
                     end;
-                }
-                field("Payment Discount %"; Rec."Payment Discount %")
-                {
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the payment discount percentage granted if the customer pays on or before the date entered in the Pmt. Discount Date field.';
-                }
-                field("Pmt. Discount Date"; Rec."Pmt. Discount Date")
-                {
-                    ApplicationArea = Basic, Suite;
-                    Importance = Additional;
-                    ToolTip = 'Specifies the date on which the amount in the entry must be paid for a payment discount to be granted.';
-                }
-                field("Journal Templ. Name"; Rec."Journal Templ. Name")
-                {
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the name of the journal template in which the sales header is to be posted.';
-                    Visible = IsJournalTemplNameVisible;
-                }
-                field("Direct Debit Mandate ID"; Rec."Direct Debit Mandate ID")
-                {
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the direct-debit mandate that the customer has signed to allow direct debit collection of payments.';
                 }
             }
             group("Shipping and Billing")
@@ -792,126 +769,6 @@ page 11311116 "Red Reg Sales Contract"
                 {
                     ApplicationArea = Location;
                     ToolTip = 'Specifies the location from where inventory items to the customer on the sales document are to be shipped by default.';
-                }
-                field("Shipment Date"; Rec."Shipment Date")
-                {
-                    ApplicationArea = Basic, Suite;
-                    Importance = Promoted;
-                    ToolTip = 'Specifies when items on the document are shipped or were shipped. A shipment date is usually calculated from a requested delivery date plus lead time.';
-                }
-                field("Outbound Whse. Handling Time"; Rec."Outbound Whse. Handling Time")
-                {
-                    ApplicationArea = Warehouse;
-                    Importance = Additional;
-                    ToolTip = 'Specifies a date formula for the time it takes to get items ready to ship from this location. The time element is used in the calculation of the delivery date as follows: Shipment Date + Outbound Warehouse Handling Time = Planned Shipment Date + Shipping Time = Planned Delivery Date.';
-                }
-                field("Shipping Time"; Rec."Shipping Time")
-                {
-                    ApplicationArea = Basic, Suite;
-                    Importance = Additional;
-                    ToolTip = 'Specifies how long it takes from when the items are shipped from the warehouse to when they are delivered.';
-                }
-                field("Late Order Shipping"; Rec."Late Order Shipping")
-                {
-                    ApplicationArea = Basic, Suite;
-                    Importance = Additional;
-                    ToolTip = 'Indicates a delay in the shipment of one or more lines, or that the shipment date is either the same as or earlier than the work date.';
-                }
-                field("Combine Shipments"; Rec."Combine Shipments")
-                {
-                    ApplicationArea = Basic, Suite;
-                    Importance = Additional;
-                    ToolTip = 'Specifies whether the order will be included when you use the Combine Shipments function.';
-                }
-                field("Completely Shipped"; Rec."Completely Shipped")
-                {
-                    ApplicationArea = Basic, Suite;
-                    Importance = Additional;
-                    ToolTip = 'Specifies whether all the items on the order have been shipped or, in the case of inbound items, completely received.';
-                }
-            }
-            group("Foreign Trade")
-            {
-                Caption = 'Foreign Trade';
-                Visible = BasicEUEnabled;
-
-                field("Transaction Specification"; Rec."Transaction Specification")
-                {
-                    ApplicationArea = BasicEU;
-                    ToolTip = 'Specifies a specification of the document''s transaction, for the purpose of reporting to INTRASTAT.';
-                }
-                field("Transaction Type"; Rec."Transaction Type")
-                {
-                    ApplicationArea = BasicEU;
-                    ToolTip = 'Specifies the type of transaction that the document represents, for the purpose of reporting to INTRASTAT.';
-                }
-                field("Transport Method"; Rec."Transport Method")
-                {
-                    ApplicationArea = BasicEU;
-                    ToolTip = 'Specifies the transport method, for the purpose of reporting to INTRASTAT.';
-                }
-                field("Exit Point"; Rec."Exit Point")
-                {
-                    ApplicationArea = BasicEU;
-                    ToolTip = 'Specifies the point of exit through which you ship the items out of your country/region, for reporting to Intrastat.';
-                }
-                field("Area"; Rec.Area)
-                {
-                    ApplicationArea = BasicEU;
-                    ToolTip = 'Specifies the country or region of origin for the purpose of Intrastat reporting.';
-                }
-                field("Language Code"; Rec."Language Code")
-                {
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the language to be used on printouts for this document.';
-                    Visible = false;
-                }
-                field("Format Region"; Rec."Format Region")
-                {
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the format to be used on printouts for this document.';
-                    Visible = false;
-                }
-            }
-            group(Control1900201301)
-            {
-                Caption = 'Prepayment';
-                field("Prepayment %"; Rec."Prepayment %")
-                {
-                    ApplicationArea = Prepayments;
-                    Importance = Promoted;
-                    ToolTip = 'Specifies the prepayment percentage to use to calculate the prepayment for sales.';
-
-                    trigger OnValidate()
-                    begin
-                        Prepayment37OnAfterValidate();
-                    end;
-                }
-                field("Compress Prepayment"; Rec."Compress Prepayment")
-                {
-                    ApplicationArea = Prepayments;
-                    ToolTip = 'Specifies that prepayments on the sales order are combined if they have the same general ledger account for prepayments or the same dimensions.';
-                }
-                field("Prepmt. Payment Terms Code"; Rec."Prepmt. Payment Terms Code")
-                {
-                    ApplicationArea = Prepayments;
-                    ToolTip = 'Specifies the code that represents the payment terms for prepayment invoices related to the sales document.';
-                }
-                field("Prepayment Due Date"; Rec."Prepayment Due Date")
-                {
-                    ApplicationArea = Prepayments;
-                    Importance = Promoted;
-                    ToolTip = 'Specifies when the prepayment invoice for this sales order is due.';
-                }
-                field("Prepmt. Payment Discount %"; Rec."Prepmt. Payment Discount %")
-                {
-                    ApplicationArea = Prepayments;
-                    ToolTip = 'Specifies the payment discount percent granted on the prepayment if the customer pays on or before the date entered in the Prepmt. Pmt. Discount Date field.';
-                }
-                field("Prepmt. Pmt. Discount Date"; Rec."Prepmt. Pmt. Discount Date")
-                {
-                    ApplicationArea = Prepayments;
-                    ToolTip = 'Specifies the last date the customer can pay the prepayment invoice and still receive a payment discount on the prepayment amount.';
                 }
             }
         }
@@ -1250,36 +1107,49 @@ page 11311116 "Red Reg Sales Contract"
             }
             group(Action21)
             {
-                Caption = 'Release';
+                Caption = 'Status';
                 Image = ReleaseDoc;
-                action(Release)
+                action(Accept)
                 {
                     ApplicationArea = Suite;
-                    Caption = 'Re&lease';
+                    Caption = 'Accept';
                     Image = ReleaseDoc;
+                    Enabled = ShowAccept;
                     ShortCutKey = 'Ctrl+F9';
-                    ToolTip = 'Release the document to the next stage of processing. You must reopen the document before you can make changes to it.';
+                    ToolTip = 'Approves the contract, this action will create a sales document. Shipping the sales document will activate the contract.';
 
                     trigger OnAction()
                     begin
-                        Rec.PerformManualRelease();
-                        CurrPage.SalesLines.PAGE.ClearTotalSalesHeader();
+                        Rec.RedRegAccept();
+                        CurrPage.Update();
                     end;
                 }
-                action(Reopen)
+                action(Close)
                 {
                     ApplicationArea = Basic, Suite;
-                    Caption = 'Re&open';
-                    Enabled = Rec.Status <> Rec.Status::Open;
-                    Image = ReOpen;
-                    ToolTip = 'Reopen the document to change it after it has been approved. Approved documents have the Released status and must be opened before they can be changed.';
+                    Caption = 'Close';
+                    Enabled = ShowClose;
+                    Image = CloseDocument;
+                    ToolTip = 'Closes the contract, it can no longer be extended.';
 
                     trigger OnAction()
-                    var
-                        ReleaseSalesDoc: Codeunit "Release Sales Document";
                     begin
-                        ReleaseSalesDoc.PerformManualReopen(Rec);
-                        CurrPage.SalesLines.PAGE.ClearTotalSalesHeader();
+                        Rec.RedRegClose();
+                        CurrPage.Update();
+                    end;
+                }
+                action(Cancel)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Cancel';
+                    Enabled = ShowCancel;
+                    Image = Cancel;
+                    ToolTip = 'Cancels the contract, it can no longer be extended.';
+
+                    trigger OnAction()
+                    begin
+                        Rec.RedRegClose();
+                        CurrPage.Update();
                     end;
                 }
             }
@@ -1367,7 +1237,6 @@ page 11311116 "Red Reg Sales Contract"
             }
             group("Request Approval")
             {
-                // TODO Fix
                 Caption = 'Request Approval';
                 Image = SendApprovalRequest;
                 action(SendApprovalRequest)
@@ -1463,7 +1332,6 @@ page 11311116 "Red Reg Sales Contract"
 
                     trigger OnAction()
                     begin
-                        // DocPrint.EmailSalesHeader(Rec);
                         Rec.RedRegSendContract();
                     end;
                 }
@@ -1506,13 +1374,16 @@ page 11311116 "Red Reg Sales Contract"
                 }
                 group(Category_Category5)
                 {
-                    Caption = 'Release', Comment = 'Generated from the PromotedActionCategories property index 4.';
+                    Caption = 'Accept', Comment = 'Generated from the PromotedActionCategories property index 4.';
                     ShowAs = SplitButton;
 
-                    actionref(Release_Promoted; Release)
+                    actionref(Accept_Promoted; Accept)
                     {
                     }
-                    actionref(Reopen_Promoted; Reopen)
+                    actionref(Close_Promoted; Close)
+                    {
+                    }
+                    actionref(Cancel_Promoted; Cancel)
                     {
                     }
                 }
@@ -1709,7 +1580,6 @@ page 11311116 "Red Reg Sales Contract"
         PaymentServiceSetup: Record "Payment Service Setup";
         CRMIntegrationManagement: Codeunit "CRM Integration Management";
         OfficeMgt: Codeunit "Office Management";
-        ApplicationAreaMgmtFacade: Codeunit "Application Area Mgmt. Facade";
     begin
         Rec.SetSecurityFilterOnRespCenter();
 
@@ -1728,8 +1598,6 @@ page 11311116 "Red Reg Sales Contract"
 
         if GuiAllowed() then
             CheckShowBackgrValidationNotification();
-
-        BasicEUEnabled := ApplicationAreaMgmtFacade.IsBasicCountryEnabled('EU');
     end;
 
     trigger OnQueryClosePage(CloseAction: Action): Boolean
@@ -1779,11 +1647,12 @@ page 11311116 "Red Reg Sales Contract"
         IsBillToCountyVisible: Boolean;
         IsSellToCountyVisible: Boolean;
         IsShipToCountyVisible: Boolean;
-        IsJournalTemplNameVisible: Boolean;
         IsPaymentMethodCodeVisible: Boolean;
         IsSalesLinesEditable: Boolean;
         ShouldSearchForCustByName: Boolean;
-        BasicEUEnabled: Boolean;
+        ShowAccept: Boolean;
+        ShowClose: Boolean;
+        ShowCancel: Boolean;
 
     protected var
         ShipToOptions: Enum "Sales Ship-to Options";
@@ -1798,7 +1667,6 @@ page 11311116 "Red Reg Sales Contract"
         IsSellToCountyVisible := FormatAddress.UseCounty(Rec."Sell-to Country/Region Code");
         IsShipToCountyVisible := FormatAddress.UseCounty(Rec."Ship-to Country/Region Code");
         GLSetup.Get();
-        IsJournalTemplNameVisible := GLSetup."Journal Templ. Name Mandatory";
         IsPaymentMethodCodeVisible := not GLSetup."Hide Payment Method Code";
         IsSalesLinesEditable := Rec.SalesLinesEditable();
     end;
@@ -1833,11 +1701,6 @@ page 11311116 "Red Reg Sales Contract"
         CurrPage.Update();
     end;
 
-    local procedure Prepayment37OnAfterValidate()
-    begin
-        CurrPage.Update();
-    end;
-
     local procedure SetDocNoVisible()
     var
         DocumentNoVisibility: Codeunit DocumentNoVisibility;
@@ -1868,6 +1731,10 @@ page 11311116 "Red Reg Sales Contract"
         WorkflowWebhookMgt.GetCanRequestAndCanCancel(Rec.RecordId, CanRequestApprovalForFlow, CanCancelApprovalForFlow);
         IsCustomerOrContactNotEmpty := (Rec."Sell-to Customer No." <> '') or (Rec."Sell-to Contact No." <> '');
         ShouldSearchForCustByName := Rec.ShouldSearchForCustomerByName(Rec."Sell-to Customer No.");
+
+        ShowAccept := Rec.RedRegShowAccept();
+        ShowClose := Rec.RedRegShowClose();
+        ShowCancel := Rec.RedRegShowCancel();
     end;
 
     protected procedure UpdatePaymentService()

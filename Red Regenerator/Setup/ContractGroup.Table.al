@@ -22,6 +22,7 @@ table 11311114 "Red Reg Contract Group"
         // Renew Automatically
         // Renew to document type
         // Renew days before end date
+        // Invoice on regeneration
         // Post on regeneration
     }
 
