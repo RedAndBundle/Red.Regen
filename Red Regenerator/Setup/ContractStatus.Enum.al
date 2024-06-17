@@ -5,7 +5,6 @@ enum 11311117 "Red Reg Contract Status"
     value(0; Concept) { Caption = 'Concept'; }
     value(1; Accepted) { Caption = 'Accepted'; }
     value(2; Active) { Caption = 'Active'; }
-    // TODO shipping the order/invoice activates the contract
     value(3; Expired) { Caption = 'Expired'; }
     value(4; Closed) { Caption = 'Closed'; }
     value(5; Canceled) { Caption = 'Canceled'; }

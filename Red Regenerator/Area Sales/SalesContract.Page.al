@@ -251,6 +251,12 @@ page 11311116 "Red Reg Sales Contract"
                     ApplicationArea = Basic, Suite;
                     Importance = Promoted;
                 }
+                field("Red Reg Contract Iteration"; Rec."Red Reg Contract Iteration")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Importance = Additional;
+                    Editable = false;
+                }
                 field("External Document No."; Rec."External Document No.")
                 {
                     ApplicationArea = Basic, Suite;
@@ -315,7 +321,6 @@ page 11311116 "Red Reg Sales Contract"
                 field(WorkDescriptionField; WorkDescription)
                 {
                     ApplicationArea = Basic, Suite;
-                    Importance = Additional;
                     MultiLine = true;
                     ShowCaption = false;
                     ExtendedDatatype = RichContent;
@@ -1124,6 +1129,20 @@ page 11311116 "Red Reg Sales Contract"
                         CurrPage.Update();
                     end;
                 }
+                action(Activate)
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'Activate';
+                    Image = OpenJournal;
+                    Enabled = ShowActivate;
+                    ToolTip = 'Activates the contract.';
+
+                    trigger OnAction()
+                    begin
+                        Rec.RedRegActivate();
+                        CurrPage.Update();
+                    end;
+                }
                 action(Close)
                 {
                     ApplicationArea = Basic, Suite;
@@ -1284,6 +1303,7 @@ page 11311116 "Red Reg Sales Contract"
                     Ellipsis = true;
                     Image = PostOrder;
                     ShortCutKey = 'F9';
+                    Enabled = ShowRegenerate;
                     ToolTip = 'Generates a new sales document based on this entry.';
 
                     trigger OnAction()
@@ -1297,6 +1317,7 @@ page 11311116 "Red Reg Sales Contract"
                     Caption = 'Regenerate and Post';
                     Ellipsis = true;
                     Image = PostMail;
+                    Enabled = ShowRegenerate;
                     ToolTip = 'Generates a new sales document based on this entry and posts it.';
 
                     trigger OnAction()
@@ -1380,6 +1401,9 @@ page 11311116 "Red Reg Sales Contract"
                     actionref(Accept_Promoted; Accept)
                     {
                     }
+                    actionref(Activate_Promoted; Activate)
+                    {
+                    }
                     actionref(Close_Promoted; Close)
                     {
                     }
@@ -1457,7 +1481,7 @@ page 11311116 "Red Reg Sales Contract"
             }
             group(Category_Category8)
             {
-                Caption = 'Order', Comment = 'Generated from the PromotedActionCategories property index 7.';
+                Caption = 'Contract', Comment = 'Generated from the PromotedActionCategories property index 7.';
 
                 actionref(Dimensions_Promoted; Dimensions)
                 {
@@ -1484,6 +1508,7 @@ page 11311116 "Red Reg Sales Contract"
             group(Category_Category10)
             {
                 Caption = 'History', Comment = 'Generated from the PromotedActionCategories property index 9.';
+                // TODO add unposted and posted sales documents
             }
             group(Category_Category12)
             {
@@ -1651,8 +1676,10 @@ page 11311116 "Red Reg Sales Contract"
         IsSalesLinesEditable: Boolean;
         ShouldSearchForCustByName: Boolean;
         ShowAccept: Boolean;
+        ShowActivate: Boolean;
         ShowClose: Boolean;
         ShowCancel: Boolean;
+        ShowRegenerate: Boolean;
 
     protected var
         ShipToOptions: Enum "Sales Ship-to Options";
@@ -1735,6 +1762,8 @@ page 11311116 "Red Reg Sales Contract"
         ShowAccept := Rec.RedRegShowAccept();
         ShowClose := Rec.RedRegShowClose();
         ShowCancel := Rec.RedRegShowCancel();
+        ShowActivate := Rec.RedRegShowActivate();
+        ShowRegenerate := Rec.RedRegShowRegenerate();
     end;
 
     protected procedure UpdatePaymentService()
@@ -1747,7 +1776,8 @@ page 11311116 "Red Reg Sales Contract"
 
     procedure UpdateShipToBillToGroupVisibility()
     begin
-        CustomerMgt.CalculateShipBillToOptions(ShipToOptions, BillToOptions, Rec);
+        CustomerMgt.CalculateShipToBillToOptions(ShipToOptions, BillToOptions, Rec);
+        // CustomerMgt.CalculateShipBillToOptions(ShipToOptions, BillToOptions, Rec);
     end;
 
     procedure SetPostingGroupEditable()

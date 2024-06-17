@@ -11,7 +11,7 @@ page 11311115 "Red Reg Sales Contracts"
     CardPageId = "Red Reg Sales Contract";
     QueryCategory = 'Sales Contracts';
     RefreshOnActivate = true;
-    AdditionalSearchTerms = 'Licence, Warranty, Rental, contract list, contracts, contract overview, contract log, contract list, customer contracts';
+    AdditionalSearchTerms = 'Red Contracts, Licence, Warranty, Rental, contract list, contracts, contract overview, contract log, contract list, customer contracts';
 
     layout
     {

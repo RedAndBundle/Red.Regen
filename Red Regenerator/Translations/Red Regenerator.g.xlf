@@ -8,25 +8,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Contract Group - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3189343962 - Field 3004954119 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code of the contract group.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Contract Group - Field Code - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Table 3189343962 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Contract Group - Field Code - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3189343962 - Field 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the description of the contract group.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Contract Group - Field Description - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Table 3189343962 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Contract Group - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3189343962 - Field 2651732565 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Regenerate Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Contract Group - Field Regenerate Document Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1312917980 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create Contract</source>
@@ -38,90 +33,45 @@
           <note from="Developer" annotates="general" priority="2">%1 - Table Caption (Item), %2 - Item No., %3 - Field Caption</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - Method CopyFromItem - NamedType SalesBlockedErr</note>
         </trans-unit>
-        <trans-unit id="Table 1312917980 - Field 662456783 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies fror which application area the contract is created.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - Field Application Area - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Table 1312917980 - Field 662456783 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - Field Application Area - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1312917980 - Field 732809815 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the settings of the contract that will be created.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - Field Contract Group - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Table 1312917980 - Field 732809815 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contract Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - Field Contract Group - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 1312917980 - Field 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the description of the contract.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - Field Description - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Table 1312917980 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - Field Description - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1312917980 - Field 47657272 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the second description of the contract.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - Field Description 2 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Table 1312917980 - Field 47657272 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description 2</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - Field Description 2 - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 1312917980 - Field 2363328873 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies from which document type the contract is created. When a line from the selected document type is shipped a contract will be created. Type any takes precedent over other types.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - Field Document Type - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Table 1312917980 - Field 2363328873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - Field Document Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1312917980 - Field 1637095154 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the duration of the contract in a date formula. If you do not specify a duration you must set one manually after the contract is generated.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - Field Duration - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Table 1312917980 - Field 1637095154 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Duration</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - Field Duration - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 1312917980 - Field 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies fror which source number the contract is created.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - Field No. - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Table 1312917980 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - Field No. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 1312917980 - Field 2867321151 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the billing period of the contract. If you do not specify a billing period the contract duration is used.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - Field Red Reg Billing Period - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Table 1312917980 - Field 2867321151 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Billing Period</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - Field Red Reg Billing Period - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1312917980 - Field 1878130204 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies fror which line type the contract is created. Item takes precedence over Item Category.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - Field Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Table 1312917980 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Type</source>
@@ -133,20 +83,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 97696520 - Field 671947873 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number series that will be used for purchase objects.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field No. Series Purchase - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Table 97696520 - Field 671947873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>No. Series Purchase</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field No. Series Purchase - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 97696520 - Field 532988888 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number series that will be used for sales objects.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field No. Series Sales - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Table 97696520 - Field 532988888 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>No. Series Sales</source>
@@ -158,25 +98,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Primary Key - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 97696520 - Field 2557018133 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the purchase post commit should be suppressed. Suppressing the commit ensures that the purchase document cannot be posted without generating the new contract.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Suppress Purchase Post Commit - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Table 97696520 - Field 2557018133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Suppress Purchase Post Commit</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Suppress Purchase Post Commit - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 97696520 - Field 867374932 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the sales post commit should be suppressed. Suppressing the commit ensures that the sales document cannot be posted without generating the new contract.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Suppress Sales Post Commit - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Table 97696520 - Field 867374932 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Suppress Sales Post Commit</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Suppress Sales Post Commit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1879119529 - Method 1634705814 - NamedType 1603716250" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The contract has already been billed on %1 %2.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = document type, %2 = document no.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Red Reg Regenerator - Method CheckSalesDocumentForNextIteration - NamedType AlreadyBilledLbl</note>
         </trans-unit>
         <trans-unit id="Page 536103655 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contract Groups</source>
@@ -212,81 +147,6 @@
           <source>The Code field can only be empty if you select Custom Address in the Ship-to field.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - NamedType EmptyShipToCodeErr</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 689520706 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Prepayment</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Control1900201301 - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 1188370733 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies that prepayments on the sales order are combined if they have the same general ledger account for prepayments or the same dimensions.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Compress Prepayment - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 3146932276 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the prepayment percentage to use to calculate the prepayment for sales.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Prepayment % - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 1082343711 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies when the prepayment invoice for this sales order is due.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Prepayment Due Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 2461369302 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the payment discount percent granted on the prepayment if the customer pays on or before the date entered in the Prepmt. Pmt. Discount Date field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Prepmt. Payment Discount % - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 2039872094 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code that represents the payment terms for prepayment invoices related to the sales document.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Prepmt. Payment Terms Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 1066815506 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the last date the customer can pay the prepayment invoice and still receive a payment discount on the prepayment amount.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Prepmt. Pmt. Discount Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 3624777196 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Foreign Trade</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Foreign Trade - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 3532935625 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the country or region of origin for the purpose of Intrastat reporting.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Area - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 2923940816 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the point of exit through which you ship the items out of your country/region, for reporting to Intrastat.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Exit Point - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 2002724477 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the format to be used on printouts for this document.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Format Region - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 2273653569 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the language to be used on printouts for this document.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Language Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 1267997203 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a specification of the document's transaction, for the purpose of reporting to INTRASTAT.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Transaction Specification - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 3773776616 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the type of transaction that the document represents, for the purpose of reporting to INTRASTAT.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Transaction Type - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 3193866272 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the transport method, for the purpose of reporting to INTRASTAT.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Transport Method - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 408510027 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>General</source>
@@ -488,25 +348,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Sell-to Customer No. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 408510027 - Control 513339096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether the document is open, waiting to be approved, has been invoiced for prepayment, or has been released to the next stage of processing.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Status - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 408510027 - Control 617267791 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the customer's VAT registration number for customers.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control VAT Registration No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 22244033 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Work Description</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Work Description - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 512684737 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the products or service being offered.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control WorkDescription - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 408510027 - Control 3001618318 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the customer's reference. The content will be printed on sales documents.</source>
@@ -543,25 +388,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Customer Posting Group - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 408510027 - Control 4182352612 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the direct-debit mandate that the customer has signed to allow direct debit collection of payments.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Direct Debit Mandate ID - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 408510027 - Control 3348534314 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if the transaction is related to trade with a third party within the EU.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control EU 3-Party Trade - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 3473111876 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the name of the journal template in which the sales header is to be posted.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Journal Templ. Name - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 235293238 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the payment discount percentage granted if the customer pays on or before the date entered in the Pmt. Discount Date field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Payment Discount % - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 408510027 - Control 3855271124 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies how to make payment, such as with bank transfer, cash, or check.</source>
@@ -572,11 +402,6 @@
           <source>Specifies a formula that calculates the payment due date, payment discount date, and payment discount amount.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Payment Terms Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 1636953138 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the date on which the amount in the entry must be paid for a payment discount to be granted.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Pmt. Discount Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 408510027 - Control 304272296 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if the Unit Price and Line Amount fields on document lines should be shown with or without VAT.</source>
@@ -602,16 +427,6 @@
           <source>Shipping and Billing</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Shipping and Billing - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 4231739422 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether the order will be included when you use the Combine Shipments function.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Combine Shipments - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 3136438825 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether all the items on the order have been shipped or, in the case of inbound items, completely received.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Completely Shipped - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 408510027 - Control 3090487876 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the customer that the sales invoice will be sent to. Default (Customer): The same as the customer on the sales invoice. Another Customer: Any customer that you specify in the fields below.</source>
@@ -843,30 +658,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control ShippingOptions - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 408510027 - Control 2372120452 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Indicates a delay in the shipment of one or more lines, or that the shipment date is either the same as or earlier than the work date.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Late Order Shipping - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 408510027 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the location from where inventory items to the customer on the sales document are to be shipped by default.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Location Code - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 408510027 - Control 1562764323 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a date formula for the time it takes to get items ready to ship from this location. The time element is used in the calculation of the delivery date as follows: Shipment Date + Outbound Warehouse Handling Time = Planned Shipment Date + Shipping Time = Planned Delivery Date.</source>
+        <trans-unit id="Page 408510027 - Control 512684737 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Work Description</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Outbound Whse. Handling Time - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control WorkDescription - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 408510027 - Control 4112852368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies when items on the document are shipped or were shipped. A shipment date is usually calculated from a requested delivery date plus lead time.</source>
+        <trans-unit id="Page 408510027 - Control 902078423 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the products or service being offered.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Shipment Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Control 1913523417 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies how long it takes from when the items are shipped from the warehouse to when they are delivered.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Shipping Time - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control WorkDescriptionField - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 408510027 - Control 1658766258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attachments</source>
@@ -984,29 +789,49 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action SendEmailConfirmation - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 408510027 - Action 3560983695 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Release</source>
+          <source>Status</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Action21 - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 408510027 - Action 4032263875 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Release the document to the next stage of processing. You must reopen the document before you can make changes to it.</source>
+        <trans-unit id="Page 408510027 - Action 467812692 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approves the contract, this action will create a sales document. Shipping the sales document will activate the contract.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Release - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Accept - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 408510027 - Action 4032263875 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Re&amp;lease</source>
+        <trans-unit id="Page 408510027 - Action 467812692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Accept</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Release - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Accept - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 408510027 - Action 2071937805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reopen the document to change it after it has been approved. Approved documents have the Released status and must be opened before they can be changed.</source>
+        <trans-unit id="Page 408510027 - Action 1950833259 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activates the contract.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Reopen - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Activate - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 408510027 - Action 2071937805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Re&amp;open</source>
+        <trans-unit id="Page 408510027 - Action 1950833259 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activate</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Reopen - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Activate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 408510027 - Action 788258546 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancels the contract, it can no longer be extended.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Cancel - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 408510027 - Action 788258546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Cancel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 408510027 - Action 2674503554 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Closes the contract, it can no longer be extended.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Close - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 408510027 - Action 2674503554 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Close</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Close - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 408510027 - Action 227370865 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Approval</source>
@@ -1154,7 +979,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Category_Category7 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 408510027 - Action 2524661601 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Order</source>
+          <source>Contract</source>
           <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 7.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Category_Category8 - Property Caption</note>
         </trans-unit>
@@ -1169,7 +994,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 408510027 - Action 2224783030 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Release</source>
+          <source>Accept</source>
           <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 4.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Category_Category5 - Property Caption</note>
         </trans-unit>
@@ -1569,7 +1394,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contracts - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2853154262 - Property 3863440606" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Licence, Warranty, Rental, contract list, contracts, contract overview, contract log, contract list, customer contracts</source>
+          <source>Red Contracts, Licence, Warranty, Rental, contract list, contracts, contract overview, contract log, contract list, customer contracts</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contracts - Property AdditionalSearchTerms</note>
         </trans-unit>
@@ -1793,40 +1618,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Cr.Memo Header - Field Red Reg Contract No. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 2319344843 - Field 3555410607 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 552782286">
-          <source>Specifies the duration of the contract.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Cr.Memo Header - Field Red Reg Duration - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="TableExtension 2319344843 - Field 3555410607 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 552782286">
           <source>Duration</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Cr.Memo Header - Field Red Reg Duration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2319344843 - Field 723471740 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 552782286">
-          <source>Specifies the date when the contract will end.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Cr.Memo Header - Field Red Reg End Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="TableExtension 2319344843 - Field 723471740 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 552782286">
           <source>End Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Cr.Memo Header - Field Red Reg End Date - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 2319344843 - Field 3736527384 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 552782286">
-          <source>Specifies the group that the sales contract belongs to.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Cr.Memo Header - Field Red Reg Group - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="TableExtension 2319344843 - Field 3736527384 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 552782286">
           <source>Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Cr.Memo Header - Field Red Reg Group - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2319344843 - Field 1740117905 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 552782286">
-          <source>Specifies the date that the contract has started.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Cr.Memo Header - Field Red Reg Start Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="TableExtension 2319344843 - Field 1740117905 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 552782286">
           <source>Start Date</source>
@@ -1843,55 +1648,55 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Cr.Memo Line - Field Red Reg Contract No. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 2090216680 - Field 2867321151 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
-          <source>Specifies the billing period of the contract.</source>
+        <trans-unit id="TableExtension 2090216680 - Method 1761637453 - NamedType 2270966188" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 2090216680">
+          <source>%1 is greater than %2.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = next billing date, %2 = end date.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Method RedRegTestContractActive - NamedType ContractExpiredErr</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2090216680 - Method 3923395121 - NamedType 215017272" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 2090216680">
+          <source>Contract status must not be %1.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = status</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Method RedRegTestStatusIsActive - NamedType ContractInactiveErr</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2090216680 - Method 2446865202 - NamedType 2957784316" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 2090216680">
+          <source>You can only change or activate the contract when the status is concept or expired.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg Billing Period - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Method TestModifyAllowed - NamedType NotAllowedErr</note>
         </trans-unit>
         <trans-unit id="TableExtension 2090216680 - Field 2867321151 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Billing Period</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg Billing Period - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2090216680 - Field 271734050 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Contract Iteration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg Contract Iteration - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2090216680 - Field 584985834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Contract No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg Contract No. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 2090216680 - Field 3555410607 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
-          <source>Specifies the duration of the contract. If left empty, the contract is valid indefinetely.</source>
+        <trans-unit id="TableExtension 2090216680 - Field 2321072599 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Contract Status</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg Duration - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg Contract Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2090216680 - Field 3555410607 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Duration</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg Duration - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 2090216680 - Field 723471740 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
-          <source>Specifies the date when the contract will end.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg End Date - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="TableExtension 2090216680 - Field 723471740 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>End Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg End Date - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 2090216680 - Field 3736527384 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
-          <source>Specifies the group that the sales contract belongs to.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg Group - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="TableExtension 2090216680 - Field 3736527384 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg Group - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2090216680 - Field 1690750677 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
-          <source>Specifies the date of the next billing.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg Next Billing Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="TableExtension 2090216680 - Field 1690750677 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Next Billing Date</source>
@@ -1913,55 +1718,35 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg Org. Shipment No. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 2090216680 - Field 1740117905 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
-          <source>Specifies the date that the contract has started.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg Start Date - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="TableExtension 2090216680 - Field 1740117905 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Start Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg Start Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3294363975 - Field 271734050 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Contract Iteration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Invoice Header - Field Red Reg Contract Iteration - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3294363975 - Field 584985834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Contract No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Invoice Header - Field Red Reg Contract No. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 3294363975 - Field 3555410607 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
-          <source>Specifies the duration of the contract.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Invoice Header - Field Red Reg Duration - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="TableExtension 3294363975 - Field 3555410607 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Duration</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Invoice Header - Field Red Reg Duration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3294363975 - Field 723471740 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
-          <source>Specifies the date when the contract will end.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Invoice Header - Field Red Reg End Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="TableExtension 3294363975 - Field 723471740 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>End Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Invoice Header - Field Red Reg End Date - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 3294363975 - Field 3736527384 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
-          <source>Specifies the group that the sales contract belongs to.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Invoice Header - Field Red Reg Group - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="TableExtension 3294363975 - Field 3736527384 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Invoice Header - Field Red Reg Group - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3294363975 - Field 1740117905 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
-          <source>Specifies the date that the contract has started.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Invoice Header - Field Red Reg Start Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="TableExtension 3294363975 - Field 1740117905 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Start Date</source>
@@ -2013,45 +1798,30 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Line - Field Red Reg Org. Shipment No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2558102224 - Field 271734050 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3118382297">
+          <source>Contract Iteration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Shipment Header - Field Red Reg Contract Iteration - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2558102224 - Field 584985834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3118382297">
           <source>Contract No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Shipment Header - Field Red Reg Contract No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2558102224 - Field 3555410607 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3118382297">
-          <source>Specifies the duration of the contract.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Shipment Header - Field Red Reg Duration - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="TableExtension 2558102224 - Field 3555410607 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3118382297">
           <source>Duration</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Shipment Header - Field Red Reg Duration - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 2558102224 - Field 723471740 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3118382297">
-          <source>Specifies the date when the contract will end.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Shipment Header - Field Red Reg End Date - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="TableExtension 2558102224 - Field 723471740 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3118382297">
           <source>End Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Shipment Header - Field Red Reg End Date - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 2558102224 - Field 3736527384 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3118382297">
-          <source>Specifies the group that the sales contract belongs to.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Shipment Header - Field Red Reg Group - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="TableExtension 2558102224 - Field 3736527384 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3118382297">
           <source>Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Shipment Header - Field Red Reg Group - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2558102224 - Field 1740117905 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3118382297">
-          <source>Specifies the date that the contract has started.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Shipment Header - Field Red Reg Start Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="TableExtension 2558102224 - Field 1740117905 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3118382297">
           <source>Start Date</source>
@@ -2092,6 +1862,36 @@
           <source>Resource</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Red Reg Contract Line Type - EnumValue Resource - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2321072599 - EnumValue 346708723 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Accepted</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Red Reg Contract Status - EnumValue Accepted - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2321072599 - EnumValue 1090351696 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Active</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Red Reg Contract Status - EnumValue Active - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2321072599 - EnumValue 3844911025 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Canceled</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Red Reg Contract Status - EnumValue Canceled - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2321072599 - EnumValue 1778072510 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Closed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Red Reg Contract Status - EnumValue Closed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2321072599 - EnumValue 3843029724 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Concept</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Red Reg Contract Status - EnumValue Concept - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2321072599 - EnumValue 1481297009 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Expired</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Red Reg Contract Status - EnumValue Expired - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3768110055 - EnumValue 4274826855 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>G/L Account</source>

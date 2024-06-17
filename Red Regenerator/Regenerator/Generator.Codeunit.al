@@ -22,16 +22,6 @@ codeunit 11311113 "Red Reg Generator"
         Setup.TestSalesSetup();
     end;
 
-    procedure SuppressSalesPostCommit(): Boolean
-    var
-        Setup: Record "Red Reg Setup";
-    begin
-        if not Setup.Get() then
-            exit(false);
-
-        exit(Setup."Suppress Sales Post Commit");
-    end;
-
     procedure GenerateContractsAfterSalesPost(var SalesHeader: Record "Sales Header"; SalesShptHdrNo: Code[20]; SalesInvHdrNo: Code[20]; CommitIsSuppressed: Boolean; var CustLedgerEntry: Record "Cust. Ledger Entry")
     var
         ContractSalesHeader: Record "Sales Header";
@@ -46,6 +36,9 @@ codeunit 11311113 "Red Reg Generator"
             SalesHeader."Document Type"::"Return Order":
                 exit;
         end;
+
+        if SalesHeader."Red Reg Contract No." <> '' then
+            exit;
 
         if not SalesShipmentHeader.Get(SalesShptHdrNo) then
             exit;
@@ -98,7 +91,7 @@ codeunit 11311113 "Red Reg Generator"
         ContractSalesHeader."Document Type" := SalesHeader."Document Type"::"Red Regenerator";
         ContractSalesHeader.TransferFields(SalesHeader, false);
         ContractSalesHeader.Status := ContractSalesHeader.Status::Open;
-        ContractSalesHeader."Red Reg Contract Status" := ContractSalesHeader."Red Reg Contract Status"::Active;
+        ContractSalesHeader."Red Reg Contract Status" := ContractSalesHeader."Red Reg Contract Status"::Concept;
 
         ContractSalesHeader."Red Reg Org. Document Type" := SalesHeader."Document Type";
         ContractSalesHeader."Red Reg Org. Document No." := SalesHeader."No.";
@@ -112,6 +105,7 @@ codeunit 11311113 "Red Reg Generator"
                 ContractSalesHeader.Validate("Red Reg Billing Period", Generator."Red Reg Billing Period");
             ContractSalesHeader.RedRegCalculateNextBillingDate();
         end;
+        ContractSalesHeader."Red Reg Contract Status" := ContractSalesHeader."Red Reg Contract Status"::Active;
         ContractSalesHeader.Insert(true);
     end;
 

@@ -10,13 +10,21 @@ table 11311114 "Red Reg Contract Group"
         {
             DataClassification = CustomerContent;
             Caption = 'Code';
-            ToolTip = 'Specifies the code of the contract group.';
+            // ToolTip = 'Specifies the code of the contract group.';
         }
         field(2; Description; Text[50])
         {
             DataClassification = CustomerContent;
             Caption = 'Description';
-            ToolTip = 'Specifies the description of the contract group.';
+            // ToolTip = 'Specifies the description of the contract group.';
+        }
+        field(3; "Regenerate Document Type"; Enum "Red Reg Document Type")
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Regenerate Type';
+            // ToolTip = 'Specifies the type of regeneration for the contract group.';
+            ValuesAllowed = 1, 2;
+            InitValue = 2;
         }
         // TODO
         // Renew Automatically

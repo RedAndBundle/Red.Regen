@@ -21,7 +21,21 @@ codeunit 11311115 "Red Reg Sales Events"
             exit;
 
         Generator.TestSalesSetup();
-        CommitIsSuppressed := Generator.SuppressSalesPostCommit();
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforePostCommitSalesDoc', '', false, false)]
+    local procedure OnBeforePostCommitSalesDoc(var SalesHeader: Record "Sales Header"; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; PreviewMode: Boolean; var ModifyHeader: Boolean; var CommitIsSuppressed: Boolean; var TempSalesLineGlobal: Record "Sales Line" temporary)
+    var
+        Setup: Record "Red Reg Setup";
+    begin
+        if PreviewMode then
+            exit;
+
+        if not Setup.Get() then
+            exit;
+
+        // if (SalesHeader."Red Reg Contract No." <> '') or (has something to generate contract) then
+        CommitIsSuppressed := Setup."Suppress Sales Post Commit";
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterPostSalesDoc', '', false, false)]

@@ -20,6 +20,10 @@ page 11311114 "Red Reg Contract Groups"
                 {
                     ApplicationArea = All;
                 }
+                field("Regenerate Document Type"; Rec."Regenerate Document Type")
+                {
+                    ApplicationArea = All;
+                }
             }
         }
     }

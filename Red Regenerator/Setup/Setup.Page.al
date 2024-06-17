@@ -12,7 +12,14 @@ page 11311113 "Red Reg Setup"
         {
             group(General)
             {
-
+                field("Suppress Sales Post Commit"; Rec."Suppress Sales Post Commit")
+                {
+                    ApplicationArea = All;
+                }
+                field("Suppress Purchase Post Commit"; Rec."Suppress Purchase Post Commit")
+                {
+                    ApplicationArea = All;
+                }
             }
             group(NoSeries)
             {

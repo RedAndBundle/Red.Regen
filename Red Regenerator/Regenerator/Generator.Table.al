@@ -9,22 +9,22 @@ table 11311117 "Red Reg Generator"
         field(1; "Application Area"; Enum "Red Reg Application Area")
         {
             Caption = 'Document Type';
-            ToolTip = 'Specifies fror which application area the contract is created.';
+            // ToolTip = 'Specifies fror which application area the contract is created.';
         }
         field(2; "Document Type"; Enum "Red Reg Document Type")
         {
             Caption = 'Document Type';
-            ToolTip = 'Specifies from which document type the contract is created. When a line from the selected document type is shipped a contract will be created. Type any takes precedent over other types.';
+            // ToolTip = 'Specifies from which document type the contract is created. When a line from the selected document type is shipped a contract will be created. Type any takes precedent over other types.';
         }
         field(3; Type; Enum "Red Reg Create Contract Type")
         {
             Caption = 'Type';
-            ToolTip = 'Specifies fror which line type the contract is created. Item takes precedence over Item Category.';
+            // ToolTip = 'Specifies fror which line type the contract is created. Item takes precedence over Item Category.';
         }
         field(4; "No."; Code[20])
         {
             Caption = 'No.';
-            ToolTip = 'Specifies fror which source number the contract is created.';
+            // ToolTip = 'Specifies fror which source number the contract is created.';
             TableRelation = if (Type = const("G/L Account")) "G/L Account" where("Direct Posting" = const(true), "Account Type" = const(Posting), Blocked = const(false))
             else
             if (Type = const(Resource)) Resource
@@ -51,17 +51,17 @@ table 11311117 "Red Reg Generator"
         field(10; Description; Text[100])
         {
             Caption = 'Description';
-            ToolTip = 'Specifies the description of the contract.';
+            // ToolTip = 'Specifies the description of the contract.';
         }
         field(11; "Description 2"; Text[50])
         {
             Caption = 'Description 2';
-            ToolTip = 'Specifies the second description of the contract.';
+            // ToolTip = 'Specifies the second description of the contract.';
         }
         field(12; "Contract Group"; Code[20])
         {
             Caption = 'Contract Group';
-            ToolTip = 'Specifies the settings of the contract that will be created.';
+            // ToolTip = 'Specifies the settings of the contract that will be created.';
             DataClassification = CustomerContent;
             TableRelation = "Red Reg Contract Group";
         }
@@ -69,13 +69,13 @@ table 11311117 "Red Reg Generator"
         {
             Caption = 'Duration';
             DataClassification = CustomerContent;
-            ToolTip = 'Specifies the duration of the contract in a date formula. If you do not specify a duration you must set one manually after the contract is generated.';
+            // ToolTip = 'Specifies the duration of the contract in a date formula. If you do not specify a duration you must set one manually after the contract is generated.';
         }
         field(11311124; "Red Reg Billing Period"; DateFormula)
         {
             DataClassification = CustomerContent;
             Caption = 'Billing Period';
-            ToolTip = 'Specifies the billing period of the contract. If you do not specify a billing period the contract duration is used.';
+            // ToolTip = 'Specifies the billing period of the contract. If you do not specify a billing period the contract duration is used.';
         }
     }
 
