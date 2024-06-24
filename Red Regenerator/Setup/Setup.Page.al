@@ -20,6 +20,14 @@ page 11311113 "Red Reg Setup"
                 {
                     ApplicationArea = All;
                 }
+                field("Red Reg Generate On"; Rec."Red Reg Generate On")
+                {
+                    ApplicationArea = All;
+                }
+                field("Allow Manual Generation"; Rec."Allow Manual Generation")
+                {
+                    ApplicationArea = All;
+                }
             }
             group(NoSeries)
             {

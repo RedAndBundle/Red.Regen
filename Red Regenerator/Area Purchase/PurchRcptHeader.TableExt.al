@@ -1,4 +1,4 @@
-tableextension 11311119 "Red Reg Sales Shipment Header" extends "Sales Shipment Header"
+tableextension 11311127 "Red Reg Purch. Rcpt. Header" extends "Purch. Rcpt. Header"
 {
     fields
     {
@@ -39,20 +39,20 @@ tableextension 11311119 "Red Reg Sales Shipment Header" extends "Sales Shipment 
             // ToolTip = 'Specifies how many times the contract has been billed.';
             Editable = false;
         }
-        field(11311128; "Red Reg Purchase Contract No."; Code[20])
+        field(11311128; "Red Reg Sales Contract No."; Code[20])
         {
             DataClassification = CustomerContent;
-            Caption = 'Purchase Contract No.';
+            Caption = 'Sales Contract No.';
         }
-        field(11311129; "Red Reg Purch. Document Type"; Enum "Purchase Document Type")
+        field(11311129; "Red Reg Sales Document Type"; Enum "Sales Document Type")
         {
             DataClassification = CustomerContent;
-            Caption = 'Purchase Document Type';
+            Caption = 'Sales Document Type';
         }
-        field(11311130; "Red Reg Purch. Document No."; Code[20])
+        field(11311130; "Red Reg Sales Document No."; Code[20])
         {
             DataClassification = CustomerContent;
-            Caption = 'Purchase Document No.';
+            Caption = 'Sales Document No.';
         }
     }
 }

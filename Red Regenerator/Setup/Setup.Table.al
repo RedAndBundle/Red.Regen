@@ -21,6 +21,17 @@ table 11311113 "Red Reg Setup"
             Caption = 'Suppress Sales Post Commit';
             // ToolTip = 'Specifies if the sales post commit should be suppressed. Suppressing the commit ensures that the sales document cannot be posted without generating the new contract.';
         }
+        field(12; "Red Reg Generate On"; Enum "Red Reg Generation Moments")
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Generate On';
+            // ToolTip = 'Specifies when the contract is generated. This can be automatically or manual.';
+        }
+        field(13; "Allow Manual Generation"; Boolean)
+        {
+            Caption = 'Allow Manual Generation';
+            // ToolTip = 'Specifies if the contracts can be generated manually.';
+        }
         field(20; "No. Series Purchase"; Code[20])
         {
             Caption = 'No. Series Purchase';
@@ -32,6 +43,7 @@ table 11311113 "Red Reg Setup"
             Caption = 'Suppress Purchase Post Commit';
             // ToolTip = 'Specifies if the purchase post commit should be suppressed. Suppressing the commit ensures that the purchase document cannot be posted without generating the new contract.';
         }
+        // TODO choose when to generate contract. On Post, On Release, Manual (manual needs fallback or notification on post/release)
         // TODO
         // Regenerate via job queue
         // Regenerate via batch job

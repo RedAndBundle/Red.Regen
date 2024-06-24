@@ -12,8 +12,8 @@
   "logo": "images/Logo_appsource_large.png",
   "dependencies": [],
   "screenshots": [],
-  "platform": "23.0.0.0",
-  "application": "23.0.0.0",
+  "platform": "24.0.0.0",
+  "application": "24.0.0.0",
   "idRanges": [
     {
       "from": 11311113,
@@ -27,7 +27,7 @@
     "allowDownloadingSource": false
   },
   "target": "Cloud",
-  "runtime": "12.0",
+  "runtime": "13.0",
   "features": [
     "TranslationFile",
     "NoImplicitWith"

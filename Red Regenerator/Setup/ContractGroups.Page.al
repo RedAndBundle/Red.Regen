@@ -24,6 +24,10 @@ page 11311114 "Red Reg Contract Groups"
                 {
                     ApplicationArea = All;
                 }
+                field("Purchase Type"; Rec."Purchase Type")
+                {
+                    ApplicationArea = All;
+                }
             }
         }
     }

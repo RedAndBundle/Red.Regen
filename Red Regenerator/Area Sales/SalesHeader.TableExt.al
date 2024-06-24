@@ -90,6 +90,21 @@ tableextension 11311113 "Red Reg Sales Header" extends "Sales Header"
             // ToolTip = 'Specifies the status of the contract.';
             Editable = false;
         }
+        field(11311128; "Red Reg Purchase Contract No."; Code[20])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Purchase Contract No.';
+        }
+        field(11311129; "Red Reg Purch. Document Type"; Enum "Purchase Document Type")
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Purchase Document Type';
+        }
+        field(11311130; "Red Reg Purch. Document No."; Code[20])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Purchase Document No.';
+        }
     }
 
     keys
@@ -269,6 +284,21 @@ tableextension 11311113 "Red Reg Sales Header" extends "Sales Header"
     internal procedure RedRegShowRegenerate(): Boolean
     begin
         exit("Red Reg Contract Status" in ["Red Reg Contract Status"::Active]);
+    end;
+
+    internal procedure RedRegShowGenerate(): Boolean
+    var
+        Generator: Record "Red Reg Generator";
+        Setup: Record "Red Reg Setup";
+    begin
+        Generator.SetRange("Application Area", Generator."Application Area"::Sales);
+        if Generator.IsEmpty() then
+            exit(false);
+
+        if not Setup.Get() then
+            exit(false);
+
+        exit(Setup."Allow Manual Generation");
     end;
 
     local procedure TestModifyAllowed()

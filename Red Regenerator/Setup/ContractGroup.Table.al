@@ -27,11 +27,15 @@ table 11311114 "Red Reg Contract Group"
             InitValue = 2;
         }
         // TODO
-        // Renew Automatically
-        // Renew to document type
-        // Renew days before end date
-        // Invoice on regeneration
-        // Post on regeneration
+        // Regenerate Automatically
+        // Regenerate days before end date
+        // Post and send on regeneration
+        field(20; "Purchase Type"; Enum "Red Reg Purchase Type")
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Generate Purchase Document';
+            // ToolTip = 'Specifies the type of purchase document to generate.';
+        }
     }
 
     keys

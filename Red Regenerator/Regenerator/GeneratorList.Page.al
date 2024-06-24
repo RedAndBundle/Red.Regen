@@ -41,6 +41,10 @@ page 11311118 "Red Reg Generator List"
                 {
                     ApplicationArea = All;
                 }
+                field("Red Reg Billing Period"; Rec."Red Reg Billing Period")
+                {
+                    ApplicationArea = All;
+                }
             }
         }
         area(Factboxes)

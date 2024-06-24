@@ -73,6 +73,7 @@ page 11311116 "Red Reg Sales Contract"
                     ToolTip = 'Specifies the customer''s VAT registration number for customers.';
                     Visible = false;
                 }
+                // TODO add order + shipment numbers
                 field("Posting Description"; Rec."Posting Description")
                 {
                     ApplicationArea = Suite;
@@ -1776,8 +1777,8 @@ page 11311116 "Red Reg Sales Contract"
 
     procedure UpdateShipToBillToGroupVisibility()
     begin
-        CustomerMgt.CalculateShipToBillToOptions(ShipToOptions, BillToOptions, Rec);
-        // CustomerMgt.CalculateShipBillToOptions(ShipToOptions, BillToOptions, Rec);
+        // CustomerMgt.CalculateShipToBillToOptions(ShipToOptions, BillToOptions, Rec);
+        CustomerMgt.CalculateShipBillToOptions(ShipToOptions, BillToOptions, Rec);
     end;
 
     procedure SetPostingGroupEditable()

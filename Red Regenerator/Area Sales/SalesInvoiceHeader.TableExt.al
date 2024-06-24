@@ -39,5 +39,20 @@ tableextension 11311117 "Red Reg Sales Invoice Header" extends "Sales Invoice He
             // ToolTip = 'Specifies how many times the contract has been billed.';
             Editable = false;
         }
+        field(11311128; "Red Reg Purchase Contract No."; Code[20])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Purchase Contract No.';
+        }
+        field(11311129; "Red Reg Purch. Document Type"; Enum "Purchase Document Type")
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Purchase Document Type';
+        }
+        field(11311130; "Red Reg Purch. Document No."; Code[20])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Purchase Document No.';
+        }
     }
 }

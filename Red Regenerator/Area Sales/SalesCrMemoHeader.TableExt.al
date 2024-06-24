@@ -32,5 +32,20 @@ tableextension 11311121 "Red Reg Sales Cr.Memo Header" extends "Sales Cr.Memo He
             Caption = 'Duration';
             // ToolTip = 'Specifies the duration of the contract.';
         }
+        field(11311128; "Red Reg Purchase Contract No."; Code[20])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Purchase Contract No.';
+        }
+        field(11311129; "Red Reg Purch. Document Type"; Enum "Purchase Document Type")
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Purchase Document Type';
+        }
+        field(11311130; "Red Reg Purch. Document No."; Code[20])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Purchase Document No.';
+        }
     }
 }

@@ -1,12 +1,12 @@
-codeunit 11311113 "Red Reg Generator"
+codeunit 11311113 "Red Reg Sales Generator"
 {
-    TableNo = "Red Reg Generator";
+    TableNo = "Sales Header";
     Access = Internal;
     Permissions = tabledata "Red Reg Setup" = rimd, tabledata "Red Reg Generator" = rimd, tabledata "Sales Header" = rimd, tabledata "Sales Line" = rimd, tabledata "Sales Shipment Header" = r, tabledata "Sales Shipment Line" = r;
 
     trigger OnRun()
     begin
-
+        // TODO needs something to mark the contract/lines as generated for the amount. Multiple contracts?
     end;
 
     procedure TestSalesSetup()
