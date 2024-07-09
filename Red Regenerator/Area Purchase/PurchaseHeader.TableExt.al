@@ -6,21 +6,28 @@ tableextension 11311115 "Red Reg Purchase Header" extends "Purchase Header"
         {
             DataClassification = CustomerContent;
             Caption = 'Originating Document Type';
+            // Used for linking the contract to a sales document when you created the contract from the sales document through the Generator.
+            // Unused when creating a document through the Regenerator.
         }
         field(11311114; "Red Reg Org. Document No."; Code[20])
         {
             DataClassification = CustomerContent;
             Caption = 'Originating Document No.';
+            // Used for linking the contract to a sales document when you created the contract from the sales document through the Generator.
+            // Unused when creating a document through the Regenerator.
         }
         field(11311116; "Red Reg Org. Shipment No."; Code[20])
         {
             DataClassification = CustomerContent;
             Caption = 'Originating Shipment No.';
+            // TODO obsolete when creating a contract through release or manual. Delete?
         }
         field(11311118; "Red Reg Contract No."; code[20])
         {
             DataClassification = CustomerContent;
             Caption = 'Contract No.';
+            // Used for linking the sales document to a contract when you created the document from the contract through the Regenerator.
+            // Unused when creating a contract through the Generator.
         }
         field(11311120; "Red Reg Group"; Code[20])
         {
@@ -104,6 +111,11 @@ tableextension 11311115 "Red Reg Purchase Header" extends "Purchase Header"
         {
             DataClassification = CustomerContent;
             Caption = 'Sales Document No.';
+        }
+        field(11311132; "Red Reg Work Description"; Blob)
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Work Description';
         }
     }
 
@@ -284,6 +296,32 @@ tableextension 11311115 "Red Reg Purchase Header" extends "Purchase Header"
     internal procedure RedRegShowRegenerate(): Boolean
     begin
         exit("Red Reg Contract Status" in ["Red Reg Contract Status"::Active]);
+    end;
+
+    internal procedure RedRegShowGenerate(): Boolean
+    var
+        Generator: Record "Red Reg Generator";
+        Setup: Record "Red Reg Setup";
+    begin
+        Generator.SetRange("Application Area", Generator."Application Area"::Purchase);
+        if Generator.IsEmpty() then
+            exit(false);
+
+        if not Setup.Get() then
+            exit(false);
+
+        Generator.SetRange("Generation Moment", Generator."Generation Moment"::Manual);
+        exit(not Generator.IsEmpty());
+    end;
+
+    internal procedure RedRegSetWorkDescription(NewWorkDescription: Text)
+    var
+        OutStream: OutStream;
+    begin
+        Clear("Red Reg Work Description");
+        "Red Reg Work Description".CreateOutStream(OutStream, TEXTENCODING::UTF8);
+        OutStream.WriteText(NewWorkDescription);
+        Modify();
     end;
 
     local procedure TestModifyAllowed()

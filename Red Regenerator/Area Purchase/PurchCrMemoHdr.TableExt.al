@@ -47,5 +47,10 @@ tableextension 11311123 "Red Reg Purch. Cr. Memo Hdr." extends "Purch. Cr. Memo 
             DataClassification = CustomerContent;
             Caption = 'Sales Document No.';
         }
+        field(11311131; "Red Reg Work Description"; Blob)
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Work Description';
+        }
     }
 }

@@ -1366,7 +1366,6 @@ page 11311116 "Red Reg Sales Contract"
                         Ellipsis = true;
                         Image = Print;
                         ToolTip = 'Print a sales contract confirmation.';
-                        Visible = not IsOfficeHost;
 
                         trigger OnAction()
                         begin
@@ -1605,7 +1604,6 @@ page 11311116 "Red Reg Sales Contract"
     var
         PaymentServiceSetup: Record "Payment Service Setup";
         CRMIntegrationManagement: Codeunit "CRM Integration Management";
-        OfficeMgt: Codeunit "Office Management";
     begin
         Rec.SetSecurityFilterOnRespCenter();
 
@@ -1616,7 +1614,6 @@ page 11311116 "Red Reg Sales Contract"
         SetDocNoVisible();
 
         CRMIntegrationEnabled := CRMIntegrationManagement.IsCRMIntegrationEnabled();
-        IsOfficeHost := OfficeMgt.IsAvailable();
 
         if (Rec."No." <> '') and (Rec."Sell-to Customer No." = '') then
             DocumentIsPosted := (not Rec.Get(Rec."Document Type", Rec."No."));
@@ -1627,15 +1624,7 @@ page 11311116 "Red Reg Sales Contract"
     end;
 
     trigger OnQueryClosePage(CloseAction: Action): Boolean
-    var
-        InstructionMgt: Codeunit "Instruction Mgt.";
     begin
-        if not DocumentIsScheduledForPosting and ShowReleaseNotification() then
-            if not InstructionMgt.ShowConfirmUnreleased() then
-                exit(false);
-
-        if not DocumentIsPosted then
-            exit(Rec.ConfirmCloseUnposted());
     end;
 
     var
@@ -1657,7 +1646,6 @@ page 11311116 "Red Reg Sales Contract"
         CRMIntegrationEnabled: Boolean;
         CRMIsCoupledToRecord: Boolean;
         ShowWorkflowStatus: Boolean;
-        IsOfficeHost: Boolean;
         CanCancelApprovalForRecord: Boolean;
         JobQueuesUsed: Boolean;
         DocumentIsScheduledForPosting: Boolean;

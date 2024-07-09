@@ -2,16 +2,16 @@ enum 11311119 "Red Reg Generation Moments"
 {
     Extensible = true;
 
-    value(0; None)
+    value(0; Manual)
     {
-        Caption = 'None';
+        Caption = 'Manual';
     }
     value(1; OnRelease)
     {
         Caption = 'On Release';
     }
-    value(2; OnPostShipment)
+    value(2; OnPost)
     {
-        Caption = 'On Post Shipment';
+        Caption = 'On Post';
     }
 }

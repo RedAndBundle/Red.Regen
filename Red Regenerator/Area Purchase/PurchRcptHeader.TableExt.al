@@ -54,5 +54,10 @@ tableextension 11311127 "Red Reg Purch. Rcpt. Header" extends "Purch. Rcpt. Head
             DataClassification = CustomerContent;
             Caption = 'Sales Document No.';
         }
+        field(11311131; "Red Reg Work Description"; Blob)
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Work Description';
+        }
     }
 }

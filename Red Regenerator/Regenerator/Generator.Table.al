@@ -48,6 +48,11 @@ table 11311117 "Red Reg Generator"
                 end;
             end;
         }
+        field(5; "Generation Moment"; Enum "Red Reg Generation Moments")
+        {
+            Caption = 'Generation Moment';
+            // ToolTip = 'Specifies when the contract is generated. This can be automatically or manual.';
+        }
         field(10; Description; Text[100])
         {
             Caption = 'Description';
@@ -77,7 +82,6 @@ table 11311117 "Red Reg Generator"
             Caption = 'Billing Period';
             // ToolTip = 'Specifies the billing period of the contract. If you do not specify a billing period the contract duration is used.';
         }
-        // TODO add possibility to generate purchase contract or order/invoice
     }
 
     keys

@@ -26,10 +26,6 @@ table 11311114 "Red Reg Contract Group"
             ValuesAllowed = 1, 2;
             InitValue = 2;
         }
-        // TODO
-        // Regenerate Automatically
-        // Regenerate days before end date
-        // Post and send on regeneration
         field(20; "Purchase Type"; Enum "Red Reg Purchase Type")
         {
             DataClassification = CustomerContent;

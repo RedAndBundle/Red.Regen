@@ -1,4 +1,4 @@
-pageextension 11311113 "Red Reg Sales Order" extends "Sales Order"
+pageextension 11311114 "Red Reg Purchase Order" extends "Purchase Order"
 {
     layout
     {
@@ -22,7 +22,7 @@ pageextension 11311113 "Red Reg Sales Order" extends "Sales Order"
                 Caption = 'Generate Contract';
                 Image = CreateDocument;
                 ToolTip = 'Generates a Contract if there are sales lines with numbers that are specified in the Contract Generator List.';
-                RunObject = codeunit "Red Reg Sales Generator";
+                RunObject = codeunit "Red Reg Purchase Generator";
                 Visible = RedRegShowGenerateAction;
                 Enabled = Rec."Red Reg Contract No." = '';
             }

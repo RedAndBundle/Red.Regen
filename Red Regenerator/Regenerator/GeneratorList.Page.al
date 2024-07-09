@@ -29,6 +29,10 @@ page 11311118 "Red Reg Generator List"
                     ApplicationArea = All;
                     // TODO lookup number
                 }
+                field("Generation Moment"; Rec."Generation Moment")
+                {
+                    ApplicationArea = All;
+                }
                 field("Description"; Rec.Description)
                 {
                     ApplicationArea = All;
@@ -46,10 +50,6 @@ page 11311118 "Red Reg Generator List"
                     ApplicationArea = All;
                 }
             }
-        }
-        area(Factboxes)
-        {
-
         }
     }
 

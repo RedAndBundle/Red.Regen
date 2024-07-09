@@ -6,7 +6,8 @@ codeunit 11311113 "Red Reg Sales Generator"
 
     trigger OnRun()
     begin
-        // TODO needs something to mark the contract/lines as generated for the amount. Multiple contracts?
+        GenerateContracts(Rec, Enum::"Red Reg Generation Moments"::Manual);
+        // TODO keep contract in sync on modify sales header + line
     end;
 
     procedure TestSalesSetup()
@@ -29,6 +30,8 @@ codeunit 11311113 "Red Reg Sales Generator"
         SalesShipmentLine: Record "Sales Shipment Line";
         Generator: Record "Red Reg Generator";
     begin
+        GenerateContracts(SalesHeader, Enum::"Red Reg Generation Moments"::Manual);
+
         case SalesHeader."Document Type" of
             SalesHeader."Document Type"::"Blanket Order",
             SalesHeader."Document Type"::"Credit Memo",
@@ -46,42 +49,72 @@ codeunit 11311113 "Red Reg Sales Generator"
         SalesShipmentLine.SetRange("Document No.", SalesShipmentHeader."No.");
         if SalesShipmentLine.FindSet() then
             repeat
-                if GetGenerator(Generator, SalesShipmentLine, SalesHeader."Document Type") then begin
-                    ContractSalesHeader := GetContractHeader(SalesHeader, SalesShipmentHeader, Generator);
-                    InsertContractLine(ContractSalesHeader, SalesShipmentLine);
-                end;
+                if GetGenerator(Generator, SalesShipmentLine.Type, SalesShipmentLine."No.", SalesShipmentLine."Item Category Code", SalesHeader."Document Type") then
+                    if Generator."Generation Moment" = Generator."Generation Moment"::OnPost then begin
+                        ContractSalesHeader := GetContractHeader(SalesHeader, SalesShipmentHeader."Posting Date", Generator);
+                        InsertContractLine(ContractSalesHeader, SalesShipmentLine);
+                    end;
             until SalesShipmentLine.Next() = 0;
     end;
 
-    local procedure GetGenerator(var Generator: Record "Red Reg Generator"; SalesShipmentLine: Record "Sales Shipment Line"; DocumentType: Enum "Sales Document Type"): Boolean
+    procedure GenerateContracts(var SalesHeader: Record "Sales Header"; GenerationMoment: Enum "Red Reg Generation Moments")
+    var
+        ContractSalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        Generator: Record "Red Reg Generator";
     begin
-        if Generator.Get(Generator."Application Area"::Sales, Generator."Document Type"::Any, SalesShipmentLine.Type, SalesShipmentLine."No.") then
-            exit(true);
-        if Generator.Get(Generator."Application Area"::Sales, Generator."Document Type"::Any, Generator.Type::"Item Category", SalesShipmentLine."Item Category Code") then
+        case SalesHeader."Document Type" of
+            SalesHeader."Document Type"::"Blanket Order",
+            SalesHeader."Document Type"::"Credit Memo",
+            SalesHeader."Document Type"::Quote,
+            SalesHeader."Document Type"::"Return Order":
+                exit;
+        end;
+
+        if SalesHeader."Red Reg Contract No." <> '' then
+            exit;
+        SalesLine.SetRange("Document No.", SalesHeader."No.");
+        SalesLine.SetRange("Document Type", SalesHeader."Document Type");
+        if SalesLine.FindSet() then
+            repeat
+                if GetGenerator(Generator, SalesLine.Type, SalesLine."No.", SalesLine."Item Category Code", SalesLine."Document Type") then
+                    if Generator."Generation Moment" = GenerationMoment then begin
+                        ContractSalesHeader := GetContractHeader(SalesHeader, SalesHeader."Document Date", Generator);
+                        InsertContractLine(ContractSalesHeader, SalesLine);
+                    end;
+            until SalesLine.Next() = 0;
+    end;
+
+    local procedure GetGenerator(var Generator: Record "Red Reg Generator"; Type: Enum "Sales Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; DocumentType: Enum "Sales Document Type"): Boolean
+    begin
+        if GetGenerator(Generator, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Any) then
             exit(true);
 
         case DocumentType of
             DocumentType::Order:
-                if Generator.Get(Generator."Application Area"::Sales, Generator."Document Type"::Order, SalesShipmentLine.Type, SalesShipmentLine."No.") then
-                    exit(true)
-                else
-                    exit(Generator.Get(Generator."Application Area"::Sales, Generator."Document Type"::Order, Generator.Type::"Item Category", SalesShipmentLine."Item Category Code"));
+                exit(GetGenerator(Generator, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Order));
             DocumentType::Invoice:
-                if Generator.Get(Generator."Application Area"::Sales, Generator."Document Type"::Invoice, SalesShipmentLine.Type, SalesShipmentLine."No.") then
-                    exit(true)
-                else
-                    exit(Generator.Get(Generator."Application Area"::Sales, Generator."Document Type"::Invoice, Generator.Type::"Item Category", SalesShipmentLine."Item Category Code"));
+                exit(GetGenerator(Generator, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Invoice));
         end;
     end;
 
-    local procedure GetContractHeader(SalesHeader: Record "Sales Header"; SalesShipmentHeader: Record "Sales Shipment Header"; Generator: Record "Red Reg Generator") ContractSalesHeader: Record "Sales Header"
+    local procedure GetGenerator(var Generator: Record "Red Reg Generator"; Type: Enum "Sales Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; RegDocumentType: Enum "Red Reg Document Type"): Boolean
+    begin
+        if Generator.Get(Generator."Application Area"::Sales, RegDocumentType, Type, No) then
+            exit(true);
+
+        if (Type = Type::Item) and (ItemCategoryCode <> '') then
+            if Generator.Get(Generator."Application Area"::Sales, RegDocumentType, Generator.Type::"Item Category", ItemCategoryCode) then
+                exit(true);
+    end;
+
+    local procedure GetContractHeader(SalesHeader: Record "Sales Header"; StartDate: Date; Generator: Record "Red Reg Generator") ContractSalesHeader: Record "Sales Header"
     var
         EmptyDateFormula: DateFormula;
     begin
         ContractSalesHeader.SetCurrentKey("Red Reg Org. Document Type", "Red Reg Org. Document No.", "Red Reg Org. Shipment No.", "Red Reg Group", "Red Reg Duration");
         ContractSalesHeader.SetRange("Red Reg Org. Document Type", SalesHeader."Document Type");
         ContractSalesHeader.SetRange("Red Reg Org. Document No.", SalesHeader."No.");
-        ContractSalesHeader.SetRange("Red Reg Org. Shipment No.", SalesShipmentHeader."No.");
         ContractSalesHeader.SetRange("Red Reg Group", Generator."Contract Group");
         ContractSalesHeader.SetRange("Red Reg Duration", Generator."Duration");
         if ContractSalesHeader.FindFirst() then
@@ -95,9 +128,8 @@ codeunit 11311113 "Red Reg Sales Generator"
 
         ContractSalesHeader."Red Reg Org. Document Type" := SalesHeader."Document Type";
         ContractSalesHeader."Red Reg Org. Document No." := SalesHeader."No.";
-        ContractSalesHeader."Red Reg Org. Shipment No." := SalesShipmentHeader."No.";
         ContractSalesHeader."Red Reg Group" := Generator."Contract Group";
-        ContractSalesHeader."Red Reg Start Date" := SalesShipmentHeader."Posting Date";
+        ContractSalesHeader."Red Reg Start Date" := StartDate;
         ContractSalesHeader."Red Reg Next Billing Date" := ContractSalesHeader."Red Reg Start Date";
         if Generator."Duration" <> EmptyDateFormula then begin
             ContractSalesHeader.Validate("Red Reg Duration", Generator."Duration");
@@ -109,30 +141,58 @@ codeunit 11311113 "Red Reg Sales Generator"
         ContractSalesHeader.Insert(true);
     end;
 
-    local procedure InsertContractLine(var SalesHeader: Record "Sales Header"; SalesShipmentLine: Record "Sales Shipment Line")
+    local procedure InsertContractLine(var ContractSalesHeader: Record "Sales Header"; SalesShipmentLine: Record "Sales Shipment Line")
     var
-        SalesLine: Record "Sales Line";
+        ContractSalesLine: Record "Sales Line";
     begin
-        SalesLine.SetRange("Document Type", SalesHeader."Document Type");
-        SalesLine.SetRange("Document No.", SalesHeader."No.");
-        SalesLine.SetRange("Red Reg Org. Document Type", SalesHeader."Document Type");
-        SalesLine.SetRange("Red Reg Org. Document No.", SalesHeader."No.");
-        SalesLine.SetRange("Red Reg Org. Document Line No.", SalesShipmentLine."Line No.");
-        SalesLine.SetRange("Red Reg Org. Shipment No.", SalesShipmentLine."Document No.");
-        SalesLine.SetRange("Red Reg Org. Shipment Line No.", SalesShipmentLine."Line No.");
-        if SalesLine.FindFirst() then begin
-            SalesLine.Validate("Quantity", SalesShipmentLine.Quantity);
-            SalesLine.Modify(true);
+        ContractSalesLine.SetRange("Document Type", ContractSalesHeader."Document Type");
+        ContractSalesLine.SetRange("Document No.", ContractSalesHeader."No.");
+        ContractSalesLine.SetRange("Red Reg Org. Document Type", ContractSalesHeader."Red Reg Org. Document Type");
+        ContractSalesLine.SetRange("Red Reg Org. Document No.", ContractSalesHeader."Red Reg Org. Document No.");
+        ContractSalesLine.SetRange("Red Reg Org. Document Line No.", SalesShipmentLine."Line No.");
+        ContractSalesLine.SetRange("Red Reg Org. Shipment No.", SalesShipmentLine."Document No.");
+        ContractSalesLine.SetRange("Red Reg Org. Shipment Line No.", SalesShipmentLine."Line No.");
+        if ContractSalesLine.FindFirst() then begin
+            ContractSalesLine.Validate("Quantity", SalesShipmentLine.Quantity);
+            ContractSalesLine.Modify(true);
             exit;
         end;
 
-        SalesLine.RedRegInitNewLine(SalesHeader);
-        SalesLine.TransferFields(SalesShipmentLine, false);
-        SalesLine."Red Reg Org. Document Type" := SalesHeader."Document Type";
-        SalesLine."Red Reg Org. Document No." := SalesHeader."No.";
-        SalesLine."Red Reg Org. Document Line No." := SalesShipmentLine."Line No.";
-        SalesLine."Red Reg Org. Shipment No." := SalesShipmentLine."Document No.";
-        SalesLine."Red Reg Org. Shipment Line No." := SalesShipmentLine."Line No.";
-        SalesLine.Insert(true);
+        ContractSalesLine.RedRegInitNewLine(ContractSalesHeader);
+        ContractSalesLine.TransferFields(SalesShipmentLine, false);
+        ContractSalesLine.Validate(Quantity, SalesShipmentLine.Quantity);
+        ContractSalesLine."Red Reg Org. Document Type" := ContractSalesHeader."Red Reg Org. Document Type";
+        ContractSalesLine."Red Reg Org. Document No." := ContractSalesHeader."No.";
+        ContractSalesLine."Red Reg Org. Document Line No." := SalesShipmentLine."Line No.";
+        ContractSalesLine."Red Reg Org. Shipment No." := SalesShipmentLine."Document No.";
+        ContractSalesLine."Red Reg Org. Shipment Line No." := SalesShipmentLine."Line No.";
+        ContractSalesLine.Insert(true);
+    end;
+
+    local procedure InsertContractLine(var ContractSalesHeader: Record "Sales Header"; SalesLine: Record "Sales Line")
+    var
+        ContractSalesLine: Record "Sales Line";
+    begin
+        ContractSalesLine.SetRange("Document Type", ContractSalesHeader."Document Type");
+        ContractSalesLine.SetRange("Document No.", ContractSalesHeader."No.");
+        ContractSalesLine.SetRange("Red Reg Org. Document Type", ContractSalesHeader."Red Reg Org. Document Type");
+        ContractSalesLine.SetRange("Red Reg Org. Document No.", ContractSalesHeader."Red Reg Org. Document No.");
+        ContractSalesLine.SetRange("Red Reg Org. Document Line No.", SalesLine."Line No.");
+        ContractSalesLine.SetRange("Red Reg Org. Shipment No.", SalesLine."Document No.");
+        ContractSalesLine.SetRange("Red Reg Org. Shipment Line No.", SalesLine."Line No.");
+        if ContractSalesLine.FindFirst() then begin
+            ContractSalesLine.Validate("Quantity", SalesLine.Quantity);
+            ContractSalesLine.Modify(true);
+            exit;
+        end;
+
+        ContractSalesLine.RedRegInitNewLine(ContractSalesHeader);
+        ContractSalesLine.TransferFields(SalesLine, false);
+        ContractSalesLine."Red Reg Org. Document Type" := ContractSalesHeader."Red Reg Org. Document Type";
+        ContractSalesLine."Red Reg Org. Document No." := ContractSalesHeader."Red Reg Org. Document No.";
+        ContractSalesLine."Red Reg Org. Document Line No." := SalesLine."Line No.";
+        ContractSalesLine."Red Reg Org. Shipment No." := SalesLine."Document No.";
+        ContractSalesLine."Red Reg Org. Shipment Line No." := SalesLine."Line No.";
+        ContractSalesLine.Insert(true);
     end;
 }

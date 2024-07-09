@@ -24,6 +24,23 @@ codeunit 11311114 "Red Reg Regenerator"
         ContractSalesHeader.Modify();
     end;
 
+    procedure ActivateContract(var PurchaseHeader: Record "Purchase Header")
+    var
+        ContractPurchaseHeader: Record "Purchase Header";
+    begin
+        if PurchaseHeader."Red Reg Contract No." = '' then
+            exit;
+
+        if not ContractPurchaseHeader.Get(ContractPurchaseHeader."Document Type"::"Red Regenerator", PurchaseHeader."Red Reg Contract No.") then
+            exit;
+
+        if not (ContractPurchaseHeader."Red Reg Contract Status" in [ContractPurchaseHeader."Red Reg Contract Status"::Concept, ContractPurchaseHeader."Red Reg Contract Status"::Accepted]) then
+            exit;
+
+        ContractPurchaseHeader."Red Reg Contract Status" := ContractPurchaseHeader."Red Reg Contract Status"::Active;
+        ContractPurchaseHeader.Modify();
+    end;
+
     procedure RegenerateSalesDocument(var ContractSalesHeader: Record "Sales Header")
     begin
         TestContract(ContractSalesHeader);
@@ -36,10 +53,10 @@ codeunit 11311114 "Red Reg Regenerator"
 
     procedure RegeneratePurchaseDocument(var ContractPurchaseHeader: Record "Purchase Header")
     begin
-        // TestContract(ContractPurchaseHeader);
-        // PrepareContract(ContractPurchaseHeader);
-        // CheckSalesDocumentForNextIteration(ContractPurchaseHeader);
-        // CreateSalesDocument(ContractPurchaseHeader);
+        TestContract(ContractPurchaseHeader);
+        PrepareContract(ContractPurchaseHeader);
+        CheckPurchaseDocumentForNextIteration(ContractPurchaseHeader);
+        CreatePurchaseDocument(ContractPurchaseHeader);
         ContractPurchaseHeader.RedRegCalculateNextBillingDate();
     end;
 
@@ -50,11 +67,25 @@ codeunit 11311114 "Red Reg Regenerator"
         ContractSalesHeader.RedRegTestContractActive();
     end;
 
+    local procedure TestContract(var ContractPurchaseHeader: Record "Purchase Header")
+    begin
+        ContractPurchaseHeader.TestField("Red Reg Group");
+        ContractPurchaseHeader.RedRegTestStatusIsActive();
+        ContractPurchaseHeader.RedRegTestContractActive();
+    end;
+
     local procedure PrepareContract(var ContractSalesHeader: Record "Sales Header")
     var
     begin
         ContractSalesHeader."Red Reg Contract Iteration" += 1;
         ContractSalesHeader.Modify();
+    end;
+
+    local procedure PrepareContract(var ContractPurchaseHeader: Record "Purchase Header")
+    var
+    begin
+        ContractPurchaseHeader."Red Reg Contract Iteration" += 1;
+        ContractPurchaseHeader.Modify();
     end;
 
     local procedure CheckSalesDocumentForNextIteration(var ContractSalesHeader: Record "Sales Header")
@@ -74,6 +105,25 @@ codeunit 11311114 "Red Reg Regenerator"
         SalesInvoiceHeader.SetRange("Red Reg Contract Iteration", ContractSalesHeader."Red Reg Contract Iteration");
         if SalesInvoiceHeader.FindFirst() then
             Error(AlreadyBilledLbl, SalesInvoiceHeader.TableCaption, SalesInvoiceHeader."No.");
+    end;
+
+    local procedure CheckPurchaseDocumentForNextIteration(var ContractPurchaseHeader: Record "Purchase Header")
+    var
+        PurchaseHeader: Record "Purchase Header";
+        PurchInvHeader: Record "Purch. Inv. Header";
+        AlreadyBilledLbl: Label 'The contract has already been billed on %1 %2.', Comment = '%1 = document type, %2 = document no.';
+    begin
+        PurchaseHeader.SetRange("Pay-to Vendor No.", ContractPurchaseHeader."Pay-to Vendor No.");
+        PurchaseHeader.SetRange("Red Reg Contract No.", ContractPurchaseHeader."No.");
+        PurchaseHeader.SetRange("Red Reg Contract Iteration", ContractPurchaseHeader."Red Reg Contract Iteration");
+        if PurchaseHeader.FindFirst() then
+            Error(AlreadyBilledLbl, PurchaseHeader."Document Type", PurchaseHeader."No.");
+
+        PurchInvHeader.SetRange("Pay-to Vendor No.", ContractPurchaseHeader."Pay-to Vendor No.");
+        PurchInvHeader.SetRange("Red Reg Contract No.", ContractPurchaseHeader."No.");
+        PurchInvHeader.SetRange("Red Reg Contract Iteration", ContractPurchaseHeader."Red Reg Contract Iteration");
+        if PurchInvHeader.FindFirst() then
+            Error(AlreadyBilledLbl, PurchInvHeader.TableCaption, PurchInvHeader."No.");
     end;
 
     local procedure CreateSalesDocument(var ContractSalesHeader: Record "Sales Header")
@@ -110,5 +160,41 @@ codeunit 11311114 "Red Reg Regenerator"
                 SalesLine.TransferFields(ContractSalesLine, false);
                 SalesLine.Insert(true);
             until ContractSalesLine.Next() = 0;
+    end;
+
+    local procedure CreatePurchaseDocument(var ContractPurchaseHeader: Record "Purchase Header")
+    var
+        PurchaseHeader: Record "Purchase Header";
+        PurchaseLine: Record "Purchase Line";
+        ContractPurchaseLine: Record "Purchase Line";
+        ContractGroup: Record "Red Reg Contract Group";
+    begin
+        ContractGroup.Get(ContractPurchaseHeader."Red Reg Group");
+
+        PurchaseHeader.Init();
+        case ContractGroup."Regenerate Document Type" of
+            ContractGroup."Regenerate Document Type"::Order:
+                PurchaseHeader."Document Type" := PurchaseHeader."Document Type"::Order;
+            ContractGroup."Regenerate Document Type"::Invoice:
+                PurchaseHeader."Document Type" := PurchaseHeader."Document Type"::Invoice;
+        end;
+
+        PurchaseHeader.TransferFields(ContractPurchaseHeader, false);
+        PurchaseHeader.Status := PurchaseHeader.Status::Open;
+        PurchaseHeader."Red Reg Contract No." := ContractPurchaseHeader."No.";
+        PurchaseHeader.Validate("Posting Date", ContractPurchaseHeader."Red Reg Next Billing Date");
+        PurchaseHeader.Insert(true);
+
+        ContractPurchaseLine.SetRange("Document Type", ContractPurchaseHeader."Document Type");
+        ContractPurchaseLine.SetRange("Document No.", ContractPurchaseHeader."No.");
+        if ContractPurchaseLine.FindSet() then
+            repeat
+                PurchaseLine.Init();
+                PurchaseLine."Document No." := PurchaseHeader."No.";
+                PurchaseLine."Document Type" := PurchaseHeader."Document Type";
+                PurchaseLine."Line No." := ContractPurchaseLine."Line No.";
+                PurchaseLine.TransferFields(ContractPurchaseLine, false);
+                PurchaseLine.Insert(true);
+            until ContractPurchaseLine.Next() = 0;
     end;
 }

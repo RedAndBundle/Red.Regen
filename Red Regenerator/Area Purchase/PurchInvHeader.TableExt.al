@@ -54,5 +54,10 @@ tableextension 11311125 "Red Reg Purch. Inv. Header" extends "Purch. Inv. Header
             DataClassification = CustomerContent;
             Caption = 'Sales Document No.';
         }
+        field(11311131; "Red Reg Work Description"; Blob)
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Work Description';
+        }
     }
 }

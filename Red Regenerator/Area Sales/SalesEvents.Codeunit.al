@@ -48,6 +48,18 @@ codeunit 11311115 "Red Reg Sales Events"
             exit;
 
         Generator.GenerateContractsAfterSalesPost(SalesHeader, SalesShptHdrNo, SalesInvHdrNo, CommitIsSuppressed, CustLedgerEntry);
+        // TODO add Shipment Informaton to contract. ?? Is this even necessary? Does it add anything?
         Regenerator.ActivateContract(SalesHeader);
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Sales Document", OnAfterReleaseSalesDoc, '', false, false)]
+    local procedure OnAfterReleaseSalesDoc(var SalesHeader: Record "Sales Header"; var LinesWereModified: Boolean; SkipWhseRequestOperations: Boolean; PreviewMode: Boolean)
+    var
+        Generator: Codeunit "Red Reg Sales Generator";
+    begin
+        if PreviewMode then
+            exit;
+
+        Generator.GenerateContracts(SalesHeader, Enum::"Red Reg Generation Moments"::OnRelease);
     end;
 }
