@@ -97,20 +97,11 @@ tableextension 11311113 "Red Reg Sales Header" extends "Sales Header"
             // ToolTip = 'Specifies the status of the contract.';
             Editable = false;
         }
-        field(11311128; "Red Reg Purchase Contract No."; Code[20])
+        field(11311128; "Red Reg Has Purchase Contract"; Boolean)
         {
-            DataClassification = CustomerContent;
-            Caption = 'Purchase Contract No.';
-        }
-        field(11311129; "Red Reg Purch. Document Type"; Enum "Purchase Document Type")
-        {
-            DataClassification = CustomerContent;
-            Caption = 'Purchase Document Type';
-        }
-        field(11311130; "Red Reg Purch. Document No."; Code[20])
-        {
-            DataClassification = CustomerContent;
-            Caption = 'Purchase Document No.';
+            Caption = 'Has Purchase Contract';
+            FieldClass = FlowField;
+            CalcFormula = exist("Purchase Header" where("Document Type" = const("Red Regenerator"), "Red Reg Sales Contract No." = field("No.")));
         }
     }
 

@@ -37,20 +37,5 @@ tableextension 11311123 "Red Reg Purch. Cr. Memo Hdr." extends "Purch. Cr. Memo 
             DataClassification = CustomerContent;
             Caption = 'Sales Contract No.';
         }
-        field(11311129; "Red Reg Sales Document Type"; Enum "Sales Document Type")
-        {
-            DataClassification = CustomerContent;
-            Caption = 'Sales Document Type';
-        }
-        field(11311130; "Red Reg Sales Document No."; Code[20])
-        {
-            DataClassification = CustomerContent;
-            Caption = 'Sales Document No.';
-        }
-        field(11311131; "Red Reg Work Description"; Blob)
-        {
-            DataClassification = CustomerContent;
-            Caption = 'Work Description';
-        }
     }
 }

@@ -260,6 +260,11 @@ page 11311119 "Red Reg Purchase Contract"
                     Importance = Additional;
                     Editable = false;
                 }
+                field("Red Reg Sales Contract No."; Rec."Red Reg Sales Contract No.")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Editable = false;
+                }
                 field("Vendor Order No."; Rec."Vendor Order No.")
                 {
                     ApplicationArea = Basic, Suite;

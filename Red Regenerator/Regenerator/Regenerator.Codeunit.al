@@ -182,6 +182,7 @@ codeunit 11311114 "Red Reg Regenerator"
         PurchaseHeader.TransferFields(ContractPurchaseHeader, false);
         PurchaseHeader.Status := PurchaseHeader.Status::Open;
         PurchaseHeader."Red Reg Contract No." := ContractPurchaseHeader."No.";
+        PurchaseHeader."Red Reg Sales Contract No." := ContractPurchaseHeader."Red Reg Sales Contract No.";
         PurchaseHeader.Validate("Posting Date", ContractPurchaseHeader."Red Reg Next Billing Date");
         PurchaseHeader.Insert(true);
 
@@ -194,6 +195,8 @@ codeunit 11311114 "Red Reg Regenerator"
                 PurchaseLine."Document Type" := PurchaseHeader."Document Type";
                 PurchaseLine."Line No." := ContractPurchaseLine."Line No.";
                 PurchaseLine.TransferFields(ContractPurchaseLine, false);
+                PurchaseLine."Red Reg Sales Contract No." := ContractPurchaseLine."Red Reg Sales Contract No.";
+                PurchaseLine."Red Reg Sales Contract Ln. No." := ContractPurchaseLine."Red Reg Sales Contract Ln. No.";
                 PurchaseLine.Insert(true);
             until ContractPurchaseLine.Next() = 0;
     end;

@@ -258,6 +258,11 @@ page 11311116 "Red Reg Sales Contract"
                     Importance = Additional;
                     Editable = false;
                 }
+                field("Red Reg Has Purchase Contract"; Rec."Red Reg Has Purchase Contract")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Editable = false;
+                }
                 field("External Document No."; Rec."External Document No.")
                 {
                     ApplicationArea = Basic, Suite;

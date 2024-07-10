@@ -3768,25 +3768,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Cr. Memo Hdr. - Field Red Reg Sales Contract No. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 1582581928 - Field 3540818101 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2271228953">
-          <source>Sales Document No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Cr. Memo Hdr. - Field Red Reg Sales Document No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1582581928 - Field 1371337016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2271228953">
-          <source>Sales Document Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Cr. Memo Hdr. - Field Red Reg Sales Document Type - Property Caption</note>
-        </trans-unit>
         <trans-unit id="TableExtension 1582581928 - Field 1740117905 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2271228953">
           <source>Start Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Cr. Memo Hdr. - Field Red Reg Start Date - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1582581928 - Field 1458026096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2271228953">
-          <source>Work Description</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Cr. Memo Hdr. - Field Red Reg Work Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1988020870 - Field 270264612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 518488723">
           <source>Contract Line No.</source>
@@ -3797,6 +3782,16 @@
           <source>Contract No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Cr. Memo Line - Field Red Reg Contract No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1988020870 - Field 2538860862 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 518488723">
+          <source>Sales Contract Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Cr. Memo Line - Field Red Reg Sales Contract Ln. No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1988020870 - Field 1885245730 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 518488723">
+          <source>Sales Contract No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Cr. Memo Line - Field Red Reg Sales Contract No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1075391843 - Field 271734050 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1592379974">
           <source>Contract Iteration</source>
@@ -3828,25 +3823,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Inv. Header - Field Red Reg Sales Contract No. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 1075391843 - Field 3540818101 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1592379974">
-          <source>Sales Document No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Inv. Header - Field Red Reg Sales Document No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1075391843 - Field 1371337016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1592379974">
-          <source>Sales Document Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Inv. Header - Field Red Reg Sales Document Type - Property Caption</note>
-        </trans-unit>
         <trans-unit id="TableExtension 1075391843 - Field 1740117905 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1592379974">
           <source>Start Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Inv. Header - Field Red Reg Start Date - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1075391843 - Field 1458026096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1592379974">
-          <source>Work Description</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Inv. Header - Field Red Reg Work Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2023858876 - Field 270264612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2575310733">
           <source>Contract Line No.</source>
@@ -3857,6 +3837,16 @@
           <source>Contract No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Inv. Line - Field Red Reg Contract No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2023858876 - Field 2538860862 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2575310733">
+          <source>Sales Contract Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Inv. Line - Field Red Reg Sales Contract Ln. No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2023858876 - Field 1885245730 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2575310733">
+          <source>Sales Contract No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Inv. Line - Field Red Reg Sales Contract No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3771343727 - Field 271734050 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1052755578">
           <source>Contract Iteration</source>
@@ -3888,25 +3878,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Rcpt. Header - Field Red Reg Sales Contract No. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 3771343727 - Field 3540818101 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1052755578">
-          <source>Sales Document No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Rcpt. Header - Field Red Reg Sales Document No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3771343727 - Field 1371337016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1052755578">
-          <source>Sales Document Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Rcpt. Header - Field Red Reg Sales Document Type - Property Caption</note>
-        </trans-unit>
         <trans-unit id="TableExtension 3771343727 - Field 1740117905 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1052755578">
           <source>Start Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Rcpt. Header - Field Red Reg Start Date - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3771343727 - Field 1458026096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1052755578">
-          <source>Work Description</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Rcpt. Header - Field Red Reg Work Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3648383336 - Field 270264612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 959319265">
           <source>Contract Line No.</source>
@@ -3917,6 +3892,16 @@
           <source>Contract No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Rcpt. Line - Field Red Reg Contract No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3648383336 - Field 2538860862 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 959319265">
+          <source>Sales Contract Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Rcpt. Line - Field Red Reg Sales Contract Ln. No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3648383336 - Field 1885245730 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 959319265">
+          <source>Sales Contract No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Rcpt. Line - Field Red Reg Sales Contract No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 138810705 - Method 1761637453 - NamedType 2270966188" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 138810705">
           <source>%1 is greater than %2.</source>
@@ -4058,21 +4043,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purchase Line - Field Red Reg Sales Contract No. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 1094900842 - Field 475495881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
-          <source>Sales Document Line No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purchase Line - Field Red Reg Sales Document Ln. No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1094900842 - Field 3540818101 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
-          <source>Sales Document No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purchase Line - Field Red Reg Sales Document No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1094900842 - Field 1371337016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
-          <source>Sales Document Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purchase Line - Field Red Reg Sales Document Type - Property Caption</note>
-        </trans-unit>
         <trans-unit id="TableExtension 2319344843 - Field 584985834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 552782286">
           <source>Contract No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4173,6 +4143,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg Group - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2090216680 - Field 1713797956 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Has Purchase Contract</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg Has Purchase Contract - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2090216680 - Field 1690750677 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Next Billing Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4192,21 +4167,6 @@
           <source>Originating Shipment No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg Org. Shipment No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2090216680 - Field 1823724523 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
-          <source>Purchase Document No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg Purch. Document No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2090216680 - Field 3655340962 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
-          <source>Purchase Document Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg Purch. Document Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2090216680 - Field 1176311031 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
-          <source>Purchase Contract No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Header - Field Red Reg Purchase Contract No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2090216680 - Field 1740117905 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Start Date</source>

@@ -44,20 +44,5 @@ tableextension 11311127 "Red Reg Purch. Rcpt. Header" extends "Purch. Rcpt. Head
             DataClassification = CustomerContent;
             Caption = 'Sales Contract No.';
         }
-        field(11311129; "Red Reg Sales Document Type"; Enum "Sales Document Type")
-        {
-            DataClassification = CustomerContent;
-            Caption = 'Sales Document Type';
-        }
-        field(11311130; "Red Reg Sales Document No."; Code[20])
-        {
-            DataClassification = CustomerContent;
-            Caption = 'Sales Document No.';
-        }
-        field(11311131; "Red Reg Work Description"; Blob)
-        {
-            DataClassification = CustomerContent;
-            Caption = 'Work Description';
-        }
     }
 }
