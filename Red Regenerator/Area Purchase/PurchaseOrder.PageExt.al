@@ -8,6 +8,7 @@ pageextension 11311114 "Red Reg Purchase Order" extends "Purchase Order"
             {
                 ApplicationArea = All;
                 Editable = false;
+                ToolTip = 'Specifies the contract that this document was created from.';
             }
         }
     }

@@ -1712,10 +1712,10 @@ page 11311121 "Red Reg Purch. Contract Subf."
     var
         DocumentLineTrackingPage: Page "Document Line Tracking";
     begin
-        Clear(DocumentLineTrackingPage);
-        DocumentLineTrackingPage.SetSourceDoc(
-            "Document Line Source Type"::"Purchase Order", Rec."Document No.", Rec."Line No.", Rec."Blanket Order No.", Rec."Blanket Order Line No.", '', 0);
-        DocumentLineTrackingPage.RunModal();
+        // Clear(DocumentLineTrackingPage);
+        // DocumentLineTrackingPage.SetSourceDoc(
+        //     "Document Line Source Type"::"Purchase Order", Rec."Document No.", Rec."Line No.", Rec."Blanket Order No.", Rec."Blanket Order Line No.", '', 0);
+        // DocumentLineTrackingPage.RunModal();
     end;
 
     procedure RedistributeTotalsOnAfterValidate()

@@ -133,10 +133,75 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Contract Groups - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 536103655 - Control 3004954119 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the contract group.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Contract Groups - Control Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 536103655 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the description of the contract group.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Contract Groups - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 536103655 - Control 1277608357 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of purchase document to generate.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Contract Groups - Control Purchase Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 536103655 - Control 2651732565 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of regeneration for the contract group.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Contract Groups - Control Regenerate Document Type - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2244621550 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contract Generator List</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Generator List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2244621550 - Control 662456783 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies fror which application area the contract is created.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Generator List - Control Application Area - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2244621550 - Control 732809815 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the settings of the contract that will be created.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Generator List - Control Contract Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2244621550 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the description of the contract.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Generator List - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2244621550 - Control 2363328873 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies from which document type the contract is created. When a line from the selected document type is shipped a contract will be created. Type any takes precedent over other types.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Generator List - Control Document Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2244621550 - Control 1637095154 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the duration of the contract in a date formula. If you do not specify a duration you must set one manually after the contract is generated.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Generator List - Control Duration - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2244621550 - Control 1231419402 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies when the contract is generated. This can be automatically or manual.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Generator List - Control Generation Moment - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2244621550 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies fror which source number the contract is created.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Generator List - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2244621550 - Control 2867321151 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the billing period of the contract. If you do not specify a billing period the contract duration is used.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Generator List - Control Red Reg Billing Period - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2244621550 - Control 1878130204 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies fror which line type the contract is created. Item takes precedence over Item Category.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Generator List - Control Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3020676561 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lines</source>
@@ -1278,6 +1343,51 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contract - Control Purchaser Code - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 4017831926 - Control 2867321151 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the billing period of the contract.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contract - Control Red Reg Billing Period - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4017831926 - Control 271734050 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies how many times the contract has been billed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contract - Control Red Reg Contract Iteration - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4017831926 - Control 2321072599 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status of the contract.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contract - Control Red Reg Contract Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4017831926 - Control 3555410607 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the duration of the contract. If left empty, the contract is valid indefinetely.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contract - Control Red Reg Duration - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4017831926 - Control 723471740 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date when the contract will end.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contract - Control Red Reg End Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4017831926 - Control 3736527384 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the group that the Purchase contract belongs to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contract - Control Red Reg Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4017831926 - Control 1690750677 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date of the next billing.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contract - Control Red Reg Next Billing Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4017831926 - Control 1885245730 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the sales conract that this purchase contract was created from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contract - Control Red Reg Sales Contract No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4017831926 - Control 1740117905 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date that the contract has started.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contract - Control Red Reg Start Date - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 4017831926 - Control 2247850105 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code of the responsibility center, such as a distribution hub, that is associated with the involved user, company, vendor, or vendor.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2223,6 +2333,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contracts - Control Purchaser Code - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 215610659 - Control 3555410607 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the duration of the contract. If left empty, the contract is valid indefinetely.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contracts - Control Red Reg Duration - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 215610659 - Control 723471740 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date when the contract will end.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contracts - Control Red Reg End Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 215610659 - Control 3736527384 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the group that the Purchase contract belongs to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contracts - Control Red Reg Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 215610659 - Control 1740117905 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date that the contract has started.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contracts - Control Red Reg Start Date - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 215610659 - Control 993414011 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a code for an alternate shipment address if you want to ship to another address than the one that has been entered automatically. This field is also used in case of drop shipment.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2357,6 +2487,51 @@
           <source>Specifies additional posting information for the document. After you post the document, the description can add detail to vendor and customer ledger entries.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Posting Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 408510027 - Control 2867321151 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the billing period of the contract.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Red Reg Billing Period - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 408510027 - Control 271734050 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies how many times the contract has been billed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Red Reg Contract Iteration - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 408510027 - Control 2321072599 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status of the contract.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Red Reg Contract Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 408510027 - Control 3555410607 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the duration of the contract. If left empty, the contract is valid indefinetely.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Red Reg Duration - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 408510027 - Control 723471740 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date when the contract will end.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Red Reg End Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 408510027 - Control 3736527384 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the group that the Purchase contract belongs to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Red Reg Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 408510027 - Control 1713797956 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if there are purchase contracts that were created from this sales contract</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Red Reg Has Purchase Contract - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 408510027 - Control 1690750677 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date of the next billing.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Red Reg Next Billing Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 408510027 - Control 1740117905 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date that the contract has started.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Red Reg Start Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 408510027 - Control 2247850105 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code of the responsibility center, such as a distribution hub, that is associated with the involved user, company, customer, or vendor.</source>
@@ -3623,6 +3798,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contracts - Control Posting Date - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2853154262 - Control 3555410607 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the duration of the contract. If left empty, the contract is valid indefinetely.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contracts - Control Red Reg Duration - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2853154262 - Control 723471740 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date when the contract will end.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contracts - Control Red Reg End Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2853154262 - Control 3736527384 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the group that the Purchase contract belongs to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contracts - Control Red Reg Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2853154262 - Control 1740117905 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date that the contract has started.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contracts - Control Red Reg Start Date - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2853154262 - Control 553464652 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the sales person who is assigned to the customer.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3718,10 +3913,55 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Setup - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 97696520 - Control 2557018133 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the purchase post commit should be suppressed. Suppressing the commit ensures that the purchase document cannot be posted without generating the new contract.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Setup - Control Suppress Purchase Post Commit - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 97696520 - Control 867374932 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the sales post commit should be suppressed. Suppressing the commit ensures that the sales document cannot be posted without generating the new contract.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Setup - Control Suppress Sales Post Commit - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 97696520 - Control 2295453870 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>No. Series</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Setup - Control NoSeries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 97696520 - Control 1829482387 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number series that will be used for purchase objects.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Setup - Control NoSeriesPurchase - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 97696520 - Control 2599457470 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number series that will be used for sales objects.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Setup - Control NoSeriesSales - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3090149715 - Control 584985834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4048657685">
+          <source>Specifies the contract that this document was created from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Red Reg Posted Purch. Invoice - Control Red Reg Contract No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4024349093 - Control 584985834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2420212404">
+          <source>Specifies the contract that this document was created from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Red Reg Posted Sales Invoice - Control Red Reg Contract No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2278513587 - Action 3482860159 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2437096118">
+          <source>Generates a Contract if there are sales lines with numbers that are specified in the Contract Generator List.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Red Reg Purchase Invoice - Action Red Reg Create Contract - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2278513587 - Action 3482860159 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2437096118">
+          <source>Generate Contract</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Red Reg Purchase Invoice - Action Red Reg Create Contract - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2278513587 - Control 584985834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2437096118">
+          <source>Specifies the contract that this document was created from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Red Reg Purchase Invoice - Control Red Reg Contract No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 1200004906 - Action 3482860159 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
           <source>Generates a Contract if there are sales lines with numbers that are specified in the Contract Generator List.</source>
@@ -3733,6 +3973,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Red Reg Purchase Order - Action Red Reg Create Contract - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1200004906 - Control 584985834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>Specifies the contract that this document was created from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Red Reg Purchase Order - Control Red Reg Contract No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3683440710 - Action 3482860159 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Generates a Contract if there are sales lines with numbers that are specified in the Contract Generator List.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Red Reg Sales Invoice - Action Red Reg Create Contract - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3683440710 - Action 3482860159 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Generate Contract</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Red Reg Sales Invoice - Action Red Reg Create Contract - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3683440710 - Control 584985834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Specifies the contract that this document was created from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Red Reg Sales Invoice - Control Red Reg Contract No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 937940311 - Action 3482860159 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
           <source>Generates a Contract if there are sales lines with numbers that are specified in the Contract Generator List.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3742,6 +4002,11 @@
           <source>Generate Contract</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Red Reg Sales Order - Action Red Reg Create Contract - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 937940311 - Control 584985834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Specifies the contract that this document was created from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Red Reg Sales Order - Control Red Reg Contract No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="TableExtension 1582581928 - Field 584985834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2271228953">
           <source>Contract No.</source>

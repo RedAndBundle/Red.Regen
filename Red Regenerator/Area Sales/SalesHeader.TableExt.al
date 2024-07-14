@@ -59,6 +59,7 @@ tableextension 11311113 "Red Reg Sales Header" extends "Sales Header"
             DataClassification = CustomerContent;
             Caption = 'Duration';
             // ToolTip = 'Specifies the duration of the contract. If left empty, the contract is valid indefinetely.';
+            // TODO must be able to be blank if contract is valid indefinitely
 
             trigger OnValidate()
             begin

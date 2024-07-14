@@ -59,4 +59,19 @@ codeunit 11311116 "Red Reg Purchase Events"
 
         Generator.GenerateContracts(PurchaseHeader, Enum::"Red Reg Generation Moments"::OnRelease);
     end;
+
+    [EventSubscriber(ObjectType::Page, Page::"Posted Purch. Invoice - Update", OnAfterRecordChanged, '', false, false)]
+    local procedure OnAfterRecordChanged(var PurchInvHeader: Record "Purch. Inv. Header"; xPurchInvHeader: Record "Purch. Inv. Header"; var IsChanged: Boolean; xPurchInvHeaderGlobal: Record "Purch. Inv. Header")
+    begin
+        if IsChanged then
+            exit;
+
+        IsChanged := (PurchInvHeader."Red Reg Contract No." <> xPurchInvHeader."Red Reg Contract No.");
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch. Inv. Header - Edit", OnBeforePurchInvHeaderModify, '', false, false)]
+    local procedure OnBeforePurchInvHeaderModify(var PurchInvHeader: Record "Purch. Inv. Header"; PurchInvHeaderRec: Record "Purch. Inv. Header")
+    begin
+        PurchInvHeader."Red Reg Contract No." := PurchInvHeaderRec."Red Reg Contract No.";
+    end;
 }

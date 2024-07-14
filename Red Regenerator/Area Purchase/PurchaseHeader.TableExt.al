@@ -53,6 +53,7 @@ tableextension 11311115 "Red Reg Purchase Header" extends "Purchase Header"
             Caption = 'End Date';
             // ToolTip = 'Specifies the date when the contract will end.';
             Editable = false;
+            // TODO must be able to be blank if contract is valid indefinitely
         }
         field(11311123; "Red Reg Duration"; DateFormula)
         {

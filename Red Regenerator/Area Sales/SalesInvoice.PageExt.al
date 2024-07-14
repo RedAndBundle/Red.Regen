@@ -1,4 +1,4 @@
-pageextension 11311113 "Red Reg Sales Order" extends "Sales Order"
+pageextension 11311117 "Red Reg Sales Invoice" extends "Sales Invoice"
 {
     layout
     {

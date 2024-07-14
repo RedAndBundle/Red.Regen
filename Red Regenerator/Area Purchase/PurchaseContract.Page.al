@@ -216,11 +216,13 @@ page 11311119 "Red Reg Purchase Contract"
                     ApplicationArea = Basic, Suite;
                     Importance = Promoted;
                     Editable = false;
+                    ToolTip = 'Specifies the status of the contract.';
                 }
                 field("Red Reg Start Date"; Rec."Red Reg Start Date")
                 {
                     ApplicationArea = Basic, Suite;
                     Importance = Promoted;
+                    ToolTip = 'Specifies the date that the contract has started.';
 
                     trigger OnValidate()
                     begin
@@ -231,39 +233,46 @@ page 11311119 "Red Reg Purchase Contract"
                 {
                     ApplicationArea = Basic, Suite;
                     Importance = Promoted;
+                    ToolTip = 'Specifies the duration of the contract. If left empty, the contract is valid indefinetely.';
                 }
                 field("Red Reg End Date"; Rec."Red Reg End Date")
                 {
                     ApplicationArea = Basic, Suite;
                     Importance = Promoted;
                     QuickEntry = false;
+                    ToolTip = 'Specifies the date when the contract will end.';
                 }
                 field("Red Reg Billing Period"; Rec."Red Reg Billing Period")
                 {
                     ApplicationArea = Basic, Suite;
                     Importance = Promoted;
+                    ToolTip = 'Specifies the billing period of the contract.';
                 }
                 field("Red Reg Next Billing Date"; Rec."Red Reg Next Billing Date")
                 {
                     ApplicationArea = Basic, Suite;
                     Importance = Promoted;
                     Editable = false;
+                    ToolTip = 'Specifies the date of the next billing.';
                 }
                 field("Red Reg Group"; Rec."Red Reg Group")
                 {
                     ApplicationArea = Basic, Suite;
                     Importance = Promoted;
+                    ToolTip = 'Specifies the group that the Purchase contract belongs to.';
                 }
                 field("Red Reg Contract Iteration"; Rec."Red Reg Contract Iteration")
                 {
                     ApplicationArea = Basic, Suite;
                     Importance = Additional;
                     Editable = false;
+                    ToolTip = 'Specifies how many times the contract has been billed.';
                 }
                 field("Red Reg Sales Contract No."; Rec."Red Reg Sales Contract No.")
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
+                    ToolTip = 'Specifies the sales conract that this purchase contract was created from.';
                 }
                 field("Vendor Order No."; Rec."Vendor Order No.")
                 {
@@ -1707,24 +1716,24 @@ page 11311119 "Red Reg Purchase Contract"
 
         CheckShowBackgrValidationNotification();
         RejectICPurchaseOrderEnabled := ICInboxOutboxMgt.IsPurchaseHeaderFromIncomingIC(Rec);
-        if RejectICPurchaseOrderEnabled then begin
-            PurchaseHeader.SetRange("IC Direction", PurchaseHeader."IC Direction"::Incoming);
-            PurchaseHeader.SetFilter("IC Reference Document No.", '<>%1', '');
-            PurchaseHeader.SetRange("Buy-from IC Partner Code", Rec."Buy-from IC Partner Code");
-            PurchaseHeader.SetRange("Document Type", PurchaseHeader."Document Type"::Invoice);
-            PurchaseHeader.SetRange("Vendor Order No.", Rec."Vendor Order No.");
-            if PurchaseHeader.FindFirst() then
-                ICInboxOutboxMgt.ShowDuplicateICDocumentWarning(PurchaseHeader);
-        end;
-        if (Rec."IC Direction" = Rec."IC Direction"::Outgoing) and (Rec."Buy-from IC Partner Code" <> '') and (Rec."IC Status" = Rec."IC Status"::Sent) then begin
-            PurchaseHeader.Reset();
-            PurchaseHeader.SetRange("IC Direction", PurchaseHeader."IC Direction"::Incoming);
-            PurchaseHeader.SetRange("Buy-from IC Partner Code", Rec."Buy-from IC Partner Code");
-            PurchaseHeader.SetRange("Document Type", PurchaseHeader."Document Type"::Invoice);
-            PurchaseHeader.SetRange("Your Reference", Rec."No.");
-            if PurchaseHeader.FindFirst() then
-                ICInboxOutboxMgt.ShowDuplicateICDocumentWarning(PurchaseHeader, ICIncomingInvoiceFromOriginalOrderMsg);
-        end;
+        // if RejectICPurchaseOrderEnabled then begin
+        //     PurchaseHeader.SetRange("IC Direction", PurchaseHeader."IC Direction"::Incoming);
+        //     PurchaseHeader.SetFilter("IC Reference Document No.", '<>%1', '');
+        //     PurchaseHeader.SetRange("Buy-from IC Partner Code", Rec."Buy-from IC Partner Code");
+        //     PurchaseHeader.SetRange("Document Type", PurchaseHeader."Document Type"::Invoice);
+        //     PurchaseHeader.SetRange("Vendor Order No.", Rec."Vendor Order No.");
+        //     if PurchaseHeader.FindFirst() then
+        //         ICInboxOutboxMgt.ShowDuplicateICDocumentWarning(PurchaseHeader);
+        // end;
+        // if (Rec."IC Direction" = Rec."IC Direction"::Outgoing) and (Rec."Buy-from IC Partner Code" <> '') and (Rec."IC Status" = Rec."IC Status"::Sent) then begin
+        //     PurchaseHeader.Reset();
+        //     PurchaseHeader.SetRange("IC Direction", PurchaseHeader."IC Direction"::Incoming);
+        //     PurchaseHeader.SetRange("Buy-from IC Partner Code", Rec."Buy-from IC Partner Code");
+        //     PurchaseHeader.SetRange("Document Type", PurchaseHeader."Document Type"::Invoice);
+        //     PurchaseHeader.SetRange("Your Reference", Rec."No.");
+        //     if PurchaseHeader.FindFirst() then
+        //         ICInboxOutboxMgt.ShowDuplicateICDocumentWarning(PurchaseHeader, ICIncomingInvoiceFromOriginalOrderMsg);
+        // end;
     end;
 
     trigger OnQueryClosePage(CloseAction: Action): Boolean
@@ -1951,7 +1960,7 @@ page 11311119 "Red Reg Purchase Contract"
         if not OrderPurchaseHeader.Get(Rec."Document Type", Rec."No.") then begin
             PurchInvHeader.SetRange("No.", Rec."Last Posting No.");
             if PurchInvHeader.FindFirst() then begin
-                ICFeedback.ShowIntercompanyMessage(Rec, Enum::"IC Transaction Document Type"::Order);
+                // ICFeedback.ShowIntercompanyMessage(Rec, Enum::"IC Transaction Document Type"::Order);
                 if InstructionMgt.ShowConfirm(StrSubstNo(OpenPostedPurchaseOrderQst, PurchInvHeader."No."),
                      InstructionMgt.ShowPostedConfirmationMessageCode())
                 then

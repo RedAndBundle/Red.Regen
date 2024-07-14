@@ -214,11 +214,13 @@ page 11311116 "Red Reg Sales Contract"
                     ApplicationArea = Basic, Suite;
                     Importance = Promoted;
                     Editable = false;
+                    ToolTip = 'Specifies the status of the contract.';
                 }
                 field("Red Reg Start Date"; Rec."Red Reg Start Date")
                 {
                     ApplicationArea = Basic, Suite;
                     Importance = Promoted;
+                    ToolTip = 'Specifies the date that the contract has started.';
 
                     trigger OnValidate()
                     begin
@@ -229,39 +231,46 @@ page 11311116 "Red Reg Sales Contract"
                 {
                     ApplicationArea = Basic, Suite;
                     Importance = Promoted;
+                    ToolTip = 'Specifies the duration of the contract. If left empty, the contract is valid indefinetely.';
                 }
                 field("Red Reg End Date"; Rec."Red Reg End Date")
                 {
                     ApplicationArea = Basic, Suite;
                     Importance = Promoted;
                     QuickEntry = false;
+                    ToolTip = 'Specifies the date when the contract will end.';
                 }
                 field("Red Reg Billing Period"; Rec."Red Reg Billing Period")
                 {
                     ApplicationArea = Basic, Suite;
                     Importance = Promoted;
+                    ToolTip = 'Specifies the billing period of the contract.';
                 }
                 field("Red Reg Next Billing Date"; Rec."Red Reg Next Billing Date")
                 {
                     ApplicationArea = Basic, Suite;
                     Importance = Promoted;
                     Editable = false;
+                    ToolTip = 'Specifies the date of the next billing.';
                 }
                 field("Red Reg Group"; Rec."Red Reg Group")
                 {
                     ApplicationArea = Basic, Suite;
                     Importance = Promoted;
+                    ToolTip = 'Specifies the group that the Purchase contract belongs to.';
                 }
                 field("Red Reg Contract Iteration"; Rec."Red Reg Contract Iteration")
                 {
                     ApplicationArea = Basic, Suite;
                     Importance = Additional;
                     Editable = false;
+                    ToolTip = 'Specifies how many times the contract has been billed.';
                 }
                 field("Red Reg Has Purchase Contract"; Rec."Red Reg Has Purchase Contract")
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
+                    ToolTip = 'Specifies if there are purchase contracts that were created from this sales contract';
                 }
                 field("External Document No."; Rec."External Document No.")
                 {
@@ -1653,7 +1662,6 @@ page 11311116 "Red Reg Sales Contract"
         ShowWorkflowStatus: Boolean;
         CanCancelApprovalForRecord: Boolean;
         JobQueuesUsed: Boolean;
-        DocumentIsScheduledForPosting: Boolean;
         PaymentServiceVisible: Boolean;
         PaymentServiceEnabled: Boolean;
         IsPostingGroupEditable: Boolean;
@@ -1770,8 +1778,8 @@ page 11311116 "Red Reg Sales Contract"
 
     procedure UpdateShipToBillToGroupVisibility()
     begin
-        // CustomerMgt.CalculateShipToBillToOptions(ShipToOptions, BillToOptions, Rec);
-        CustomerMgt.CalculateShipBillToOptions(ShipToOptions, BillToOptions, Rec);
+        CustomerMgt.CalculateShipToBillToOptions(ShipToOptions, BillToOptions, Rec);
+        // CustomerMgt.CalculateShipBillToOptions(ShipToOptions, BillToOptions, Rec);
     end;
 
     procedure SetPostingGroupEditable()
@@ -1788,23 +1796,5 @@ page 11311116 "Red Reg Sales Contract"
     begin
         if DocumentErrorsMgt.CheckShowEnableBackgrValidationNotification() then
             SetControlVisibility();
-    end;
-
-    local procedure ShowReleaseNotification(): Boolean
-    var
-        LocationsQuery: Query "Locations from items Sales";
-    begin
-        if Rec.TestStatusIsNotReleased() then begin
-            LocationsQuery.SetRange(Document_No, Rec."No.");
-            LocationsQuery.SetRange(Require_Pick, true);
-            LocationsQuery.Open();
-            if LocationsQuery.Read() then
-                exit(true);
-            LocationsQuery.SetRange(Require_Pick);
-            LocationsQuery.SetRange(Require_Shipment, true);
-            LocationsQuery.Open();
-            exit(LocationsQuery.Read());
-        end;
-        exit(false);
     end;
 }

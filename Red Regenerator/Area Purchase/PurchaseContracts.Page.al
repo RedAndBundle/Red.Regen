@@ -38,18 +38,22 @@ page 11311120 "Red Reg Purchase Contracts"
                 field("Red Reg Start Date"; Rec."Red Reg Start Date")
                 {
                     ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the date that the contract has started.';
                 }
                 field("Red Reg End Date"; Rec."Red Reg End Date")
                 {
                     ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the date when the contract will end.';
                 }
                 field("Red Reg Duration"; Rec."Red Reg Duration")
                 {
                     ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the duration of the contract. If left empty, the contract is valid indefinetely.';
                 }
                 field("Red Reg Group"; Rec."Red Reg Group")
                 {
                     ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the group that the Purchase contract belongs to.';
                 }
                 field("Vendor Order No."; Rec."Vendor Order No.")
                 {

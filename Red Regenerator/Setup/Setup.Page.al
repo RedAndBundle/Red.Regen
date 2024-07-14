@@ -15,10 +15,12 @@ page 11311113 "Red Reg Setup"
                 field("Suppress Sales Post Commit"; Rec."Suppress Sales Post Commit")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies if the sales post commit should be suppressed. Suppressing the commit ensures that the sales document cannot be posted without generating the new contract.';
                 }
                 field("Suppress Purchase Post Commit"; Rec."Suppress Purchase Post Commit")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies if the purchase post commit should be suppressed. Suppressing the commit ensures that the purchase document cannot be posted without generating the new contract.';
                 }
                 // field("Red Reg Generate On"; Rec."Red Reg Generate On")
                 // {
@@ -35,10 +37,12 @@ page 11311113 "Red Reg Setup"
                 field(NoSeriesSales; Rec."No. Series Sales")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the number series that will be used for sales objects.';
                 }
                 field(NoSeriesPurchase; Rec."No. Series Purchase")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the number series that will be used for purchase objects.';
                 }
             }
         }
