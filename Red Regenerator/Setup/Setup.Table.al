@@ -19,6 +19,7 @@ table 11311113 "Red Reg Setup"
         field(11; "Suppress Sales Post Commit"; Boolean)
         {
             Caption = 'Suppress Sales Post Commit';
+            InitValue = true;
             // ToolTip = 'Specifies if the sales post commit should be suppressed. Suppressing the commit ensures that the sales document cannot be posted without generating the new contract.';
         }
         // field(12; "Red Reg Generate On"; Enum "Red Reg Generation Moments")
@@ -41,6 +42,7 @@ table 11311113 "Red Reg Setup"
         field(21; "Suppress Purchase Post Commit"; Boolean)
         {
             Caption = 'Suppress Purchase Post Commit';
+            InitValue = true;
             // ToolTip = 'Specifies if the purchase post commit should be suppressed. Suppressing the commit ensures that the purchase document cannot be posted without generating the new contract.';
         }
         // TODO

@@ -27,6 +27,7 @@ codeunit 11311115 "Red Reg Sales Events"
     local procedure OnBeforePostCommitSalesDoc(var SalesHeader: Record "Sales Header"; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; PreviewMode: Boolean; var ModifyHeader: Boolean; var CommitIsSuppressed: Boolean; var TempSalesLineGlobal: Record "Sales Line" temporary)
     var
         Setup: Record "Red Reg Setup";
+        Generator: Codeunit "Red Reg Sales Generator";
     begin
         if PreviewMode then
             exit;
@@ -34,8 +35,11 @@ codeunit 11311115 "Red Reg Sales Events"
         if not Setup.Get() then
             exit;
 
-        // if (SalesHeader."Red Reg Contract No." <> '') or (has something to generate contract) then
-        CommitIsSuppressed := Setup."Suppress Sales Post Commit";
+        if not Setup."Suppress Sales Post Commit" then
+            exit;
+
+        if Generator.WillGenerateContractsAfterSalesPost(SalesHeader) then
+            CommitIsSuppressed := Setup."Suppress Sales Post Commit";
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterPostSalesDoc', '', false, false)]
@@ -47,8 +51,8 @@ codeunit 11311115 "Red Reg Sales Events"
         if PreviewMode then
             exit;
 
+        Generator.GenerateContracts(SalesHeader, Enum::"Red Reg Generation Moments"::Manual);
         Generator.GenerateContractsAfterSalesPost(SalesHeader, SalesShptHdrNo, SalesInvHdrNo, CommitIsSuppressed, CustLedgerEntry);
-        // TODO add Shipment Informaton to contract. ?? Is this even necessary? Does it add anything?
         Regenerator.ActivateContract(SalesHeader);
     end;
 

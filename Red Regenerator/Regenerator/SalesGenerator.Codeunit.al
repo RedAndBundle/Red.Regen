@@ -23,6 +23,36 @@ codeunit 11311113 "Red Reg Sales Generator"
         Setup.TestSalesSetup();
     end;
 
+    procedure WillGenerateContractsAfterSalesPost(var SalesHeader: Record "Sales Header"): Boolean
+    var
+        SalesLine: Record "Sales Line";
+        Generator: Record "Red Reg Generator";
+    begin
+        case SalesHeader."Document Type" of
+            SalesHeader."Document Type"::"Blanket Order",
+            SalesHeader."Document Type"::"Credit Memo",
+            SalesHeader."Document Type"::Quote,
+            SalesHeader."Document Type"::"Return Order":
+                exit(false);
+        end;
+
+        if SalesHeader."Red Reg Contract No." <> '' then
+            exit(false);
+
+        Generator.SetRange("Application Area", Generator."Application Area"::Sales);
+        Generator.SetRange("Generation Moment", Generator."Generation Moment"::OnPost);
+        if Generator.IsEmpty() then
+            exit(false);
+
+        SalesLine.SetRange("Document No.", SalesHeader."No.");
+        SalesLine.SetRange("Document Type", SalesHeader."Document Type");
+        if SalesLine.FindSet() then
+            repeat
+                if HasGenerator(SalesLine.Type, SalesLine."No.", SalesLine."Item Category Code", SalesHeader."Document Type", Generator."Generation Moment"::OnPost) then
+                    exit(true);
+            until SalesLine.Next() = 0;
+    end;
+
     procedure GenerateContractsAfterSalesPost(var SalesHeader: Record "Sales Header"; SalesShptHdrNo: Code[20]; SalesInvHdrNo: Code[20]; CommitIsSuppressed: Boolean; var CustLedgerEntry: Record "Cust. Ledger Entry")
     var
         ContractSalesHeader: Record "Sales Header";
@@ -30,8 +60,6 @@ codeunit 11311113 "Red Reg Sales Generator"
         SalesShipmentLine: Record "Sales Shipment Line";
         Generator: Record "Red Reg Generator";
     begin
-        GenerateContracts(SalesHeader, Enum::"Red Reg Generation Moments"::Manual);
-
         case SalesHeader."Document Type" of
             SalesHeader."Document Type"::"Blanket Order",
             SalesHeader."Document Type"::"Credit Memo",
@@ -83,6 +111,30 @@ codeunit 11311113 "Red Reg Sales Generator"
                         InsertContractLine(ContractSalesHeader, SalesLine);
                     end;
             until SalesLine.Next() = 0;
+    end;
+
+    local procedure HasGenerator(Type: Enum "Sales Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; DocumentType: Enum "Sales Document Type"; GenerationMoment: Enum "Red Reg Generation Moments"): Boolean
+    var
+        Generator: Record "Red Reg Generator";
+    begin
+        case DocumentType of
+            DocumentType::Order:
+                Generator.SetFilter("Document Type", '%1|%2', Generator."Document Type"::Any, Enum::"Red Reg Document Type"::Order);
+            DocumentType::Invoice:
+                Generator.SetFilter("Document Type", '%1|%2', Generator."Document Type"::Any, Enum::"Red Reg Document Type"::Invoice);
+        end;
+
+        Generator.SetRange("Application Area", Generator."Application Area"::Sales);
+        Generator.SetRange("Generation Moment", GenerationMoment);
+        Generator.SetRange(Type, Type);
+        Generator.SetRange("No.", No);
+        if not Generator.IsEmpty() then
+            exit(true);
+
+        if (Type = Type::Item) and (ItemCategoryCode <> '') then begin
+            Generator.SetRange("No.", ItemCategoryCode);
+            exit(not Generator.IsEmpty);
+        end;
     end;
 
     local procedure GetGenerator(var Generator: Record "Red Reg Generator"; Type: Enum "Sales Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; DocumentType: Enum "Sales Document Type"): Boolean
@@ -178,8 +230,6 @@ codeunit 11311113 "Red Reg Sales Generator"
         ContractSalesLine.SetRange("Red Reg Org. Document Type", ContractSalesHeader."Red Reg Org. Document Type");
         ContractSalesLine.SetRange("Red Reg Org. Document No.", ContractSalesHeader."Red Reg Org. Document No.");
         ContractSalesLine.SetRange("Red Reg Org. Document Line No.", SalesLine."Line No.");
-        ContractSalesLine.SetRange("Red Reg Org. Shipment No.", SalesLine."Document No.");
-        ContractSalesLine.SetRange("Red Reg Org. Shipment Line No.", SalesLine."Line No.");
         if ContractSalesLine.FindFirst() then begin
             ContractSalesLine.Validate("Quantity", SalesLine.Quantity);
             ContractSalesLine.Modify(true);
@@ -191,8 +241,6 @@ codeunit 11311113 "Red Reg Sales Generator"
         ContractSalesLine."Red Reg Org. Document Type" := ContractSalesHeader."Red Reg Org. Document Type";
         ContractSalesLine."Red Reg Org. Document No." := ContractSalesHeader."Red Reg Org. Document No.";
         ContractSalesLine."Red Reg Org. Document Line No." := SalesLine."Line No.";
-        ContractSalesLine."Red Reg Org. Shipment No." := SalesLine."Document No.";
-        ContractSalesLine."Red Reg Org. Shipment Line No." := SalesLine."Line No.";
         ContractSalesLine.Insert(true);
     end;
 }

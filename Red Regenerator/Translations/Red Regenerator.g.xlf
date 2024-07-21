@@ -3948,6 +3948,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Red Reg Posted Sales Invoice - Control Red Reg Contract No. - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1130469854 - Control 584985834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 562927162">
+          <source>Red Registration Contract No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Red Reg Pstd Purch. Inv. Upd. - Control Red Reg Contract No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2278513587 - Action 3482860159 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2437096118">
           <source>Generates a Contract if there are sales lines with numbers that are specified in the Contract Generator List.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4697,6 +4702,11 @@
           <source>Purchase Contract</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Red Reg Purchase Type - EnumValue Purchase Contract - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 2419704069 - EnumValue 1198438353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 736532068">
+          <source>Regenerator</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Red Reg Approval Document Type - EnumValue Red Regenerator - Property Caption</note>
         </trans-unit>
         <trans-unit id="EnumExtension 1924008121 - EnumValue 1198438353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 1117131368">
           <source>Regenerator</source>

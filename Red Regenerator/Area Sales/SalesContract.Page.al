@@ -73,7 +73,6 @@ page 11311116 "Red Reg Sales Contract"
                     ToolTip = 'Specifies the customer''s VAT registration number for customers.';
                     Visible = false;
                 }
-                // TODO add order + shipment numbers
                 field("Posting Description"; Rec."Posting Description")
                 {
                     ApplicationArea = Suite;
@@ -1191,51 +1190,6 @@ page 11311116 "Red Reg Sales Contract"
             {
                 Caption = 'F&unctions';
                 Image = "Action";
-                // TODO create purchase contract
-                // group("Create Purchase Document")
-                // {
-                //     Caption = 'Create Purchase Document';
-                //     Image = NewPurchaseInvoice;
-                //     ToolTip = 'Create a new purchase document so you can buy items from a vendor.';
-                //     action(CreatePurchaseOrder)
-                //     {
-                //         ApplicationArea = Suite;
-                //         Caption = 'Create Purchase Orders';
-                //         Image = Document;
-                //         //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
-                //         //PromotedCategory = Category8;
-                //         //The property 'PromotedIsBig' can only be set if the property 'Promoted' is set to 'true'
-                //         //PromotedIsBig = true;
-                //         ToolTip = 'Create one or more new purchase orders to buy the items that are required by this sales document, minus any quantity that is already available.';
-
-                //         trigger OnAction()
-                //         var
-                //             PurchDocFromSalesDoc: Codeunit "Purch. Doc. From Sales Doc.";
-                //         begin
-                //             PurchDocFromSalesDoc.CreatePurchaseOrder(Rec);
-                //         end;
-                //     }
-                //     action(CreatePurchaseInvoice)
-                //     {
-                //         ApplicationArea = Basic, Suite;
-                //         Caption = 'Create Purchase Invoice';
-                //         Image = NewPurchaseInvoice;
-                //         //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
-                //         //PromotedCategory = Category8;
-                //         //The property 'PromotedIsBig' can only be set if the property 'Promoted' is set to 'true'
-                //         //PromotedIsBig = true;
-                //         ToolTip = 'Create a new purchase invoice to buy all the items that are required by the sales document, even if some of the items are already available.';
-
-                //         trigger OnAction()
-                //         var
-                //             SelectedSalesLine: Record "Sales Line";
-                //             PurchDocFromSalesDoc: Codeunit "Purch. Doc. From Sales Doc.";
-                //         begin
-                //             CurrPage.SalesLines.PAGE.SetSelectionFilter(SelectedSalesLine);
-                //             PurchDocFromSalesDoc.CreatePurchaseInvoice(Rec, SelectedSalesLine);
-                //         end;
-                //     }
-                // }
                 action(CopyDocument)
                 {
                     // TODO Fix

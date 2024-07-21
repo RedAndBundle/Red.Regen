@@ -48,7 +48,6 @@ codeunit 11311114 "Red Reg Regenerator"
         CheckSalesDocumentForNextIteration(ContractSalesHeader);
         CreateSalesDocument(ContractSalesHeader);
         ContractSalesHeader.RedRegCalculateNextBillingDate();
-        // TODO also regenerate linked purchase contract or possibility to generate purchae order/invoice
     end;
 
     procedure RegeneratePurchaseDocument(var ContractPurchaseHeader: Record "Purchase Header")

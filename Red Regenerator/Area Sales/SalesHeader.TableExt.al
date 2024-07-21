@@ -20,7 +20,6 @@ tableextension 11311113 "Red Reg Sales Header" extends "Sales Header"
         {
             DataClassification = CustomerContent;
             Caption = 'Originating Shipment No.';
-            // TODO obsolete when creating a contract through release or manual. Delete?
         }
         field(11311118; "Red Reg Contract No."; code[20])
         {
@@ -119,14 +118,12 @@ tableextension 11311113 "Red Reg Sales Header" extends "Sales Header"
 
     trigger OnModify()
     begin
-        // TODO cannot modify active contract
-        // TODO cannot change document + posting date if sales doc is linked to a contract
+        // TODO cannot modify active contract, cannot change document + posting date if sales doc is linked to a contract
     end;
 
     trigger OnDelete()
     begin
-        // TODO cannot delete active contract
-        // TODO reset iteration and next billing date if sales doc is linked to a contract
+        // TODO cannot modify active contract, cannot change document + posting date if sales doc is linked to a contract
     end;
 
     local procedure RedRegCalculateDates()
