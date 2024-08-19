@@ -50,19 +50,21 @@ tableextension 11311114 "Red Reg Sales Line" extends "Sales Line"
 
     trigger OnInsert()
     begin
-        RedRegCreatePurchaseContract();
+        // RedRegCreatePurchaseContract();
+        // TODO fix does not work. Need some form of on after generate sales doc to create the purchase contracts
+        // Move to accept procedure in sales contract
     end;
 
     trigger OnModify()
     begin
         // TODO cannot modify active contract, cannot change document + posting date if sales doc is linked to a contract
-        RedRegCreatePurchaseContract();
+        // RedRegCreatePurchaseContract();
     end;
 
     trigger OnDelete()
     begin
         // TODO cannot modify active contract, cannot change document + posting date if sales doc is linked to a contract
-        RedRegCreatePurchaseContract();
+        // RedRegCreatePurchaseContract();
     end;
 
     internal procedure RedRegInitNewLine(SalesHeader: Record "Sales Header")

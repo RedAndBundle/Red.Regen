@@ -27,6 +27,7 @@ codeunit 11311116 "Red Reg Purchase Events"
     local procedure OnBeforePostCommitPurchaseDoc(var PurchaseHeader: Record "Purchase Header"; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; PreviewMode: Boolean; ModifyHeader: Boolean; var CommitIsSupressed: Boolean; var TempPurchLineGlobal: Record "Purchase Line" temporary)
     var
         Setup: Record "Red Reg Setup";
+        Generator: Codeunit "Red Reg Purchase Generator";
     begin
         if PreviewMode then
             exit;
@@ -35,7 +36,8 @@ codeunit 11311116 "Red Reg Purchase Events"
             exit;
 
         // if (PurchaseHeader."Red Reg Contract No." <> '') or (has something to generate contract) then
-        CommitIsSupressed := Setup."Suppress Purchase Post Commit";
+        if Generator.WillGenerateContractsAfterPurchasePost(PurchaseHeader) then
+            CommitIsSupressed := Setup."Suppress Purchase Post Commit";
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post", 'OnAfterPostPurchaseDoc', '', false, false)]
@@ -44,9 +46,9 @@ codeunit 11311116 "Red Reg Purchase Events"
         Generator: Codeunit "Red Reg Purchase Generator";
         Regenerator: Codeunit "Red Reg Regenerator";
     begin
+        Generator.GenerateContracts(PurchaseHeader, Enum::"Red Reg Generation Moments"::Manual);
         Generator.GenerateContractsAfterPurchasePost(PurchaseHeader, PurchRcpHdrNo, PurchInvHdrNo, CommitIsSupressed);
         Regenerator.ActivateContract(PurchaseHeader);
-        // TODO add receipt Informaton to contract. ?? Is this even necessary? Does it add anything?
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Purchase Document", OnAfterReleasePurchaseDoc, '', false, false)]

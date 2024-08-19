@@ -33,6 +33,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1312917980 - NamedType 2034178160" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The %1 type is not supported.</source>
+          <note from="Developer" annotates="general" priority="2">%1 - Type</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Generator - NamedType InvalidTypeErr</note>
+        </trans-unit>
         <trans-unit id="Table 1312917980 - Method 4180507426 - NamedType 3853141599" size-unit="char" translate="yes" xml:space="preserve">
           <source>You cannot sell %1 %2 because the %3 check box is selected on the %1 card.</source>
           <note from="Developer" annotates="general" priority="2">%1 - Table Caption (Item), %2 - Item No., %3 - Field Caption</note>

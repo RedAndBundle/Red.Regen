@@ -126,7 +126,7 @@ codeunit 11311113 "Red Reg Sales Generator"
 
         Generator.SetRange("Application Area", Generator."Application Area"::Sales);
         Generator.SetRange("Generation Moment", GenerationMoment);
-        Generator.SetRange(Type, Type);
+        Generator.SetRange(Type, Generator.ConvertType(Type));
         Generator.SetRange("No.", No);
         if not Generator.IsEmpty() then
             exit(true);
@@ -152,7 +152,7 @@ codeunit 11311113 "Red Reg Sales Generator"
 
     local procedure GetGenerator(var Generator: Record "Red Reg Generator"; Type: Enum "Sales Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; RegDocumentType: Enum "Red Reg Document Type"): Boolean
     begin
-        if Generator.Get(Generator."Application Area"::Sales, RegDocumentType, Type, No) then
+        if Generator.Get(Generator."Application Area"::Sales, RegDocumentType, Generator.ConvertType(Type), No) then
             exit(true);
 
         if (Type = Type::Item) and (ItemCategoryCode <> '') then

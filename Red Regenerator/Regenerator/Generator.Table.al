@@ -91,6 +91,36 @@ table 11311117 "Red Reg Generator"
             Clustered = true;
         }
     }
+    var
+        InvalidTypeErr: Label 'The %1 type is not supported.', Comment = '%1 - Type';
+
+    internal procedure ConvertType(Input: Enum "Purchase Line Type"): Enum "Red Reg Create Contract Type"
+    begin
+        case Input of
+            Input::"G/L Account":
+                exit(Type::"G/L Account");
+            Input::"Resource":
+                exit(Type::Resource);
+            Input::"Item":
+                exit(Type::Item);
+            else
+                Error(InvalidTypeErr, Input);
+        end;
+    end;
+
+    internal procedure ConvertType(Input: Enum "Sales Line Type"): Enum "Red Reg Create Contract Type"
+    begin
+        case Input of
+            Input::"G/L Account":
+                exit(Type::"G/L Account");
+            Input::"Resource":
+                exit(Type::Resource);
+            Input::"Item":
+                exit(Type::Item);
+            else
+                Error(InvalidTypeErr, Input);
+        end;
+    end;
 
     local procedure CopyFromGLAccount()
     var

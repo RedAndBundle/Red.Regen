@@ -22,6 +22,36 @@ codeunit 11311117 "Red Reg Purchase Generator"
         Setup.TestPurchaseSetup();
     end;
 
+    procedure WillGenerateContractsAfterPurchasePost(var PurchaseHeader: Record "Purchase Header"): Boolean
+    var
+        PurchaseLine: Record "Purchase Line";
+        Generator: Record "Red Reg Generator";
+    begin
+        case PurchaseHeader."Document Type" of
+            PurchaseHeader."Document Type"::"Blanket Order",
+            PurchaseHeader."Document Type"::"Credit Memo",
+            PurchaseHeader."Document Type"::Quote,
+            PurchaseHeader."Document Type"::"Return Order":
+                exit(false);
+        end;
+
+        if PurchaseHeader."Red Reg Contract No." <> '' then
+            exit(false);
+
+        Generator.SetRange("Application Area", Generator."Application Area"::Purchase);
+        Generator.SetRange("Generation Moment", Generator."Generation Moment"::OnPost);
+        if Generator.IsEmpty() then
+            exit(false);
+
+        PurchaseLine.SetRange("Document No.", PurchaseHeader."No.");
+        PurchaseLine.SetRange("Document Type", PurchaseHeader."Document Type");
+        if PurchaseLine.FindSet() then
+            repeat
+                if HasGenerator(PurchaseLine.Type, PurchaseLine."No.", PurchaseLine."Item Category Code", PurchaseHeader."Document Type", Generator."Generation Moment"::OnPost) then
+                    exit(true);
+            until PurchaseLine.Next() = 0;
+    end;
+
     procedure GenerateContractsAfterPurchasePost(var PurchaseHeader: Record "Purchase Header"; PurchaseShptHdrNo: Code[20]; PurchaseInvHdrNo: Code[20]; CommitIsSuppressed: Boolean)
     var
         ContractPurchaseHeader: Record "Purchase Header";
@@ -29,8 +59,6 @@ codeunit 11311117 "Red Reg Purchase Generator"
         PurchRcptLine: Record "Purch. Rcpt. Line";
         Generator: Record "Red Reg Generator";
     begin
-        GenerateContracts(PurchaseHeader, Enum::"Red Reg Generation Moments"::Manual);
-
         case PurchaseHeader."Document Type" of
             PurchaseHeader."Document Type"::"Blanket Order",
             PurchaseHeader."Document Type"::"Credit Memo",
@@ -84,6 +112,59 @@ codeunit 11311117 "Red Reg Purchase Generator"
             until PurchaseLine.Next() = 0;
     end;
 
+    local procedure HasGenerator(Type: Enum "Purchase Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; DocumentType: Enum "Purchase Document Type"; GenerationMoment: Enum "Red Reg Generation Moments"): Boolean
+    var
+        Generator: Record "Red Reg Generator";
+    begin
+        If not (Type in [Type::"G/L Account", Type::"Resource", Type::"Item"]) then
+            exit(false);
+
+        case DocumentType of
+            DocumentType::Order:
+                Generator.SetFilter("Document Type", '%1|%2', Generator."Document Type"::Any, Enum::"Red Reg Document Type"::Order);
+            DocumentType::Invoice:
+                Generator.SetFilter("Document Type", '%1|%2', Generator."Document Type"::Any, Enum::"Red Reg Document Type"::Invoice);
+        end;
+
+        Generator.SetRange("Application Area", Generator."Application Area"::Purchase);
+        Generator.SetRange("Generation Moment", GenerationMoment);
+        Generator.SetRange(Type, Generator.ConvertType(Type));
+        Generator.SetRange("No.", No);
+        if not Generator.IsEmpty() then
+            exit(true);
+
+        if (Type = Type::Item) and (ItemCategoryCode <> '') then begin
+            Generator.SetRange("No.", ItemCategoryCode);
+            exit(not Generator.IsEmpty);
+        end;
+    end;
+
+    local procedure GetGenerator(var Generator: Record "Red Reg Generator"; Type: Enum "Purchase Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; DocumentType: Enum "Purchase Document Type"): Boolean
+    begin
+        If not (Type in [Type::"G/L Account", Type::"Resource", Type::"Item"]) then
+            exit(false);
+
+        if GetGenerator(Generator, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Any) then
+            exit(true);
+
+        case DocumentType of
+            DocumentType::Order:
+                exit(GetGenerator(Generator, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Order));
+            DocumentType::Invoice:
+                exit(GetGenerator(Generator, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Invoice));
+        end;
+    end;
+
+    local procedure GetGenerator(var Generator: Record "Red Reg Generator"; Type: Enum "Purchase Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; RegDocumentType: Enum "Red Reg Document Type"): Boolean
+    begin
+        if Generator.Get(Generator."Application Area"::Purchase, RegDocumentType, Generator.ConvertType(Type), No) then
+            exit(true);
+
+        if (Type = Type::Item) and (ItemCategoryCode <> '') then
+            if Generator.Get(Generator."Application Area"::Purchase, RegDocumentType, Generator.Type::"Item Category", ItemCategoryCode) then
+                exit(true);
+    end;
+
     procedure CreatePurchaseContractFromSalesLine(SalesLine: Record "Sales Line")
     var
         ContractPurchaseHeader: Record "Purchase Header";
@@ -102,29 +183,6 @@ codeunit 11311117 "Red Reg Purchase Generator"
 
         ContractPurchaseHeader := GetContractHeader(SalesHeader, SalesLine);
         InsertContractLine(ContractPurchaseHeader, SalesLine);
-    end;
-
-    local procedure GetGenerator(var Generator: Record "Red Reg Generator"; Type: Enum "Purchase Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; DocumentType: Enum "Purchase Document Type"): Boolean
-    begin
-        if GetGenerator(Generator, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Any) then
-            exit(true);
-
-        case DocumentType of
-            DocumentType::Order:
-                exit(GetGenerator(Generator, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Order));
-            DocumentType::Invoice:
-                exit(GetGenerator(Generator, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Invoice));
-        end;
-    end;
-
-    local procedure GetGenerator(var Generator: Record "Red Reg Generator"; Type: Enum "Purchase Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; RegDocumentType: Enum "Red Reg Document Type"): Boolean
-    begin
-        if Generator.Get(Generator."Application Area"::Purchase, RegDocumentType, Type, No) then
-            exit(true);
-
-        if (Type = Type::Item) and (ItemCategoryCode <> '') then
-            if Generator.Get(Generator."Application Area"::Purchase, RegDocumentType, Generator.Type::"Item Category", ItemCategoryCode) then
-                exit(true);
     end;
 
     local procedure GetContractHeader(PurchaseHeader: Record "Purchase Header"; StartDate: Date; Generator: Record "Red Reg Generator") ContractPurchaseHeader: Record "Purchase Header"
@@ -165,11 +223,11 @@ codeunit 11311117 "Red Reg Purchase Generator"
         Item: Record Item;
         Vendor: Record Vendor;
     begin
+        // TODO get from GL and Resource lines
         SalesLine.TestField(Type, SalesLine.Type::Item);
         Item.Get(SalesLine."No.");
         Item.TestField("Vendor No.");
         Vendor.Get(Item."Vendor No.");
-
 
         ContractPurchaseHeader.SetCurrentKey("Red Reg Org. Document Type", "Red Reg Org. Document No.", "Red Reg Org. Shipment No.", "Red Reg Group", "Red Reg Duration");
         ContractPurchaseHeader.SetRange("Red Reg Contract No.", SalesHeader."No.");
