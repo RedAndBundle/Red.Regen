@@ -13,6 +13,7 @@ page 11311117 "Red Reg Sales Contract Subform"
     {
         area(content)
         {
+            // TODO details van contracten. Zie Excel van Renato. Handmatig invullen sales contract info?
             repeater(Control1)
             {
                 ShowCaption = false;

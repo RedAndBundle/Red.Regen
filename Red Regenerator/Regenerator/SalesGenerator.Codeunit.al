@@ -75,6 +75,7 @@ codeunit 11311113 "Red Reg Sales Generator"
             exit;
 
         SalesShipmentLine.SetRange("Document No.", SalesShipmentHeader."No.");
+        SalesShipmentLine.SetFilter(Type, '%1|%2|%3', SalesShipmentLine.Type::Item, SalesShipmentLine.Type::Resource, SalesShipmentLine.Type::"G/L Account");
         if SalesShipmentLine.FindSet() then
             repeat
                 if GetGenerator(Generator, SalesShipmentLine.Type, SalesShipmentLine."No.", SalesShipmentLine."Item Category Code", SalesHeader."Document Type") then
@@ -103,6 +104,7 @@ codeunit 11311113 "Red Reg Sales Generator"
             exit;
         SalesLine.SetRange("Document No.", SalesHeader."No.");
         SalesLine.SetRange("Document Type", SalesHeader."Document Type");
+        SalesLine.SetFilter(Type, '%1|%2|%3', SalesLine.Type::Item, SalesLine.Type::Resource, SalesLine.Type::"G/L Account");
         if SalesLine.FindSet() then
             repeat
                 if GetGenerator(Generator, SalesLine.Type, SalesLine."No.", SalesLine."Item Category Code", SalesLine."Document Type") then

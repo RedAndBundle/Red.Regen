@@ -10,6 +10,7 @@ page 11311113 "Red Reg Setup"
     {
         area(Content)
         {
+            // TODO tegel op BC home pagina met contracten die gaan verlopen. + email mogelijkheid naar contract eigenaar.
             group(General)
             {
                 field("Suppress Sales Post Commit"; Rec."Suppress Sales Post Commit")
