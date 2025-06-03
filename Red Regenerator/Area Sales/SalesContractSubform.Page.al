@@ -13,7 +13,6 @@ page 11311117 "Red Reg Sales Contract Subform"
     {
         area(content)
         {
-            // TODO details van contracten. Zie Excel van Renato. Handmatig invullen sales contract info?
             repeater(Control1)
             {
                 ShowCaption = false;
@@ -373,18 +372,6 @@ page 11311117 "Red Reg Sales Contract Subform"
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the actual invoice discount amount that will be posted for the line in next invoice.';
-                    Visible = false;
-                }
-                field("Allow Item Charge Assignment"; Rec."Allow Item Charge Assignment")
-                {
-                    ApplicationArea = ItemCharges;
-                    ToolTip = 'Specifies that you can assign item charges to this line.';
-                    Visible = false;
-                }
-                field("Work Type Code"; Rec."Work Type Code")
-                {
-                    ApplicationArea = Jobs;
-                    ToolTip = 'Specifies which work type the resource applies to when the sale is related to a project.';
                     Visible = false;
                 }
                 field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")

@@ -2,6 +2,13 @@ tableextension 11311114 "Red Reg Sales Line" extends "Sales Line"
 {
     fields
     {
+        modify("No.")
+        {
+            trigger OnAfterValidate()
+            begin
+                Create new line for the contract based on the ItemContract table
+            end;
+        }
         field(11311113; "Red Reg Org. Document Type"; Enum "Sales Document Type")
         {
             DataClassification = CustomerContent;

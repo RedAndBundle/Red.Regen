@@ -59,6 +59,20 @@ codeunit 11311114 "Red Reg Regenerator"
         ContractPurchaseHeader.RedRegCalculateNextBillingDate();
     end;
 
+    procedure RenewContract(var ContractSalesHeader: Record "Sales Header")
+    begin
+        ContractSalesHeader."Red Reg End Date" := CalcDate(ContractSalesHeader."Red Reg Duration", ContractSalesHeader."Red Reg End Date");
+        ContractSalesHeader.RedRegCalculateNextBillingDate();
+        ContractSalesHeader.Modify();
+    end;
+
+    procedure RenewContract(var ContractPurchaseHeader: Record "Purchase Header")
+    begin
+        ContractPurchaseHeader."Red Reg End Date" := CalcDate(ContractPurchaseHeader."Red Reg Duration", ContractPurchaseHeader."Red Reg Next Billing Date");
+        ContractPurchaseHeader.RedRegCalculateNextBillingDate();
+        ContractPurchaseHeader.Modify();
+    end;
+
     local procedure TestContract(var ContractSalesHeader: Record "Sales Header")
     begin
         ContractSalesHeader.TestField("Red Reg Group");
@@ -141,6 +155,8 @@ codeunit 11311114 "Red Reg Regenerator"
             ContractGroup."Regenerate Document Type"::Invoice:
                 SalesHeader."Document Type" := SalesHeader."Document Type"::Invoice;
         end;
+        // TODO, creates with old no series, should be new no series
+        // TODO posting date not correct, should be next billing date
 
         SalesHeader.TransferFields(ContractSalesHeader, false);
         SalesHeader.Status := SalesHeader.Status::Open;

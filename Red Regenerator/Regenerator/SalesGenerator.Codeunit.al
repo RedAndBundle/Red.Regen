@@ -2,7 +2,7 @@ codeunit 11311113 "Red Reg Sales Generator"
 {
     TableNo = "Sales Header";
     Access = Internal;
-    Permissions = tabledata "Red Reg Setup" = rimd, tabledata "Red Reg Generator" = rimd, tabledata "Sales Header" = rimd, tabledata "Sales Line" = rimd, tabledata "Sales Shipment Header" = r, tabledata "Sales Shipment Line" = r;
+    Permissions = tabledata "Red Reg Setup" = rimd, tabledata "Red Reg Contract Template" = rimd, tabledata "Sales Header" = rimd, tabledata "Sales Line" = rimd, tabledata "Sales Shipment Header" = r, tabledata "Sales Shipment Line" = r;
 
     trigger OnRun()
     begin
@@ -12,11 +12,11 @@ codeunit 11311113 "Red Reg Sales Generator"
 
     procedure TestSalesSetup()
     var
-        Generator: Record "Red Reg Generator";
+        ContractTemplate: Record "Red Reg Contract Template";
         Setup: Record "Red Reg Setup";
     begin
-        Generator.SetRange("Application Area", Generator."Application Area"::Sales);
-        if Generator.IsEmpty() then
+        ContractTemplate.SetFilter("Application Area", '%1|%2', ContractTemplate."Application Area"::Sales, ContractTemplate."Application Area"::" ");
+        if ContractTemplate.IsEmpty() then
             exit;
 
         Setup.InitSetup();
@@ -26,7 +26,7 @@ codeunit 11311113 "Red Reg Sales Generator"
     procedure WillGenerateContractsAfterSalesPost(var SalesHeader: Record "Sales Header"): Boolean
     var
         SalesLine: Record "Sales Line";
-        Generator: Record "Red Reg Generator";
+        ContractTemplate: Record "Red Reg Contract Template";
     begin
         case SalesHeader."Document Type" of
             SalesHeader."Document Type"::"Blanket Order",
@@ -39,16 +39,16 @@ codeunit 11311113 "Red Reg Sales Generator"
         if SalesHeader."Red Reg Contract No." <> '' then
             exit(false);
 
-        Generator.SetRange("Application Area", Generator."Application Area"::Sales);
-        Generator.SetRange("Generation Moment", Generator."Generation Moment"::OnPost);
-        if Generator.IsEmpty() then
+        ContractTemplate.SetFilter("Application Area", '%1|%2', ContractTemplate."Application Area"::Sales, ContractTemplate."Application Area"::" ");
+        ContractTemplate.SetRange("Generation Moment", ContractTemplate."Generation Moment"::OnPost);
+        if ContractTemplate.IsEmpty() then
             exit(false);
 
         SalesLine.SetRange("Document No.", SalesHeader."No.");
         SalesLine.SetRange("Document Type", SalesHeader."Document Type");
         if SalesLine.FindSet() then
             repeat
-                if HasGenerator(SalesLine.Type, SalesLine."No.", SalesLine."Item Category Code", SalesHeader."Document Type", Generator."Generation Moment"::OnPost) then
+                if HasContractTemplate(SalesLine.Type, SalesLine."No.", SalesLine."Item Category Code", ContractTemplate."Generation Moment"::OnPost) then
                     exit(true);
             until SalesLine.Next() = 0;
     end;
@@ -58,7 +58,7 @@ codeunit 11311113 "Red Reg Sales Generator"
         ContractSalesHeader: Record "Sales Header";
         SalesShipmentHeader: Record "Sales Shipment Header";
         SalesShipmentLine: Record "Sales Shipment Line";
-        Generator: Record "Red Reg Generator";
+        ContractTemplate: Record "Red Reg Contract Template";
     begin
         case SalesHeader."Document Type" of
             SalesHeader."Document Type"::"Blanket Order",
@@ -78,9 +78,9 @@ codeunit 11311113 "Red Reg Sales Generator"
         SalesShipmentLine.SetFilter(Type, '%1|%2|%3', SalesShipmentLine.Type::Item, SalesShipmentLine.Type::Resource, SalesShipmentLine.Type::"G/L Account");
         if SalesShipmentLine.FindSet() then
             repeat
-                if GetGenerator(Generator, SalesShipmentLine.Type, SalesShipmentLine."No.", SalesShipmentLine."Item Category Code", SalesHeader."Document Type") then
-                    if Generator."Generation Moment" = Generator."Generation Moment"::OnPost then begin
-                        ContractSalesHeader := GetContractHeader(SalesHeader, SalesShipmentHeader."Posting Date", Generator);
+                if GetContractTemplate(ContractTemplate, SalesShipmentLine.Type, SalesShipmentLine."No.", SalesShipmentLine."Item Category Code", SalesHeader."Document Type") then
+                    if ContractTemplate."Generation Moment" = ContractTemplate."Generation Moment"::OnPost then begin
+                        ContractSalesHeader := GetContractHeader(SalesHeader, SalesShipmentHeader."Posting Date", ContractTemplate);
                         InsertContractLine(ContractSalesHeader, SalesShipmentLine);
                     end;
             until SalesShipmentLine.Next() = 0;
@@ -90,7 +90,7 @@ codeunit 11311113 "Red Reg Sales Generator"
     var
         ContractSalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
-        Generator: Record "Red Reg Generator";
+        ContractTemplate: Record "Red Reg Contract Template";
     begin
         case SalesHeader."Document Type" of
             SalesHeader."Document Type"::"Blanket Order",
@@ -107,88 +107,82 @@ codeunit 11311113 "Red Reg Sales Generator"
         SalesLine.SetFilter(Type, '%1|%2|%3', SalesLine.Type::Item, SalesLine.Type::Resource, SalesLine.Type::"G/L Account");
         if SalesLine.FindSet() then
             repeat
-                if GetGenerator(Generator, SalesLine.Type, SalesLine."No.", SalesLine."Item Category Code", SalesLine."Document Type") then
-                    if Generator."Generation Moment" = GenerationMoment then begin
-                        ContractSalesHeader := GetContractHeader(SalesHeader, SalesHeader."Document Date", Generator);
+                if GetContractTemplate(ContractTemplate, SalesLine.Type, SalesLine."No.", SalesLine."Item Category Code", SalesLine."Document Type") then
+                    if ContractTemplate."Generation Moment" = GenerationMoment then begin
+                        ContractSalesHeader := GetContractHeader(SalesHeader, SalesHeader."Document Date", ContractTemplate);
                         InsertContractLine(ContractSalesHeader, SalesLine);
                     end;
             until SalesLine.Next() = 0;
     end;
 
-    local procedure HasGenerator(Type: Enum "Sales Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; DocumentType: Enum "Sales Document Type"; GenerationMoment: Enum "Red Reg Generation Moments"): Boolean
+    local procedure HasContractTemplate(Type: Enum "Sales Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; GenerationMoment: Enum "Red Reg Generation Moments"): Boolean
     var
-        Generator: Record "Red Reg Generator";
+        ContractTemplate: Record "Red Reg Contract Template";
     begin
-        case DocumentType of
-            DocumentType::Order:
-                Generator.SetFilter("Document Type", '%1|%2', Generator."Document Type"::Any, Enum::"Red Reg Document Type"::Order);
-            DocumentType::Invoice:
-                Generator.SetFilter("Document Type", '%1|%2', Generator."Document Type"::Any, Enum::"Red Reg Document Type"::Invoice);
-        end;
-
-        Generator.SetRange("Application Area", Generator."Application Area"::Sales);
-        Generator.SetRange("Generation Moment", GenerationMoment);
-        Generator.SetRange(Type, Generator.ConvertType(Type));
-        Generator.SetRange("No.", No);
-        if not Generator.IsEmpty() then
+        ContractTemplate.SetFilter("Application Area", '%1|%2', ContractTemplate."Application Area"::Sales, ContractTemplate."Application Area"::" ");
+        ContractTemplate.SetRange("Generation Moment", GenerationMoment);
+        ContractTemplate.SetRange(Type, ContractTemplate.ConvertType(Type));
+        ContractTemplate.SetRange("No.", No);
+        if not ContractTemplate.IsEmpty() then
             exit(true);
 
         if (Type = Type::Item) and (ItemCategoryCode <> '') then begin
-            Generator.SetRange("No.", ItemCategoryCode);
-            exit(not Generator.IsEmpty);
+            ContractTemplate.SetRange("No.", ItemCategoryCode);
+            exit(not ContractTemplate.IsEmpty);
         end;
     end;
 
-    local procedure GetGenerator(var Generator: Record "Red Reg Generator"; Type: Enum "Sales Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; DocumentType: Enum "Sales Document Type"): Boolean
+    local procedure GetContractTemplate(var ContractTemplate: Record "Red Reg Contract Template"; Type: Enum "Sales Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; DocumentType: Enum "Sales Document Type"): Boolean
     begin
-        if GetGenerator(Generator, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Any) then
+        if GetContractTemplate(ContractTemplate, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Any) then
             exit(true);
 
         case DocumentType of
             DocumentType::Order:
-                exit(GetGenerator(Generator, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Order));
+                exit(GetContractTemplate(ContractTemplate, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Order));
             DocumentType::Invoice:
-                exit(GetGenerator(Generator, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Invoice));
+                exit(GetContractTemplate(ContractTemplate, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Invoice));
         end;
     end;
 
-    local procedure GetGenerator(var Generator: Record "Red Reg Generator"; Type: Enum "Sales Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; RegDocumentType: Enum "Red Reg Document Type"): Boolean
+    local procedure GetContractTemplate(var ContractTemplate: Record "Red Reg Contract Template"; Type: Enum "Sales Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; RegDocumentType: Enum "Red Reg Document Type"): Boolean
     begin
-        if Generator.Get(Generator."Application Area"::Sales, RegDocumentType, Generator.ConvertType(Type), No) then
+        // TODO! change to findset and provide selector
+        if ContractTemplate.Get(ContractTemplate."Application Area"::Sales, RegDocumentType, ContractTemplate.ConvertType(Type), No) then
             exit(true);
 
         if (Type = Type::Item) and (ItemCategoryCode <> '') then
-            if Generator.Get(Generator."Application Area"::Sales, RegDocumentType, Generator.Type::"Item Category", ItemCategoryCode) then
+            if ContractTemplate.Get(ContractTemplate."Application Area"::Sales, RegDocumentType, ContractTemplate.Type::"Item Category", ItemCategoryCode) then
                 exit(true);
     end;
 
-    local procedure GetContractHeader(SalesHeader: Record "Sales Header"; StartDate: Date; Generator: Record "Red Reg Generator") ContractSalesHeader: Record "Sales Header"
+    local procedure GetContractHeader(SalesHeader: Record "Sales Header"; StartDate: Date; ContractTemplate: Record "Red Reg Contract Template") ContractSalesHeader: Record "Sales Header"
     var
         EmptyDateFormula: DateFormula;
     begin
         ContractSalesHeader.SetCurrentKey("Red Reg Org. Document Type", "Red Reg Org. Document No.", "Red Reg Org. Shipment No.", "Red Reg Group", "Red Reg Duration");
         ContractSalesHeader.SetRange("Red Reg Org. Document Type", SalesHeader."Document Type");
         ContractSalesHeader.SetRange("Red Reg Org. Document No.", SalesHeader."No.");
-        ContractSalesHeader.SetRange("Red Reg Group", Generator."Contract Group");
-        ContractSalesHeader.SetRange("Red Reg Duration", Generator."Duration");
+        ContractSalesHeader.SetRange("Red Reg Group", ContractTemplate."Contract Group");
+        ContractSalesHeader.SetRange("Red Reg Duration", ContractTemplate."Duration");
         if ContractSalesHeader.FindFirst() then
             exit(ContractSalesHeader);
 
         ContractSalesHeader.Init();
-        ContractSalesHeader."Document Type" := SalesHeader."Document Type"::"Red Regenerator";
+        ContractSalesHeader."Document Type" := SalesHeader."Document Type"::"Red ReGenerator";
         ContractSalesHeader.TransferFields(SalesHeader, false);
         ContractSalesHeader.Status := ContractSalesHeader.Status::Open;
         ContractSalesHeader."Red Reg Contract Status" := ContractSalesHeader."Red Reg Contract Status"::Concept;
 
         ContractSalesHeader."Red Reg Org. Document Type" := SalesHeader."Document Type";
         ContractSalesHeader."Red Reg Org. Document No." := SalesHeader."No.";
-        ContractSalesHeader."Red Reg Group" := Generator."Contract Group";
+        ContractSalesHeader."Red Reg Group" := ContractTemplate."Contract Group";
         ContractSalesHeader."Red Reg Start Date" := StartDate;
         ContractSalesHeader."Red Reg Next Billing Date" := ContractSalesHeader."Red Reg Start Date";
-        if Generator."Duration" <> EmptyDateFormula then begin
-            ContractSalesHeader.Validate("Red Reg Duration", Generator."Duration");
-            if Generator."Red Reg Billing Period" <> EmptyDateFormula then
-                ContractSalesHeader.Validate("Red Reg Billing Period", Generator."Red Reg Billing Period");
+        if ContractTemplate."Duration" <> EmptyDateFormula then begin
+            ContractSalesHeader.Validate("Red Reg Duration", ContractTemplate."Duration");
+            if ContractTemplate."Red Reg Billing Period" <> EmptyDateFormula then
+                ContractSalesHeader.Validate("Red Reg Billing Period", ContractTemplate."Red Reg Billing Period");
             ContractSalesHeader.RedRegCalculateNextBillingDate();
         end;
         ContractSalesHeader."Red Reg Contract Status" := ContractSalesHeader."Red Reg Contract Status"::Active;

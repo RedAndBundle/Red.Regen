@@ -199,12 +199,12 @@ page 11311119 "Red Reg Purchase Contract"
                     Editable = Rec."Buy-from Vendor No." <> '';
                     ToolTip = 'Specifies the name of the person to contact at the vendor.';
                 }
-                // field("No. of Archived Versions"; Rec."No. of Archived Versions")
-                // {
-                //     ApplicationArea = Basic, Suite;
-                //     Importance = Additional;
-                //     ToolTip = 'Specifies the number of archived versions for this document.';
-                // }
+                field("No. of Archived Versions"; Rec."No. of Archived Versions")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Importance = Additional;
+                    ToolTip = 'Specifies the number of archived versions for this document.';
+                }
                 field("Document Date"; Rec."Document Date")
                 {
                     ApplicationArea = Basic, Suite;
@@ -311,13 +311,13 @@ page 11311119 "Red Reg Purchase Contract"
                     Importance = Additional;
                     ToolTip = 'Specifies the ID of the user who is responsible for the document.';
                 }
-                field("Job Queue Status"; Rec."Job Queue Status")
-                {
-                    ApplicationArea = All;
-                    Importance = Additional;
-                    ToolTip = 'Specifies the status of a job queue entry or task that handles the regeneration of purchase contracts.';
-                    Visible = JobQueuesUsed;
-                }
+                // field("Job Queue Status"; Rec."Job Queue Status")
+                // {
+                //     ApplicationArea = All;
+                //     Importance = Additional;
+                //     ToolTip = 'Specifies the status of a job queue entry or task that handles the regeneration of purchase contracts.';
+                //     Visible = JobQueuesUsed;
+                // }
             }
             group(WorkDescription)
             {
@@ -937,52 +937,6 @@ page 11311119 "Red Reg Purchase Contract"
                     ToolTip = 'Specifies the destination country or region for the purpose of Intrastat reporting.';
                 }
             }
-            group(Prepayment)
-            {
-                Caption = 'Prepayment';
-                field("Prepayment %"; Rec."Prepayment %")
-                {
-                    ApplicationArea = Prepayments;
-                    Importance = Promoted;
-                    ToolTip = 'Specifies the prepayment percentage to use to calculate the prepayment for purchase.';
-
-                    trigger OnValidate()
-                    begin
-                        Prepayment37OnAfterValidate();
-                    end;
-                }
-                field("Compress Prepayment"; Rec."Compress Prepayment")
-                {
-                    ApplicationArea = Prepayments;
-                    ToolTip = 'Specifies that prepayments on the purchase order are combined if they have the same general ledger account for prepayments or the same dimensions.';
-                }
-                field("Prepmt. Payment Terms Code"; Rec."Prepmt. Payment Terms Code")
-                {
-                    ApplicationArea = Prepayments;
-                    ToolTip = 'Specifies the code that represents the payment terms for prepayment invoices related to the purchase document.';
-                }
-                field("Prepayment Due Date"; Rec."Prepayment Due Date")
-                {
-                    ApplicationArea = Prepayments;
-                    Importance = Promoted;
-                    ToolTip = 'Specifies when the prepayment invoice for this purchase order is due.';
-                }
-                field("Prepmt. Payment Discount %"; Rec."Prepmt. Payment Discount %")
-                {
-                    ApplicationArea = Prepayments;
-                    ToolTip = 'Specifies the payment discount percent granted on the prepayment if the vendor pays on or before the date entered in the Prepmt. Pmt. Discount Date field.';
-                }
-                field("Prepmt. Pmt. Discount Date"; Rec."Prepmt. Pmt. Discount Date")
-                {
-                    ApplicationArea = Prepayments;
-                    ToolTip = 'Specifies the last date the vendor can pay the prepayment invoice and still receive a payment discount on the prepayment amount.';
-                }
-                field("Vendor Cr. Memo No."; Rec."Vendor Cr. Memo No.")
-                {
-                    ApplicationArea = Suite;
-                    ToolTip = 'Specifies the number that the vendor uses for the purchase order.';
-                }
-            }
         }
         area(factboxes)
         {
@@ -994,7 +948,7 @@ page 11311119 "Red Reg Purchase Contract"
                 SubPageLink = "No." = field("No."),
                               "Document Type" = field("Document Type");
             }
-            part("Attached Documents"; "Document Attachment Factbox")
+            part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
                 Caption = 'Attachments';
@@ -1010,13 +964,6 @@ page 11311119 "Red Reg Purchase Contract"
                               "Document No." = field("No."),
                               Status = const(Open);
                 Visible = OpenApprovalEntriesExistForCurrUser;
-            }
-            part(Control1903326807; "Item Replenishment FactBox")
-            {
-                ApplicationArea = Suite;
-                Provider = PurchLines;
-                SubPageLink = "No." = field("No.");
-                Visible = false;
             }
             part(ApprovalFactBox; "Approval FactBox")
             {
@@ -1189,28 +1136,36 @@ page 11311119 "Red Reg Purchase Contract"
                 Caption = 'Documents';
                 Image = Documents;
                 // TODO add orders
-                action(Receipts)
+                action(Orders)
                 {
                     ApplicationArea = Suite;
-                    Caption = 'Receipts';
-                    Image = PostedReceipts;
-                    RunObject = Page "Posted Purchase Receipts";
-                    RunPageLink = "Order No." = field("No.");
-                    RunPageView = sorting("Order No.");
-                    ToolTip = 'View a list of posted purchase receipts for the order.';
-                }
-                action(Invoices)
-                {
-                    ApplicationArea = Suite;
-                    Caption = 'Invoices';
+                    Caption = 'Orders';
                     Image = Invoice;
-                    ToolTip = 'View a list of ongoing purchase invoices for the order.';
+                    ToolTip = 'View a list of ongoing purchase invoices for the contract.';
 
                     trigger OnAction()
                     var
                         TempPurchInvHeader: Record "Purch. Inv. Header" temporary;
                         PurchGetReceipt: Codeunit "Purch.-Get Receipt";
                     begin
+                        // TODO
+                        PurchGetReceipt.GetPurchOrderInvoices(TempPurchInvHeader, Rec."No.");
+                        Page.Run(Page::"Posted Purchase Invoices", TempPurchInvHeader);
+                    end;
+                }
+                action(Invoices)
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'Invoices';
+                    Image = Invoice;
+                    ToolTip = 'View a list of ongoing purchase invoices for the contract.';
+
+                    trigger OnAction()
+                    var
+                        TempPurchInvHeader: Record "Purch. Inv. Header" temporary;
+                        PurchGetReceipt: Codeunit "Purch.-Get Receipt";
+                    begin
+                        // TODO
                         PurchGetReceipt.GetPurchOrderInvoices(TempPurchInvHeader, Rec."No.");
                         Page.Run(Page::"Posted Purchase Invoices", TempPurchInvHeader);
                     end;
@@ -1345,42 +1300,42 @@ page 11311119 "Red Reg Purchase Contract"
                     end;
                 }
             }
-            group("F&unctions")
-            {
-                Caption = 'F&unctions';
-                Image = "Action";
-                action(CopyDocument)
-                {
-                    ApplicationArea = Suite;
-                    Caption = 'Copy Document';
-                    Ellipsis = true;
-                    Enabled = Rec."No." <> '';
-                    Image = CopyDocument;
-                    ToolTip = 'Copy document lines and header information from another purchase document to this document. You can copy a posted purchase invoice into a new purchase invoice to quickly create a similar document.';
+            // group("F&unctions")
+            // {
+            //     Caption = 'F&unctions';
+            //     Image = "Action";
+            //     // action(CopyDocument)
+            //     // {
+            //     //     ApplicationArea = Suite;
+            //     //     Caption = 'Copy Document';
+            //     //     Ellipsis = true;
+            //     //     Enabled = Rec."No." <> '';
+            //     //     Image = CopyDocument;
+            //     //     ToolTip = 'Copy document lines and header information from another purchase document to this document. You can copy a posted purchase invoice into a new purchase invoice to quickly create a similar document.';
 
-                    trigger OnAction()
-                    begin
-                        Rec.CopyDocument();
-                        if Rec.Get(Rec."Document Type", Rec."No.") then;
-                        CurrPage.PurchLines.Page.ForceTotalsCalculation();
-                        CurrPage.Update();
-                    end;
-                }
-                // action("Archive Document")
-                // {
-                //     // TODO Fix
-                //     ApplicationArea = Suite;
-                //     Caption = 'Archi&ve Document';
-                //     Image = Archive;
-                //     ToolTip = 'Send the document to the archive, for example because it is too soon to delete it. Later, you delete or reprocess the archived document.';
+            //     //     trigger OnAction()
+            //     //     begin
+            //     //         Rec.CopyDocument();
+            //     //         if Rec.Get(Rec."Document Type", Rec."No.") then;
+            //     //         CurrPage.PurchLines.Page.ForceTotalsCalculation();
+            //     //         CurrPage.Update();
+            //     //     end;
+            //     // }
+            //     // action("Archive Document")
+            //     // {
+            //     //     // TODO Fix
+            //     //     ApplicationArea = Suite;
+            //     //     Caption = 'Archi&ve Document';
+            //     //     Image = Archive;
+            //     //     ToolTip = 'Send the document to the archive, for example because it is too soon to delete it. Later, you delete or reprocess the archived document.';
 
-                //     trigger OnAction()
-                //     begin
-                //         ArchiveManagement.ArchivePurchaseDocument(Rec);
-                //         CurrPage.Update(false);
-                //     end;
-                // }
-            }
+            //     //     trigger OnAction()
+            //     //     begin
+            //     //         ArchiveManagement.ArchivePurchaseDocument(Rec);
+            //     //         CurrPage.Update(false);
+            //     //     end;
+            //     // }
+            // }
             group("Request Approval")
             {
                 Caption = 'Request Approval';
@@ -1452,19 +1407,19 @@ page 11311119 "Red Reg Purchase Contract"
                         Rec.RedRegenerateAndPost();
                     end;
                 }
-                action("Remove From Job Queue")
-                {
-                    ApplicationArea = All;
-                    Caption = 'Remove From Job Queue';
-                    Image = RemoveLine;
-                    ToolTip = 'Remove the scheduled processing of this record from the job queue.';
-                    Visible = JobQueueVisible;
+                // action("Remove From Job Queue")
+                // {
+                //     ApplicationArea = All;
+                //     Caption = 'Remove From Job Queue';
+                //     Image = RemoveLine;
+                //     ToolTip = 'Remove the scheduled processing of this record from the job queue.';
+                //     Visible = JobQueueVisible;
 
-                    trigger OnAction()
-                    begin
-                        Rec.CancelBackgroundPosting();
-                    end;
-                }
+                //     trigger OnAction()
+                //     begin
+                //         Rec.CancelBackgroundPosting();
+                //     end;
+                // }
             }
             group("&Contract Confirmation")
             {
@@ -1541,31 +1496,31 @@ page 11311119 "Red Reg Purchase Contract"
                 // {
                 // }
             }
-            group(Category_Category7)
-            {
-                Caption = 'Prepare', Comment = 'Generated from the PromotedActionCategories property index 6.';
+            // group(Category_Category7)
+            // {
+            //     Caption = 'Prepare', Comment = 'Generated from the PromotedActionCategories property index 6.';
 
-                actionref(CopyDocument_Promoted; CopyDocument)
-                {
-                }
-                // group("Category_Incoming Document")
-                // {
-                //     Caption = 'Incoming Document';
+            //     // actionref(CopyDocument_Promoted; CopyDocument)
+            //     // {
+            //     // }
+            //     // group("Category_Incoming Document")
+            //     // {
+            //     //     Caption = 'Incoming Document';
 
-                //     actionref(IncomingDocAttachFile_Promoted; IncomingDocAttachFile)
-                //     {
-                //     }
-                //     actionref(IncomingDocCard_Promoted; IncomingDocCard)
-                //     {
-                //     }
-                //     actionref(SelectIncomingDoc_Promoted; SelectIncomingDoc)
-                //     {
-                //     }
-                //     actionref(RemoveIncomingDoc_Promoted; RemoveIncomingDoc)
-                //     {
-                //     }
-                // }
-            }
+            //     //     actionref(IncomingDocAttachFile_Promoted; IncomingDocAttachFile)
+            //     //     {
+            //     //     }
+            //     //     actionref(IncomingDocCard_Promoted; IncomingDocCard)
+            //     //     {
+            //     //     }
+            //     //     actionref(SelectIncomingDoc_Promoted; SelectIncomingDoc)
+            //     //     {
+            //     //     }
+            //     //     actionref(RemoveIncomingDoc_Promoted; RemoveIncomingDoc)
+            //     //     {
+            //     //     }
+            //     // }
+            // }
             group(Category_Category4)
             {
                 Caption = 'Approve', Comment = 'Generated from the PromotedActionCategories property index 3.';
@@ -1627,9 +1582,9 @@ page 11311119 "Red Reg Purchase Contract"
                 actionref(Vendor_Promoted; Vendor)
                 {
                 }
-                actionref("Receipts_Promoted"; Receipts)
-                {
-                }
+                // actionref("Receipts_Promoted"; Receipts)
+                // {
+                // }
             }
             group(Category_Category10)
             {
@@ -1658,9 +1613,9 @@ page 11311119 "Red Reg Purchase Contract"
 
     trigger OnAfterGetRecord()
     var
-        ICInboxOutboxMgt: Codeunit ICInboxOutboxMgt;
+    // ICInboxOutboxMgt: Codeunit ICInboxOutboxMgt;
     begin
-        RejectICPurchaseOrderEnabled := ICInboxOutboxMgt.IsPurchaseHeaderFromIncomingIC(Rec);
+        // RejectICPurchaseOrderEnabled := ICInboxOutboxMgt.IsPurchaseHeaderFromIncomingIC(Rec);
         CalculateCurrentShippingAndPayToOption();
         BuyFromContact.GetOrClear(Rec."Buy-from Contact No.");
         PayToContact.GetOrClear(Rec."Pay-to Contact No.");
@@ -1675,10 +1630,10 @@ page 11311119 "Red Reg Purchase Contract"
 
     trigger OnInit()
     var
-        Setup: Record "Red Reg Setup";
+        // Setup: Record "Red Reg Setup";
         ApplicationAreaMgmtFacade: Codeunit "Application Area Mgmt. Facade";
     begin
-        JobQueuesUsed := Setup.JobQueueSalesActive();
+        // JobQueuesUsed := Setup.JobQueueSalesActive();
         SetExtDocNoMandatoryCondition();
         ShowShippingOptionsWithLocation := ApplicationAreaMgmtFacade.IsLocationEnabled() or ApplicationAreaMgmtFacade.IsAllDisabled();
     end;
@@ -1707,15 +1662,15 @@ page 11311119 "Red Reg Purchase Contract"
 
     trigger OnOpenPage()
     var
-        PurchaseHeader: Record "Purchase Header";
-        ICInboxOutboxMgt: Codeunit ICInboxOutboxMgt;
+    // PurchaseHeader: Record "Purchase Header";
+    // ICInboxOutboxMgt: Codeunit ICInboxOutboxMgt;
     begin
         SetOpenPage();
 
         ActivateFields();
 
         CheckShowBackgrValidationNotification();
-        RejectICPurchaseOrderEnabled := ICInboxOutboxMgt.IsPurchaseHeaderFromIncomingIC(Rec);
+        // RejectICPurchaseOrderEnabled := ICInboxOutboxMgt.IsPurchaseHeaderFromIncomingIC(Rec);
         // if RejectICPurchaseOrderEnabled then begin
         //     PurchaseHeader.SetRange("IC Direction", PurchaseHeader."IC Direction"::Incoming);
         //     PurchaseHeader.SetFilter("IC Reference Document No.", '<>%1', '');
@@ -1752,8 +1707,8 @@ page 11311119 "Red Reg Purchase Contract"
         ChangeExchangeRate: Page "Change Exchange Rate";
         StatusStyleTxt: Text;
         WorkDescription: Text;
-        JobQueueVisible: Boolean;
-        JobQueuesUsed: Boolean;
+        // JobQueueVisible: Boolean;
+        // JobQueuesUsed: Boolean;
         DocNoVisible: Boolean;
         OpenApprovalEntriesExistForCurrUser: Boolean;
         OpenApprovalEntriesExist: Boolean;
@@ -1761,7 +1716,7 @@ page 11311119 "Red Reg Purchase Contract"
         CanCancelApprovalForRecord: Boolean;
         DocumentIsPosted: Boolean;
         OpenPostedPurchaseOrderQst: Label 'The order is posted as number %1 and moved to the Posted Purchase Invoices window.\\Do you want to open the posted invoice?', Comment = '%1 = posted document number';
-        ICIncomingInvoiceFromOriginalOrderMsg: Label 'There is an %1 with no. %2 received from intercompany after you sent this order. You can remove this order and post that invoice instead.', Comment = '%1 - either "order", "invoice", or "posted invoice", %2 - a code';
+        // ICIncomingInvoiceFromOriginalOrderMsg: Label 'There is an %1 with no. %2 received from intercompany after you sent this order. You can remove this order and post that invoice instead.', Comment = '%1 - either "order", "invoice", or "posted invoice", %2 - a code';
         CanRequestApprovalForFlow: Boolean;
         CanCancelApprovalForFlow: Boolean;
         ShowShippingOptionsWithLocation: Boolean;
@@ -1775,7 +1730,7 @@ page 11311119 "Red Reg Purchase Contract"
         IsPurchaseLinesEditable: Boolean;
         ShouldSearchForVendByName: Boolean;
         IsRemitToCountyVisible: Boolean;
-        RejectICPurchaseOrderEnabled: Boolean;
+        // RejectICPurchaseOrderEnabled: Boolean;
         ShowAccept: Boolean;
         ShowActivate: Boolean;
         ShowClose: Boolean;
@@ -1885,11 +1840,6 @@ page 11311119 "Red Reg Purchase Contract"
         CurrPage.Update();
     end;
 
-    local procedure Prepayment37OnAfterValidate()
-    begin
-        CurrPage.Update();
-    end;
-
     local procedure SetDocNoVisible()
     var
         DocumentNoVisibility: Codeunit DocumentNoVisibility;
@@ -1908,7 +1858,7 @@ page 11311119 "Red Reg Purchase Contract"
         DocumentErrorsMgt: Codeunit "Document Errors Mgt.";
         WorkflowWebhookMgt: Codeunit "Workflow Webhook Management";
     begin
-        JobQueueVisible := Rec."Job Queue Status" = Rec."Job Queue Status"::"Scheduled for Posting";
+        // JobQueueVisible := Rec."Job Queue Status" = Rec."Job Queue Status"::"Scheduled for Posting";
         SetExtDocNoMandatoryCondition();
         SetPostingGroupEditable();
 
@@ -1955,17 +1905,15 @@ page 11311119 "Red Reg Purchase Contract"
         OrderPurchaseHeader: Record "Purchase Header";
         PurchInvHeader: Record "Purch. Inv. Header";
         InstructionMgt: Codeunit "Instruction Mgt.";
-        ICFeedback: Codeunit "IC Feedback";
+    // ICFeedback: Codeunit "IC Feedback";
     begin
         if not OrderPurchaseHeader.Get(Rec."Document Type", Rec."No.") then begin
             PurchInvHeader.SetRange("No.", Rec."Last Posting No.");
-            if PurchInvHeader.FindFirst() then begin
-                // ICFeedback.ShowIntercompanyMessage(Rec, Enum::"IC Transaction Document Type"::Order);
+            if PurchInvHeader.FindFirst() then
                 if InstructionMgt.ShowConfirm(StrSubstNo(OpenPostedPurchaseOrderQst, PurchInvHeader."No."),
                      InstructionMgt.ShowPostedConfirmationMessageCode())
                 then
                     InstructionMgt.ShowPostedDocument(PurchInvHeader, Page::"Purchase Order");
-            end;
         end;
     end;
 

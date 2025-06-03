@@ -2,7 +2,7 @@ codeunit 11311117 "Red Reg Purchase Generator"
 {
     TableNo = "Purchase Header";
     Access = Internal;
-    Permissions = tabledata "Red Reg Setup" = rimd, tabledata "Red Reg Generator" = rimd, tabledata "Purchase Header" = rimd, tabledata "Purchase Line" = rimd, tabledata "Purch. Rcpt. Header" = r, tabledata "Purch. Rcpt. Line" = r;
+    Permissions = tabledata "Red Reg Setup" = rimd, tabledata "Red Reg Contract Template" = rimd, tabledata "Purchase Header" = rimd, tabledata "Purchase Line" = rimd, tabledata "Purch. Rcpt. Header" = r, tabledata "Purch. Rcpt. Line" = r;
 
     trigger OnRun()
     begin
@@ -11,11 +11,11 @@ codeunit 11311117 "Red Reg Purchase Generator"
 
     procedure TestPurchaseSetup()
     var
-        Generator: Record "Red Reg Generator";
+        ContractTemplate: Record "Red Reg Contract Template";
         Setup: Record "Red Reg Setup";
     begin
-        Generator.SetRange("Application Area", Generator."Application Area"::Purchase);
-        if Generator.IsEmpty() then
+        ContractTemplate.SetFilter("Application Area", '%1|%2', ContractTemplate."Application Area"::Purchase, ContractTemplate."Application Area"::" ");
+        if ContractTemplate.IsEmpty() then
             exit;
 
         Setup.InitSetup();
@@ -25,7 +25,7 @@ codeunit 11311117 "Red Reg Purchase Generator"
     procedure WillGenerateContractsAfterPurchasePost(var PurchaseHeader: Record "Purchase Header"): Boolean
     var
         PurchaseLine: Record "Purchase Line";
-        Generator: Record "Red Reg Generator";
+        ContractTemplate: Record "Red Reg Contract Template";
     begin
         case PurchaseHeader."Document Type" of
             PurchaseHeader."Document Type"::"Blanket Order",
@@ -38,16 +38,16 @@ codeunit 11311117 "Red Reg Purchase Generator"
         if PurchaseHeader."Red Reg Contract No." <> '' then
             exit(false);
 
-        Generator.SetRange("Application Area", Generator."Application Area"::Purchase);
-        Generator.SetRange("Generation Moment", Generator."Generation Moment"::OnPost);
-        if Generator.IsEmpty() then
+        ContractTemplate.SetFilter("Application Area", '%1|%2', ContractTemplate."Application Area"::Purchase, ContractTemplate."Application Area"::" ");
+        ContractTemplate.SetRange("Generation Moment", ContractTemplate."Generation Moment"::OnPost);
+        if ContractTemplate.IsEmpty() then
             exit(false);
 
         PurchaseLine.SetRange("Document No.", PurchaseHeader."No.");
         PurchaseLine.SetRange("Document Type", PurchaseHeader."Document Type");
         if PurchaseLine.FindSet() then
             repeat
-                if HasGenerator(PurchaseLine.Type, PurchaseLine."No.", PurchaseLine."Item Category Code", PurchaseHeader."Document Type", Generator."Generation Moment"::OnPost) then
+                if HasContractTemplate(PurchaseLine.Type, PurchaseLine."No.", PurchaseLine."Item Category Code", ContractTemplate."Generation Moment"::OnPost) then
                     exit(true);
             until PurchaseLine.Next() = 0;
     end;
@@ -57,7 +57,7 @@ codeunit 11311117 "Red Reg Purchase Generator"
         ContractPurchaseHeader: Record "Purchase Header";
         PurchRcptHeader: Record "Purch. Rcpt. Header";
         PurchRcptLine: Record "Purch. Rcpt. Line";
-        Generator: Record "Red Reg Generator";
+        ContractTemplate: Record "Red Reg Contract Template";
     begin
         case PurchaseHeader."Document Type" of
             PurchaseHeader."Document Type"::"Blanket Order",
@@ -76,9 +76,9 @@ codeunit 11311117 "Red Reg Purchase Generator"
         PurchRcptLine.SetRange("Document No.", PurchRcptHeader."No.");
         if PurchRcptLine.FindSet() then
             repeat
-                if GetGenerator(Generator, PurchRcptLine.Type, PurchRcptLine."No.", PurchRcptLine."Item Category Code", PurchaseHeader."Document Type") then
-                    if Generator."Generation Moment" = Generator."Generation Moment"::OnPost then begin
-                        ContractPurchaseHeader := GetContractHeader(PurchaseHeader, PurchRcptHeader."Posting Date", Generator);
+                if GetContractTemplate(ContractTemplate, PurchRcptLine.Type, PurchRcptLine."No.", PurchRcptLine."Item Category Code", PurchaseHeader."Document Type") then
+                    if ContractTemplate."Generation Moment" = ContractTemplate."Generation Moment"::OnPost then begin
+                        ContractPurchaseHeader := GetContractHeader(PurchaseHeader, PurchRcptHeader."Posting Date", ContractTemplate);
                         InsertContractLine(ContractPurchaseHeader, PurchRcptLine);
                     end;
             until PurchRcptLine.Next() = 0;
@@ -88,7 +88,7 @@ codeunit 11311117 "Red Reg Purchase Generator"
     var
         ContractPurchaseHeader: Record "Purchase Header";
         PurchaseLine: Record "Purchase Line";
-        Generator: Record "Red Reg Generator";
+        ContractTemplate: Record "Red Reg Contract Template";
     begin
         case PurchaseHeader."Document Type" of
             PurchaseHeader."Document Type"::"Blanket Order",
@@ -105,63 +105,56 @@ codeunit 11311117 "Red Reg Purchase Generator"
         PurchaseLine.SetRange("Document Type", PurchaseHeader."Document Type");
         if PurchaseLine.FindSet() then
             repeat
-                if GetGenerator(Generator, PurchaseLine.Type, PurchaseLine."No.", PurchaseLine."Item Category Code", PurchaseHeader."Document Type") then begin
-                    ContractPurchaseHeader := GetContractHeader(PurchaseHeader, PurchaseHeader."Document Date", Generator);
+                if GetContractTemplate(ContractTemplate, PurchaseLine.Type, PurchaseLine."No.", PurchaseLine."Item Category Code", PurchaseHeader."Document Type") then begin
+                    ContractPurchaseHeader := GetContractHeader(PurchaseHeader, PurchaseHeader."Document Date", ContractTemplate);
                     InsertContractLine(ContractPurchaseHeader, PurchaseLine);
                 end;
             until PurchaseLine.Next() = 0;
     end;
 
-    local procedure HasGenerator(Type: Enum "Purchase Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; DocumentType: Enum "Purchase Document Type"; GenerationMoment: Enum "Red Reg Generation Moments"): Boolean
+    local procedure HasContractTemplate(Type: Enum "Purchase Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; GenerationMoment: Enum "Red Reg Generation Moments"): Boolean
     var
-        Generator: Record "Red Reg Generator";
+        ContractTemplate: Record "Red Reg Contract Template";
     begin
         If not (Type in [Type::"G/L Account", Type::"Resource", Type::"Item"]) then
             exit(false);
 
-        case DocumentType of
-            DocumentType::Order:
-                Generator.SetFilter("Document Type", '%1|%2', Generator."Document Type"::Any, Enum::"Red Reg Document Type"::Order);
-            DocumentType::Invoice:
-                Generator.SetFilter("Document Type", '%1|%2', Generator."Document Type"::Any, Enum::"Red Reg Document Type"::Invoice);
-        end;
-
-        Generator.SetRange("Application Area", Generator."Application Area"::Purchase);
-        Generator.SetRange("Generation Moment", GenerationMoment);
-        Generator.SetRange(Type, Generator.ConvertType(Type));
-        Generator.SetRange("No.", No);
-        if not Generator.IsEmpty() then
+        ContractTemplate.SetFilter("Application Area", '%1|%2', ContractTemplate."Application Area"::Purchase, ContractTemplate."Application Area"::" ");
+        ContractTemplate.SetRange("Generation Moment", GenerationMoment);
+        ContractTemplate.SetRange(Type, ContractTemplate.ConvertType(Type));
+        ContractTemplate.SetRange("No.", No);
+        if not ContractTemplate.IsEmpty() then
             exit(true);
 
         if (Type = Type::Item) and (ItemCategoryCode <> '') then begin
-            Generator.SetRange("No.", ItemCategoryCode);
-            exit(not Generator.IsEmpty);
+            ContractTemplate.SetRange("No.", ItemCategoryCode);
+            exit(not ContractTemplate.IsEmpty);
         end;
     end;
 
-    local procedure GetGenerator(var Generator: Record "Red Reg Generator"; Type: Enum "Purchase Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; DocumentType: Enum "Purchase Document Type"): Boolean
+    local procedure GetContractTemplate(var ContractTemplate: Record "Red Reg Contract Template"; Type: Enum "Purchase Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; DocumentType: Enum "Purchase Document Type"): Boolean
     begin
         If not (Type in [Type::"G/L Account", Type::"Resource", Type::"Item"]) then
             exit(false);
 
-        if GetGenerator(Generator, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Any) then
+        if GetContractTemplate(ContractTemplate, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Any) then
             exit(true);
 
         case DocumentType of
             DocumentType::Order:
-                exit(GetGenerator(Generator, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Order));
+                exit(GetContractTemplate(ContractTemplate, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Order));
             DocumentType::Invoice:
-                exit(GetGenerator(Generator, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Invoice));
+                exit(GetContractTemplate(ContractTemplate, Type, No, ItemCategoryCode, Enum::"Red Reg Document Type"::Invoice));
         end;
     end;
 
-    local procedure GetGenerator(var Generator: Record "Red Reg Generator"; Type: Enum "Purchase Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; RegDocumentType: Enum "Red Reg Document Type"): Boolean
+    local procedure GetContractTemplate(var ContractTemplate: Record "Red Reg Contract Template"; Type: Enum "Purchase Line Type"; No: Code[20]; ItemCategoryCode: Code[20]; RegDocumentType: Enum "Red Reg Document Type"): Boolean
     begin
-        if Generator.Get(Generator."Application Area"::Purchase, RegDocumentType, Generator.ConvertType(Type), No) then
+        if ContractTemplate.Get(ContractTemplate."Application Area"::Purchase, RegDocumentType, ContractTemplate.ConvertType(Type), No) then
             exit(true);
 
         if (Type = Type::Item) and (ItemCategoryCode <> '') then
-            if Generator.Get(Generator."Application Area"::Purchase, RegDocumentType, Generator.Type::"Item Category", ItemCategoryCode) then
+            if ContractTemplate.Get(ContractTemplate."Application Area"::Purchase, RegDocumentType, ContractTemplate.Type::"Item Category", ItemCategoryCode) then
                 exit(true);
     end;
 
@@ -171,7 +164,7 @@ codeunit 11311117 "Red Reg Purchase Generator"
         SalesHeader: Record "Sales Header";
         ContractGroup: Record "Red Reg Contract Group";
     begin
-        if SalesLine."Document Type" <> SalesLine."Document Type"::"Red Regenerator" then
+        if SalesLine."Document Type" <> SalesLine."Document Type"::"Red ReGenerator" then
             exit;
 
         SalesHeader.Get(SalesLine."Document Type", SalesLine."Document No.");
@@ -185,33 +178,33 @@ codeunit 11311117 "Red Reg Purchase Generator"
         InsertContractLine(ContractPurchaseHeader, SalesLine);
     end;
 
-    local procedure GetContractHeader(PurchaseHeader: Record "Purchase Header"; StartDate: Date; Generator: Record "Red Reg Generator") ContractPurchaseHeader: Record "Purchase Header"
+    local procedure GetContractHeader(PurchaseHeader: Record "Purchase Header"; StartDate: Date; ContractTemplate: Record "Red Reg Contract Template") ContractPurchaseHeader: Record "Purchase Header"
     var
         EmptyDateFormula: DateFormula;
     begin
         ContractPurchaseHeader.SetCurrentKey("Red Reg Org. Document Type", "Red Reg Org. Document No.", "Red Reg Org. Shipment No.", "Red Reg Group", "Red Reg Duration");
         ContractPurchaseHeader.SetRange("Red Reg Org. Document Type", PurchaseHeader."Document Type");
         ContractPurchaseHeader.SetRange("Red Reg Org. Document No.", PurchaseHeader."No.");
-        ContractPurchaseHeader.SetRange("Red Reg Group", Generator."Contract Group");
-        ContractPurchaseHeader.SetRange("Red Reg Duration", Generator."Duration");
+        ContractPurchaseHeader.SetRange("Red Reg Group", ContractTemplate."Contract Group");
+        ContractPurchaseHeader.SetRange("Red Reg Duration", ContractTemplate."Duration");
         if ContractPurchaseHeader.FindFirst() then
             exit(ContractPurchaseHeader);
 
         ContractPurchaseHeader.Init();
-        ContractPurchaseHeader."Document Type" := ContractPurchaseHeader."Document Type"::"Red Regenerator";
+        ContractPurchaseHeader."Document Type" := ContractPurchaseHeader."Document Type"::"Red ReGenerator";
         ContractPurchaseHeader.TransferFields(PurchaseHeader, false);
         ContractPurchaseHeader.Status := ContractPurchaseHeader.Status::Open;
         ContractPurchaseHeader."Red Reg Contract Status" := ContractPurchaseHeader."Red Reg Contract Status"::Concept;
 
         ContractPurchaseHeader."Red Reg Org. Document Type" := PurchaseHeader."Document Type";
         ContractPurchaseHeader."Red Reg Org. Document No." := PurchaseHeader."No.";
-        ContractPurchaseHeader."Red Reg Group" := Generator."Contract Group";
+        ContractPurchaseHeader."Red Reg Group" := ContractTemplate."Contract Group";
         ContractPurchaseHeader."Red Reg Start Date" := StartDate;
         ContractPurchaseHeader."Red Reg Next Billing Date" := ContractPurchaseHeader."Red Reg Start Date";
-        if Generator."Duration" <> EmptyDateFormula then begin
-            ContractPurchaseHeader.Validate("Red Reg Duration", Generator."Duration");
-            if Generator."Red Reg Billing Period" <> EmptyDateFormula then
-                ContractPurchaseHeader.Validate("Red Reg Billing Period", Generator."Red Reg Billing Period");
+        if ContractTemplate."Duration" <> EmptyDateFormula then begin
+            ContractPurchaseHeader.Validate("Red Reg Duration", ContractTemplate."Duration");
+            if ContractTemplate."Red Reg Billing Period" <> EmptyDateFormula then
+                ContractPurchaseHeader.Validate("Red Reg Billing Period", ContractTemplate."Red Reg Billing Period");
             ContractPurchaseHeader.RedRegCalculateNextBillingDate();
         end;
         ContractPurchaseHeader."Red Reg Contract Status" := ContractPurchaseHeader."Red Reg Contract Status"::Active;
@@ -231,7 +224,7 @@ codeunit 11311117 "Red Reg Purchase Generator"
 
         ContractPurchaseHeader.SetCurrentKey("Red Reg Org. Document Type", "Red Reg Org. Document No.", "Red Reg Org. Shipment No.", "Red Reg Group", "Red Reg Duration");
         ContractPurchaseHeader.SetRange("Red Reg Contract No.", SalesHeader."No.");
-        ContractPurchaseHeader.SetRange("Document Type", ContractPurchaseHeader."Document Type"::"Red Regenerator");
+        ContractPurchaseHeader.SetRange("Document Type", ContractPurchaseHeader."Document Type"::"Red ReGenerator");
         ContractPurchaseHeader.SetRange("Red Reg Contract Status", ContractPurchaseHeader."Red Reg Contract Status"::Concept);
         ContractPurchaseHeader.SetRange("Buy-from Vendor No.", Vendor."No.");
 
@@ -239,7 +232,7 @@ codeunit 11311117 "Red Reg Purchase Generator"
             exit(ContractPurchaseHeader);
 
         ContractPurchaseHeader.Init();
-        ContractPurchaseHeader."Document Type" := ContractPurchaseHeader."Document Type"::"Red Regenerator";
+        ContractPurchaseHeader."Document Type" := ContractPurchaseHeader."Document Type"::"Red ReGenerator";
         ContractPurchaseHeader.Validate("Buy-from Vendor No.", Vendor."No.");
         ContractPurchaseHeader.Status := ContractPurchaseHeader.Status::Open;
         ContractPurchaseHeader."Red Reg Contract Status" := ContractPurchaseHeader."Red Reg Contract Status"::Concept;

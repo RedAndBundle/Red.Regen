@@ -107,7 +107,7 @@ tableextension 11311113 "Red Reg Sales Header" extends "Sales Header"
 
     keys
     {
-        key("Red Reg Generator"; "Red Reg Org. Document Type", "Red Reg Org. Document No.", "Red Reg Org. Shipment No.", "Red Reg Group", "Red Reg Duration")
+        key("Red Reg Contract Template"; "Red Reg Org. Document Type", "Red Reg Org. Document No.", "Red Reg Org. Shipment No.", "Red Reg Group", "Red Reg Duration")
         {
         }
     }
@@ -245,6 +245,13 @@ tableextension 11311113 "Red Reg Sales Header" extends "Sales Header"
         // TODO Post
     end;
 
+    internal procedure RedRegRenew()
+    var
+        Regenerator: Codeunit "Red Reg Regenerator";
+    begin
+        Regenerator.RenewContract(Rec);
+    end;
+
     internal procedure RedRegSendContract()
     begin
 
@@ -288,7 +295,7 @@ tableextension 11311113 "Red Reg Sales Header" extends "Sales Header"
 
     internal procedure RedRegShowGenerate(): Boolean
     var
-        Generator: Record "Red Reg Generator";
+        Generator: Record "Red Reg Contract Template";
         Setup: Record "Red Reg Setup";
     begin
         Generator.SetRange("Application Area", Generator."Application Area"::Sales);

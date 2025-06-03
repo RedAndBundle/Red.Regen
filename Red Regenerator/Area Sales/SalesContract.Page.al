@@ -321,13 +321,13 @@ page 11311116 "Red Reg Sales Contract"
                     Importance = Additional;
                     ToolTip = 'Specifies the ID of the user who is responsible for the document.';
                 }
-                field("Job Queue Status"; Rec."Job Queue Status")
-                {
-                    ApplicationArea = All;
-                    Importance = Additional;
-                    ToolTip = 'Specifies the status of a job queue entry or task that handles the regeneration of sales contracts.';
-                    Visible = JobQueuesUsed;
-                }
+                // field("Job Queue Status"; Rec."Job Queue Status")
+                // {
+                //     ApplicationArea = All;
+                //     Importance = Additional;
+                //     ToolTip = 'Specifies the status of a job queue entry or task that handles the regeneration of sales contracts.';
+                //     Visible = JobQueuesUsed;
+                // }
             }
             group(WorkDescription)
             {
@@ -801,7 +801,7 @@ page 11311116 "Red Reg Sales Contract"
             //     SubPageLink = "No." = field("No."),
             //                   "Document Type" = field("Document Type");
             // }
-            part("Attached Documents"; "Document Attachment Factbox")
+            part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
                 Caption = 'Attachments';
@@ -911,27 +911,6 @@ page 11311116 "Red Reg Sales Contract"
             {
                 Caption = 'C&ontract';
                 Image = RefreshText;
-                // action(Statistics)
-                // {
-                //     ApplicationArea = Basic, Suite;
-                //     Caption = 'Statistics';
-                //     Image = Statistics;
-                //     ShortCutKey = 'F7';
-                //     ToolTip = 'View statistical information, such as the value of posted entries, for the record.';
-
-                //     trigger OnAction()
-                //     var
-                //         Handled: Boolean;
-                //     begin
-                //         Handled := false;
-                //         OnBeforeStatisticsAction(Rec, Handled);
-                //         if Handled then
-                //             exit;
-
-                //         Rec.OpenSalesOrderStatistics();
-                //         CurrPage.SalesLines.Page.ForceTotalsCalculation();
-                //     end;
-                // }
                 action(Customer)
                 {
                     ApplicationArea = Basic, Suite;
@@ -975,17 +954,6 @@ page 11311116 "Red Reg Sales Contract"
                         ApprovalsMgmt.OpenApprovalsSales(Rec);
                     end;
                 }
-                // action("Co&mments")
-                // {
-                //     ApplicationArea = Comments;
-                //     Caption = 'Co&mments';
-                //     Image = ViewComments;
-                //     RunObject = Page "Sales Comment Sheet";
-                //     RunPageLink = "Document Type" = field("Document Type"),
-                //                   "No." = field("No."),
-                //                   "Document Line No." = const(0);
-                //     ToolTip = 'View or add comments for the record.';
-                // }
                 action(DocAttach)
                 {
                     ApplicationArea = Basic, Suite;
@@ -1035,25 +1003,6 @@ page 11311116 "Red Reg Sales Contract"
                     begin
                         SalesGetShipment.GetSalesOrderInvoices(TempSalesInvoiceHeader, Rec."No.");
                         Page.Run(Page::"Posted Sales Invoices", TempSalesInvoiceHeader);
-                    end;
-                }
-            }
-            group(History)
-            {
-                Caption = 'History';
-                action(PageInteractionLogEntries)
-                {
-                    ApplicationArea = Suite;
-                    Caption = 'Interaction Log E&ntries';
-                    Image = InteractionLog;
-                    //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
-                    //PromotedCategory = Category10;
-                    ShortCutKey = 'Ctrl+F7';
-                    ToolTip = 'View a list of interaction log entries related to this document.';
-
-                    trigger OnAction()
-                    begin
-                        Rec.ShowInteractionLogEntries();
                     end;
                 }
             }
@@ -1185,43 +1134,20 @@ page 11311116 "Red Reg Sales Contract"
                         CurrPage.Update();
                     end;
                 }
-            }
-            group("F&unctions")
-            {
-                Caption = 'F&unctions';
-                Image = "Action";
-                action(CopyDocument)
+                action(Renew)
                 {
-                    // TODO Fix
-                    ApplicationArea = Suite;
-                    Caption = 'Copy Document';
-                    Ellipsis = true;
-                    Enabled = Rec."No." <> '';
-                    Image = CopyDocument;
-                    ToolTip = 'Copy document lines and header information from another sales document to this document. You can copy a posted sales invoice into a new sales invoice to quickly create a similar document.';
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Renew';
+                    // Enabled = ShowRenew;
+                    Image = Redo;
+                    ToolTip = 'Renews the contract, it can be extended.';
 
                     trigger OnAction()
                     begin
-                        Rec.CopyDocument();
-                        if Rec.Get(Rec."Document Type", Rec."No.") then;
-                        CurrPage.SalesLines.Page.ForceTotalsCalculation();
+                        Rec.RedRegRenew();
                         CurrPage.Update();
                     end;
                 }
-                // action("Archive Document")
-                // {
-                //     // TODO Fix
-                //     ApplicationArea = Suite;
-                //     Caption = 'Archi&ve Document';
-                //     Image = Archive;
-                //     ToolTip = 'Send the document to the archive, for example because it is too soon to delete it. Later, you delete or reprocess the archived document.';
-
-                //     trigger OnAction()
-                //     begin
-                //         ArchiveManagement.ArchiveSalesDocument(Rec);
-                //         CurrPage.Update(false);
-                //     end;
-                // }
             }
             group("Request Approval")
             {
@@ -1294,19 +1220,19 @@ page 11311116 "Red Reg Sales Contract"
                         Rec.RedRegenerateAndPost();
                     end;
                 }
-                action("Remove From Job Queue")
-                {
-                    ApplicationArea = All;
-                    Caption = 'Remove From Job Queue';
-                    Image = RemoveLine;
-                    ToolTip = 'Remove the scheduled processing of this record from the job queue.';
-                    Visible = JobQueueVisible;
+                // action("Remove From Job Queue")
+                // {
+                //     ApplicationArea = All;
+                //     Caption = 'Remove From Job Queue';
+                //     Image = RemoveLine;
+                //     ToolTip = 'Remove the scheduled processing of this record from the job queue.';
+                //     Visible = JobQueueVisible;
 
-                    trigger OnAction()
-                    begin
-                        Rec.CancelBackgroundPosting();
-                    end;
-                }
+                //     trigger OnAction()
+                //     begin
+                //         Rec.CancelBackgroundPosting();
+                //     end;
+                // }
             }
             group("&Contract Confirmation")
             {
@@ -1378,34 +1304,12 @@ page 11311116 "Red Reg Sales Contract"
                     actionref(Cancel_Promoted; Cancel)
                     {
                     }
+                    actionref(renew_Promoted; Renew)
+                    {
+                    }
                 }
                 // actionref("Archive Document_Promoted"; "Archive Document")
                 // {
-                // }
-            }
-            group(Category_Category7)
-            {
-                Caption = 'Prepare', Comment = 'Generated from the PromotedActionCategories property index 6.';
-
-                actionref(CopyDocument_Promoted; CopyDocument)
-                {
-                }
-                // group("Category_Incoming Document")
-                // {
-                //     Caption = 'Incoming Document';
-
-                //     actionref(IncomingDocAttachFile_Promoted; IncomingDocAttachFile)
-                //     {
-                //     }
-                //     actionref(IncomingDocCard_Promoted; IncomingDocCard)
-                //     {
-                //     }
-                //     actionref(SelectIncomingDoc_Promoted; SelectIncomingDoc)
-                //     {
-                //     }
-                //     actionref(RemoveIncomingDoc_Promoted; RemoveIncomingDoc)
-                //     {
-                //     }
                 // }
             }
             group(Category_Category4)
@@ -1542,9 +1446,9 @@ page 11311116 "Red Reg Sales Contract"
 
     trigger OnInit()
     var
-        Setup: Record "Red Reg Setup";
+    // Setup: Record "Red Reg Setup";
     begin
-        JobQueuesUsed := Setup.JobQueueSalesActive();
+        // JobQueuesUsed := Setup.JobQueueSalesActive();
         SetExtDocNoMandatoryCondition();
     end;
 
@@ -1606,7 +1510,6 @@ page 11311116 "Red Reg Sales Contract"
         CustomerMgt: Codeunit "Customer Mgt.";
         FormatAddress: Codeunit "Format Address";
         ChangeExchangeRate: Page "Change Exchange Rate";
-        JobQueueVisible: Boolean;
         DocNoVisible: Boolean;
         ExternalDocNoMandatory: Boolean;
         OpenApprovalEntriesExistForCurrUser: Boolean;
@@ -1615,7 +1518,8 @@ page 11311116 "Red Reg Sales Contract"
         CRMIsCoupledToRecord: Boolean;
         ShowWorkflowStatus: Boolean;
         CanCancelApprovalForRecord: Boolean;
-        JobQueuesUsed: Boolean;
+        // JobQueueVisible: Boolean;
+        // JobQueuesUsed: Boolean;
         PaymentServiceVisible: Boolean;
         PaymentServiceEnabled: Boolean;
         IsPostingGroupEditable: Boolean;
@@ -1702,7 +1606,7 @@ page 11311116 "Red Reg Sales Contract"
     var
         WorkflowWebhookMgt: Codeunit "Workflow Webhook Management";
     begin
-        JobQueueVisible := Rec."Job Queue Status" = Rec."Job Queue Status"::"Scheduled for Posting";
+        // JobQueueVisible := Rec."Job Queue Status" = Rec."Job Queue Status"::"Scheduled for Posting";
         ShowQuoteNo := Rec."Quote No." <> '';
         SetExtDocNoMandatoryCondition();
         SetPostingGroupEditable();
@@ -1732,8 +1636,8 @@ page 11311116 "Red Reg Sales Contract"
 
     procedure UpdateShipToBillToGroupVisibility()
     begin
-        CustomerMgt.CalculateShipToBillToOptions(ShipToOptions, BillToOptions, Rec);
-        // CustomerMgt.CalculateShipBillToOptions(ShipToOptions, BillToOptions, Rec);
+        // CustomerMgt.CalculateShipToBillToOptions(ShipToOptions, BillToOptions, Rec);
+        CustomerMgt.CalculateShipBillToOptions(ShipToOptions, BillToOptions, Rec);
     end;
 
     procedure SetPostingGroupEditable()

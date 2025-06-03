@@ -1,10 +1,10 @@
-page 11311118 "Red Reg Generator List"
+page 11311118 "Red Reg Contract Templates"
 {
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
-    SourceTable = "Red Reg Generator";
-    Caption = 'Contract Generator List';
+    SourceTable = "Red Reg Contract Template";
+    Caption = 'Contract Templates';
 
     layout
     {
@@ -12,25 +12,20 @@ page 11311118 "Red Reg Generator List"
         {
             repeater(repeater)
             {
-                field("Application Area"; Rec."Application Area")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies fror which application area the contract is created.';
-                }
-                field("Document Type"; Rec."Document Type")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies from which document type the contract is created. When a line from the selected document type is shipped a contract will be created. Type any takes precedent over other types.';
-                }
                 field(Type; Rec.Type)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies fror which line type the contract is created. Item takes precedence over Item Category.';
+                    ToolTip = 'Specifies for which line type the contract is created. Item takes precedence over Item Category.';
                 }
                 field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies fror which source number the contract is created.';
+                    ToolTip = 'Specifies for which source number the contract is created.';
+                }
+                field("Application Area"; Rec."Application Area")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies for which application area the contract is created.';
                 }
                 field("Generation Moment"; Rec."Generation Moment")
                 {

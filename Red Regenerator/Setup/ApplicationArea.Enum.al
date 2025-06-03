@@ -2,11 +2,15 @@ enum 11311116 "Red Reg Application Area"
 {
     Extensible = true;
 
-    value(1; Sales)
+    value(1; " ")
+    {
+        Caption = ' ';
+    }
+    value(2; Sales)
     {
         Caption = 'Sales';
     }
-    value(2; Purchase)
+    value(3; Purchase)
     {
         Caption = 'Purchase';
     }

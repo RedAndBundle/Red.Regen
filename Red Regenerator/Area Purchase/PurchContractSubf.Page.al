@@ -15,7 +15,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
         {
             repeater(Control1)
             {
-                // TODO cleanup
                 ShowCaption = false;
                 field(Type; Rec.Type)
                 {
@@ -25,7 +24,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
                     trigger OnValidate()
                     begin
                         NoOnAfterValidate();
-
                         UpdateEditableOnRow();
                         UpdateTypeText();
                         DeltaUpdateTotals();
@@ -86,7 +84,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
                         InsertExtendedText(false);
                         NoOnAfterValidate();
                         DeltaUpdateTotals();
-                        OnItemReferenceNoOnLookup(Rec);
                         CurrPage.Update();
                     end;
 
@@ -259,19 +256,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
                             CurrPage.Update(false);
                     end;
                 }
-                field("Reserved Quantity"; Rec."Reserved Quantity")
-                {
-                    ApplicationArea = Reservation;
-                    BlankZero = true;
-                    ToolTip = 'Specifies how many item units on this line have been reserved.';
-                }
-                field("Job Remaining Qty."; Rec."Job Remaining Qty.")
-                {
-                    ApplicationArea = Jobs;
-                    BlankZero = true;
-                    ToolTip = 'Specifies the quantity that remains to complete a project.';
-                    Visible = false;
-                }
                 field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
                     ApplicationArea = Suite;
@@ -434,340 +418,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
                         DeltaUpdateTotals();
                     end;
                 }
-                field("Inv. Discount Amount"; Rec."Inv. Discount Amount")
-                {
-                    ApplicationArea = Suite;
-                    ToolTip = 'Specifies the total calculated invoice discount amount for the line.';
-                    Visible = false;
-
-                    trigger OnValidate()
-                    begin
-                        DeltaUpdateTotals();
-                    end;
-                }
-                field("Inv. Disc. Amount to Invoice"; Rec."Inv. Disc. Amount to Invoice")
-                {
-                    ApplicationArea = Suite;
-                    ToolTip = 'Specifies the actual invoice discount amount that will be posted for the line on the invoice.';
-                    Visible = false;
-                }
-                field("Qty. to Receive"; Rec."Qty. to Receive")
-                {
-                    ApplicationArea = Suite;
-                    BlankZero = true;
-                    ToolTip = 'Specifies the quantity of items that remains to be received.';
-
-                    trigger OnValidate()
-                    begin
-                        SetItemChargeFieldsStyle();
-                    end;
-                }
-                field("Quantity Received"; Rec."Quantity Received")
-                {
-                    ApplicationArea = Suite;
-                    BlankZero = true;
-                    ToolTip = 'Specifies how many units of the item on the line have been posted as received.';
-
-                    trigger OnDrillDown()
-                    var
-                        PurchRcptLine: Record "Purch. Rcpt. Line";
-                    begin
-                        PurchRcptLine.SetCurrentKey("Document No.", "No.", "Planned Receipt Date");
-                        PurchRcptLine.SetRange("Order No.", Rec."Document No.");
-                        PurchRcptLine.SetRange("Order Line No.", Rec."Line No.");
-                        PurchRcptLine.SetFilter(Quantity, '<>%1', 0);
-                        PAGE.RunModal(0, PurchRcptLine);
-                    end;
-                }
-                field("Qty. to Invoice"; Rec."Qty. to Invoice")
-                {
-                    ApplicationArea = Suite;
-                    BlankZero = true;
-                    ToolTip = 'Specifies the quantity that remains to be invoiced. It is calculated as Quantity - Qty. Invoiced.';
-
-                    trigger OnValidate()
-                    begin
-                        SetItemChargeFieldsStyle();
-                    end;
-                }
-                field("Quantity Invoiced"; Rec."Quantity Invoiced")
-                {
-                    ApplicationArea = Suite;
-                    BlankZero = true;
-                    ToolTip = 'Specifies how many units of the item on the line have been posted as invoiced.';
-
-                    trigger OnDrillDown()
-                    var
-                        PurchInvLine: Record "Purch. Inv. Line";
-                    begin
-                        PurchInvLine.SetCurrentKey("Document No.", "No.", "Expected Receipt Date");
-                        PurchInvLine.SetRange("Order No.", Rec."Document No.");
-                        PurchInvLine.SetRange("Order Line No.", Rec."Line No.");
-                        PurchInvLine.SetFilter(Quantity, '<>%1', 0);
-                        PAGE.RunModal(0, PurchInvLine);
-                    end;
-                }
-                field("Prepmt Amt to Deduct"; Rec."Prepmt Amt to Deduct")
-                {
-                    ApplicationArea = Prepayments;
-                    ToolTip = 'Specifies the prepayment amount that has already been deducted from ordinary invoices posted for this purchase order line.';
-                    Visible = false;
-                }
-                field("Prepmt Amt Deducted"; Rec."Prepmt Amt Deducted")
-                {
-                    ApplicationArea = Prepayments;
-                    ToolTip = 'Specifies the prepayment amount that has already been deducted from ordinary invoices posted for this purchase order line.';
-                    Visible = false;
-                }
-                field("Allow Item Charge Assignment"; Rec."Allow Item Charge Assignment")
-                {
-                    ApplicationArea = ItemCharges;
-                    ToolTip = 'Specifies that you can assign item charges to this line.';
-                    Visible = false;
-                }
-                field("Qty. to Assign"; Rec."Qty. to Assign")
-                {
-                    ApplicationArea = ItemCharges;
-                    StyleExpr = ItemChargeStyleExpression;
-                    ToolTip = 'Specifies how many units of the item charge will be assigned to the line.';
-
-                    trigger OnDrillDown()
-                    begin
-                        CurrPage.SaveRecord();
-                        Rec.ShowItemChargeAssgnt();
-                        UpdateForm(false);
-                    end;
-                }
-                field("Item Charge Qty. to Handle"; Rec."Item Charge Qty. to Handle")
-                {
-                    ApplicationArea = ItemCharges;
-                    QuickEntry = false;
-                    StyleExpr = ItemChargeToHandleStyleExpression;
-                    ToolTip = 'Specifies how many items the item charge will be assigned to on the line. It can be either equal to Qty. to Assign or to zero. If it is zero, the item charge will not be assigned to the line.';
-
-                    trigger OnDrillDown()
-                    begin
-                        CurrPage.SaveRecord();
-                        Rec.ShowItemChargeAssgnt();
-                        UpdateForm(false);
-                    end;
-                }
-                field("Qty. Assigned"; Rec."Qty. Assigned")
-                {
-                    ApplicationArea = ItemCharges;
-                    BlankZero = true;
-                    ToolTip = 'Specifies how much of the item charge that has been assigned.';
-
-                    trigger OnDrillDown()
-                    begin
-                        CurrPage.SaveRecord();
-                        Rec.ShowItemChargeAssgnt();
-                        UpdateForm(false);
-                    end;
-                }
-                field("Job No."; Rec."Job No.")
-                {
-                    ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the number of the related project. If you fill in this field and the Project Task No. field, then a project ledger entry will be posted together with the purchase line.';
-                    Visible = false;
-
-                    trigger OnValidate()
-                    begin
-                        Rec.ShowShortcutDimCode(ShortcutDimCode);
-                    end;
-                }
-                field("Job Task No."; Rec."Job Task No.")
-                {
-                    ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the number of the related project task.';
-                    Visible = false;
-
-                    trigger OnValidate()
-                    begin
-                        Rec.ShowShortcutDimCode(ShortcutDimCode);
-                    end;
-                }
-                field("Job Planning Line No."; Rec."Job Planning Line No.")
-                {
-                    ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the project planning line number that the usage should be linked to when the project journal is posted. You can only link to project planning lines that have the Apply Usage Link option enabled.';
-                    Visible = false;
-                }
-                field("Job Line Type"; Rec."Job Line Type")
-                {
-                    ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the type of planning line that was created when the project ledger entry is posted from the purchase line. If the field is empty, no planning lines were created for this entry.';
-                    Visible = false;
-                }
-                field("Job Unit Price"; Rec."Job Unit Price")
-                {
-                    ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the sales price per unit that applies to the item or general ledger expense that will be posted.';
-                    Visible = false;
-                }
-                field("Job Line Amount"; Rec."Job Line Amount")
-                {
-                    ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the line amount of the project ledger entry that is related to the purchase line.';
-                    Visible = false;
-                }
-                field("Job Line Discount Amount"; Rec."Job Line Discount Amount")
-                {
-                    ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the line discount amount of the project ledger entry that is related to the purchase line.';
-                    Visible = false;
-                }
-                field("Job Line Discount %"; Rec."Job Line Discount %")
-                {
-                    ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the line discount percentage of the project ledger entry that is related to the purchase line.';
-                    Visible = false;
-                }
-                field("Job Total Price"; Rec."Job Total Price")
-                {
-                    ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the gross amount of the line that the purchase line applies to.';
-                    Visible = false;
-                }
-                field("Job Unit Price (LCY)"; Rec."Job Unit Price (LCY)")
-                {
-                    ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the sales price per unit that applies to the item or general ledger expense that will be posted.';
-                    Visible = false;
-                }
-                field("Job Total Price (LCY)"; Rec."Job Total Price (LCY)")
-                {
-                    ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the gross amount of the line, in the local currency.';
-                    Visible = false;
-                }
-                field("Job Line Amount (LCY)"; Rec."Job Line Amount (LCY)")
-                {
-                    ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the line amount of the project ledger entry that is related to the purchase line.';
-                    Visible = false;
-                }
-                field("Job Line Disc. Amount (LCY)"; Rec."Job Line Disc. Amount (LCY)")
-                {
-                    ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the line discount amount of the project ledger entry that is related to the purchase line.';
-                    Visible = false;
-                }
-                field("Requested Receipt Date"; Rec."Requested Receipt Date")
-                {
-                    ApplicationArea = Suite;
-                    ToolTip = 'Specifies the date that you want the vendor to deliver to the ship-to address. The value in the field is used to calculate the latest date you can order the items to have them delivered on the requested receipt date. If you do not need delivery on a specific date, you can leave the field blank.';
-                    Visible = false;
-                }
-                field("Promised Receipt Date"; Rec."Promised Receipt Date")
-                {
-                    ApplicationArea = OrderPromising;
-                    ToolTip = 'Specifies the date that the vendor has promised to deliver the order.';
-                    Visible = true;
-                }
-                field("Planned Receipt Date"; Rec."Planned Receipt Date")
-                {
-                    ApplicationArea = Suite;
-                    ToolTip = 'Specifies the date when the item is planned to arrive in inventory. Forward calculation: planned receipt date = order date + vendor lead time (per the vendor calendar and rounded to the next working day in first the vendor calendar and then the location calendar). If no vendor calendar exists, then: planned receipt date = order date + vendor lead time (per the location calendar). Backward calculation: order date = planned receipt date - vendor lead time (per the vendor calendar and rounded to the previous working day in first the vendor calendar and then the location calendar). If no vendor calendar exists, then: order date = planned receipt date - vendor lead time (per the location calendar).';
-                }
-                field("Expected Receipt Date"; Rec."Expected Receipt Date")
-                {
-                    ApplicationArea = Suite;
-                    ToolTip = 'Specifies the date you expect the items to be available in your warehouse. If you leave the field blank, it will be calculated as follows: Planned Receipt Date + Safety Lead Time + Inbound Warehouse Handling Time = Expected Receipt Date.';
-                }
-                field("Order Date"; Rec."Order Date")
-                {
-                    ApplicationArea = Suite;
-                    ToolTip = 'Specifies the date when the order was created.';
-                    Visible = false;
-                }
-                field("Lead Time Calculation"; Rec."Lead Time Calculation")
-                {
-                    ApplicationArea = Suite;
-                    ToolTip = 'Specifies a date formula for the amount of time it takes to replenish the item.';
-                    Visible = false;
-                }
-                field("Planning Flexibility"; Rec."Planning Flexibility")
-                {
-                    ApplicationArea = Planning;
-                    ToolTip = 'Specifies whether the supply represented by this line is considered by the planning system when calculating action messages.';
-                    Visible = false;
-                }
-                field("Prod. Order No."; Rec."Prod. Order No.")
-                {
-                    ApplicationArea = Manufacturing;
-                    ToolTip = 'Specifies the number of the related production order.';
-                    Visible = false;
-                }
-                field("Prod. Order Line No."; Rec."Prod. Order Line No.")
-                {
-                    ApplicationArea = Manufacturing;
-                    ToolTip = 'Specifies the number of the related production order line.';
-                    Visible = false;
-                }
-                field("Operation No."; Rec."Operation No.")
-                {
-                    ApplicationArea = Manufacturing;
-                    ToolTip = 'Specifies the number of the related production operation.';
-                    Visible = false;
-                }
-                field("Work Center No."; Rec."Work Center No.")
-                {
-                    ApplicationArea = Manufacturing;
-                    ToolTip = 'Specifies the work center number of the journal line.';
-                    Visible = false;
-                }
-                field(Finished; Rec.Finished)
-                {
-                    ApplicationArea = Manufacturing;
-                    ToolTip = 'Specifies that any related service or operation is finished.';
-                    Visible = false;
-                }
-                field("Whse. Outstanding Qty. (Base)"; Rec."Whse. Outstanding Qty. (Base)")
-                {
-                    ApplicationArea = Warehouse;
-                    ToolTip = 'Specifies how many units on the purchase order line remain to be handled in warehouse documents.';
-                    Visible = false;
-                }
-                field("Inbound Whse. Handling Time"; Rec."Inbound Whse. Handling Time")
-                {
-                    ApplicationArea = Warehouse;
-                    ToolTip = 'Specifies the time it takes to make items part of available inventory, after the items have been posted as received.';
-                    Visible = false;
-                }
-                field("Blanket Order No."; Rec."Blanket Order No.")
-                {
-                    ApplicationArea = Suite;
-                    ToolTip = 'Specifies the number of the blanket order that the record originates from.';
-                    Visible = false;
-                }
-                field("Blanket Order Line No."; Rec."Blanket Order Line No.")
-                {
-                    ApplicationArea = Suite;
-                    ToolTip = 'Specifies the number of the blanket order line that the record originates from.';
-                    Visible = false;
-                }
-                field("Appl.-to Item Entry"; Rec."Appl.-to Item Entry")
-                {
-                    ApplicationArea = Suite;
-                    ToolTip = 'Specifies the number of the item ledger entry that the document or journal line is applied -to.';
-                    Visible = false;
-                }
-                field("Deferral Code"; Rec."Deferral Code")
-                {
-                    ApplicationArea = Suite;
-                    Enabled = (Rec.Type <> Rec.Type::"Fixed Asset") and (Rec.Type <> Rec.Type::" ");
-                    TableRelation = "Deferral Template"."Deferral Code";
-                    ToolTip = 'Specifies the deferral template that governs how expenses paid with this purchase document are deferred to the different accounting periods when the expenses were incurred.';
-                    Visible = false;
-
-                    trigger OnAssistEdit()
-                    begin
-                        CurrPage.SaveRecord();
-                        Commit();
-                        Rec.ShowDeferralSchedule();
-                    end;
-                }
                 field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
                 {
                     ApplicationArea = Dimensions;
@@ -793,8 +443,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
                     trigger OnValidate()
                     begin
                         Rec.ValidateShortcutDimCode(3, ShortcutDimCode[3]);
-
-                        OnAfterValidateShortcutDimCode(Rec, ShortcutDimCode, 3);
                     end;
                 }
                 field(ShortcutDimCode4; ShortcutDimCode[4])
@@ -810,8 +458,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
                     trigger OnValidate()
                     begin
                         Rec.ValidateShortcutDimCode(4, ShortcutDimCode[4]);
-
-                        OnAfterValidateShortcutDimCode(Rec, ShortcutDimCode, 4);
                     end;
                 }
                 field(ShortcutDimCode5; ShortcutDimCode[5])
@@ -827,8 +473,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
                     trigger OnValidate()
                     begin
                         Rec.ValidateShortcutDimCode(5, ShortcutDimCode[5]);
-
-                        OnAfterValidateShortcutDimCode(Rec, ShortcutDimCode, 5);
                     end;
                 }
                 field(ShortcutDimCode6; ShortcutDimCode[6])
@@ -844,8 +488,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
                     trigger OnValidate()
                     begin
                         Rec.ValidateShortcutDimCode(6, ShortcutDimCode[6]);
-
-                        OnAfterValidateShortcutDimCode(Rec, ShortcutDimCode, 6);
                     end;
                 }
                 field(ShortcutDimCode7; ShortcutDimCode[7])
@@ -861,8 +503,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
                     trigger OnValidate()
                     begin
                         Rec.ValidateShortcutDimCode(7, ShortcutDimCode[7]);
-
-                        OnAfterValidateShortcutDimCode(Rec, ShortcutDimCode, 7);
                     end;
                 }
                 field(ShortcutDimCode8; ShortcutDimCode[8])
@@ -878,8 +518,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
                     trigger OnValidate()
                     begin
                         Rec.ValidateShortcutDimCode(8, ShortcutDimCode[8]);
-
-                        OnAfterValidateShortcutDimCode(Rec, ShortcutDimCode, 8);
                     end;
                 }
                 field("Document No."; Rec."Document No.")
@@ -895,23 +533,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
                     Editable = false;
                     ToolTip = 'Specifies the number of this line.';
                     Visible = false;
-                }
-                field("Over-Receipt Quantity"; Rec."Over-Receipt Quantity")
-                {
-                    ApplicationArea = All;
-                    Visible = OverReceiptAllowed;
-                    ToolTip = 'Specifies over-receipt quantity.';
-
-                    trigger OnValidate()
-                    begin
-                        CurrPage.Update(true);
-                    end;
-                }
-                field("Over-Receipt Code"; Rec."Over-Receipt Code")
-                {
-                    ApplicationArea = All;
-                    Visible = OverReceiptAllowed;
-                    ToolTip = 'Specifies over-receipt code.';
                 }
                 field("Gross Weight"; Rec."Gross Weight")
                 {
@@ -937,12 +558,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the number of units per parcel of the item. In the purchase statistics window, the number of units per parcel on the line helps to determine the total number of units for all the lines for the particular purchase document.';
-                    Visible = false;
-                }
-                field("FA Posting Date"; Rec."FA Posting Date")
-                {
-                    ApplicationArea = FixedAssets;
-                    ToolTip = 'Specifies the FA posting date if you have selected Fixed Asset in the Type field for this line.';
                     Visible = false;
                 }
                 field("Attached to Line No."; Rec."Attached to Line No.")
@@ -1087,7 +702,7 @@ page 11311121 "Red Reg Purch. Contract Subf."
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromPurchLine(Rec, ItemAvailFormsMgt.ByEvent())
+                            PurchAvailabilityMgt.ShowItemAvailabilityFromPurchLine(Rec, "Item Availability Type"::"Event");
                         end;
                     }
                     action(Period)
@@ -1099,7 +714,7 @@ page 11311121 "Red Reg Purch. Contract Subf."
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromPurchLine(Rec, ItemAvailFormsMgt.ByPeriod())
+                            PurchAvailabilityMgt.ShowItemAvailabilityFromPurchLine(Rec, "Item Availability Type"::Period);
                         end;
                     }
                     action(Variant)
@@ -1111,7 +726,7 @@ page 11311121 "Red Reg Purch. Contract Subf."
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromPurchLine(Rec, ItemAvailFormsMgt.ByVariant())
+                            PurchAvailabilityMgt.ShowItemAvailabilityFromPurchLine(Rec, "Item Availability Type"::Variant);
                         end;
                     }
                     action(Location)
@@ -1124,7 +739,7 @@ page 11311121 "Red Reg Purch. Contract Subf."
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromPurchLine(Rec, ItemAvailFormsMgt.ByLocation())
+                            PurchAvailabilityMgt.ShowItemAvailabilityFromPurchLine(Rec, "Item Availability Type"::Location);
                         end;
                     }
                     action(Lot)
@@ -1148,37 +763,9 @@ page 11311121 "Red Reg Purch. Contract Subf."
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromPurchLine(Rec, ItemAvailFormsMgt.ByBOM())
+                            PurchAvailabilityMgt.ShowItemAvailabilityFromPurchLine(Rec, "Item Availability Type"::BOM);
                         end;
                     }
-                }
-                action("Reservation Entries")
-                {
-                    AccessByPermission = TableData Item = R;
-                    ApplicationArea = Reservation;
-                    Caption = 'Reservation Entries';
-                    Image = ReservationLedger;
-                    Enabled = Rec.Type = Rec.Type::Item;
-                    ToolTip = 'View all reservation entries for the selected item. This action is available only for lines that contain an item.';
-
-                    trigger OnAction()
-                    begin
-                        Rec.ShowReservationEntries(true);
-                    end;
-                }
-                action("Item Tracking Lines")
-                {
-                    ApplicationArea = ItemTracking;
-                    Caption = 'Item &Tracking Lines';
-                    Image = ItemTrackingLines;
-                    ShortCutKey = 'Ctrl+Alt+I';
-                    Enabled = Rec.Type = Rec.Type::Item;
-                    ToolTip = 'View or edit serial and lot numbers for the selected item. This action is available only for lines that contain an item.';
-
-                    trigger OnAction()
-                    begin
-                        Rec.OpenItemTrackingLines();
-                    end;
                 }
                 action(Dimensions)
                 {
@@ -1192,57 +779,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
                     trigger OnAction()
                     begin
                         Rec.ShowDimensions();
-                    end;
-                }
-                action("Co&mments")
-                {
-                    ApplicationArea = Comments;
-                    Caption = 'Co&mments';
-                    Image = ViewComments;
-                    ToolTip = 'View or add comments for the record.';
-
-                    trigger OnAction()
-                    begin
-                        Rec.ShowLineComments();
-                    end;
-                }
-                action(ItemChargeAssignment)
-                {
-                    AccessByPermission = TableData "Item Charge" = R;
-                    ApplicationArea = ItemCharges;
-                    Caption = 'Item Charge &Assignment';
-                    Image = ItemCosts;
-                    Enabled = Rec.Type = Rec.Type::"Charge (Item)";
-                    ToolTip = 'Record additional direct costs, for example for freight. This action is available only for Charge (Item) line types.';
-
-                    trigger OnAction()
-                    begin
-                        Rec.ShowItemChargeAssgnt();
-                        SetItemChargeFieldsStyle();
-                    end;
-                }
-                action(DocumentLineTracking)
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'Document &Line Tracking';
-                    ToolTip = 'View related open, posted, or archived documents or document lines.';
-
-                    trigger OnAction()
-                    begin
-                        ShowDocumentLineTracking();
-                    end;
-                }
-                action(DeferralSchedule)
-                {
-                    ApplicationArea = Suite;
-                    Caption = 'Deferral Schedule';
-                    Enabled = Rec."Deferral Code" <> '';
-                    Image = PaymentPeriod;
-                    ToolTip = 'View or edit the deferral schedule that governs how revenue made with this purchase document is deferred to different accounting periods when the document is posted.';
-
-                    trigger OnAction()
-                    begin
-                        Rec.ShowDeferralSchedule();
                     end;
                 }
                 action(DocAttach)
@@ -1279,109 +815,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
                     trigger OnAction()
                     begin
                         ExplodeBOM();
-                    end;
-                }
-                action("Insert Ext. Texts")
-                {
-                    AccessByPermission = TableData "Extended Text Header" = R;
-                    ApplicationArea = Suite;
-                    Caption = 'Insert &Ext. Texts';
-                    Image = Text;
-                    ToolTip = 'Insert the extended item description that is set up for the item that is being processed on the line.';
-
-                    trigger OnAction()
-                    begin
-                        InsertExtendedText(true);
-                    end;
-                }
-                action(Reserve)
-                {
-                    ApplicationArea = Reservation;
-                    Caption = '&Reserve';
-                    Ellipsis = true;
-                    Image = Reserve;
-                    Enabled = Rec.Type = Rec.Type::Item;
-                    ToolTip = 'Reserve the quantity of the selected item that is required on the document line from which you opened this page. This action is available only for lines that contain an item.';
-
-                    trigger OnAction()
-                    begin
-                        Rec.Find();
-                        Rec.ShowReservation();
-                    end;
-                }
-                action(OrderTracking)
-                {
-                    ApplicationArea = Suite;
-                    Caption = 'Order &Tracking';
-                    Image = OrderTracking;
-                    Enabled = Rec.Type = Rec.Type::Item;
-                    ToolTip = 'Track the connection of a supply to its corresponding demand for the selected item. This can help you find the original demand that created a specific production order or purchase order. This action is available only for lines that contain an item.';
-
-                    trigger OnAction()
-                    begin
-                        ShowTracking();
-                    end;
-                }
-            }
-            group("O&rder")
-            {
-                Caption = 'O&rder';
-                Image = "Order";
-                group("Dr&op Shipment")
-                {
-                    Caption = 'Dr&op Shipment';
-                    Image = Delivery;
-                    action("Sales &Order")
-                    {
-                        AccessByPermission = TableData "Sales Shipment Header" = R;
-                        ApplicationArea = Suite;
-                        Caption = 'Sales &Order';
-                        Image = Document;
-                        ToolTip = 'View the sales order that is the source of the line. This applies only to drop shipments and special orders.';
-
-                        trigger OnAction()
-                        begin
-                            OpenSalesOrderForm();
-                        end;
-                    }
-                }
-                group("Speci&al Order")
-                {
-                    Caption = 'Speci&al Order';
-                    Image = SpecialOrder;
-                    action(Action1901038504)
-                    {
-                        AccessByPermission = TableData "Sales Shipment Header" = R;
-                        ApplicationArea = Suite;
-                        Caption = 'Sales &Order';
-                        Image = Document;
-                        ToolTip = 'View the sales order that is the source of the line. This applies only to drop shipments and special orders.';
-
-                        trigger OnAction()
-                        begin
-                            OpenSpecOrderSalesOrderForm();
-                        end;
-                    }
-                }
-                action(BlanketOrder)
-                {
-                    ApplicationArea = Suite;
-                    Caption = 'Blanket Order';
-                    Image = BlanketOrder;
-                    ToolTip = 'View the blanket purchase order.';
-
-                    trigger OnAction()
-                    var
-                        PurchaseHeader: Record "Purchase Header";
-                        BlanketPurchaseOrder: Page "Blanket Purchase Order";
-                    begin
-                        Rec.TestField("Blanket Order No.");
-                        PurchaseHeader.SetRange("No.", Rec."Blanket Order No.");
-                        if not PurchaseHeader.IsEmpty() then begin
-                            BlanketPurchaseOrder.SetTableView(PurchaseHeader);
-                            BlanketPurchaseOrder.Editable := false;
-                            BlanketPurchaseOrder.Run();
-                        end;
                     end;
                 }
             }
@@ -1439,7 +872,7 @@ page 11311121 "Red Reg Purch. Contract Subf."
                         EditinExcel: Codeunit "Edit in Excel";
                         EditinExcelFilters: Codeunit "Edit in Excel Filters";
                     begin
-                        EditinExcelFilters.AddField('Document_No', Enum::"Edit in Excel Filter Type"::Equal, Rec."Document No.", Enum::"Edit in Excel Edm Type"::"Edm.String");
+                        EditinExcelFilters.AddFieldV2('Document_No', Enum::"Edit in Excel Filter Type"::Equal, Rec."Document No.", Enum::"Edit in Excel Edm Type"::"Edm.String");
 
                         EditinExcel.EditPageInExcel(
                             'Purchase_Order_Line',
@@ -1476,19 +909,12 @@ page 11311121 "Red Reg Purch. Contract Subf."
     trigger OnDeleteRecord(): Boolean
     var
         PurchLineReserve: Codeunit "Purch. Line-Reserve";
-        IsHandled: Boolean;
-        Result: Boolean;
     begin
-        IsHandled := false;
-        OnBeforeOnDeleteRecord(Rec, Result, IsHandled);
-        if IsHandled then
-            exit(Result);
-
         if (Rec.Quantity <> 0) and Rec.ItemExists(Rec."No.") then begin
             Commit();
             if not PurchLineReserve.DeleteLineConfirm(Rec) then
                 exit(false);
-            OnBeforeDeleteReservationEntries(Rec);
+
             PurchLineReserve.DeleteLine(Rec);
         end;
         DocumentTotals.PurchaseDocTotalsNotUpToDate();
@@ -1530,7 +956,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
         SetOpenPage();
 
         SetDimensionsVisibility();
-        SetOverReceiptControlsVisibility();
         SetItemReferenceVisibility();
     end;
 
@@ -1540,7 +965,7 @@ page 11311121 "Red Reg Purch. Contract Subf."
         InventorySetup: Record "Inventory Setup";
         TempOptionLookupBuffer: Record "Option Lookup Buffer" temporary;
         TransferExtendedText: Codeunit "Transfer Extended Text";
-        ItemAvailFormsMgt: Codeunit "Item Availability Forms Mgt";
+        PurchAvailabilityMgt: Codeunit "Purch. Availability Mgt.";
         PurchCalcDiscByType: Codeunit "Purch - Calc Disc. By Type";
         DocumentTotals: Codeunit "Document Totals";
         AmountWithDiscountAllowed: Decimal;
@@ -1578,7 +1003,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
         DimVisible8: Boolean;
         IsBlankNumber: Boolean;
         IsCommentLine: Boolean;
-        OverReceiptAllowed: Boolean;
         ItemReferenceVisible: Boolean;
         AttachToInvtItemEnabled: Boolean;
         InvDiscAmountEditable: Boolean;
@@ -1589,8 +1013,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
         DocumentErrorsMgt: Codeunit "Document Errors Mgt.";
         NonDeductibleVAT: Codeunit "Non-Deductible VAT";
     begin
-        OnBeforeSetOpenPage();
-
         IsSaaSExcelAddinEnabled := ServerSetting.GetIsSaasExcelAddinEnabled();
         SuppressTotals := CurrentClientType() = ClientType::ODataV4;
         BackgroundErrorCheck := DocumentErrorsMgt.BackgroundValidationEnabled();
@@ -1630,33 +1052,8 @@ page 11311121 "Red Reg Purch. Contract Subf."
         DocumentTotals.PurchaseDocTotalsNotUpToDate();
     end;
 
-    local procedure OpenSalesOrderForm()
-    var
-        SalesHeader: Record "Sales Header";
-        SalesOrder: Page "Sales Order";
-        IsHandled: Boolean;
-    begin
-        IsHandled := false;
-        OnBeforeOpenSalesOrderForm(Rec, SalesHeader, SalesOrder, IsHandled);
-        if IsHandled then
-            exit;
-
-        Rec.TestField("Sales Order No.");
-        SalesHeader.SetRange("No.", Rec."Sales Order No.");
-        SalesOrder.SetTableView(SalesHeader);
-        SalesOrder.Editable := false;
-        SalesOrder.Run();
-    end;
-
     procedure InsertExtendedText(Unconditionally: Boolean)
-    var
-        IsHandled: Boolean;
     begin
-        IsHandled := false;
-        OnBeforeInsertExtendedText(Rec, IsHandled);
-        if IsHandled then
-            exit;
-
         if TransferExtendedText.PurchCheckIfAnyExtText(Rec, Unconditionally) then begin
             CurrPage.SaveRecord();
             TransferExtendedText.InsertPurchExtText(Rec);
@@ -1665,25 +1062,11 @@ page 11311121 "Red Reg Purch. Contract Subf."
             UpdateForm(true);
     end;
 
-    procedure ShowTracking()
-    var
-        TrackingForm: Page "Order Tracking";
-    begin
-        TrackingForm.SetPurchLine(Rec);
-        TrackingForm.RunModal();
-    end;
-
     protected procedure OpenSpecOrderSalesOrderForm()
     var
         SalesHeader: Record "Sales Header";
         SalesOrder: Page "Sales Order";
-        IsHandled: Boolean;
     begin
-        IsHandled := false;
-        OnBeforeOpenSpecOrderSalesOrderForm(Rec, SalesHeader, SalesOrder, IsHandled);
-        if IsHandled then
-            exit;
-
         Rec.TestField("Special Order Sales No.");
         SalesHeader.SetRange("No.", Rec."Special Order Sales No.");
         SalesOrder.SetTableView(SalesHeader);
@@ -1704,18 +1087,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
            (xRec."No." <> '')
         then
             CurrPage.SaveRecord();
-
-        OnAfterNoOnAfterValidate(Rec, xRec);
-    end;
-
-    procedure ShowDocumentLineTracking()
-    var
-        DocumentLineTrackingPage: Page "Document Line Tracking";
-    begin
-        // Clear(DocumentLineTrackingPage);
-        // DocumentLineTrackingPage.SetSourceDoc(
-        //     "Document Line Source Type"::"Purchase Order", Rec."Document No.", Rec."Line No.", Rec."Blanket Order No.", Rec."Blanket Order Line No.", '', 0);
-        // DocumentLineTrackingPage.RunModal();
     end;
 
     procedure RedistributeTotalsOnAfterValidate()
@@ -1740,14 +1111,7 @@ page 11311121 "Red Reg Purch. Contract Subf."
     end;
 
     procedure CalculateTotals()
-    var
-        IsHandled: Boolean;
     begin
-        IsHandled := false;
-        OnBeforeCalculateTotals(Rec, SuppressTotals, DocumentTotals, IsHandled);
-        if IsHandled then
-            exit;
-
         if SuppressTotals then
             exit;
 
@@ -1762,7 +1126,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
         if SuppressTotals then
             exit;
 
-        OnBeforeDeltaUpdateTotals(Rec, xRec);
         DocumentTotals.PurchaseDeltaUpdateTotals(Rec, xRec, TotalPurchaseLine, VATAmount, InvoiceDiscountAmount, InvoiceDiscountPct);
         CheckSendLineInvoiceDiscountResetNotification();
     end;
@@ -1773,14 +1136,7 @@ page 11311121 "Red Reg Purch. Contract Subf."
     end;
 
     local procedure CheckSendLineInvoiceDiscountResetNotification()
-    var
-        IsHandled: Boolean;
     begin
-        IsHandled := false;
-        OnBeforeCheckSendLineInvoiceDiscountResetNotification(Rec, IsHandled);
-        if IsHandled then
-            exit;
-
         if Rec."Line Amount" <> xRec."Line Amount" then
             Rec.SendLineInvoiceDiscountResetNotification();
     end;
@@ -1796,8 +1152,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
         InvDiscAmountEditable :=
             CurrPageIsEditable and not PurchasesPayablesSetup."Calc. Inv. Discount" and
             (TotalPurchaseHeader.Status = TotalPurchaseHeader.Status::Open);
-
-        OnAfterUpdateEditableOnRow(Rec, IsCommentLine, IsBlankNumber);
     end;
 
     procedure UpdateTypeText()
@@ -1806,8 +1160,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
     begin
         if not IsFoundation then
             exit;
-
-        OnBeforeUpdateTypeText(Rec);
 
         RecRef.GetTable(Rec);
         TypeAsText := TempOptionLookupBuffer.FormatOption(RecRef.Field(Rec.FieldNo(Type)));
@@ -1849,8 +1201,6 @@ page 11311121 "Red Reg Purch. Contract Subf."
           DimVisible1, DimVisible2, DimVisible3, DimVisible4, DimVisible5, DimVisible6, DimVisible7, DimVisible8);
 
         Clear(DimMgt);
-
-        OnAfterSetDimensionsVisibility();
     end;
 
     local procedure SetDefaultType()
@@ -1858,99 +1208,11 @@ page 11311121 "Red Reg Purch. Contract Subf."
         IsHandled: Boolean;
     begin
         IsHandled := false;
-        OnBeforeSetDefaultType(Rec, xRec, IsHandled);
         if IsHandled then
             exit;
 
         if xRec."Document No." = '' then
             Rec.Type := Rec.GetDefaultLineType();
-    end;
-
-    local procedure SetOverReceiptControlsVisibility()
-    var
-        OverReceiptMgt: Codeunit "Over-Receipt Mgt.";
-    begin
-        OverReceiptAllowed := OverReceiptMgt.IsOverReceiptAllowed();
-    end;
-
-    [IntegrationEvent(true, false)]
-    local procedure OnAfterNoOnAfterValidate(var PurchaseLine: Record "Purchase Line"; var xPurchaseLine: Record "Purchase Line")
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnAfterUpdateEditableOnRow(PurchaseLine: Record "Purchase Line"; var IsCommentLine: Boolean; var IsBlankNumber: Boolean);
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnAfterValidateShortcutDimCode(var PurchaseLine: Record "Purchase Line"; var ShortcutDimCode: array[8] of Code[20]; DimIndex: Integer)
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnBeforeCalculateTotals(var PurchLine: Record "Purchase Line"; SuppressTotals: Boolean; var DocumentTotals: Codeunit "Document Totals"; var IsHandled: Boolean)
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnBeforeCheckSendLineInvoiceDiscountResetNotification(var PurchaseLine: Record "Purchase Line"; var IsHandled: Boolean)
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnBeforeInsertExtendedText(var PurchaseLine: Record "Purchase Line"; var IsHandled: Boolean)
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnBeforeOpenSpecOrderSalesOrderForm(var PurchaseLine: Record "Purchase Line"; var SalesHeader: Record "Sales Header"; var SalesOrder: Page "Sales Order"; var IsHandled: Boolean)
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnBeforeSetDefaultType(var PurchaseLine: Record "Purchase Line"; var xPurchaseLine: Record "Purchase Line"; var IsHandled: Boolean)
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnBeforeUpdateTypeText(var PurchaseLine: Record "Purchase Line")
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnItemReferenceNoOnLookup(var PurchaseLine: Record "Purchase Line")
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnBeforeOpenSalesOrderForm(var PurchaseLine: Record "Purchase Line"; var SalesHeader: Record "Sales Header"; var SalesOrder: Page "Sales Order"; var IsHandled: Boolean)
-    begin
-    end;
-
-    [IntegrationEvent(true, false)]
-    local procedure OnBeforeSetOpenPage()
-    begin
-    end;
-
-    [IntegrationEvent(true, false)]
-    local procedure OnAfterSetDimensionsVisibility()
-    begin
-    end;
-
-    [IntegrationEvent(true, false)]
-    local procedure OnBeforeDeltaUpdateTotals(var PurchaseLine: Record "Purchase Line"; xPurchaseLine: Record "Purchase Line")
-    begin
-    end;
-
-    [IntegrationEvent(true, false)]
-    local procedure OnBeforeDeleteReservationEntries(var PurchaseLine: Record "Purchase Line");
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnBeforeOnDeleteRecord(var PurchaseLine: Record "Purchase Line"; var Result: Boolean; var IsHandled: Boolean)
-    begin
     end;
 }
 
