@@ -46,7 +46,6 @@ codeunit 11311116 "Red Reg Purchase Events"
         Generator: Codeunit "Red Reg Purchase Generator";
         Regenerator: Codeunit "Red Reg Regenerator";
     begin
-        Generator.GenerateContracts(PurchaseHeader, Enum::"Red Reg Generation Moments"::Manual);
         Generator.GenerateContractsAfterPurchasePost(PurchaseHeader, PurchRcpHdrNo, PurchInvHdrNo, CommitIsSupressed);
         Regenerator.ActivateContract(PurchaseHeader);
     end;
@@ -54,12 +53,10 @@ codeunit 11311116 "Red Reg Purchase Events"
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Purchase Document", OnAfterReleasePurchaseDoc, '', false, false)]
     local procedure OnAfterReleaseSalesDoc(var PurchaseHeader: Record "Purchase Header"; var LinesWereModified: Boolean; SkipWhseRequestOperations: Boolean; PreviewMode: Boolean)
     var
-        Generator: Codeunit "Red Reg Purchase Generator";
+    // Generator: Codeunit "Red Reg Purchase Generator";
     begin
         if PreviewMode then
             exit;
-
-        Generator.GenerateContracts(PurchaseHeader, Enum::"Red Reg Generation Moments"::OnRelease);
     end;
 
     [EventSubscriber(ObjectType::Page, Page::"Posted Purch. Invoice - Update", OnAfterRecordChanged, '', false, false)]

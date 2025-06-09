@@ -51,19 +51,25 @@ codeunit 11311115 "Red Reg Sales Events"
         if PreviewMode then
             exit;
 
-        Generator.GenerateContracts(SalesHeader, Enum::"Red Reg Generation Moments"::Manual);
+        // Generator.GenerateContracts(SalesHeader, Enum::"Red Reg Generation Moments"::Manual);
         Generator.GenerateContractsAfterSalesPost(SalesHeader, SalesShptHdrNo, SalesInvHdrNo, CommitIsSuppressed, CustLedgerEntry);
         Regenerator.ActivateContract(SalesHeader);
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Sales Document", OnAfterReleaseSalesDoc, '', false, false)]
-    local procedure OnAfterReleaseSalesDoc(var SalesHeader: Record "Sales Header"; var LinesWereModified: Boolean; SkipWhseRequestOperations: Boolean; PreviewMode: Boolean)
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Sales Document", OnBeforeReleaseSalesDoc, '', false, false)]
+    local procedure OnAfterReleaseSalesDoc(var SalesHeader: Record "Sales Header"; PreviewMode: Boolean)
     var
         Generator: Codeunit "Red Reg Sales Generator";
     begin
         if PreviewMode then
             exit;
 
-        Generator.GenerateContracts(SalesHeader, Enum::"Red Reg Generation Moments"::OnRelease);
+        // Generator.GenerateContracts(SalesHeader, Enum::"Red Reg Generation Moments"::OnRelease);
+    end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Sales Line", OnAfterValidateEvent, 'No.', false, false)]
+    local procedure OnAfterValidateSalesLineNo(var Rec: Record "Sales Line"; var xRec: Record "Sales Line"; CurrFieldNo: Integer)
+    begin
+        // Rec.RedRegAddContractLine();
     end;
 }

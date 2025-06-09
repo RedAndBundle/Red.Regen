@@ -1,14 +1,15 @@
 
-table 11311117 "Red Reg Contract Template"
+table 11311119 "Red Reg Purch. Contr. Template"
 {
-    Caption = 'Contract Template';
+    Caption = 'Purchase Contract Template';
     DataClassification = CustomerContent;
 
     fields
     {
-        field(1; Type; Enum "Red Reg Create Contract Type")
+        field(1; Type; Enum "Purchase Line Type")
         {
             Caption = 'Type';
+            ValuesAllowed = 1, 2, 3;
             // ToolTip = 'Specifies for which line type the contract is created. Item takes precedence over Item Category.';
         }
         field(2; "No."; Code[20])
@@ -19,9 +20,7 @@ table 11311117 "Red Reg Contract Template"
             else
             if (Type = const(Resource)) Resource
             else
-            if (Type = const(Item)) Item where(Blocked = const(false), "Sales Blocked" = const(false))
-            else
-            if (Type = const("Item Category")) "Item Category";
+            if (Type = const(Item)) Item where(Blocked = const(false), "Sales Blocked" = const(false));
             ValidateTableRelation = false;
 
             trigger OnValidate()
@@ -33,8 +32,6 @@ table 11311117 "Red Reg Contract Template"
                         CopyFromItem();
                     Type::Resource:
                         CopyFromResource();
-                    Type::"Item Category":
-                        CopyFromItemCategory();
                 end;
             end;
         }
@@ -43,11 +40,14 @@ table 11311117 "Red Reg Contract Template"
             Caption = 'Application Area';
             // ToolTip = 'Specifies for which application area the contract is created.';
         }
-        field(5; "Generation Moment"; Enum "Red Reg Generation Moments")
-        {
-            Caption = 'Generation Moment';
-            // ToolTip = 'Specifies when the contract is generated. This can be automatically or manual.';
-        }
+        // field(5; "Generation Moment"; Enum "Red Reg Generation Moments")
+        // {
+        //     Caption = 'Generation Moment';
+        //     ObsoleteReason = 'Too complex, only generate on ship';
+        //     ObsoleteState = Pending;
+        //     ObsoleteTag = '1.0.1.0';
+        //     // ToolTip = 'Specifies when the contract is generated. This can be automatically or manual.';
+        // }
         field(10; Description; Text[100])
         {
             Caption = 'Description';
@@ -86,36 +86,36 @@ table 11311117 "Red Reg Contract Template"
             Clustered = true;
         }
     }
-    var
-        InvalidTypeErr: Label 'The %1 type is not supported.', Comment = '%1 - Type';
+    // var
+    //     InvalidTypeErr: Label 'The %1 type is not supported.', Comment = '%1 - Type';
 
-    internal procedure ConvertType(Input: Enum "Purchase Line Type"): Enum "Red Reg Create Contract Type"
-    begin
-        case Input of
-            Input::"G/L Account":
-                exit(Type::"G/L Account");
-            Input::"Resource":
-                exit(Type::Resource);
-            Input::"Item":
-                exit(Type::Item);
-            else
-                Error(InvalidTypeErr, Input);
-        end;
-    end;
+    // internal procedure ConvertType(Input: Enum "Purchase Line Type"): Enum "Red Reg Create Contract Type"
+    // begin
+    //     case Input of
+    //         Input::"G/L Account":
+    //             exit(Type::"G/L Account");
+    //         Input::"Resource":
+    //             exit(Type::Resource);
+    //         Input::"Item":
+    //             exit(Type::Item);
+    //         else
+    //             Error(InvalidTypeErr, Input);
+    //     end;
+    // end;
 
-    internal procedure ConvertType(Input: Enum "Sales Line Type"): Enum "Red Reg Create Contract Type"
-    begin
-        case Input of
-            Input::"G/L Account":
-                exit(Type::"G/L Account");
-            Input::"Resource":
-                exit(Type::Resource);
-            Input::"Item":
-                exit(Type::Item);
-            else
-                Error(InvalidTypeErr, Input);
-        end;
-    end;
+    // internal procedure ConvertType(Input: Enum "Sales Line Type"): Enum "Red Reg Create Contract Type"
+    // begin
+    //     case Input of
+    //         Input::"G/L Account":
+    //             exit(Type::"G/L Account");
+    //         Input::"Resource":
+    //             exit(Type::Resource);
+    //         Input::"Item":
+    //             exit(Type::Item);
+    //         else
+    //             Error(InvalidTypeErr, Input);
+    //     end;
+    // end;
 
     local procedure CopyFromGLAccount()
     var
@@ -154,13 +154,5 @@ table 11311117 "Red Reg Contract Template"
         Resource.TestField(Blocked, false);
         Description := Resource.Name;
         "Description 2" := Resource."Name 2";
-    end;
-
-    local procedure CopyFromItemCategory()
-    var
-        ItemCategory: Record "Item Category";
-    begin
-        ItemCategory.Get("No.");
-        Description := ItemCategory.Description;
     end;
 }

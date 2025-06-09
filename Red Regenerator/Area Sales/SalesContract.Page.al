@@ -196,12 +196,12 @@ page 11311116 "Red Reg Sales Contract"
                     Editable = Rec."Sell-to Customer No." <> '';
                     ToolTip = 'Specifies the name of the person to contact at the customer.';
                 }
-                // field("No. of Archived Versions"; Rec."No. of Archived Versions")
-                // {
-                //     ApplicationArea = Basic, Suite;
-                //     Importance = Additional;
-                //     ToolTip = 'Specifies the number of archived versions for this document.';
-                // }
+                field("No. of Archived Versions"; Rec."No. of Archived Versions")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Importance = Additional;
+                    ToolTip = 'Specifies the number of archived versions for this document.';
+                }
                 field("Document Date"; Rec."Document Date")
                 {
                     ApplicationArea = Basic, Suite;
@@ -1130,7 +1130,7 @@ page 11311116 "Red Reg Sales Contract"
 
                     trigger OnAction()
                     begin
-                        Rec.RedRegClose();
+                        Rec.RedRegCancel();
                         CurrPage.Update();
                     end;
                 }

@@ -1,10 +1,10 @@
-page 11311118 "Red Reg Contract Templates"
+page 11311124 "Red Reg Purch. Contr Templates"
 {
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
-    SourceTable = "Red Reg Contract Template";
-    Caption = 'Contract Templates';
+    SourceTable = "Red Reg Purch. Contr. Template";
+    Caption = 'Purchase Contract Templates';
 
     layout
     {
@@ -27,11 +27,11 @@ page 11311118 "Red Reg Contract Templates"
                     ApplicationArea = All;
                     ToolTip = 'Specifies for which application area the contract is created.';
                 }
-                field("Generation Moment"; Rec."Generation Moment")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies when the contract is generated. This can be automatically or manual.';
-                }
+                // field("Generation Moment"; Rec."Generation Moment")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies when the contract is generated. This can be automatically or manual.';
+                // }
                 field("Description"; Rec.Description)
                 {
                     ApplicationArea = All;

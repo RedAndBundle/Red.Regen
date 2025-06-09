@@ -299,21 +299,21 @@ tableextension 11311115 "Red Reg Purchase Header" extends "Purchase Header"
         exit("Red Reg Contract Status" in ["Red Reg Contract Status"::Active]);
     end;
 
-    internal procedure RedRegShowGenerate(): Boolean
-    var
-        Generator: Record "Red Reg Contract Template";
-        Setup: Record "Red Reg Setup";
-    begin
-        Generator.SetRange("Application Area", Generator."Application Area"::Purchase);
-        if Generator.IsEmpty() then
-            exit(false);
+    // internal procedure RedRegShowGenerate(): Boolean
+    // var
+    //     Generator: Record "Red Reg Contract Template";
+    //     Setup: Record "Red Reg Setup";
+    // begin
+    //     Generator.SetRange("Application Area", Generator."Application Area"::Purchase);
+    //     if Generator.IsEmpty() then
+    //         exit(false);
 
-        if not Setup.Get() then
-            exit(false);
+    //     if not Setup.Get() then
+    //         exit(false);
 
-        Generator.SetRange("Generation Moment", Generator."Generation Moment"::Manual);
-        exit(not Generator.IsEmpty());
-    end;
+    //     Generator.SetRange("Generation Moment", Generator."Generation Moment"::Manual);
+    //     exit(not Generator.IsEmpty());
+    // end;
 
     internal procedure RedRegSetWorkDescription(NewWorkDescription: Text)
     var

@@ -222,12 +222,23 @@ tableextension 11311113 "Red Reg Sales Header" extends "Sales Header"
         // Test open sales documents
         // Test contract end date
         "Red Reg Contract Status" := "Red Reg Contract Status"::Closed;
+        RedRegArchive();
     end;
 
     internal procedure RedRegCancel()
     begin
         // Test open sales documents
         "Red Reg Contract Status" := "Red Reg Contract Status"::Canceled;
+        RedRegArchive();
+    end;
+
+    local procedure RedRegArchive()
+    var
+        // p: page "Sales Quote";
+        ArchiveManagement: Codeunit "ArchiveManagement";
+    begin
+        // TODO archive contract
+        ArchiveManagement.ArchiveSalesDocument(Rec);
     end;
 
     internal procedure RedRegenerate()
@@ -293,27 +304,32 @@ tableextension 11311113 "Red Reg Sales Header" extends "Sales Header"
         exit("Red Reg Contract Status" in ["Red Reg Contract Status"::Active]);
     end;
 
-    internal procedure RedRegShowGenerate(): Boolean
-    var
-        Generator: Record "Red Reg Contract Template";
-        Setup: Record "Red Reg Setup";
-    begin
-        Generator.SetRange("Application Area", Generator."Application Area"::Sales);
-        if Generator.IsEmpty() then
-            exit(false);
-
-        if not Setup.Get() then
-            exit(false);
-
-        Generator.SetRange("Generation Moment", Generator."Generation Moment"::Manual);
-        exit(not Generator.IsEmpty());
-    end;
-
     local procedure TestModifyAllowed()
     var
         NotAllowedErr: Label 'You can only change or activate the contract when the status is concept or expired.';
     begin
         if not ("Red Reg Contract Status" in ["Red Reg Contract Status"::Concept, "Red Reg Contract Status"::Expired]) then
             Error(NotAllowedErr);
+    end;
+
+    internal procedure GenerateContractItems()
+    var
+        SalesLine: Record "Sales Line";
+        TempSalesLine: Record "Sales Line" temporary;
+        SalesDocument: Codeunit "Red Reg Sales Document";
+    begin
+        SalesLine.SetRange("Document Type", "Document Type");
+        SalesLine.SetRange("Document No.", "No.");
+        if SalesLine.FindSet() then
+            repeat
+                SalesDocument.GenerateContractDocumentLine(TempSalesLine, SalesLine);
+            until SalesLine.Next() = 0;
+
+        if TempSalesLine.FindSet() then
+            repeat
+                SalesLine.Init();
+                SalesLine := TempSalesLine;
+                SalesLine.Insert();
+            until TempSalesLine.Next() = 0;
     end;
 }

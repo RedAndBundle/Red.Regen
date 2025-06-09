@@ -1,15 +1,16 @@
 
-table 11311118 "Red Reg Item Contract"
+table 11311118 "Red Reg Sales Item Contract"
 {
     Caption = 'Item Contract';
     DataClassification = CustomerContent;
 
     fields
     {
-        field(1; Type; Enum "Red Reg Create Contract Type")
+        field(1; Type; Enum "Sales Line Type")
         {
             Caption = 'Type';
             ToolTip = 'Specifies for which line type the item line is created. Item takes precedence over Item Category.';
+            ValuesAllowed = 1, 2, 3;
         }
         field(2; "No."; Code[20])
         {
@@ -19,9 +20,7 @@ table 11311118 "Red Reg Item Contract"
             else
             if (Type = const(Resource)) Resource
             else
-            if (Type = const(Item)) Item where(Blocked = const(false), "Sales Blocked" = const(false))
-            else
-            if (Type = const("Item Category")) "Item Category";
+            if (Type = const(Item)) Item where(Blocked = const(false), "Sales Blocked" = const(false));
             ValidateTableRelation = false;
 
             trigger OnValidate()
@@ -33,16 +32,13 @@ table 11311118 "Red Reg Item Contract"
                         CopyFromItem();
                     Type::Resource:
                         CopyFromResource();
-                    Type::"Item Category":
-                        CopyFromItemCategory();
                 end;
             end;
         }
-        field(4; "Template Type"; Enum "Red Reg Create Contract Type")
+        field(4; "Template Type"; Enum "Sales Line Type")
         {
             Caption = 'Template Type';
             ToolTip = 'Specifies the Template Type.';
-            TableRelation = "Red Reg Contract Template".Type;
             ValuesAllowed = 1, 2, 3;
 
             trigger OnValidate()
@@ -54,7 +50,7 @@ table 11311118 "Red Reg Item Contract"
         {
             Caption = 'Template No.';
             ToolTip = 'Specifies the Template No.';
-            TableRelation = "Red Reg Contract Template"."No." where(Type = field("Template Type"));
+            TableRelation = "Red Reg Sales Contr. Template"."No." where(Type = field("Template Type"));
         }
         field(10; Description; Text[100])
         {
@@ -65,6 +61,13 @@ table 11311118 "Red Reg Item Contract"
         {
             Caption = 'Description 2';
             ToolTip = 'Specifies the second item description.';
+        }
+        field(12; "Template Description"; Text[100])
+        {
+            Caption = 'Template Description';
+            ToolTip = 'Specifies the description of the template.';
+            FieldClass = FlowField;
+            CalcFormula = lookup("Red Reg Sales Contr. Template"."Description" where(Type = field("Template Type"), "No." = field("Template No.")));
         }
     }
 
@@ -113,13 +116,5 @@ table 11311118 "Red Reg Item Contract"
         Resource.TestField(Blocked, false);
         Description := Resource.Name;
         "Description 2" := Resource."Name 2";
-    end;
-
-    local procedure CopyFromItemCategory()
-    var
-        ItemCategory: Record "Item Category";
-    begin
-        ItemCategory.Get("No.");
-        Description := ItemCategory.Description;
     end;
 }

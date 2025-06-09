@@ -1,10 +1,10 @@
-page 11311122 "Red Reg Item Contracts"
+page 11311122 "Red Reg Sales Item Contracts"
 {
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
-    SourceTable = "Red Reg Item Contract";
-    Caption = 'Item Contracts';
+    SourceTable = "Red Reg Sales Item Contract";
+    Caption = 'Sales Item Contracts';
 
     layout
     {
@@ -31,11 +31,17 @@ page 11311122 "Red Reg Item Contracts"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies for which line type the contract is created. Item takes precedence over Item Category.';
+                    ValuesAllowed = "G/L Account", "Item", "Resource";
                 }
                 field("Template No."; Rec."Template No.")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies for which source number the contract is created.';
+                }
+                field("Template Description"; Rec."Template Description")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the description of the template.';
                 }
             }
         }

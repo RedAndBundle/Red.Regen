@@ -2,13 +2,13 @@ tableextension 11311114 "Red Reg Sales Line" extends "Sales Line"
 {
     fields
     {
-        modify("No.")
-        {
-            trigger OnAfterValidate()
-            begin
-                Create new line for the contract based on the ItemContract table
-            end;
-        }
+        // modify("No.")
+        // {
+        //     trigger OnAfterValidate()
+        //     begin
+        //         RedRegAddContractLine();
+        //     end;
+        // }
         field(11311113; "Red Reg Org. Document Type"; Enum "Sales Document Type")
         {
             DataClassification = CustomerContent;
@@ -53,6 +53,56 @@ tableextension 11311114 "Red Reg Sales Line" extends "Sales Line"
             DataClassification = CustomerContent;
             Caption = 'Contract Line No.';
         }
+        field(11311120; "Red Reg Generates Contract"; Boolean)
+        {
+            FieldClass = FlowField;
+            CalcFormula = exist("Red Reg Sales Contr. Template" where(Type = field("Type"), "No." = field("No.")));
+            Caption = 'Generates Contract';
+            ToolTip = 'Specifies whether this line generates a contract when the document is released.';
+        }
+        field(11311130; "Red Reg Group"; Code[20])
+        {
+            Caption = 'Group';
+            Editable = false;
+            TableRelation = "Red Reg Contract Group";
+            // ToolTip = 'Specifies the group that the sales contract belongs to.';
+            FieldClass = FlowField;
+            CalcFormula = lookup("Sales Header"."Red Reg Group" where("No." = field("Document No."), "Document Type" = field("Document Type")));
+        }
+        field(11311131; "Red Reg Start Date"; Date)
+        {
+            Caption = 'Start Date';
+            Editable = false;
+            // ToolTip = 'Specifies the date that the contract has started.';
+            FieldClass = FlowField;
+            CalcFormula = lookup("Sales Header"."Red Reg Start Date" where("No." = field("Document No."), "Document Type" = field("Document Type")));
+
+        }
+        field(11311132; "Red Reg End Date"; Date)
+        {
+            Caption = 'End Date';
+            // ToolTip = 'Specifies the date when the contract will end.';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup("Sales Header"."Red Reg End Date" where("No." = field("Document No."), "Document Type" = field("Document Type")));
+        }
+        field(11311133; "Red Reg Duration"; DateFormula)
+        {
+            Caption = 'Duration';
+            Editable = false;
+            // ToolTip = 'Specifies the duration of the contract. If left empty, the contract is valid indefinetely.';
+            // TODO must be able to be blank if contract is valid indefinitely
+            FieldClass = FlowField;
+            CalcFormula = lookup("Sales Header"."Red Reg Duration" where("No." = field("Document No."), "Document Type" = field("Document Type")));
+        }
+        field(11311134; "Red Reg Your Reference"; Text[100])
+        {
+            Caption = 'Your Reference';
+            Editable = false;
+            // ToolTip = 'Specifies the reference of the contract.';
+            FieldClass = FlowField;
+            CalcFormula = lookup("Sales Header"."Your Reference" where("No." = field("Document No."), "Document Type" = field("Document Type")));
+        }
     }
 
     trigger OnInsert()
@@ -91,10 +141,18 @@ tableextension 11311114 "Red Reg Sales Line" extends "Sales Line"
         "Line No." += 10000;
     end;
 
-    local procedure RedRegCreatePurchaseContract()
-    var
-        PurchaseGenerator: Codeunit "Red Reg Purchase Generator";
-    begin
-        PurchaseGenerator.CreatePurchaseContractFromSalesLine(Rec);
-    end;
+    // local procedure RedRegCreatePurchaseContract()
+    // var
+    //     PurchaseGenerator: Codeunit "Red Reg Purchase Generator";
+    // begin
+    //     // TODO fix does not work. Need some form of on after generate sales doc to create the purchase contracts
+    //     PurchaseGenerator.CreatePurchaseContractFromSalesLine(Rec);
+    // end;
+
+    // internal procedure RedRegAddContractLine()
+    // var
+    //     SalesDocument: Codeunit "Red Reg Sales Document";
+    // begin
+    //     SalesDocument.GenerateContractDocumentLine(Rec);
+    // end;
 }
