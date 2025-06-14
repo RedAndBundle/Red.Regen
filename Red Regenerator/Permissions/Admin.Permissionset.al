@@ -1,3 +1,4 @@
+namespace Red.Regenerator;
 permissionset 11311113 "Red Reg Admin"
 {
     Assignable = true;

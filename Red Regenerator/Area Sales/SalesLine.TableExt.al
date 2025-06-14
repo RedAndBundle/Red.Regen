@@ -1,3 +1,5 @@
+namespace Red.Regenerator;
+using Microsoft.Sales.Document;
 tableextension 11311114 "Red Reg Sales Line" extends "Sales Line"
 {
     fields

@@ -1,3 +1,5 @@
+namespace Red.Regenerator;
+using Microsoft.Purchases.Document;
 tableextension 11311116 "Red Reg Purchase Line" extends "Purchase Line"
 {
     fields

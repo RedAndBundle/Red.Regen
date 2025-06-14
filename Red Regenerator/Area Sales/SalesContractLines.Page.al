@@ -1,3 +1,5 @@
+namespace Red.Regenerator;
+using Microsoft.Sales.Document;
 page 11311125 "Red Reg Sales Contract Lines"
 {
     Caption = 'Sales Contract Lines';

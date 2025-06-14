@@ -1,3 +1,7 @@
+namespace Red.Regenerator;
+using Microsoft.Utilities;
+using System.Automation;
+using Microsoft.Sales.Document;
 codeunit 11311118 "Red Reg Enum Assignment Mgt."
 {
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Enum Assignment Management", 'OnGetSalesApprovalDocumentType', '', false, false)]

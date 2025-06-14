@@ -1,3 +1,5 @@
+namespace Red.Regenerator;
+using Microsoft.Sales.History;
 tableextension 11311118 "Red Reg Sales Invoice Line" extends "Sales Invoice Line"
 {
     fields

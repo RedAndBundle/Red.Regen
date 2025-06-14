@@ -1,3 +1,5 @@
+namespace Red.Regenerator;
+using Microsoft.Sales.History;
 tableextension 11311120 "Red Reg Sales Shipment Line" extends "Sales Shipment Line"
 {
     fields

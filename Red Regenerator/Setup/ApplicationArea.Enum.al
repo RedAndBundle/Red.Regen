@@ -1,3 +1,4 @@
+namespace Red.Regenerator;
 enum 11311116 "Red Reg Application Area"
 {
     Extensible = true;

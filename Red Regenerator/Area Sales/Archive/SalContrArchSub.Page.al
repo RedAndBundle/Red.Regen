@@ -1,3 +1,15 @@
+namespace Red.Regenerator;
+using Microsoft.Sales.Archive;
+using Microsoft.Finance.Dimension;
+using Microsoft.Sales.Setup;
+using Microsoft.Inventory.Item;
+using Microsoft.Inventory.Location;
+using Microsoft.Sales.Document;
+using System.Environment.Configuration;
+using Microsoft.Foundation.Attachment;
+using Microsoft.Finance.Currency;
+using Microsoft.Inventory.Item.Catalog;
+using Microsoft.Utilities;
 page 11311128 "Red Reg Sal. Contr. Arch. Sub."
 {
     AutoSplitKey = true;
@@ -429,7 +441,7 @@ page 11311128 "Red Reg Sal. Contr. Arch. Sub."
 
     trigger OnAfterGetRecord()
     var
-        Item: Record "Item";
+        Item: Record Item;
     begin
         if Rec."Variant Code" = '' then
             VariantCodeMandatory := Item.IsVariantMandatory(Rec.Type = Rec.Type::Item, Rec."No.");

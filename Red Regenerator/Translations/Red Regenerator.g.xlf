@@ -5898,11 +5898,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Red Reg Purchase Type - EnumValue Purchase Contract - Property Caption</note>
         </trans-unit>
-        <trans-unit id="EnumExtension 2419704069 - EnumValue 1198438353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 736532068">
-          <source>Regenerator</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Red Reg Approval Document Type - EnumValue Red Regenerator - Property Caption</note>
-        </trans-unit>
         <trans-unit id="EnumExtension 1924008121 - EnumValue 1198438353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 1117131368">
           <source>Regenerator</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5912,6 +5907,11 @@
           <source>Regenerator</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Red Reg Sales Document Type - EnumValue Red Regenerator - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 2419704069 - EnumValue 1198438353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 736532068">
+          <source>Regenerator</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Red Reg Approval Document Type - EnumValue Red Regenerator - Property Caption</note>
         </trans-unit>
       </group>
     </body>

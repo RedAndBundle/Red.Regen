@@ -1,3 +1,6 @@
+namespace Red.Regenerator;
+using Microsoft.Sales.History;
+using Microsoft.Purchases.Document;
 tableextension 11311117 "Red Reg Sales Invoice Header" extends "Sales Invoice Header"
 {
     fields

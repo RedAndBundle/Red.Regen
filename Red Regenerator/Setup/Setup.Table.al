@@ -1,3 +1,5 @@
+namespace Red.Regenerator;
+using Microsoft.Foundation.NoSeries;
 table 11311113 "Red Reg Setup"
 {
     DataClassification = OrganizationIdentifiableInformation;

@@ -1,3 +1,24 @@
+namespace Red.Regenerator;
+using Microsoft.Purchases.Document;
+using Microsoft.CRM.Contact;
+using Microsoft.Foundation.Address;
+using Microsoft.Inventory.Location;
+using Microsoft.Purchases.Payables;
+using Microsoft.EServices.EDocument;
+using Microsoft.Finance.Dimension;
+using Microsoft.Foundation.Attachment;
+using System.Environment.Configuration;
+using Microsoft.Purchases.History;
+using Microsoft.Purchases.Vendor;
+using System.Automation;
+using Microsoft.Purchases.Posting;
+using Microsoft.Utilities;
+using Microsoft.Foundation.Enums;
+using Microsoft.Finance.Currency;
+using System.Security.User;
+using Microsoft.Purchases.Remittance;
+using Microsoft.Finance.GeneralLedger.Setup;
+using Microsoft.Purchases.Setup;
 page 11311119 "Red Reg Purchase Contract"
 {
     Caption = 'Purchase Contract';

@@ -1,3 +1,6 @@
+namespace Red.Regenerator;
+using Microsoft.Sales.History;
+using Microsoft.Purchases.Document;
 tableextension 11311121 "Red Reg Sales Cr.Memo Header" extends "Sales Cr.Memo Header"
 {
     fields

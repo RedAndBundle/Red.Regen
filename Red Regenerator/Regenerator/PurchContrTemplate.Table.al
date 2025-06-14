@@ -1,4 +1,8 @@
-
+namespace Red.Regenerator;
+using Microsoft.Inventory.Item;
+using Microsoft.Finance.GeneralLedger.Account;
+using Microsoft.Projects.Resources.Resource;
+using Microsoft.Purchases.Document;
 table 11311119 "Red Reg Purch. Contr. Template"
 {
     Caption = 'Purchase Contract Template';

@@ -1,3 +1,15 @@
+namespace Red.Regenerator;
+using Microsoft.Sales.Archive;
+using Microsoft.Finance.Dimension;
+using Microsoft.Utilities;
+using Microsoft.CRM.Contact;
+using Microsoft.Foundation.Reporting;
+using Microsoft.Foundation.Address;
+using System.Environment;
+using Microsoft.Finance.VAT.Calculation;
+using Microsoft.Sales.Customer;
+using Microsoft.EServices.EDocument;
+using System.Security.User;
 page 11311126 "Red Reg Sales Contract Archive"
 {
     Caption = 'Sales Contract Archive';

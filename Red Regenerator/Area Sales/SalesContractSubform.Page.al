@@ -1,3 +1,20 @@
+namespace Red.Regenerator;
+using Microsoft.Finance.Dimension;
+using Microsoft.Sales.Setup;
+using Microsoft.Inventory.Item;
+using Microsoft.Inventory.Location;
+using Microsoft.Sales.Document;
+using System.Environment.Configuration;
+using Microsoft.Foundation.Attachment;
+using Microsoft.Finance.Currency;
+using Microsoft.Inventory.Item.Catalog;
+using Microsoft.Utilities;
+using Microsoft.Sales.Pricing;
+using Microsoft.Assembly.Document;
+using Microsoft.Inventory.Setup;
+using System.Utilities;
+using Microsoft.Pricing.Calculation;
+using Microsoft.Foundation.ExtendedText;
 page 11311117 "Red Reg Sales Contract Subform"
 {
     AutoSplitKey = true;

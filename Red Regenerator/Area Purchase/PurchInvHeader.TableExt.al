@@ -1,3 +1,5 @@
+namespace Red.Regenerator;
+using Microsoft.Purchases.History;
 tableextension 11311125 "Red Reg Purch. Inv. Header" extends "Purch. Inv. Header"
 {
     fields

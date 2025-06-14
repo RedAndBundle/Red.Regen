@@ -1,3 +1,5 @@
+namespace Red.Regenerator;
+using Microsoft.Purchases.Document;
 pageextension 11311115 "Red Reg Purchase Invoice" extends "Purchase Invoice"
 {
     layout

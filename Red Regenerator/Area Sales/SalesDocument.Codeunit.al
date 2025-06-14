@@ -1,3 +1,5 @@
+namespace Red.Regenerator;
+using Microsoft.Sales.Document;
 codeunit 11311119 "Red Reg Sales Document"
 {
     Access = Internal;

@@ -1,3 +1,5 @@
+namespace Red.Regenerator;
+using Microsoft.Purchases.History;
 pageextension 11311119 "Red Reg Pstd Purch. Inv. Upd." extends "Posted Purch. Invoice - Update"
 {
     layout

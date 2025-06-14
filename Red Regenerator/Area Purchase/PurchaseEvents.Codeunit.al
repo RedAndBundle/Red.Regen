@@ -1,3 +1,10 @@
+namespace Red.Regenerator;
+using Microsoft.Purchases.Document;
+using Microsoft.Purchases.Setup;
+using Microsoft.Purchases.History;
+using Microsoft.Inventory.Posting;
+using Microsoft.Finance.GeneralLedger.Posting;
+using Microsoft.Purchases.Posting;
 codeunit 11311116 "Red Reg Purchase Events"
 {
     [EventSubscriber(ObjectType::Table, Database::"Purchase Header", 'OnBeforeGetNoSeriesCode', '', false, false)]

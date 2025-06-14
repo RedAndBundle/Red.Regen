@@ -1,3 +1,9 @@
+namespace Red.Regenerator;
+using Microsoft.Inventory.Item;
+using Microsoft.Purchases.Vendor;
+using Microsoft.Purchases.History;
+using Microsoft.Sales.Document;
+using Microsoft.Purchases.Document;
 codeunit 11311117 "Red Reg Purchase Generator"
 {
     TableNo = "Purchase Header";

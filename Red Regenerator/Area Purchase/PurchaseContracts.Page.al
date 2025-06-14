@@ -1,3 +1,5 @@
+namespace Red.Regenerator;
+using Microsoft.Purchases.Document;
 page 11311120 "Red Reg Purchase Contracts"
 {
     Caption = 'Purchase Contracts';

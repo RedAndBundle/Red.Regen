@@ -1,3 +1,4 @@
+namespace Red.Regenerator;
 page 11311124 "Red Reg Purch. Contr Templates"
 {
     PageType = List;

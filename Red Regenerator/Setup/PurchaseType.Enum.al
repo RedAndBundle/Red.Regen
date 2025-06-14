@@ -1,3 +1,4 @@
+namespace Red.Regenerator;
 enum 11311118 "Red Reg Purchase Type"
 {
     Extensible = true;

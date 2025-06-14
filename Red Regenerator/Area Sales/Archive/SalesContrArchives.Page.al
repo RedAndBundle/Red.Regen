@@ -1,3 +1,5 @@
+namespace Red.Regenerator;
+using Microsoft.Sales.Archive;
 page 11311127 "Red Reg Sales Contr. Archives"
 {
     Caption = 'Sales Contract Archives';

@@ -1,3 +1,23 @@
+namespace Red.Regenerator;
+using Microsoft.Purchases.Document;
+using Microsoft.Utilities;
+using Microsoft.Inventory.Item;
+using Microsoft.Finance.Dimension;
+using Microsoft.Inventory.Location;
+using System.Utilities;
+using Microsoft.Sales.Document;
+using Microsoft.Finance.VAT.Calculation;
+using Microsoft.Foundation.ExtendedText;
+using Microsoft.Inventory.Setup;
+using Microsoft.Purchases.Setup;
+using System.Environment.Configuration;
+using System.Integration.Excel;
+using Microsoft.Foundation.Attachment;
+using Microsoft.Inventory.BOM;
+using Microsoft.Inventory.Availability;
+using Microsoft.Finance.Currency;
+using Microsoft.Inventory.Item.Catalog;
+
 page 11311121 "Red Reg Purch. Contract Subf."
 {
     AutoSplitKey = true;
@@ -122,7 +142,7 @@ page 11311121 "Red Reg Purch. Contract Subf."
 
                     trigger OnValidate()
                     var
-                        Item: Record "Item";
+                        Item: Record Item;
                     begin
                         DeltaUpdateTotals();
                         if Rec."Variant Code" = '' then

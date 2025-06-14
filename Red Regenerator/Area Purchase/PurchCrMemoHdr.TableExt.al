@@ -1,3 +1,5 @@
+namespace Red.Regenerator;
+using Microsoft.Purchases.History;
 tableextension 11311123 "Red Reg Purch. Cr. Memo Hdr." extends "Purch. Cr. Memo Hdr."
 {
     fields

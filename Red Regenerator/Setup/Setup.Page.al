@@ -1,3 +1,4 @@
+namespace Red.Regenerator;
 page 11311113 "Red Reg Setup"
 {
     PageType = Card;

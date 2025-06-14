@@ -1,3 +1,5 @@
+namespace Red.Regenerator;
+using Microsoft.Sales.History;
 tableextension 11311122 "Red Reg Sales Cr.Memo Line" extends "Sales Cr.Memo Line"
 {
     fields

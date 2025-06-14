@@ -1,3 +1,25 @@
+namespace Red.Regenerator;
+using Microsoft.Finance.Dimension;
+using Microsoft.Sales.Setup;
+using Microsoft.Inventory.Item;
+using Microsoft.Inventory.Location;
+using Microsoft.Sales.Document;
+using Microsoft.Foundation.Attachment;
+using Microsoft.Finance.Currency;
+using Microsoft.Utilities;
+using Microsoft.CRM.Contact;
+using Microsoft.Finance.GeneralLedger.Setup;
+using Microsoft.Bank.Setup;
+using Microsoft.Integration.Dataverse;
+using Microsoft.Warehouse.Setup;
+using Microsoft.Projects.Resources.Resource;
+using System.Automation;
+using Microsoft.Sales.History;
+using Microsoft.Foundation.Address;
+using Microsoft.Sales.Customer;
+using Microsoft.EServices.EDocument;
+using System.Security.User;
+
 page 11311116 "Red Reg Sales Contract"
 {
     Caption = 'Sales Contract';

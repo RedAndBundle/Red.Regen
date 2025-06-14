@@ -1,3 +1,7 @@
+namespace Red.Regenerator;
+using Microsoft.Sales.Archive;
+using Microsoft.Sales.Document;
+using Microsoft.Purchases.Document;
 tableextension 11311129 "Red Reg Sales Header Archive" extends "Sales Header Archive"
 {
     fields

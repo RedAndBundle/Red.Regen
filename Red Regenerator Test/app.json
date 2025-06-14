@@ -1,6 +1,6 @@
 {
-  "id": "c01aa9a9-ac64-490f-bdc4-a61f7f4ff05e",
-  "name": "Red Regenerator",
+  "id": "394d1045-a51d-4870-92d6-9b437390ca1e",
+  "name": "Red Regenerator Test",
   "publisher": "Red and Bundle",
   "version": "1.0.0.6",
   "brief": "A lightwight extension to create and renew contracts",
@@ -10,27 +10,32 @@
   "help": "https://redreg.redandbundle.com/docs/introduction",
   "url": "https://redreg.redandbundle.com/",
   "logo": "images/Logo_appsource_large.png",
-  "dependencies": [],
+  "dependencies": [
+    {
+      "id": "c01aa9a9-ac64-490f-bdc4-a61f7f4ff05e",
+      "name": "Red Regenerator",
+      "publisher": "Red and Bundle",
+      "version": "1.0.0.0"
+    }
+  ],
   "screenshots": [],
-  "platform": "25.0.0.0",
-  "application": "25.0.0.0",
+  "platform": "26.0.0.0",
+  "application": "26.0.0.0",
   "idRanges": [
     {
-      "from": 11311113,
-      "to": 11311212
+      "from": 70800,
+      "to": 70849
     }
   ],
   "contextSensitiveHelpUrl": "https://redreg.redandbundle.com/docs/introduction",
   "resourceExposurePolicy": {
     "allowDebugging": true,
-    "includeSourceInSymbolFile": true,
-    "allowDownloadingSource": true
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
   },
-  "target": "Cloud",
   "runtime": "15.0",
   "features": [
-    "TranslationFile",
-    "NoImplicitWith"
-  ],
-  "applicationInsightsConnectionString": "InstrumentationKey=fdf1bdde-970c-4de7-803c-5b21dc114723;IngestionEndpoint=https://westeurope-5.in.applicationinsights.azure.com/;LiveEndpoint=https://westeurope.livediagnostics.monitor.azure.com/"
+    "NoImplicitWith",
+    "TranslationFile"
+  ]
 }

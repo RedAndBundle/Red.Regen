@@ -1,3 +1,4 @@
+namespace Red.Regenerator;
 table 11311114 "Red Reg Contract Group"
 {
     DataClassification = ToBeClassified;

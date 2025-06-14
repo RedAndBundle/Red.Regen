@@ -1,3 +1,8 @@
+namespace Red.Regenerator;
+using Microsoft.Inventory.Item;
+using Microsoft.Sales.Document;
+using Microsoft.Finance.GeneralLedger.Account;
+using Microsoft.Projects.Resources.Resource;
 
 table 11311117 "Red Reg Sales Contr. Template"
 {

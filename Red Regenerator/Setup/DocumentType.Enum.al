@@ -1,3 +1,4 @@
+namespace Red.Regenerator;
 enum 11311113 "Red Reg Document Type"
 {
     Extensible = true;

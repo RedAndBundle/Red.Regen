@@ -1,3 +1,6 @@
+namespace Red.Regenerator;
+using Microsoft.Sales.History;
+using Microsoft.Purchases.Document;
 tableextension 11311119 "Red Reg Sales Shipment Header" extends "Sales Shipment Header"
 {
     fields

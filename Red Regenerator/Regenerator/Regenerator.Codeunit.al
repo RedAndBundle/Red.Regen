@@ -1,3 +1,8 @@
+namespace Red.Regenerator;
+using Microsoft.Sales.Document;
+using Microsoft.Sales.History;
+using Microsoft.Purchases.History;
+using Microsoft.Purchases.Document;
 codeunit 11311114 "Red Reg Regenerator"
 {
     TableNo = "Sales Header";

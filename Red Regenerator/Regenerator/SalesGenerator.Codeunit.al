@@ -1,3 +1,8 @@
+namespace Red.Regenerator;
+using Microsoft.Sales.Archive;
+using Microsoft.Sales.Receivables;
+using Microsoft.Sales.Document;
+using Microsoft.Sales.History;
 codeunit 11311113 "Red Reg Sales Generator"
 {
     TableNo = "Sales Header";
@@ -108,7 +113,6 @@ codeunit 11311113 "Red Reg Sales Generator"
     local procedure GetContractHeader(SalesHeader: Record "Sales Header"; StartDate: Date; ContractTemplate: Record "Red Reg Sales Contr. Template") ContractSalesHeader: Record "Sales Header"
     var
         EmptyDateFormula: DateFormula;
-        p: Page "Sales Order Archive";
     begin
         ContractSalesHeader.SetCurrentKey("Red Reg Org. Document Type", "Red Reg Org. Document No.", "Red Reg Org. Shipment No.", "Red Reg Group", "Red Reg Duration");
         ContractSalesHeader.SetRange("Red Reg Org. Document Type", SalesHeader."Document Type");

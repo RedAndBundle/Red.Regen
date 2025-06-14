@@ -1,3 +1,9 @@
+namespace Red.Regenerator;
+using Microsoft.Sales.Setup;
+using Microsoft.Sales.Receivables;
+using Microsoft.Sales.Document;
+using Microsoft.Finance.GeneralLedger.Posting;
+using Microsoft.Sales.Posting;
 codeunit 11311115 "Red Reg Sales Events"
 {
     [EventSubscriber(ObjectType::Table, Database::"Sales Header", 'OnBeforeGetNoSeriesCode', '', false, false)]
@@ -59,7 +65,7 @@ codeunit 11311115 "Red Reg Sales Events"
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Sales Document", OnBeforeReleaseSalesDoc, '', false, false)]
     local procedure OnAfterReleaseSalesDoc(var SalesHeader: Record "Sales Header"; PreviewMode: Boolean)
     var
-        Generator: Codeunit "Red Reg Sales Generator";
+    // Generator: Codeunit "Red Reg Sales Generator";
     begin
         if PreviewMode then
             exit;
