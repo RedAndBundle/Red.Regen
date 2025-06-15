@@ -38,11 +38,6 @@
           <note from="Developer" annotates="general" priority="2">%1 - Table Caption (Item), %2 - Item No., %3 - Field Caption</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Purch. Contr. Template - Method CopyFromItem - NamedType SalesBlockedErr</note>
         </trans-unit>
-        <trans-unit id="Table 1654976237 - Field 662456783 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Application Area</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Purch. Contr. Template - Field Application Area - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 1654976237 - Field 732809815 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contract Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -87,11 +82,6 @@
           <source>You cannot sell %1 %2 because the %3 check box is selected on the %1 card.</source>
           <note from="Developer" annotates="general" priority="2">%1 - Table Caption (Item), %2 - Item No., %3 - Field Caption</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Sales Contr. Template - Method CopyFromItem - NamedType SalesBlockedErr</note>
-        </trans-unit>
-        <trans-unit id="Table 273128531 - Field 662456783 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Application Area</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Sales Contr. Template - Field Application Area - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 273128531 - Field 732809815 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contract Group</source>
@@ -277,11 +267,6 @@
           <source>Purchase Contract Templates</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr Templates - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2772500282 - Control 662456783 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies for which application area the contract is created.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr Templates - Control Application Area - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2772500282 - Control 732809815 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the settings of the contract that will be created.</source>
@@ -2557,11 +2542,6 @@
           <source>Sales Contract Templates</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contr. Templates - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3491209726 - Control 662456783 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies for which application area the contract is created.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contr. Templates - Control Application Area - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3491209726 - Control 732809815 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the settings of the contract that will be created.</source>
@@ -5812,21 +5792,6 @@
           <source>Contract No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Shipment Line - Field Red Reg Contract No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 1686489970 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source> </source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Red Reg Application Area - EnumValue   - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 1686489970 - EnumValue 395510365 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Red Reg Application Area - EnumValue Purchase - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 1686489970 - EnumValue 1406942772 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Sales</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Red Reg Application Area - EnumValue Sales - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1578371409 - EnumValue 4274826855 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>G/L Account</source>

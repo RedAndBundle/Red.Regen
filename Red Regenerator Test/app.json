@@ -37,5 +37,6 @@
   "features": [
     "NoImplicitWith",
     "TranslationFile"
-  ]
+  ],
+  "applicationInsightsConnectionString": "InstrumentationKey=fdf1bdde-970c-4de7-803c-5b21dc114723;IngestionEndpoint=https://westeurope-5.in.applicationinsights.azure.com/;LiveEndpoint=https://westeurope.livediagnostics.monitor.azure.com/"
 }

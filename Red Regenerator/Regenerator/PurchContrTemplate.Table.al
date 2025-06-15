@@ -39,11 +39,11 @@ table 11311119 "Red Reg Purch. Contr. Template"
                 end;
             end;
         }
-        field(4; "Application Area"; Enum "Red Reg Application Area")
-        {
-            Caption = 'Application Area';
-            // ToolTip = 'Specifies for which application area the contract is created.';
-        }
+        // field(4; "Application Area"; Enum "Red Reg Application Area")
+        // {
+        //     Caption = 'Application Area';
+        //     // ToolTip = 'Specifies for which application area the contract is created.';
+        // }
         // field(5; "Generation Moment"; Enum "Red Reg Generation Moments")
         // {
         //     Caption = 'Generation Moment';

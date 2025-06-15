@@ -65,7 +65,7 @@ table 11311113 "Red Reg Setup"
             Clustered = true;
         }
     }
-    internal procedure InitSetup()
+    procedure InitSetup()
     begin
         if Get() then
             exit;

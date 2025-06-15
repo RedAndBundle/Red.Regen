@@ -179,7 +179,7 @@ tableextension 11311113 "Red Reg Sales Header" extends "Sales Header"
         "Red Reg Contract Status" := "Red Reg Contract Status"::Expired;
     end;
 
-    internal procedure RedRegAccept()
+    procedure RedRegAccept()
     var
         Regenerator: Codeunit "Red Reg Regenerator";
     begin
@@ -195,7 +195,7 @@ tableextension 11311113 "Red Reg Sales Header" extends "Sales Header"
         Modify(true);
     end;
 
-    internal procedure RedRegActivate()
+    procedure RedRegActivate()
     begin
         if not RedRegShowActivate() then
             exit;

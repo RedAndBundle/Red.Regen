@@ -19,7 +19,7 @@ codeunit 11311117 "Red Reg Purchase Generator"
         ContractTemplate: Record "Red Reg Purch. Contr. Template";
         Setup: Record "Red Reg Setup";
     begin
-        ContractTemplate.SetFilter("Application Area", '%1|%2', ContractTemplate."Application Area"::Purchase, ContractTemplate."Application Area"::" ");
+        // ContractTemplate.SetFilter("Application Area", '%1|%2', ContractTemplate."Application Area"::Purchase, ContractTemplate."Application Area"::" ");
         if ContractTemplate.IsEmpty() then
             exit;
 

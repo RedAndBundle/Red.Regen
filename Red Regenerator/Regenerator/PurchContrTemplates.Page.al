@@ -23,11 +23,11 @@ page 11311124 "Red Reg Purch. Contr Templates"
                     ApplicationArea = All;
                     ToolTip = 'Specifies for which source number the contract is created.';
                 }
-                field("Application Area"; Rec."Application Area")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies for which application area the contract is created.';
-                }
+                // field("Application Area"; Rec."Application Area")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies for which application area the contract is created.';
+                // }
                 // field("Generation Moment"; Rec."Generation Moment")
                 // {
                 //     ApplicationArea = All;
