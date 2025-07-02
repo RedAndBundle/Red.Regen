@@ -18,7 +18,7 @@ using Microsoft.Inventory.Availability;
 using Microsoft.Finance.Currency;
 using Microsoft.Inventory.Item.Catalog;
 
-page 11311121 "Red Reg Purch. Contract Subf."
+page 70602 "Red Reg Purch. Contract Subf."
 {
     AutoSplitKey = true;
     Caption = 'Lines';

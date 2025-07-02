@@ -1,6 +1,6 @@
 namespace Red.Regenerator;
 using Microsoft.Sales.Document;
-page 11311123 "Red Reg Sls Item Contract Sel"
+page 70652 "Red Reg Sls Item Contract Sel"
 {
     PageType = List;
     ApplicationArea = All;

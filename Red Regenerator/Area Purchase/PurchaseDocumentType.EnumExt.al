@@ -1,8 +1,8 @@
 namespace Red.Regenerator;
 using Microsoft.Purchases.Document;
-enumextension 11311114 "Red Reg Purchase Document Type" extends "Purchase Document Type"
+enumextension 70601 "Red Reg Purchase Document Type" extends "Purchase Document Type"
 {
-    value(11311113; "Red Regenerator")
+    value(70600; "Red Regenerator")
     {
         Caption = 'Regenerator';
     }

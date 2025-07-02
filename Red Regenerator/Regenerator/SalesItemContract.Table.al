@@ -4,7 +4,7 @@ using Microsoft.Sales.Document;
 using Microsoft.Finance.GeneralLedger.Account;
 using Microsoft.Projects.Resources.Resource;
 
-table 11311118 "Red Reg Sales Item Contract"
+table 70651 "Red Reg Sales Item Contract"
 {
     Caption = 'Item Contract';
     DataClassification = CustomerContent;

@@ -10,7 +10,7 @@ using Microsoft.Foundation.Attachment;
 using Microsoft.Finance.Currency;
 using Microsoft.Inventory.Item.Catalog;
 using Microsoft.Utilities;
-page 11311128 "Red Reg Sal. Contr. Arch. Sub."
+page 70626 "Red Reg Sal. Contr. Arch. Sub."
 {
     AutoSplitKey = true;
     Caption = 'Lines';

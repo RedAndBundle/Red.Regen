@@ -1,5 +1,5 @@
 namespace Red.Regenerator;
-table 11311114 "Red Reg Contract Group"
+table 70660 "Red Reg Contract Group"
 {
     DataClassification = ToBeClassified;
     Caption = 'Contract Group';

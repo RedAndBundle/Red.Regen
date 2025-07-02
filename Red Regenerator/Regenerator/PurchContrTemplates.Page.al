@@ -1,5 +1,5 @@
 namespace Red.Regenerator;
-page 11311124 "Red Reg Purch. Contr Templates"
+page 70640 "Red Reg Purch. Contr Templates"
 {
     PageType = List;
     ApplicationArea = All;

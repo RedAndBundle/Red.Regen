@@ -1,5 +1,5 @@
 namespace Red.Regenerator;
-enum 11311117 "Red Reg Contract Status"
+enum 70661 "Red Reg Contract Status"
 {
     Extensible = true;
 

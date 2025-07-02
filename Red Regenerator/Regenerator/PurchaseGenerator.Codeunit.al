@@ -4,7 +4,7 @@ using Microsoft.Purchases.Vendor;
 using Microsoft.Purchases.History;
 using Microsoft.Sales.Document;
 using Microsoft.Purchases.Document;
-codeunit 11311117 "Red Reg Purchase Generator"
+codeunit 70640 "Red Reg Purchase Generator"
 {
     TableNo = "Purchase Header";
     Access = Internal;

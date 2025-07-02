@@ -1,6 +1,8 @@
-enumextension 11311115 "Red Reg Approval Document Type" extends "Approval Document Type"
+namespace Red.Regenerator;
+using System.Automation;
+enumextension 70600 "Red Reg Approval Document Type" extends "Approval Document Type"
 {
-    value(11311113; "Red Regenerator")
+    value(70600; "Red Regenerator")
     {
         Caption = 'Regenerator';
     }

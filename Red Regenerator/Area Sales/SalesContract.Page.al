@@ -20,7 +20,7 @@ using Microsoft.Sales.Customer;
 using Microsoft.EServices.EDocument;
 using System.Security.User;
 
-page 11311116 "Red Reg Sales Contract"
+page 70621 "Red Reg Sales Contract"
 {
     Caption = 'Sales Contract';
     PageType = Document;

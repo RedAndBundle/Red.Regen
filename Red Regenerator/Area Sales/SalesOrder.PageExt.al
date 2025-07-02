@@ -1,6 +1,6 @@
 namespace Red.Regenerator;
 using Microsoft.Sales.Document;
-pageextension 11311113 "Red Reg Sales Order" extends "Sales Order"
+pageextension 70621 "Red Reg Sales Order" extends "Sales Order"
 {
     layout
     {

@@ -3,7 +3,7 @@ using Microsoft.Sales.Archive;
 using Microsoft.Sales.Receivables;
 using Microsoft.Sales.Document;
 using Microsoft.Sales.History;
-codeunit 11311113 "Red Reg Sales Generator"
+codeunit 70650 "Red Reg Sales Generator"
 {
     TableNo = "Sales Header";
     Access = Internal;

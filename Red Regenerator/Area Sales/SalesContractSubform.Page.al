@@ -15,7 +15,7 @@ using Microsoft.Inventory.Setup;
 using System.Utilities;
 using Microsoft.Pricing.Calculation;
 using Microsoft.Foundation.ExtendedText;
-page 11311117 "Red Reg Sales Contract Subform"
+page 70623 "Red Reg Sales Contract Subform"
 {
     AutoSplitKey = true;
     Caption = 'Lines';

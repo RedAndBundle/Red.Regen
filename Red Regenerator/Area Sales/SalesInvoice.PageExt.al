@@ -1,6 +1,6 @@
 namespace Red.Regenerator;
 using Microsoft.Sales.Document;
-pageextension 11311117 "Red Reg Sales Invoice" extends "Sales Invoice"
+pageextension 70624 "Red Reg Sales Invoice" extends "Sales Invoice"
 {
     layout
     {

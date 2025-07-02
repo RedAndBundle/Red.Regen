@@ -1,5 +1,5 @@
 namespace Red.Regenerator;
-page 11311113 "Red Reg Setup"
+page 70670 "Red Reg Setup"
 {
     PageType = Card;
     ApplicationArea = All;

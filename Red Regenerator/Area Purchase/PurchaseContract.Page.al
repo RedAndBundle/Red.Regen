@@ -19,7 +19,7 @@ using System.Security.User;
 using Microsoft.Purchases.Remittance;
 using Microsoft.Finance.GeneralLedger.Setup;
 using Microsoft.Purchases.Setup;
-page 11311119 "Red Reg Purchase Contract"
+page 70601 "Red Reg Purchase Contract"
 {
     Caption = 'Purchase Contract';
     PageType = Document;

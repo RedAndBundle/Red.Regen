@@ -3,7 +3,7 @@
   "name": "Red Regenerator",
   "publisher": "Red and Bundle",
   "version": "1.0.0.6",
-  "brief": "A lightweight extension to create and renew contracts",
+  "brief": "A lightwight extension to create and renew contracts",
   "description": "Create and renew contracts for licenses, extended warranties, rentals, etc.",
   "privacyStatement": "https://redandbundle.com/privacy/",
   "EULA": "https://github.com/RedAndBundle/Red.Regen/tree/main?tab=Apache-2.0-1-ov-file",
@@ -16,8 +16,8 @@
   "application": "26.0.0.0",
   "idRanges": [
     {
-      "from": 70600,
-      "to": 70799
+      "from": 11311113,
+      "to": 11311212
     }
   ],
   "contextSensitiveHelpUrl": "https://redreg.redandbundle.com/docs/introduction",

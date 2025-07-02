@@ -10,7 +10,7 @@ using Microsoft.Finance.VAT.Calculation;
 using Microsoft.Sales.Customer;
 using Microsoft.EServices.EDocument;
 using System.Security.User;
-page 11311126 "Red Reg Sales Contract Archive"
+page 70625 "Red Reg Sales Contract Archive"
 {
     Caption = 'Sales Contract Archive';
     PageType = Document;

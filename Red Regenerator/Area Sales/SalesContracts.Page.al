@@ -1,6 +1,6 @@
 namespace Red.Regenerator;
 using Microsoft.Sales.Document;
-page 11311115 "Red Reg Sales Contracts"
+page 70620 "Red Reg Sales Contracts"
 {
     Caption = 'Sales Contracts';
     DataCaptionFields = "Sell-to Customer No.";

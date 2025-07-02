@@ -1,6 +1,6 @@
 namespace Red.Regenerator;
 using Microsoft.Sales.History;
-pageextension 11311118 "Red Reg Posted Sales Invoice" extends "Posted Sales Invoice"
+pageextension 70623 "Red Reg Posted Sales Invoice" extends "Posted Sales Invoice"
 {
     layout
     {

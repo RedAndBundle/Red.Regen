@@ -1,6 +1,6 @@
 namespace Red.Regenerator;
 using Microsoft.Sales.Document;
-pageextension 11311120 "Red Reg Sales Order Subform" extends "Sales Order Subform"
+pageextension 70622 "Red Reg Sales Order Subform" extends "Sales Order Subform"
 
 {
     layout

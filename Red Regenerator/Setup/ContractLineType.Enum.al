@@ -1,5 +1,5 @@
 namespace Red.Regenerator;
-enum 11311114 "Red Reg Contract Line Type"
+enum 70660 "Red Reg Contract Line Type"
 {
     Extensible = true;
     AssignmentCompatibility = true;

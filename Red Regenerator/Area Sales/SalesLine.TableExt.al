@@ -1,31 +1,24 @@
 namespace Red.Regenerator;
 using Microsoft.Sales.Document;
-tableextension 11311114 "Red Reg Sales Line" extends "Sales Line"
+tableextension 70621 "Red Reg Sales Line" extends "Sales Line"
 {
     fields
     {
-        // modify("No.")
-        // {
-        //     trigger OnAfterValidate()
-        //     begin
-        //         RedRegAddContractLine();
-        //     end;
-        // }
-        field(11311113; "Red Reg Org. Document Type"; Enum "Sales Document Type")
+        field(70600; "Red Reg Org. Document Type"; Enum "Sales Document Type")
         {
             DataClassification = CustomerContent;
             Caption = 'Originating Document Type';
             // Used for linking the contract to a sales document when you created the contract from the sales document through the Generator.
             // Unused when creating a document through the Regenerator.
         }
-        field(11311114; "Red Reg Org. Document No."; Code[20])
+        field(70601; "Red Reg Org. Document No."; Code[20])
         {
             DataClassification = CustomerContent;
             Caption = 'Originating Document No.';
             // Used for linking the contract to a sales document when you created the contract from the sales document through the Generator.
             // Unused when creating a document through the Regenerator.
         }
-        field(11311115; "Red Reg Org. Document Line No."; Integer)
+        field(70602; "Red Reg Org. Document Line No."; Integer)
         {
             DataClassification = CustomerContent;
             Caption = 'Originating Document Line No.';
@@ -33,36 +26,36 @@ tableextension 11311114 "Red Reg Sales Line" extends "Sales Line"
             // Unused when creating a document through the Regenerator.
         }
 
-        field(11311116; "Red Reg Org. Shipment No."; Code[20])
+        field(70603; "Red Reg Org. Shipment No."; Code[20])
         {
             DataClassification = CustomerContent;
             Caption = 'Originating Shipment No.';
         }
-        field(11311117; "Red Reg Org. Shipment Line No."; Integer)
+        field(70604; "Red Reg Org. Shipment Line No."; Integer)
         {
             DataClassification = CustomerContent;
             Caption = 'Originating Shipment Line No.';
         }
-        field(11311118; "Red Reg Contract No."; code[20])
+        field(70605; "Red Reg Contract No."; code[20])
         {
             DataClassification = CustomerContent;
             Caption = 'Contract No.';
             // Used for linking the sales document to a contract when you created the document from the contract through the Regenerator.
             // Unused when creating a contract through the Generator.
         }
-        field(11311119; "Red Reg Contract Line No."; Integer)
+        field(70606; "Red Reg Contract Line No."; Integer)
         {
             DataClassification = CustomerContent;
             Caption = 'Contract Line No.';
         }
-        field(11311120; "Red Reg Generates Contract"; Boolean)
+        field(70607; "Red Reg Generates Contract"; Boolean)
         {
             FieldClass = FlowField;
             CalcFormula = exist("Red Reg Sales Contr. Template" where(Type = field("Type"), "No." = field("No.")));
             Caption = 'Generates Contract';
             ToolTip = 'Specifies whether this line generates a contract when the document is released.';
         }
-        field(11311130; "Red Reg Group"; Code[20])
+        field(70617; "Red Reg Group"; Code[20])
         {
             Caption = 'Group';
             Editable = false;
@@ -71,7 +64,7 @@ tableextension 11311114 "Red Reg Sales Line" extends "Sales Line"
             FieldClass = FlowField;
             CalcFormula = lookup("Sales Header"."Red Reg Group" where("No." = field("Document No."), "Document Type" = field("Document Type")));
         }
-        field(11311131; "Red Reg Start Date"; Date)
+        field(70618; "Red Reg Start Date"; Date)
         {
             Caption = 'Start Date';
             Editable = false;
@@ -80,7 +73,7 @@ tableextension 11311114 "Red Reg Sales Line" extends "Sales Line"
             CalcFormula = lookup("Sales Header"."Red Reg Start Date" where("No." = field("Document No."), "Document Type" = field("Document Type")));
 
         }
-        field(11311132; "Red Reg End Date"; Date)
+        field(70619; "Red Reg End Date"; Date)
         {
             Caption = 'End Date';
             // ToolTip = 'Specifies the date when the contract will end.';
@@ -88,7 +81,7 @@ tableextension 11311114 "Red Reg Sales Line" extends "Sales Line"
             FieldClass = FlowField;
             CalcFormula = lookup("Sales Header"."Red Reg End Date" where("No." = field("Document No."), "Document Type" = field("Document Type")));
         }
-        field(11311133; "Red Reg Duration"; DateFormula)
+        field(70620; "Red Reg Duration"; DateFormula)
         {
             Caption = 'Duration';
             Editable = false;
@@ -97,7 +90,7 @@ tableextension 11311114 "Red Reg Sales Line" extends "Sales Line"
             FieldClass = FlowField;
             CalcFormula = lookup("Sales Header"."Red Reg Duration" where("No." = field("Document No."), "Document Type" = field("Document Type")));
         }
-        field(11311134; "Red Reg Your Reference"; Text[100])
+        field(70621; "Red Reg Your Reference"; Text[100])
         {
             Caption = 'Your Reference';
             Editable = false;

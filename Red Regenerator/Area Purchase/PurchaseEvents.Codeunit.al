@@ -5,7 +5,7 @@ using Microsoft.Purchases.History;
 using Microsoft.Inventory.Posting;
 using Microsoft.Finance.GeneralLedger.Posting;
 using Microsoft.Purchases.Posting;
-codeunit 11311116 "Red Reg Purchase Events"
+codeunit 70600 "Red Reg Purchase Events"
 {
     [EventSubscriber(ObjectType::Table, Database::"Purchase Header", 'OnBeforeGetNoSeriesCode', '', false, false)]
     local procedure OnBeforeGetNoSeriesCode(sender: Record "Purchase Header"; var PurchaseHeader: Record "Purchase Header"; var NoSeriesCode: Code[20]; PurchSetup: Record "Purchases & Payables Setup"; var IsHandled: Boolean)

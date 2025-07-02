@@ -1,6 +1,6 @@
 namespace Red.Regenerator;
 using Microsoft.Purchases.Document;
-pageextension 11311114 "Red Reg Purchase Order" extends "Purchase Order"
+pageextension 70603 "Red Reg Purchase Order" extends "Purchase Order"
 {
     layout
     {

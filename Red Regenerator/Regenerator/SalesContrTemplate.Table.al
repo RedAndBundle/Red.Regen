@@ -4,7 +4,7 @@ using Microsoft.Sales.Document;
 using Microsoft.Finance.GeneralLedger.Account;
 using Microsoft.Projects.Resources.Resource;
 
-table 11311117 "Red Reg Sales Contr. Template"
+table 70650 "Red Reg Sales Contr. Template"
 {
     Caption = 'Sales Contract Template';
     DataClassification = CustomerContent;

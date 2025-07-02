@@ -4,7 +4,7 @@ using Microsoft.Sales.Receivables;
 using Microsoft.Sales.Document;
 using Microsoft.Finance.GeneralLedger.Posting;
 using Microsoft.Sales.Posting;
-codeunit 11311115 "Red Reg Sales Events"
+codeunit 70621 "Red Reg Sales Events"
 {
     [EventSubscriber(ObjectType::Table, Database::"Sales Header", 'OnBeforeGetNoSeriesCode', '', false, false)]
     local procedure OnBeforeGetNoSeriesCode(var SalesHeader: Record "Sales Header"; SalesSetup: Record "Sales & Receivables Setup"; var NoSeriesCode: Code[20]; var IsHandled: Boolean)

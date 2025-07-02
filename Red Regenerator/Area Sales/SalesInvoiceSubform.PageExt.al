@@ -1,6 +1,6 @@
 namespace Red.Regenerator;
 using Microsoft.Sales.Document;
-using System.Security.User; pageextension 11311121 "Red Reg Sales Invoice Subform" extends "Sales Invoice Subform"
+using System.Security.User; pageextension 70620 "Red Reg Sales Invoice Subform" extends "Sales Invoice Subform"
 
 {
     layout

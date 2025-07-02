@@ -1,5 +1,5 @@
 namespace Red.Regenerator;
-page 11311122 "Red Reg Sales Item Contracts"
+page 70651 "Red Reg Sales Item Contracts"
 {
     PageType = List;
     ApplicationArea = All;
