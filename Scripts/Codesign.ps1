@@ -1,6 +1,6 @@
 # Install-NAVSipCryptoProviderFromNavContainer -containerName 'bc-uc'
 # Run this as admin in powershell when this error occurs: This file format cannot be signed because it is not recognized.
-$BuildFolder = "X:\SourceCode\Red.Regen\Red Regenerator\_Build"
+$BuildFolder = "X:\SourceCode\Red.Regen\_Build"
 $files = Get-ChildItem $BuildFolder -Filter *.app
 
 Set-Location "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool"
