@@ -2683,6 +2683,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Red Reg Next Billing Date - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 408510027 - Control 3347821753 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the original document number of the sales contract.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Red Reg Org. Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 408510027 - Control 649548132 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the original document type of the sales contract.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Control Red Reg Org. Document Type - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 408510027 - Control 1740117905 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date that the contract has started.</source>
           <note from="Developer" annotates="general" priority="2"></note>

@@ -1,0 +1,66 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "Documentation"
+		},
+		{
+			"path": "Red Regenerator"
+		},
+		{
+			"path": "Red Regenerator Test"
+		}
+	],
+	"settings": {
+		"al.enableCodeAnalysis": true,
+		"al.codeAnalyzers": [
+			"${CodeCop}",
+			"${PerTenantExtensionCop}"
+		],
+		"al.ruleSetPath": "../.Rulesets/BC.ruleset.json",
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Netways",
+				"type": "al",
+				"request": "launch",
+				"environmentType": "Sandbox",
+				"environmentName": "SANDBOX_April_2025",
+				"tenant": "a57c8cf1-c408-48c9-80dd-6679b9e86491",
+				"startupObjectId": 22,
+				// "startupObjectId": 9305,
+				"breakOnError": true,
+				"breakOnRecordWrite": false,
+				"launchBrowser": true,
+				"enableSqlInformationDebugger": true,
+				"enableLongRunningSqlStatements": true,
+				"longRunningSqlStatementsThreshold": 500,
+				"numberOfSqlStatements": 10,
+				"schemaUpdateMode": "ForceSync"
+			},
+			{
+				"name": "Your own server",
+				"request": "launch",
+				"type": "al",
+				"environmentType": "OnPrem",
+				"server": "https://bc-uc",
+				"serverInstance": "BC",
+				"authentication": "UserPassword",
+				"startupObjectId": 9305,
+				"startupObjectType": "Page",
+				"breakOnError": "All",
+				"launchBrowser": true,
+				"enableLongRunningSqlStatements": true,
+				"enableSqlInformationDebugger": true,
+				"tenant": "default",
+				"usePublicURLFromServer": true,
+				"schemaUpdateMode": "ForceSync"
+			}
+		],
+		"compounds": []
+	}
+}

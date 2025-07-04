@@ -300,6 +300,18 @@ page 70621 "Red Reg Sales Contract"
                     ShowMandatory = ExternalDocNoMandatory;
                     ToolTip = 'Specifies a document number that refers to the customer''s or vendor''s numbering system.';
                 }
+                field("Red Reg Org. Document Type"; Rec."Red Reg Org. Document Type")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Importance = Standard;
+                    ToolTip = 'Specifies the original document type of the sales contract.';
+                }
+                field("Red Reg Org. Document No."; Rec."Red Reg Org. Document No.")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Importance = Standard;
+                    ToolTip = 'Specifies the original document number of the sales contract.';
+                }
                 field("Your Reference"; Rec."Your Reference")
                 {
                     ApplicationArea = Basic, Suite;

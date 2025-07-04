@@ -18,7 +18,9 @@ codeunit 70620 "Red Reg Sales Document"
         if not GetItemContract(ItemContract, Quantity, SalesLine) then
             exit;
 
-        CreateSalesLineFromItemContract(NewSalesLine, ItemContract, SalesLine, Quantity);
+        repeat
+            CreateSalesLineFromItemContract(NewSalesLine, ItemContract, SalesLine, Quantity);
+        until ItemContract.Next() = 0;
     end;
 
     local procedure HasContractSalesLine(SalesLine: Record "Sales Line"): Boolean
@@ -47,9 +49,10 @@ codeunit 70620 "Red Reg Sales Document"
         if not (ItemContractSelect.RunModal() in [Action::LookupOK, Action::OK]) then
             exit(false);
 
+
         Quantity := ItemContractSelect.GetQuantity();
         ItemContractSelect.SetSelectionFilter(ItemContract);
-        exit(ItemContract.FindFirst());
+        exit(ItemContract.FindSet());
     end;
 
     local procedure CreateSalesLineFromItemContract(var NewSalesLine: Record "Sales Line"; ItemContract: Record "Red Reg Sales Item Contract"; SalesLine: Record "Sales Line"; Quantity: Decimal)
@@ -61,7 +64,11 @@ codeunit 70620 "Red Reg Sales Document"
         NewSalesLine.Init();
         NewSalesLine."Document Type" := SalesLine."Document Type";
         NewSalesLine."Document No." := SalesLine."Document No.";
-        NewSalesLine."Line No." := SalesLine."Line No." + 1;
+        if NewSalesLine."Line No." = 0 then
+            NewSalesLine."Line No." := SalesLine."Line No." + 1
+        else
+            NewSalesLine."Line No." += 1;
+        ;
         NewSalesLine.Type := ItemContract."Template Type";
         NewSalesLine.Validate("No.", ItemContract."Template No.");
         NewSalesLine.Description := ItemContract."Template Description";
