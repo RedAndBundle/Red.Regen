@@ -44,6 +44,24 @@
 				"schemaUpdateMode": "ForceSync"
 			},
 			{
+				"name": "Sandbox",
+				"type": "al",
+				"request": "launch",
+				"environmentType": "Sandbox",
+				"environmentName": "EU",
+				"tenant": "697cd372-139a-4f44-b0ee-e5ab832d9265",
+				"startupObjectId": 22,
+				// "startupObjectId": 9305,
+				"breakOnError": true,
+				"breakOnRecordWrite": false,
+				"launchBrowser": true,
+				"enableSqlInformationDebugger": true,
+				"enableLongRunningSqlStatements": true,
+				"longRunningSqlStatementsThreshold": 500,
+				"numberOfSqlStatements": 10,
+				"schemaUpdateMode": "ForceSync"
+			},
+			{
 				"name": "Your own server",
 				"request": "launch",
 				"type": "al",

@@ -53,6 +53,11 @@ page 70640 "Red Reg Purch. Contr Templates"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the billing period of the contract. If you do not specify a billing period the contract duration is used.';
                 }
+                field("Show On Documents"; Rec."Show On Documents")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies whether the contract lines should be shown on documents.';
+                }
             }
         }
     }

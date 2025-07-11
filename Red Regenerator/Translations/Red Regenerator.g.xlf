@@ -68,6 +68,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Purch. Contr. Template - Field Red Reg Billing Period - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1654976237 - Field 1900761674 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show On Documents</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Purch. Contr. Template - Field Show On Documents - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1654976237 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -112,6 +117,11 @@
           <source>Billing Period</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Sales Contr. Template - Field Red Reg Billing Period - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 273128531 - Field 1900761674 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show On Documents</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Sales Contr. Template - Field Show On Documents - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 273128531 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Type</source>
@@ -292,6 +302,11 @@
           <source>Specifies the billing period of the contract. If you do not specify a billing period the contract duration is used.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr Templates - Control Red Reg Billing Period - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2772500282 - Control 1900761674 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the contract lines should be shown on documents.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr Templates - Control Show On Documents - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2772500282 - Control 1878130204 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies for which line type the contract is created. Item takes precedence over Item Category.</source>
@@ -2567,6 +2582,11 @@
           <source>Specifies the billing period of the contract. If you do not specify a billing period the contract duration is used.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contr. Templates - Control Red Reg Billing Period - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3491209726 - Control 1900761674 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the contract lines should be shown on documents.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contr. Templates - Control Show On Documents - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3491209726 - Control 1878130204 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies for which line type the contract is created. Item takes precedence over Item Category.</source>

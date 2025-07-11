@@ -82,6 +82,10 @@ table 70650 "Red Reg Sales Contr. Template"
             Caption = 'Billing Period';
             // ToolTip = 'Specifies the billing period of the contract. If you do not specify a billing period the contract duration is used.';
         }
+        field(15; "Show On Documents"; Boolean)
+        {
+            Caption = 'Show On Documents';
+        }
     }
 
     keys
