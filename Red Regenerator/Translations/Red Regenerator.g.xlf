@@ -4783,6 +4783,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contracts - Control Red Reg Group - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2853154262 - Control 3347821753 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the document that is used to register the contract.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contracts - Control Red Reg Org. Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2853154262 - Control 649548132 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of the document that is used to register the contract.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contracts - Control Red Reg Org. Document Type - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2853154262 - Control 1740117905 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date that the contract has started.</source>
           <note from="Developer" annotates="general" priority="2"></note>

@@ -62,6 +62,16 @@ page 70620 "Red Reg Sales Contracts"
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies a document number that refers to the customer''s or vendor''s numbering system.';
                 }
+                field("Red Reg Org. Document Type"; Rec."Red Reg Org. Document Type")
+                {
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the type of the document that is used to register the contract.';
+                }
+                field("Red Reg Org. Document No."; Rec."Red Reg Org. Document No.")
+                {
+                    ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the number of the document that is used to register the contract.';
+                }
                 field("Sell-to Post Code"; Rec."Sell-to Post Code")
                 {
                     ApplicationArea = Basic, Suite;
