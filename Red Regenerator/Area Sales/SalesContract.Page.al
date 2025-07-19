@@ -1151,7 +1151,10 @@ page 70621 "Red Reg Sales Contract"
                     trigger OnAction()
                     begin
                         Rec.RedRegClose();
-                        CurrPage.Update();
+                        if rec.Find() then
+                            CurrPage.Update()
+                        else
+                            CurrPage.Close();
                     end;
                 }
                 action(Cancel)
@@ -1165,7 +1168,10 @@ page 70621 "Red Reg Sales Contract"
                     trigger OnAction()
                     begin
                         Rec.RedRegCancel();
-                        CurrPage.Update();
+                        if rec.Find() then
+                            CurrPage.Update()
+                        else
+                            CurrPage.Close();
                     end;
                 }
                 action(Renew)

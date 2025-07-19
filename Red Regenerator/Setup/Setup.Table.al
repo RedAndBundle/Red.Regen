@@ -47,6 +47,20 @@ table 70670 "Red Reg Setup"
             InitValue = true;
             // ToolTip = 'Specifies if the purchase post commit should be suppressed. Suppressing the commit ensures that the purchase document cannot be posted without generating the new contract.';
         }
+        field(30; "Action on Close"; Option)
+        {
+            Caption = 'Action on Close';
+            OptionCaption = ' ,Archive,Archive and delete';
+            OptionMembers = " ",Archive,"Archive and delete";
+            ToolTip = 'Specifies if you want to automatically archive sales contracts when closed.';
+        }
+        field(31; "Action on Cancel"; Option)
+        {
+            Caption = 'Action on Cancel';
+            OptionCaption = ' ,Archive,Archive and delete';
+            OptionMembers = " ",Archive,"Archive and delete";
+            ToolTip = 'Specifies if you want to automatically archive sales contracts when canceled.';
+        }
         // TODO
         // Regenerate via job queue
         // Regenerate via batch job

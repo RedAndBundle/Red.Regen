@@ -2,6 +2,7 @@ namespace Red.Regenerator;
 using Microsoft.Sales.Setup;
 using Microsoft.Sales.Receivables;
 using Microsoft.Sales.Document;
+using Microsoft.Utilities;
 using Microsoft.Finance.GeneralLedger.Posting;
 using Microsoft.Sales.Posting;
 codeunit 70621 "Red Reg Sales Events"
@@ -78,4 +79,10 @@ codeunit 70621 "Red Reg Sales Events"
     begin
         // Rec.RedRegAddContractLine();
     end;
+
+    // [EventSubscriber(ObjectType::Codeunit, CodeUnit::ArchiveManagement, OnBeforeAutoArchiveSalesDocument, '', false, false)]
+    // local procedure OnBeforeAutoArchiveSalesDocument(var SalesHeader: Record "Sales Header"; var IsHandled: Boolean)
+    // begin
+    //     IsHandled := SalesHeader.RedRegAutoArchive();
+    // end;
 }

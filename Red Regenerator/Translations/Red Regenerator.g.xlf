@@ -213,6 +213,36 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 97696520 - Field 464905299 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want to automatically archive sales contracts when canceled.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Action on Cancel - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 97696520 - Field 464905299 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Action on Cancel</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Action on Cancel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 97696520 - Field 464905299 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source> ,Archive,Archive and delete</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Action on Cancel - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 97696520 - Field 4080363819 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want to automatically archive sales contracts when closed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Action on Close - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 97696520 - Field 4080363819 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Action on Close</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Action on Close - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 97696520 - Field 4080363819 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source> ,Archive,Archive and delete</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Action on Close - Property OptionCaption</note>
+        </trans-unit>
         <trans-unit id="Table 97696520 - Field 671947873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>No. Series Purchase</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4883,6 +4913,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contracts - Action ShowDocument - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2853154262 - Action 281191309 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calculate the expired contracts based on the end date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contracts - Action CalculateExpired - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2853154262 - Action 281191309 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calculate Expired</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contracts - Action CalculateExpired - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2853154262 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Process</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4927,6 +4967,16 @@
           <source>Regenerator Setup</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 97696520 - Control 464905299 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want to automatically archive sales contracts when cancelled.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Setup - Control Action on Cancel - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 97696520 - Control 4080363819 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want to automatically archive sales contracts when closed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Setup - Control Action on Close - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 97696520 - Control 2557018133 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if the purchase post commit should be suppressed. Suppressing the commit ensures that the purchase document cannot be posted without generating the new contract.</source>
@@ -5882,6 +5932,11 @@
           <source>Active</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Red Reg Contract Status - EnumValue Active - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2321072599 - EnumValue 551003452 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Auto Generated</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Red Reg Contract Status - EnumValue AutoGenerated - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2321072599 - EnumValue 3844911025 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Canceled</source>

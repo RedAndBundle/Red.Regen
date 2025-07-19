@@ -14,6 +14,16 @@ page 70670 "Red Reg Setup"
             // TODO tegel op BC home pagina met contracten die gaan verlopen. + email mogelijkheid naar contract eigenaar.
             group(General)
             {
+                field("Action on Cancel"; Rec."Action on Cancel")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies if you want to automatically archive sales contracts when cancelled.';
+                }
+                field("Action on Close"; Rec."Action on Close")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies if you want to automatically archive sales contracts when closed.';
+                }
                 field("Suppress Sales Post Commit"; Rec."Suppress Sales Post Commit")
                 {
                     ApplicationArea = All;

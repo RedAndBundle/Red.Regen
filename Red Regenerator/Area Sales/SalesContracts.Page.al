@@ -195,7 +195,7 @@ page 70620 "Red Reg Sales Contracts"
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the date when the related document was created.';
                 }
-                field(Status; Rec.Status)
+                field(Status; Rec."Red Reg Contract Status")
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies whether the document is open, waiting to be approved, has been invoiced for prepayment, or has been released to the next stage of processing.';
@@ -236,6 +236,25 @@ page 70620 "Red Reg Sales Contracts"
 
     actions
     {
+        area(Processing)
+        {
+            action(CalculateExpired)
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'Calculate Expired';
+                Image = CalculateCalendar;
+                ToolTip = 'Calculate the expired contracts based on the end date.';
+
+                trigger OnAction()
+                var
+                    SalesGenerator: Codeunit "Red Reg Sales Generator";
+                begin
+                    SalesGenerator.CalculateExpiredContracts();
+                    CurrPage.Update();
+                end;
+            }
+
+        }
         area(navigation)
         {
             group("&Line")
@@ -277,6 +296,9 @@ page 70620 "Red Reg Sales Contracts"
                 Caption = 'Process';
 
                 actionref(Card_Promoted; ShowDocument)
+                {
+                }
+                actionref(CalculateExpired_Promoted; CalculateExpired)
                 {
                 }
             }

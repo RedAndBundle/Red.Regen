@@ -185,7 +185,7 @@ page 70624 "Red Reg Sales Contr. Archives"
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the date when the related document was created.';
                 }
-                field(Status; Rec.Status)
+                field(Status; Rec."Red Reg Contract Status")
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies whether the document is open, waiting to be approved, has been invoiced for prepayment, or has been released to the next stage of processing.';
@@ -242,7 +242,7 @@ page 70624 "Red Reg Sales Contr. Archives"
 
                     trigger OnAction()
                     begin
-                        Page.Run(Page::"Red Reg Sales Contract", Rec);
+                        Page.Run(Page::"Red Reg Sales Contract Archive", Rec);
                     end;
                 }
             }
