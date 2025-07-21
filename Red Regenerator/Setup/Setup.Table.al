@@ -61,6 +61,16 @@ table 70670 "Red Reg Setup"
             OptionMembers = " ",Archive,"Archive and delete";
             ToolTip = 'Specifies if you want to automatically archive sales contracts when canceled.';
         }
+        field(35; "Archive Sales Contracts"; Boolean)
+        {
+            Caption = 'Archive Sales Contracts';
+            ToolTip = 'Specifies if the sales contracts should be archived when it is deleted.';
+        }
+        field(36; "Archive Purchase Contracts"; Boolean)
+        {
+            Caption = 'Archive Purchase Contracts';
+            ToolTip = 'Specifies if the purchase contracts should be archived when it is deleted.';
+        }
         // TODO
         // Regenerate via job queue
         // Regenerate via batch job

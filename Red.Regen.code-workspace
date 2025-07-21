@@ -48,7 +48,7 @@
 				"type": "al",
 				"request": "launch",
 				"environmentType": "Sandbox",
-				"environmentName": "EU",
+				"environmentName": "Sandbox",
 				"tenant": "697cd372-139a-4f44-b0ee-e5ab832d9265",
 				"startupObjectId": 22,
 				// "startupObjectId": 9305,

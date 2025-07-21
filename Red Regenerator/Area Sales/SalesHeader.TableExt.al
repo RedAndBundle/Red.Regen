@@ -180,7 +180,7 @@ tableextension 70620 "Red Reg Sales Header" extends "Sales Header"
         "Red Reg Contract Status" := "Red Reg Contract Status"::Expired;
     end;
 
-    procedure RedRegAccept()
+    internal procedure RedRegAccept()
     var
         Regenerator: Codeunit "Red Reg Regenerator";
     begin
@@ -253,7 +253,9 @@ tableextension 70620 "Red Reg Sales Header" extends "Sales Header"
                 RedRegArchive();
             Setup."Action on Cancel"::"Archive and delete":
                 begin
-                    RedRegArchive();
+                    if not Setup."Archive Sales Contracts" then
+                        RedRegArchive();
+
                     Delete(true);
                 end;
         end;
@@ -261,41 +263,26 @@ tableextension 70620 "Red Reg Sales Header" extends "Sales Header"
 
     local procedure RedRegArchive()
     var
-        ArchiveManagement: Codeunit "ArchiveManagement";
+        ArchiveManagement: Codeunit ArchiveManagement;
     begin
-        // ArchiveManagement.ArchiveSalesDocument(Rec);
         ArchiveManagement.StoreSalesDocument(Rec, false);
     end;
 
-    // internal procedure RedRegAutoArchive(): Boolean
-    // var
-    //     ArchiveManagement: Codeunit "ArchiveManagement";
-    //     SalesReceivablesSetup: Record "Sales & Receivables Setup"
-    // begin
-    //     if this."Document Type" <> this."Document Type"::"Red Regenerator" then
-    //         exit(false);
+    internal procedure RedRegAutoArchive(): Boolean
+    var
+        Setup: Record "Red Reg Setup";
+    begin
+        if this."Document Type" <> this."Document Type"::"Red Regenerator" then
+            exit(false);
 
-    //     ArchiveManagement.ArchiveSalesDocument(Rec);
-    //     ArchiveManagement.StoreSalesDocument(Rec, false);
-    //     Delete(true);
+        if not Setup.Get() then
+            exit(false);
 
-    //     SalesReceivablesSetup.Get();
+        if Setup."Archive Sales Contracts" then
+            RedRegArchive();
 
-    //     case SalesHeader."Document Type" of
-    //         SalesHeader."Document Type"::Quote:
-    //             case SalesReceivablesSetup."Archive Quotes" of
-    //                 SalesReceivablesSetup."Archive Quotes"::Always:
-    //                     ArchSalesDocumentNoConfirm(SalesHeader);
-    //                 SalesReceivablesSetup."Archive Quotes"::Question:
-    //                     ArchiveSalesDocument(SalesHeader);
-    //             end;
-    //         SalesHeader."Document Type"::"Blanket Order":
-    //             if SalesReceivablesSetup."Archive Blanket Orders" then
-    //                 ArchSalesDocumentNoConfirm(SalesHeader);
-    //     end;
-
-    //     exit(true);
-    // end;
+        exit(true);
+    end;
 
     internal procedure RedRegenerate()
     var
@@ -361,6 +348,11 @@ tableextension 70620 "Red Reg Sales Header" extends "Sales Header"
     internal procedure RedRegShowRegenerate(): Boolean
     begin
         exit("Red Reg Contract Status" in ["Red Reg Contract Status"::Active]);
+    end;
+
+    internal procedure RedRegShowRenew(): Boolean
+    begin
+        exit("Red Reg Contract Status" in ["Red Reg Contract Status"::Active, "Red Reg Contract Status"::Expired, "Red Reg Contract Status"::Closed]);
     end;
 
     local procedure TestModifyAllowed()

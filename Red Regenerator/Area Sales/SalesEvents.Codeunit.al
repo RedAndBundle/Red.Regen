@@ -80,9 +80,9 @@ codeunit 70621 "Red Reg Sales Events"
         // Rec.RedRegAddContractLine();
     end;
 
-    // [EventSubscriber(ObjectType::Codeunit, CodeUnit::ArchiveManagement, OnBeforeAutoArchiveSalesDocument, '', false, false)]
-    // local procedure OnBeforeAutoArchiveSalesDocument(var SalesHeader: Record "Sales Header"; var IsHandled: Boolean)
-    // begin
-    //     IsHandled := SalesHeader.RedRegAutoArchive();
-    // end;
+    [EventSubscriber(ObjectType::Codeunit, CodeUnit::ArchiveManagement, OnBeforeAutoArchiveSalesDocument, '', false, false)]
+    local procedure OnBeforeAutoArchiveSalesDocument(var SalesHeader: Record "Sales Header"; var IsHandled: Boolean)
+    begin
+        IsHandled := SalesHeader.RedRegAutoArchive();
+    end;
 }

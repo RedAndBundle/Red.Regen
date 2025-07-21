@@ -1303,7 +1303,10 @@ page 70601 "Red Reg Purchase Contract"
                     trigger OnAction()
                     begin
                         Rec.RedRegClose();
-                        CurrPage.Update();
+                        if rec.Find() then
+                            CurrPage.Update()
+                        else
+                            CurrPage.Close();
                     end;
                 }
                 action(Cancel)
@@ -1316,7 +1319,24 @@ page 70601 "Red Reg Purchase Contract"
 
                     trigger OnAction()
                     begin
-                        Rec.RedRegClose();
+                        Rec.RedRegCancel();
+                        if rec.Find() then
+                            CurrPage.Update()
+                        else
+                            CurrPage.Close();
+                    end;
+                }
+                action(Renew)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Renew';
+                    Enabled = ShowRenew;
+                    Image = Redo;
+                    ToolTip = 'Renews the contract, it can be extended.';
+
+                    trigger OnAction()
+                    begin
+                        Rec.RedRegRenew();
                         CurrPage.Update();
                     end;
                 }
@@ -1442,6 +1462,26 @@ page 70601 "Red Reg Purchase Contract"
                 //     end;
                 // }
             }
+            group(archive)
+            {
+                Caption = 'Archive';
+                Image = Archive;
+                action("Archive Document")
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'Archi&ve Document';
+                    Image = Archive;
+                    ToolTip = 'Send the document to the archive, for example because it is too soon to delete it. Later, you delete or reprocess the archived document.';
+
+                    trigger OnAction()
+                    var
+                        ArchiveManagement: Codeunit ArchiveManagement;
+                    begin
+                        ArchiveManagement.ArchivePurchDocument(Rec);
+                        CurrPage.Update(false);
+                    end;
+                }
+            }
             group("&Contract Confirmation")
             {
                 Caption = '&Contract Confirmation';
@@ -1512,10 +1552,13 @@ page 70601 "Red Reg Purchase Contract"
                     actionref(Cancel_Promoted; Cancel)
                     {
                     }
+                    actionref(renew_Promoted; Renew)
+                    {
+                    }
                 }
-                // actionref("Archive Document_Promoted"; "Archive Document")
-                // {
-                // }
+                actionref("Archive Document_Promoted"; "Archive Document")
+                {
+                }
             }
             // group(Category_Category7)
             // {
@@ -1757,6 +1800,7 @@ page 70601 "Red Reg Purchase Contract"
         ShowClose: Boolean;
         ShowCancel: Boolean;
         ShowRegenerate: Boolean;
+        ShowRenew: Boolean;
 
     protected var
         ShipToOptions: Option "Default (Company Address)",Location,"Vendor Address","Custom Address";
@@ -1898,6 +1942,7 @@ page 70601 "Red Reg Purchase Contract"
         ShowCancel := Rec.RedRegShowCancel();
         ShowActivate := Rec.RedRegShowActivate();
         ShowRegenerate := Rec.RedRegShowRegenerate();
+        ShowRenew := Rec.RedRegShowRenew();
     end;
 
     procedure RunBackgroundCheck()

@@ -1,5 +1,7 @@
 namespace Red.Regenerator;
 using Microsoft.Purchases.Document;
+using Microsoft.Purchases.Archive;
+using Microsoft.Utilities;
 using Microsoft.Sales.Document;
 using Microsoft.Purchases.History;
 tableextension 70602 "Red Reg Purchase Header" extends "Purchase Header"
@@ -235,16 +237,64 @@ tableextension 70602 "Red Reg Purchase Header" extends "Purchase Header"
     end;
 
     internal procedure RedRegClose()
+    var
+        Setup: Record "Red Reg Setup";
     begin
         // Test open Purchase documents
         // Test contract end date
         "Red Reg Contract Status" := "Red Reg Contract Status"::Closed;
+        Setup.Get();
+        case Setup."Action on Close" of
+            Setup."Action on Close"::Archive:
+                RedRegArchive();
+            Setup."Action on Close"::"Archive and delete":
+                begin
+                    RedRegArchive();
+                    Delete(true);
+                end;
+        end;
     end;
 
     internal procedure RedRegCancel()
+    var
+        Setup: Record "Red Reg Setup";
     begin
-        // Test open Purchase documents
         "Red Reg Contract Status" := "Red Reg Contract Status"::Canceled;
+        Setup.Get();
+        case Setup."Action on Cancel" of
+            Setup."Action on Cancel"::Archive:
+                RedRegArchive();
+            Setup."Action on Cancel"::"Archive and delete":
+                begin
+                    if not Setup."Archive Purchase Contracts" then
+                        RedRegArchive();
+
+                    Delete(true);
+                end;
+        end;
+    end;
+
+    local procedure RedRegArchive()
+    var
+        ArchiveManagement: Codeunit ArchiveManagement;
+    begin
+        ArchiveManagement.StorePurchDocument(Rec, false);
+    end;
+
+    internal procedure RedRegAutoArchive(): Boolean
+    var
+        Setup: Record "Red Reg Setup";
+    begin
+        if this."Document Type" <> this."Document Type"::"Red Regenerator" then
+            exit(false);
+
+        if not Setup.Get() then
+            exit(false);
+
+        if Setup."Archive Purchase Contracts" then
+            RedRegArchive();
+
+        exit(true);
     end;
 
     internal procedure RedRegenerate()
@@ -260,6 +310,13 @@ tableextension 70602 "Red Reg Purchase Header" extends "Purchase Header"
     begin
         Regenerator.RegeneratePurchaseDocument(Rec);
         // TODO Post
+    end;
+
+    internal procedure RedRegRenew()
+    var
+        Regenerator: Codeunit "Red Reg Regenerator";
+    begin
+        Regenerator.RenewContract(Rec);
     end;
 
     internal procedure RedRegSendContract()
@@ -304,6 +361,11 @@ tableextension 70602 "Red Reg Purchase Header" extends "Purchase Header"
     internal procedure RedRegShowRegenerate(): Boolean
     begin
         exit("Red Reg Contract Status" in ["Red Reg Contract Status"::Active]);
+    end;
+
+    internal procedure RedRegShowRenew(): Boolean
+    begin
+        exit("Red Reg Contract Status" in ["Red Reg Contract Status"::Active, "Red Reg Contract Status"::Expired, "Red Reg Contract Status"::Closed]);
     end;
 
     // internal procedure RedRegShowGenerate(): Boolean

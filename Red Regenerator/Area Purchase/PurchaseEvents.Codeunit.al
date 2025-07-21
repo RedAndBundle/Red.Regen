@@ -1,6 +1,7 @@
 namespace Red.Regenerator;
 using Microsoft.Purchases.Document;
 using Microsoft.Purchases.Setup;
+using Microsoft.Utilities;
 using Microsoft.Purchases.History;
 using Microsoft.Inventory.Posting;
 using Microsoft.Finance.GeneralLedger.Posting;
@@ -79,5 +80,11 @@ codeunit 70600 "Red Reg Purchase Events"
     local procedure OnBeforePurchInvHeaderModify(var PurchInvHeader: Record "Purch. Inv. Header"; PurchInvHeaderRec: Record "Purch. Inv. Header")
     begin
         PurchInvHeader."Red Reg Contract No." := PurchInvHeaderRec."Red Reg Contract No.";
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, CodeUnit::ArchiveManagement, OnBeforeArchivePurchDocument, '', false, false)]
+    local procedure OnBeforeAutoArchivePurchDocument(var PurchaseHeader: Record "Purchase Header"; var IsHandled: Boolean)
+    begin
+        IsHandled := PurchaseHeader.RedRegAutoArchive();
     end;
 }

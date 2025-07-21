@@ -1,25 +1,24 @@
 namespace Red.Regenerator;
-using Microsoft.Sales.Archive;
+using Microsoft.Purchases.Archive;
 using Microsoft.Finance.Dimension;
-using Microsoft.Utilities;
 using Microsoft.CRM.Contact;
 using Microsoft.Foundation.Reporting;
 using Microsoft.Foundation.Address;
 using System.Environment;
 using Microsoft.Finance.VAT.Calculation;
-using Microsoft.Sales.Customer;
+using Microsoft.Purchases.Vendor;
 using Microsoft.EServices.EDocument;
 using System.Security.User;
-page 70625 "Red Reg Sales Contract Archive"
+page 70604 "Red Reg Pur. Contract Archive"
 {
-    Caption = 'Sales Contract Archive';
+    Caption = 'Purchase Contract Archive';
     PageType = Document;
     RefreshOnActivate = true;
     Editable = false;
     ModifyAllowed = false;
     InsertAllowed = false;
     DeleteAllowed = false;
-    SourceTable = "Sales Header Archive";
+    SourceTable = "Purchase Header Archive";
     SourceTableView = where("Document Type" = filter("Red Regenerator"));
 
     layout
@@ -34,98 +33,98 @@ page 70625 "Red Reg Sales Contract Archive"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the number of the involved entry or record, according to the specified number series.';
                 }
-                field("Sell-to Customer No."; Rec."Sell-to Customer No.")
+                field("Buy-from Vendor No."; Rec."Buy-from Vendor No.")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies the number of the customer.';
+                    ToolTip = 'Specifies the name of the vendor who delivered the items.';
                 }
-                field("Sell-to Contact No."; Rec."Sell-to Contact No.")
+                field("Buy-from Contact No."; Rec."Buy-from Contact No.")
                 {
-                    ApplicationArea = RelationshipMgmt;
-                    ToolTip = 'Specifies the number of the contact person at the customer''s main address.';
+                    ApplicationArea = Suite;
+                    ToolTip = 'Specifies the number of the contact person at the vendor who delivered the items.';
                 }
-                group("Sell-to")
+                group("Buy-from")
                 {
-                    Caption = 'Sell-to';
-                    field("Sell-to Customer Name"; Rec."Sell-to Customer Name")
+                    Caption = 'Buy-from';
+                    field("Buy-from Vendor Name"; Rec."Buy-from Vendor Name")
                     {
                         ApplicationArea = Suite;
                         Caption = 'Name';
-                        ToolTip = 'Specifies the name of the customer.';
+                        ToolTip = 'Specifies the name of the vendor who delivered the items.';
                     }
-                    field("Sell-to Address"; Rec."Sell-to Address")
+                    field("Buy-from Address"; Rec."Buy-from Address")
                     {
                         ApplicationArea = Suite;
                         Caption = 'Address';
-                        ToolTip = 'Specifies the main address of the customer.';
+                        ToolTip = 'Specifies the address of the vendor who delivered the items.';
                     }
-                    field("Sell-to Address 2"; Rec."Sell-to Address 2")
+                    field("Buy-from Address 2"; Rec."Buy-from Address 2")
                     {
                         ApplicationArea = Suite;
                         Caption = 'Address 2';
-                        ToolTip = 'Specifies an additional part of the address.';
+                        ToolTip = 'Specifies an additional part of the address of the vendor who delivered the items.';
                     }
-                    field("Sell-to City"; Rec."Sell-to City")
+                    field("Buy-from City"; Rec."Buy-from City")
                     {
                         ApplicationArea = Suite;
                         Caption = 'City';
-                        ToolTip = 'Specifies the city of the customer''s main address.';
+                        ToolTip = 'Specifies the city of the vendor who delivered the items.';
                     }
-                    group(Control19)
+                    group(Control23)
                     {
                         ShowCaption = false;
-                        Visible = IsSellToCountyVisible;
-                        field("Sell-to County"; Rec."Sell-to County")
+                        Visible = IsBuyFromCountyVisible;
+                        field("Buy-from County"; Rec."Buy-from County")
                         {
                             ApplicationArea = Suite;
-                            Caption = 'County';
-                            ToolTip = 'Specifies the county of your customer.';
+                            CaptionClass = '5,1,' + Rec."Buy-from Country/Region Code";
+                            ToolTip = 'Specifies the county of your vendor.';
                         }
                     }
-                    field("Sell-to Post Code"; Rec."Sell-to Post Code")
+                    field("Buy-from Post Code"; Rec."Buy-from Post Code")
                     {
                         ApplicationArea = Suite;
                         Caption = 'Post Code';
-                        ToolTip = 'Specifies the postal code of the customer''s main address.';
+                        ToolTip = 'Specifies the post code of the vendor who delivered the items.';
                     }
-                    field("Sell-to Country/Region Code"; Rec."Sell-to Country/Region Code")
+                    field("Buy-from Country/Region Code"; Rec."Buy-from Country/Region Code")
                     {
                         ApplicationArea = Suite;
                         Caption = 'Country/Region';
-                        ToolTip = 'Specifies the country or region of your customer.';
+                        ToolTip = 'Specifies the country or region of your vendor.';
                     }
-                    field("Sell-to Contact"; Rec."Sell-to Contact")
+                    field("Buy-from Contact"; Rec."Buy-from Contact")
                     {
                         ApplicationArea = Suite;
                         Caption = 'Contact';
-                        ToolTip = 'Specifies the name of the contact person at the customer''s main address.';
+                        ToolTip = 'Specifies the name of the contact person at the vendor who delivered the items.';
                     }
-                    field(SellToPhoneNo; SellToContact."Phone No.")
+                    field(BuyFromContactPhoneNo; BuyFromContact."Phone No.")
                     {
                         ApplicationArea = Suite;
                         Caption = 'Phone No.';
                         Importance = Additional;
                         Editable = false;
                         ExtendedDatatype = PhoneNo;
-                        ToolTip = 'Specifies the telephone number of the contact person that the sales document will be sent to.';
+                        ToolTip = 'Specifies the telephone number of the vendor contact person.';
                     }
-                    field(SellToMobilePhoneNo; SellToContact."Mobile Phone No.")
+                    field(BuyFromContactMobilePhoneNo; BuyFromContact."Mobile Phone No.")
                     {
                         ApplicationArea = Suite;
                         Caption = 'Mobile Phone No.';
                         Importance = Additional;
                         Editable = false;
                         ExtendedDatatype = PhoneNo;
-                        ToolTip = 'Specifies the mobile telephone number of the contact person that the sales document will be sent to.';
+                        ToolTip = 'Specifies the mobile telephone number of the vendor contact person.';
                     }
-                    field(SellToEmail; SellToContact."E-Mail")
+                    field(BuyFromContactEmail; BuyFromContact."E-Mail")
                     {
                         ApplicationArea = Suite;
                         Caption = 'Email';
                         Importance = Additional;
                         Editable = false;
                         ExtendedDatatype = EMail;
-                        ToolTip = 'Specifies the email address of the contact person that the sales document will be sent to.';
+                        ToolTip = 'Specifies the email address of the vendor contact person.';
                     }
                 }
                 field("Posting Date"; Rec."Posting Date")
@@ -149,6 +148,21 @@ page 70625 "Red Reg Sales Contract Archive"
                 {
                     ApplicationArea = Suite;
                     ToolTip = 'Specifies the date when the related document was created.';
+                }
+                field("Vendor Order No."; Rec."Vendor Order No.")
+                {
+                    ApplicationArea = Suite;
+                    ToolTip = 'Specifies the vendor''s order number.';
+                }
+                field("Vendor Shipment No."; Rec."Vendor Shipment No.")
+                {
+                    ApplicationArea = Suite;
+                    ToolTip = 'Specifies the vendor''s shipment number. It is inserted in the corresponding field on the source document during posting.';
+                }
+                field("Vendor Invoice No."; Rec."Vendor Invoice No.")
+                {
+                    ApplicationArea = Suite;
+                    ToolTip = 'Specifies the document number of the original document you received from the vendor. You can require the document number for posting, or let it be optional. By default, it''s required, so that this document references the original. Making document numbers optional removes a step from the posting process. For example, if you attach the original invoice as a PDF, you might not need to enter the document number. To specify whether document numbers are required, in the Purchases & Payables Setup window, select or clear the Ext. Doc. No. Mandatory field.';
                 }
                 field("Red Reg Contract Status"; Rec."Red Reg Contract Status")
                 {
@@ -202,26 +216,15 @@ page 70625 "Red Reg Sales Contract Archive"
                     Editable = false;
                     ToolTip = 'Specifies how many times the contract has been billed.';
                 }
-                field("Red Reg Has Purchase Contract"; Rec."Red Reg Has Purchase Contract")
-                {
-                    ApplicationArea = Basic, Suite;
-                    Editable = false;
-                    ToolTip = 'Specifies if there are purchase contracts that were created from this sales contract';
-                }
-                field("External Document No."; Rec."External Document No.")
+                field("Order Address Code"; Rec."Order Address Code")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies a document number that refers to the customer''s or vendor''s numbering system.';
+                    ToolTip = 'Specifies the order address of the related vendor.';
                 }
-                field("Salesperson Code"; Rec."Salesperson Code")
+                field("Purchaser Code"; Rec."Purchaser Code")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies which salesperson is associated with the sales order.';
-                }
-                field("Campaign No."; Rec."Campaign No.")
-                {
-                    ApplicationArea = RelationshipMgmt;
-                    ToolTip = 'Specifies the campaign number the document is linked to.';
+                    ToolTip = 'Specifies which purchaser is assigned to the vendor.';
                 }
                 field("Responsibility Center"; Rec."Responsibility Center")
                 {
@@ -231,10 +234,10 @@ page 70625 "Red Reg Sales Contract Archive"
                 field(Status; Rec.Status)
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies whether the document is open, waiting to be approved, has been invoiced for prepayment, or has been released to the next stage of processing.';
+                    ToolTip = 'Specifies whether the record is open, waiting to be approved, invoiced for prepayment, or released to the next stage of processing.';
                 }
             }
-            part(SalesLinesArchive; "Red Reg Sal. Contr. Arch. Sub.")
+            part(PurchLinesArchive; "Purchase Order Archive Subform")
             {
                 ApplicationArea = Suite;
                 SubPageLink = "Document No." = field("No."),
@@ -244,98 +247,98 @@ page 70625 "Red Reg Sales Contract Archive"
             group(Invoicing)
             {
                 Caption = 'Invoicing';
-                field("Bill-to Customer No."; Rec."Bill-to Customer No.")
+                field("Pay-to Vendor No."; Rec."Pay-to Vendor No.")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies the number of the customer that you send or sent the invoice or credit memo to.';
+                    ToolTip = 'Specifies the number of the vendor that you received the invoice from.';
                 }
-                field("Bill-to Contact No."; Rec."Bill-to Contact No.")
+                field("Pay-to Contact No."; Rec."Pay-to Contact No.")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies the number of the contact person at the customer''s billing address.';
+                    ToolTip = 'Specifies the number of the person to contact about an invoice from this vendor.';
                 }
-                group("Bill-to")
+                group("Pay-to")
                 {
-                    Caption = 'Bill-to';
-                    field("Bill-to Name"; Rec."Bill-to Name")
+                    Caption = 'Pay-to';
+                    field("Pay-to Name"; Rec."Pay-to Name")
                     {
                         ApplicationArea = Suite;
                         Caption = 'Name';
-                        ToolTip = 'Specifies the name of the customer that you send or sent the invoice or credit memo to.';
+                        ToolTip = 'Specifies the name of the vendor who you received the invoice from.';
                     }
-                    field("Bill-to Address"; Rec."Bill-to Address")
+                    field("Pay-to Address"; Rec."Pay-to Address")
                     {
                         ApplicationArea = Suite;
                         Caption = 'Address';
-                        ToolTip = 'Specifies the address of the customer to whom you sent the invoice.';
+                        ToolTip = 'Specifies the address of the vendor that you received the invoice from.';
                     }
-                    field("Bill-to Address 2"; Rec."Bill-to Address 2")
+                    field("Pay-to Address 2"; Rec."Pay-to Address 2")
                     {
                         ApplicationArea = Suite;
                         Caption = 'Address 2';
-                        ToolTip = 'Specifies an additional line of the address.';
+                        ToolTip = 'Specifies an additional part of the address of the vendor that the invoice was received from.';
                     }
-                    field("Bill-to City"; Rec."Bill-to City")
+                    field("Pay-to City"; Rec."Pay-to City")
                     {
                         ApplicationArea = Suite;
                         Caption = 'City';
-                        ToolTip = 'Specifies the city of the address.';
+                        ToolTip = 'Specifies the city of the vendor that you received the invoice from.';
                     }
-                    group(Control25)
+                    group(Control27)
                     {
                         ShowCaption = false;
-                        Visible = IsBillToCountyVisible;
-                        field("Bill-to County"; Rec."Bill-to County")
+                        Visible = IsPayToCountyVisible;
+                        field("Pay-to County"; Rec."Pay-to County")
                         {
                             ApplicationArea = Suite;
-                            Caption = 'County';
-                            ToolTip = 'Specifies the county of the customer on the sales document.';
+                            CaptionClass = '5,1,' + Rec."Pay-to Country/Region Code";
+                            ToolTip = 'Specifies the county of the vendor on the purchase document.';
                         }
                     }
-                    field("Bill-to Post Code"; Rec."Bill-to Post Code")
+                    field("Pay-to Post Code"; Rec."Pay-to Post Code")
                     {
                         ApplicationArea = Suite;
                         Caption = 'Post Code';
-                        ToolTip = 'Specifies the postal code of the customer''s billing address.';
+                        ToolTip = 'Specifies the post code of the vendor that you received the invoice from.';
                     }
-                    field("Bill-to Country/Region Code"; Rec."Bill-to Country/Region Code")
+                    field("Pay-to Country/Region Code"; Rec."Pay-to Country/Region Code")
                     {
                         ApplicationArea = Suite;
                         Caption = 'Country/Region';
-                        ToolTip = 'Specifies the country or region of the customer on the sales document.';
+                        ToolTip = 'Specifies the country or region of the vendor on the purchase document.';
                     }
-                    field("Bill-to Contact"; Rec."Bill-to Contact")
+                    field("Pay-to Contact"; Rec."Pay-to Contact")
                     {
                         ApplicationArea = Suite;
                         Caption = 'Contact';
-                        ToolTip = 'Specifies the name of the contact person at the customer''s billing address.';
+                        ToolTip = 'Specifies the name of the person to contact about an invoice from this vendor.';
                     }
-                    field(BillToContactPhoneNo; BillToContact."Phone No.")
+                    field(PayToContactPhoneNo; PayToContact."Phone No.")
                     {
                         ApplicationArea = Suite;
                         Caption = 'Phone No.';
                         Editable = false;
                         Importance = Additional;
                         ExtendedDatatype = PhoneNo;
-                        ToolTip = 'Specifies the telephone number of the person you should contact at the customer you are sending the invoice to.';
+                        ToolTip = 'Specifies the telephone number of the person to contact about an order from this vendor.';
                     }
-                    field(BillToContactMobilePhoneNo; BillToContact."Mobile Phone No.")
+                    field(PayToContactMobilePhoneNo; PayToContact."Mobile Phone No.")
                     {
                         ApplicationArea = Suite;
                         Caption = 'Mobile Phone No.';
                         Editable = false;
                         Importance = Additional;
                         ExtendedDatatype = PhoneNo;
-                        ToolTip = 'Specifies the mobile telephone number of the person you should contact at the customer you are sending the invoice to.';
+                        ToolTip = 'Specifies the mobile telephone number of the person to contact about an order from this vendor.';
                     }
-                    field(BillToContactEmail; BillToContact."E-Mail")
+                    field(PayToContactEmail; PayToContact."E-Mail")
                     {
                         ApplicationArea = Suite;
                         Caption = 'Email';
                         Editable = false;
                         Importance = Additional;
-                        ExtendedDatatype = EMail;
-                        ToolTip = 'Specifies the email address of the person you should contact at the customer you are sending the invoice to.';
+                        ExtendedDatatype = Email;
+                        ToolTip = 'Specifies the email address of the person to contact about an order from this vendor.';
                     }
                 }
                 field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
@@ -356,22 +359,22 @@ page 70625 "Red Reg Sales Contract Archive"
                 field("Due Date"; Rec."Due Date")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies when the related sales invoice must be paid.';
+                    ToolTip = 'Specifies when the related purchase invoice must be paid.';
                 }
                 field("Payment Discount %"; Rec."Payment Discount %")
                 {
                     ApplicationArea = Suite;
                     ToolTip = 'Specifies the payment discount percent granted if payment is made on or before the date in the Pmt. Discount Date field.';
                 }
-                field("Pmt. Discount Date"; Rec."Pmt. Discount Date")
-                {
-                    ApplicationArea = Suite;
-                    ToolTip = 'Specifies the date on which the amount in the entry must be paid for a payment discount to be granted.';
-                }
                 field("Payment Method Code"; Rec."Payment Method Code")
                 {
                     ApplicationArea = Suite;
                     ToolTip = 'Specifies how to make payment, such as with bank transfer, cash, or check.';
+                }
+                field("On Hold"; Rec."On Hold")
+                {
+                    ApplicationArea = Suite;
+                    ToolTip = 'Specifies that the related entry represents an unpaid invoice for which either a payment suggestion, a reminder, or a finance charge memo exists.';
                 }
                 field("Prices Including VAT"; Rec."Prices Including VAT")
                 {
@@ -381,7 +384,7 @@ page 70625 "Red Reg Sales Contract Archive"
                 field("Tax Liable"; Rec."Tax Liable")
                 {
                     ApplicationArea = SalesTax;
-                    ToolTip = 'Specifies if the customer or vendor is liable for sales tax.';
+                    ToolTip = 'Specifies if this vendor charges you sales tax for purchases.';
                 }
                 field("Tax Area Code"; Rec."Tax Area Code")
                 {
@@ -392,11 +395,6 @@ page 70625 "Red Reg Sales Contract Archive"
             group(Shipping)
             {
                 Caption = 'Shipping';
-                field("Ship-to Code"; Rec."Ship-to Code")
-                {
-                    ApplicationArea = Suite;
-                    ToolTip = 'Specifies a code for an alternate shipment address if you want to ship to another address than the one that has been entered automatically. This field is also used in case of drop shipment.';
-                }
                 group("Ship-to")
                 {
                     Caption = 'Ship-to';
@@ -405,6 +403,14 @@ page 70625 "Red Reg Sales Contract Archive"
                         ApplicationArea = Suite;
                         Caption = 'Name';
                         ToolTip = 'Specifies the name of the customer at the address that the items are shipped to.';
+                    }
+                    field("Ship-to Name 2"; Rec."Ship-to Name 2")
+                    {
+                        ApplicationArea = Suite;
+                        Caption = 'Name 2';
+                        Importance = Additional;
+                        ToolTip = 'Specifies an additional part of the name of the customer at the address that the items are shipped to.';
+                        Visible = false;
                     }
                     field("Ship-to Address"; Rec."Ship-to Address")
                     {
@@ -431,7 +437,7 @@ page 70625 "Red Reg Sales Contract Archive"
                         field("Ship-to County"; Rec."Ship-to County")
                         {
                             ApplicationArea = Suite;
-                            Caption = 'County';
+                            CaptionClass = '5,1,' + Rec."Ship-to Country/Region Code";
                             ToolTip = 'Specifies the county of the ship-to address.';
                         }
                     }
@@ -463,54 +469,47 @@ page 70625 "Red Reg Sales Contract Archive"
                 field("Location Code"; Rec."Location Code")
                 {
                     ApplicationArea = Location;
-                    ToolTip = 'Specifies the location from where items are to be shipped. This field acts as the default location for new lines. Location code for individual lines can differ from it.';
+                    ToolTip = 'Specifies the location where the items are to be placed when they are received. This field acts as the default location for new lines. Location code for individual lines can differ from it.';
                 }
-                field("Outbound Whse. Handling Time"; Rec."Outbound Whse. Handling Time")
+                field("Inbound Whse. Handling Time"; Rec."Inbound Whse. Handling Time")
                 {
                     ApplicationArea = Warehouse;
-                    ToolTip = 'Specifies a date formula for the time it takes to get items ready to ship from this location. The time element is used in the calculation of the delivery date as follows: Shipment Date + Outbound Warehouse Handling Time = Planned Shipment Date + Shipping Time = Planned Delivery Date.';
+                    ToolTip = 'Specifies the time it takes to make items part of available inventory, after the items have been posted as received.';
                 }
                 field("Shipment Method Code"; Rec."Shipment Method Code")
                 {
                     ApplicationArea = Suite;
                     ToolTip = 'Specifies the delivery conditions of the related shipment, such as free on board (FOB).';
                 }
-                field("Shipping Agent Code"; Rec."Shipping Agent Code")
+                field("Lead Time Calculation"; Rec."Lead Time Calculation")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies the code for the shipping agent who is transporting the items.';
+                    ToolTip = 'Specifies a date formula for the amount of time it takes to replenish the item.';
                 }
-                field("Shipping Agent Service Code"; Rec."Shipping Agent Service Code")
+                field("Requested Receipt Date"; Rec."Requested Receipt Date")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies the code for the service, such as a one-day delivery, that is offered by the shipping agent.';
+                    ToolTip = 'Specifies the date you want the vendor to deliver your order. ';
                 }
-                field("Shipping Time"; Rec."Shipping Time")
+                field("Promised Receipt Date"; Rec."Promised Receipt Date")
                 {
-                    ApplicationArea = Suite;
-                    ToolTip = 'Specifies how long it takes from when the items are shipped from the warehouse to when they are delivered.';
+                    ApplicationArea = OrderPromising;
+                    ToolTip = 'Specifies the date that the vendor has promised to deliver the order.';
                 }
-                field("Late Order Shipping"; Rec."Late Order Shipping")
+                field("Expected Receipt Date"; Rec."Expected Receipt Date")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Indicates a delay in the shipment of one or more lines, or that the shipment date is either the same as or earlier than the work date.';
+                    ToolTip = 'Specifies the date on which the invoiced items were expected.';
                 }
-#pragma warning disable AL0432
-                field("Package Tracking No."; Rec."Package Tracking No.")
+                field("Sell-to Customer No."; Rec."Sell-to Customer No.")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies the shipping agent''s package number.';
+                    ToolTip = 'Specifies the number of the customer.';
                 }
-#pragma warning restore AL0432
-                field("Shipment Date"; Rec."Shipment Date")
+                field("Ship-to Code"; Rec."Ship-to Code")
                 {
                     ApplicationArea = Suite;
-                    ToolTip = 'Specifies when items on the document are shipped or were shipped. A shipment date is usually calculated from a requested delivery date plus lead time.';
-                }
-                field("Shipping Advice"; Rec."Shipping Advice")
-                {
-                    ApplicationArea = Suite;
-                    ToolTip = 'Specifies the shipping advice, which informs whether partial deliveries are acceptable.';
+                    ToolTip = 'Specifies a code for an alternate shipment address if you want to ship to another address than the one that has been entered automatically. This field is also used in case of drop shipment.';
                 }
             }
             group("Foreign Trade")
@@ -521,35 +520,30 @@ page 70625 "Red Reg Sales Contract Archive"
                     ApplicationArea = Suite;
                     ToolTip = 'Specifies the currency that is used on the entry.';
                 }
-                field("EU 3-Party Trade"; Rec."EU 3-Party Trade")
-                {
-                    ApplicationArea = BasicEU;
-                    ToolTip = 'Specifies if the transaction is related to trade with a third party within the EU.';
-                }
                 field("Transaction Type"; Rec."Transaction Type")
                 {
-                    ApplicationArea = BasicEU;
+                    ApplicationArea = BasicEU, BasicNO;
                     ToolTip = 'Specifies the type of transaction that the document represents, for the purpose of reporting to INTRASTAT.';
                 }
                 field("Transaction Specification"; Rec."Transaction Specification")
                 {
-                    ApplicationArea = BasicEU;
+                    ApplicationArea = BasicEU, BasicNO;
                     ToolTip = 'Specifies a specification of the document''s transaction, for the purpose of reporting to INTRASTAT.';
                 }
                 field("Transport Method"; Rec."Transport Method")
                 {
-                    ApplicationArea = BasicEU;
+                    ApplicationArea = BasicEU, BasicNO;
                     ToolTip = 'Specifies the transport method, for the purpose of reporting to INTRASTAT.';
                 }
-                field("Exit Point"; Rec."Exit Point")
+                field("Entry Point"; Rec."Entry Point")
                 {
-                    ApplicationArea = BasicEU;
-                    ToolTip = 'Specifies the point of exit through which you ship the items out of your country/region, for reporting to Intrastat.';
+                    ApplicationArea = BasicEU, BasicNO;
+                    ToolTip = 'Specifies the code of the port of entry where the items pass into your country/region, for reporting to Intrastat.';
                 }
                 field("Area"; Rec.Area)
                 {
-                    ApplicationArea = BasicEU;
-                    ToolTip = 'Specifies the country or region of origin for the purpose of Intrastat reporting.';
+                    ApplicationArea = BasicEU, BasicNO;
+                    ToolTip = 'Specifies the destination country or region for the purpose of Intrastat reporting.';
                 }
             }
             group(Version)
@@ -612,81 +606,8 @@ page 70625 "Red Reg Sales Contract Archive"
 
     actions
     {
-        area(navigation)
+        area(Processing)
         {
-            group("Ver&sion")
-            {
-                Caption = 'Ver&sion';
-                Image = Versions;
-                action(Card)
-                {
-                    ApplicationArea = Suite;
-                    Caption = 'Card';
-                    Image = EditLines;
-                    RunObject = Page "Customer Card";
-                    RunPageLink = "No." = field("Sell-to Customer No.");
-                    ShortCutKey = 'Shift+F7';
-                    ToolTip = 'View or change detailed information about the record on the document or journal line.';
-                }
-                action(Dimensions)
-                {
-                    AccessByPermission = TableData Dimension = R;
-                    ApplicationArea = Dimensions;
-                    Caption = 'Dimensions';
-                    Image = Dimensions;
-                    ShortCutKey = 'Alt+D';
-                    ToolTip = 'View or edit dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.';
-
-                    trigger OnAction()
-                    begin
-                        Rec.ShowDimensions();
-                        CurrPage.SaveRecord();
-                    end;
-                }
-                action("Co&mments")
-                {
-                    ApplicationArea = Comments;
-                    Caption = 'Co&mments';
-                    Image = ViewComments;
-                    RunObject = Page "Sales Archive Comment Sheet";
-                    RunPageLink = "Document Type" = field("Document Type"),
-                                  "No." = field("No."),
-                                  "Document Line No." = const(0),
-                                  "Doc. No. Occurrence" = field("Doc. No. Occurrence"),
-                                  "Version No." = field("Version No.");
-                    ToolTip = 'View or add comments for the record.';
-                }
-                action(Print)
-                {
-                    ApplicationArea = Suite;
-                    Caption = 'Print';
-                    Image = Print;
-                    ToolTip = 'Print the information in the window. A print request window opens where you can specify what to include on the print-out.';
-
-                    trigger OnAction()
-                    begin
-                        DocPrint.PrintSalesHeaderArch(Rec);
-                    end;
-                }
-            }
-        }
-        area(processing)
-        {
-            action(Restore)
-            {
-                ApplicationArea = Suite;
-                Caption = '&Restore';
-                Ellipsis = true;
-                Image = Restore;
-                ToolTip = 'Transfer the contents of this archived version to the original document. This is only possible if the original is not posted or deleted. ';
-
-                trigger OnAction()
-                var
-                    ArchiveManagement: Codeunit ArchiveManagement;
-                begin
-                    ArchiveManagement.RestoreSalesDocument(Rec);
-                end;
-            }
             group(Functions)
             {
                 Caption = 'Functions';
@@ -714,6 +635,64 @@ page 70625 "Red Reg Sales Contract Archive"
                 }
             }
         }
+        area(navigation)
+        {
+            group("Ver&sion")
+            {
+                Caption = 'Ver&sion';
+                Image = Versions;
+                action(Card)
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'Card';
+                    Image = EditLines;
+                    RunObject = Page "Vendor Card";
+                    RunPageLink = "No." = field("Buy-from Vendor No.");
+                    ShortCutKey = 'Shift+F7';
+                    ToolTip = 'View or change detailed information about the record on the document or journal line.';
+                }
+                action(Dimensions)
+                {
+                    AccessByPermission = TableData Dimension = R;
+                    ApplicationArea = Dimensions;
+                    Caption = 'Dimensions';
+                    Image = Dimensions;
+                    ShortCutKey = 'Alt+D';
+                    ToolTip = 'View or edit dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.';
+
+                    trigger OnAction()
+                    begin
+                        Rec.ShowDimensions();
+                        CurrPage.SaveRecord();
+                    end;
+                }
+                action("Co&mments")
+                {
+                    ApplicationArea = Comments;
+                    Caption = 'Co&mments';
+                    Image = ViewComments;
+                    RunObject = Page "Purch. Archive Comment Sheet";
+                    RunPageLink = "Document Type" = field("Document Type"),
+                                  "No." = field("No."),
+                                  "Document Line No." = const(0),
+                                  "Doc. No. Occurrence" = field("Doc. No. Occurrence"),
+                                  "Version No." = field("Version No.");
+                    ToolTip = 'View or add comments for the record.';
+                }
+                action(Print)
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'Print';
+                    Image = Print;
+                    ToolTip = 'Print the information in the window. A print request window opens where you can specify what to include on the print-out.';
+
+                    trigger OnAction()
+                    begin
+                        DocPrint.PrintPurchHeaderArch(Rec);
+                    end;
+                }
+            }
+        }
         area(Promoted)
         {
             group(Category_Process)
@@ -721,9 +700,6 @@ page 70625 "Red Reg Sales Contract Archive"
                 Caption = 'Process';
 
                 actionref(Print_Promoted; Print)
-                {
-                }
-                actionref(Restore_Promoted; Restore)
                 {
                 }
             }
@@ -745,9 +721,9 @@ page 70625 "Red Reg Sales Contract Archive"
     var
         VATReportingDateMgt: Codeunit "VAT Reporting Date Mgt";
     begin
-        IsSellToCountyVisible := FormatAddress.UseCounty(Rec."Sell-to Country/Region Code");
+        IsBuyFromCountyVisible := FormatAddress.UseCounty(Rec."Buy-from Country/Region Code");
+        IsPayToCountyVisible := FormatAddress.UseCounty(Rec."Pay-to Country/Region Code");
         IsShipToCountyVisible := FormatAddress.UseCounty(Rec."Ship-to Country/Region Code");
-        IsBillToCountyVisible := FormatAddress.UseCounty(Rec."Bill-to Country/Region Code");
         VATDateEnabled := VATReportingDateMgt.IsVATDateEnabled();
     end;
 
@@ -765,19 +741,19 @@ page 70625 "Red Reg Sales Contract Archive"
         ClientTypeManagement: Codeunit "Client Type Management";
     begin
         if not (ClientTypeManagement.GetCurrentClientType() in [ClientType::SOAP, ClientType::OData, ClientType::ODataV4]) then begin
-            SellToContact.GetOrClear(Rec."Sell-to Contact No.");
-            BillToContact.GetOrClear(Rec."Bill-to Contact No.");
+            BuyFromContact.GetOrClear(Rec."Buy-from Contact No.");
+            PayToContact.GetOrClear(Rec."Pay-to Contact No.");
             CurrPage.IncomingDocAttachFactBox.Page.SetCurrentRecordID(Rec.RecordId);
         end;
     end;
 
     var
-        SellToContact: Record Contact;
-        BillToContact: Record Contact;
+        BuyFromContact: Record Contact;
+        PayToContact: Record Contact;
         DocPrint: Codeunit "Document-Print";
         FormatAddress: Codeunit "Format Address";
-        IsSellToCountyVisible: Boolean;
-        IsBillToCountyVisible: Boolean;
+        IsBuyFromCountyVisible: Boolean;
+        IsPayToCountyVisible: Boolean;
         IsShipToCountyVisible: Boolean;
         VATDateEnabled: Boolean;
         HasIncomingDocument: Boolean;

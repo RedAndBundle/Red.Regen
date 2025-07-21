@@ -243,6 +243,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Action on Close - Property OptionCaption</note>
         </trans-unit>
+        <trans-unit id="Table 97696520 - Field 1898572372 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the purchase contracts should be archived when it is deleted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Archive Purchase Contracts - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 97696520 - Field 1898572372 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Archive Purchase Contracts</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Archive Purchase Contracts - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 97696520 - Field 2484285613 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the sales contracts should be archived when it is deleted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Archive Sales Contracts - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 97696520 - Field 2484285613 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Archive Sales Contracts</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Archive Sales Contracts - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 97696520 - Field 671947873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>No. Series Purchase</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -303,6 +323,1146 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Contract Groups - Control Regenerate Document Type - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1361277248 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3222158277 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the invoice line is included when the invoice discount is calculated.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Allow Invoice Disc. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 65364031 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies that you can assign item charges to this line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Allow Item Charge Assignment - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3244334840 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the item ledger entry that the document or journal line is applied to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Appl.-to Item Entry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 763268384 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the blanket order line that the record originates from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Blanket Order Line No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3299467854 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the blanket order that the record originates from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Blanket Order No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 866715734 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the deferral template that governs how expenses paid with this purchase document are deferred to the different accounting periods when the expenses were incurred.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Deferral Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a description of the purchase order archive.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 47657272 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies information in addition to the description.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Description 2 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 4187992892 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the cost of one unit of the selected item or resource.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Direct Unit Cost - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 121744499 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if your vendor ships the items directly to your customer.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Drop Shipment - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3469770434 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date on which the invoiced items were expected.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Expected Receipt Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 293070022 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies that any related service or operation is finished.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Finished - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 633819257 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the vendor's or customer's trade type to link transactions made for this business partner with the appropriate general ledger account according to the general posting setup.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Gen. Bus. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 2139693550 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the item's product type to link transactions made for this item with the appropriate general ledger account according to the general posting setup.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Gen. Prod. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 4239513174 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the gross weight of one unit of the item. In the purchase statistics window, the gross weight on the line is included in the total gross weight of all the lines for the particular purchase document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Gross Weight - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 4239513174 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Gross Weight</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Gross Weight - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3111468436 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the time it takes to make items part of available inventory, after the items have been posted as received.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Inbound Whse. Handling Time - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3299657368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the percentage of the item's last purchase cost that includes indirect costs, such as freight that is associated with the purchase of the item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Indirect Cost % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 907522666 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total calculated invoice discount amount for the line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Inv. Discount Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3948462483 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the referenced item number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Item Reference No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3685049847 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the line amount of the project ledger entry that is related to the purchase line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Job Line Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 4131160974 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the line amount of the project ledger entry that is related to the purchase line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Job Line Amount (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3380111771 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the line discount amount of the project ledger entry that is related to the purchase line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Job Line Disc. Amount (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 1187581963 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the line discount percentage of the project ledger entry that is related to the purchase line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Job Line Discount % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 407950420 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the line discount amount of the project ledger entry that is related to the purchase line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Job Line Discount Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 2522987627 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of planning line that was created when the project ledger entry is posted from the purchase line. If the field is empty, no planning lines were created for this entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Job Line Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 1908272084 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the project number that the archived document was linked to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Job No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 4214889165 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the project planning line number to which the usage should be linked when the Project Journal is posted. You can only link to Project Planning Lines that have the Apply Usage Link option enabled.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Job Planning Line No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 561421623 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the related project task.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Job Task No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 948809140 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the gross amount of the line that the purchase line applies to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Job Total Price - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 2099049425 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the gross amount of the line, in the local currency.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Job Total Price (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 441038976 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the sales price per unit that applies to the item or general ledger expense that will be posted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Job Unit Price - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3405998085 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the sales price per unit that applies to the item or general ledger expense that will be posted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Job Unit Price (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 1009775796 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a date formula for the amount of time it takes to replenish the item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Lead Time Calculation - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3582421358 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the net amount, excluding any invoice discount amount, that must be paid for products on the line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Line Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 2702998682 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the discount percentage that is granted for the item on the line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Line Discount % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 1206454073 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the discount amount that is granted for the item on the line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Line Discount Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a code for the location where you want the items to be placed when they are received.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Location Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3088522385 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the net weight of one unit of the item. In the purchase statistics window, the net weight on the line is included in the total net weight of all the lines for the particular purchase document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Net Weight - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3088522385 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Net Weight</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Net Weight - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the involved entry or record, according to the specified number series.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 1986218713 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies that this item is a catalog item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Nonstock - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3162383302 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the related production operation.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Operation No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 2632124822 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date when the order was created.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Order Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 1623058472 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date when the item is planned to arrive in inventory. Forward calculation: planned receipt date = order date + vendor lead time (per the vendor calendar and rounded to the next working day in first the vendor calendar and then the location calendar). If no vendor calendar exists, then: planned receipt date = order date + vendor lead time (per the location calendar). Backward calculation: order date = planned receipt date - vendor lead time (per the vendor calendar and rounded to the previous working day in first the vendor calendar and then the location calendar). If no vendor calendar exists, then: order date = planned receipt date - vendor lead time (per the location calendar).</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Planned Receipt Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 751190652 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the supply represented by this line is considered by the planning system when calculating action messages.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Planning Flexibility - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 2138704244 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the related production order line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Prod. Order Line No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 851830778 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the related production order.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Prod. Order No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 429198581 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date that the vendor has promised to deliver the order.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Promised Receipt Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 2330918820 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the quantity that remains to be invoiced. It is calculated as Quantity - Qty. Invoiced.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Qty. to Invoice - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 714568894 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the quantity of items that remains to be received.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Qty. to Receive - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 2704404533 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of units of the item specified on the line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Quantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 61616130 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies how many units of the item on the line have been posted as invoiced.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Quantity Invoiced - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3122616504 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies how many units of the item on the line have been posted as received.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Quantity Received - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 1602222300 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date you want the vendor to deliver your order. </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Requested Receipt Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 1576505637 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code explaining why the item was returned.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Return Reason Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 1577567912 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 1, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Shortcut Dimension 1 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 1003760969 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 2, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Shortcut Dimension 2 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 2466161546 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 3, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control ShortcutDimCode3 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3103858163 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 4, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control ShortcutDimCode4 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3741554780 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 5, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control ShortcutDimCode5 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 84284101 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 6, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control ShortcutDimCode6 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 721980718 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 7, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control ShortcutDimCode7 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 1359677335 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 8, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control ShortcutDimCode8 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 305562489 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the tax area that is used to calculate and post sales tax.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Tax Area Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 2552458873 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the tax group that is used to calculate and post sales tax.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Tax Group Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 53839102 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if this vendor charges you sales tax for purchases.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Tax Liable - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 1878130204 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the line type.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 68186622 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the cost, in LCY, of one unit of the item or resource on the line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Unit Cost (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 1920046521 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the item or resource's unit of measure, such as piece or hour.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Unit of Measure - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 2385270358 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies how each unit of the item or resource is measured, such as in pieces or hours. By default, the value in the Base Unit of Measure field on the item or resource card is inserted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Unit of Measure Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 1708449288 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the price, in LCY, of one unit of the item or resource. You can enter a price manually or have it entered according to the Price/Profit Calculation field on the related card.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Unit Price (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 4034345114 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the volume of one unit of the item. In the purchase statistics window, the volume of one unit of the item on the line is included in the total volume of all the lines for the particular purchase document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Unit Volume - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 1631894181 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of units per parcel of the item. In the purchase statistics window, the number of units per parcel on the line helps to determine the total number of units for all the lines for the particular purchase document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Units per Parcel - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3144071522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a U.S. sales tax that is paid on items purchased by a company that are used by the company, instead of being sold to a customer.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Use Tax - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 3450651614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the variant of the item on the line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Variant Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 1844012642 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the VAT specification of the involved customer or vendor to link transactions made for this record with the appropriate general ledger account according to the VAT posting setup.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control VAT Bus. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 236064653 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the VAT specification of the involved item or resource to link transactions made for this record with the appropriate general ledger account according to the VAT posting setup.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control VAT Prod. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Control 4065966391 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the work center number of the journal line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Control Work Center No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Action 1402615620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Action &amp;Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Action 3000180178 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or add comments for the record.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Action Co&amp;mments - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Co&amp;mments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Action Co&amp;mments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Action 2510810126 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View the deferral schedule that governs how expenses paid with this purchase document were deferred to different accounting periods when the document was posted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Action DeferralSchedule - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Action 2510810126 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Deferral Schedule</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Action DeferralSchedule - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Action 2173385693 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or edit dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Action Dimensions - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Action 2173385693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimensions</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Action Dimensions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Action 3789361916 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View related open, posted, or archived documents or document lines.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Action Document &amp;LineTracking - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1361277248 - Action 3789361916 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document &amp;Line Tracking</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contr. Arch. Sub. - Action Document &amp;LineTracking - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Contract Archive</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3624777196 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Foreign Trade</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Foreign Trade - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3532935625 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the destination country or region for the purpose of Intrastat reporting.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Area - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 4198939294 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the currency that is used on the entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Currency Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 451703052 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the port of entry where the items pass into your country/region, for reporting to Intrastat.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Entry Point - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1267997203 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a specification of the document's transaction, for the purpose of reporting to INTRASTAT.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Transaction Specification - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3773776616 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of transaction that the document represents, for the purpose of reporting to INTRASTAT.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Transaction Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3193866272 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the transport method, for the purpose of reporting to INTRASTAT.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Transport Method - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 2791880759 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Buy-from</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Buy-from - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 4003957413 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the address of the vendor who delivered the items.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Buy-from Address - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 4003957413 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Buy-from Address - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1455637603 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies an additional part of the address of the vendor who delivered the items.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Buy-from Address 2 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1455637603 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Buy-from Address 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3425279406 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the city of the vendor who delivered the items.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Buy-from City - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3425279406 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>City</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Buy-from City - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1750733095 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the contact person at the vendor who delivered the items.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Buy-from Contact - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1750733095 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Buy-from Contact - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 2931503505 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the country or region of your vendor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Buy-from Country/Region Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 2931503505 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country/Region</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Buy-from Country/Region Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 852404356 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the post code of the vendor who delivered the items.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Buy-from Post Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 852404356 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Buy-from Post Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3230600482 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the vendor who delivered the items.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Buy-from Vendor Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3230600482 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Buy-from Vendor Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3608325096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the email address of the vendor contact person.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control BuyFromContactEmail - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3608325096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control BuyFromContactEmail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1465097255 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the mobile telephone number of the vendor contact person.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control BuyFromContactMobilePhoneNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1465097255 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mobile Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control BuyFromContactMobilePhoneNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3771600143 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the telephone number of the vendor contact person.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control BuyFromContactPhoneNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3771600143 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control BuyFromContactPhoneNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1976942833 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the county of your vendor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Buy-from County - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3794489734 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the contact person at the vendor who delivered the items.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Buy-from Contact No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3792369418 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the vendor who delivered the items.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Buy-from Vendor No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 580412389 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date when the related document was created.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Document Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the involved entry or record, according to the specified number series.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3946380207 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the order address of the related vendor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Order Address Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 2632124822 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date the order was created. The order date is also used to determine the prices and discounts on the document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Order Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3710982960 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the entry's posting date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Posting Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 801304080 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies which purchaser is assigned to the vendor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Purchaser Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 2867321151 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the billing period of the contract.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Red Reg Billing Period - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 271734050 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies how many times the contract has been billed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Red Reg Contract Iteration - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 2321072599 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status of the contract.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Red Reg Contract Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3555410607 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the duration of the contract. If left empty, the contract is valid indefinetely.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Red Reg Duration - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 723471740 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date when the contract will end.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Red Reg End Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3736527384 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the group that the Purchase contract belongs to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Red Reg Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1690750677 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date of the next billing.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Red Reg Next Billing Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1740117905 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date that the contract has started.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Red Reg Start Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 2247850105 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the responsibility center, such as a distribution hub, that is associated with the involved user, company, customer, or vendor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Responsibility Center - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 513339096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the record is open, waiting to be approved, invoiced for prepayment, or released to the next stage of processing.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 350412371 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the entry's VAT date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control VAT Reporting Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3961227134 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the document number of the original document you received from the vendor. You can require the document number for posting, or let it be optional. By default, it's required, so that this document references the original. Making document numbers optional removes a step from the posting process. For example, if you attach the original invoice as a PDF, you might not need to enter the document number. To specify whether document numbers are required, in the Purchases &amp; Payables Setup window, select or clear the Ext. Doc. No. Mandatory field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Vendor Invoice No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3126877759 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the vendor's order number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Vendor Order No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 556062453 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the vendor's shipment number. It is inserted in the corresponding field on the source document during posting.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Vendor Shipment No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1450094168 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoicing</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Invoicing - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 4085727052 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies when the related purchase invoice must be paid.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Due Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 926489874 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies that the related entry represents an unpaid invoice for which either a payment suggestion, a reminder, or a finance charge memo exists.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control On Hold - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3326794610 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pay-to</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Pay-to - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1727270656 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the county of the vendor on the purchase document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Pay-to County - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3196232876 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the address of the vendor that you received the invoice from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Pay-to Address - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3196232876 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Pay-to Address - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3516152766 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies an additional part of the address of the vendor that the invoice was received from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Pay-to Address 2 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3516152766 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Pay-to Address 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3234253787 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the city of the vendor that you received the invoice from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Pay-to City - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3234253787 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>City</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Pay-to City - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1970704690 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the person to contact about an invoice from this vendor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Pay-to Contact - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1970704690 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Pay-to Contact - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 4079742056 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the country or region of the vendor on the purchase document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Pay-to Country/Region Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 4079742056 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country/Region</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Pay-to Country/Region Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3472859787 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the vendor who you received the invoice from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Pay-to Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3472859787 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Pay-to Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1168556525 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the post code of the vendor that you received the invoice from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Pay-to Post Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1168556525 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Pay-to Post Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 162590337 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the email address of the person to contact about an order from this vendor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control PayToContactEmail - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 162590337 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control PayToContactEmail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1957337042 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the mobile telephone number of the person to contact about an order from this vendor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control PayToContactMobilePhoneNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1957337042 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mobile Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control PayToContactMobilePhoneNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 223686938 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the telephone number of the person to contact about an order from this vendor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control PayToContactPhoneNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 223686938 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control PayToContactPhoneNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1581932027 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the person to contact about an invoice from this vendor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Pay-to Contact No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3941277175 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the vendor that you received the invoice from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Pay-to Vendor No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 235293238 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the payment discount percent granted if payment is made on or before the date in the Pmt. Discount Date field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Payment Discount % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3855271124 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies how to make payment, such as with bank transfer, cash, or check.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Payment Method Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 966740350 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a formula that calculates the payment due date, payment discount date, and payment discount amount.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Payment Terms Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 304272296 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the Unit Price and Line Amount fields on document lines should be shown with or without VAT.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Prices Including VAT - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1577567912 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 1, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Shortcut Dimension 1 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1003760969 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 2, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Shortcut Dimension 2 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 305562489 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the tax area that is used to calculate and post sales tax.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Tax Area Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 53839102 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if this vendor charges you sales tax for purchases.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Tax Liable - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3097346278 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Shipping - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3469770434 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date on which the invoiced items were expected.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Expected Receipt Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3111468436 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the time it takes to make items part of available inventory, after the items have been posted as received.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Inbound Whse. Handling Time - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1009775796 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a date formula for the amount of time it takes to replenish the item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Lead Time Calculation - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the location where the items are to be placed when they are received. This field acts as the default location for new lines. Location code for individual lines can differ from it.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Location Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 429198581 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date that the vendor has promised to deliver the order.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Promised Receipt Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1602222300 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date you want the vendor to deliver your order. </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Requested Receipt Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1225278069 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the customer.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Sell-to Customer No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 2150623144 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ship-to</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 187607738 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the county of the ship-to address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to County - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1187003046 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the address that the items are shipped to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to Address - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1187003046 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to Address - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1417792948 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies an additional part of the ship-to address, in case it is a long address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to Address 2 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1417792948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to Address 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1981213637 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the city of the address that the items are shipped to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to City - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1981213637 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>City</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to City - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 929198632 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the contact person at the address that the items are shipped to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to Contact - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 929198632 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to Contact - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3354576322 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the country or region of the ship-to address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to Country/Region Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3354576322 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country/Region</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to Country/Region Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 2743501653 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the customer at the address that the items are shipped to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 2743501653 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3261344115 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies an additional part of the name of the customer at the address that the items are shipped to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to Name 2 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3261344115 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to Name 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3876514665 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the telephone number of the company's shipping address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to Phone No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3876514665 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to Phone No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3172878019 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the postal code of the address that the items are shipped to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to Post Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3172878019 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to Post Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 993414011 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a code for an alternate shipment address if you want to ship to another address than the one that has been entered automatically. This field is also used in case of drop shipment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Ship-to Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 2205104606 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the delivery conditions of the related shipment, such as free on board (FOB).</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Shipment Method Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 237762718 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Version</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Version - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 3607458727 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the user ID of the person who archived this document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Archived By - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 573668638 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date when the document was archived.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Date Archived - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 516148107 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies that the archived document is linked to an interaction log entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Interaction Exist - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 849273093 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies what time the document was archived.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Time Archived - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Control 1684721775 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the version number of the archived document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Control Version No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Action 3470449608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ver&amp;sion</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Action Ver&amp;sion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Action 4125097576 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or change detailed information about the record on the document or journal line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Action Card - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Action 4125097576 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Card</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Action Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Action 3000180178 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or add comments for the record.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Action Co&amp;mments - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Co&amp;mments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Action Co&amp;mments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Action 2173385693 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or edit dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Action Dimensions - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Action 2173385693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimensions</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Action Dimensions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Action 1002420131 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print the information in the window. A print request window opens where you can specify what to include on the print-out.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Action Print - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Action 1002420131 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Action Print - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Action 1929393835 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Functions</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Action Functions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Action 2748447179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incoming Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Action IncomingDocument - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Action 2879753038 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View any incoming document records and file attachments that exist for the entry or document, for example for auditing purposes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Action IncomingDocCard - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Action 2879753038 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View Incoming Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Action IncomingDocCard - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Action 818758571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Action Category_Order - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3835189518 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Pur. Contract Archive - Action Category_Process - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2772500282 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase Contract Templates</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -342,6 +1502,181 @@
           <source>Specifies for which line type the contract is created. Item takes precedence over Item Category.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr Templates - Control Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Contract Archives</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Property 3863440606" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Red Contracts, Licence, Warranty, Rental, contract list, contracts, contract overview, contract log, contract list, customer contracts</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Property AdditionalSearchTerms</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 3607458727 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the user ID of the person who archived this document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Archived By - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 1750733095 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the contact person at the vendor who delivered the items.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Buy-from Contact - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 2931503505 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the city of the vendor who delivered the items.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Buy-from Country/Region Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 852404356 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the post code of the vendor who delivered the items.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Buy-from Post Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 3230600482 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the vendor who delivered the items.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Buy-from Vendor Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 3792369418 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the vendor who delivered the items.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Buy-from Vendor No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 4198939294 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the currency that is used on the entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Currency Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 573668638 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date when the document was archived.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Date Archived - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the location where the items are to be placed when they are received. This field acts as the default location for new lines. Location code for individual lines can differ from it.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Location Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the involved entry or record, according to the specified number series.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 3946380207 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the order address of the related vendor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Order Address Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 1970704690 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the person to contact about an invoice from this vendor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Pay-to Contact - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 4079742056 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the country/region code of the address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Pay-to Country/Region Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 3472859787 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the vendor who you received the invoice from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Pay-to Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 1168556525 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the post code of the vendor that you received the invoice from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Pay-to Post Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 3941277175 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the vendor that you received the invoice from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Pay-to Vendor No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 3710982960 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the entry's posting date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Posting Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 801304080 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies which purchaser is assigned to the vendor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Purchaser Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 993414011 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a code for an alternate shipment address if you want to ship to another address than the one that has been entered automatically. This field is also used in case of drop shipment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Ship-to Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 929198632 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the contact person at the address that the items are shipped to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Ship-to Contact - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 3354576322 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the country/region code of the address that the items are shipped to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Ship-to Country/Region Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 2743501653 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the customer at the address that the items are shipped to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Ship-to Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 3172878019 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the postal code of the address that the items are shipped to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Ship-to Post Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 1577567912 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 1, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Shortcut Dimension 1 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 1003760969 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for Shortcut Dimension 2, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Shortcut Dimension 2 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 513339096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status of the contract.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 849273093 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies what time the document was archived.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Time Archived - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 4100388452 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies information about sales quotes, purchase quotes, or orders in earlier versions of the document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Vendor Authorization No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Control 1684721775 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the version number of the archived document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Control Version No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Action 1402615620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Action &amp;Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Action 127686680 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or change detailed information about the customer.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Action ShowDocument - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Action 127686680 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Action ShowDocument - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1655695918 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purch. Contr. Archives - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3020676561 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lines</source>
@@ -1783,6 +3118,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contract - Action Close - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4017831926 - Action 1952343773 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Renews the contract, it can be extended.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contract - Action Renew - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4017831926 - Action 1952343773 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Renew</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contract - Action Renew - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4017831926 - Action 227370865 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Approval</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1827,6 +3172,21 @@
           <source>Reject</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contract - Action Reject - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4017831926 - Action 3633332318 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Archive</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contract - Action archive - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4017831926 - Action 3304622623 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send the document to the archive, for example because it is too soon to delete it. Later, you delete or reprocess the archived document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contract - Action Archive Document - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4017831926 - Action 3304622623 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Archi&amp;ve Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Purchase Contract - Action Archive Document - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4017831926 - Action 2245087378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;osting</source>
@@ -2408,10 +3768,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contr. Archives - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3622801812 - Property 3863440606" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Red Contracts, Licence, Warranty, Rental, contract list, contracts, contract overview, contract log, contract list, customer contracts</source>
+        <trans-unit id="Page 3622801812 - Control 3607458727 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the user ID of the person who archived this document.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contr. Archives - Property AdditionalSearchTerms</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contr. Archives - Control Archived By - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3622801812 - Control 3294270728 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the ID of the user who is responsible for the document.</source>
@@ -2447,6 +3807,11 @@
           <source>Specifies the currency of amounts on the sales document.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contr. Archives - Control Currency Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3622801812 - Control 573668638 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date when the document was archived.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contr. Archives - Control Date Archived - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3622801812 - Control 580412389 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date when the related document was created.</source>
@@ -2559,9 +3924,19 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contr. Archives - Control Shortcut Dimension 2 Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3622801812 - Control 513339096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether the document is open, waiting to be approved, has been invoiced for prepayment, or has been released to the next stage of processing.</source>
+          <source>Specifies the status of the contract.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contr. Archives - Control Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3622801812 - Control 849273093 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies what time the document was archived.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contr. Archives - Control Time Archived - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3622801812 - Control 1684721775 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the version number of the archived document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contr. Archives - Control Version No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3622801812 - Action 1402615620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Line</source>
@@ -3428,6 +4803,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Reject - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 408510027 - Action 3633332318 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Archive</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action archive - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 408510027 - Action 3304622623 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send the document to the archive, for example because it is too soon to delete it. Later, you delete or reprocess the archived document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Archive Document - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 408510027 - Action 3304622623 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Archi&amp;ve Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Archive Document - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 408510027 - Action 2245087378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;osting</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3532,11 +4922,6 @@
           <source>Sales Contract Archive</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract Archive - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 570920605 - Property 3863440606" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Licence, Warranty, Rental</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract Archive - Property AdditionalSearchTerms</note>
         </trans-unit>
         <trans-unit id="Page 570920605 - Control 3624777196 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Foreign Trade</source>
@@ -5243,6 +6628,86 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Cr. Memo Line - Field Red Reg Sales Contract No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2614715280 - Field 2867321151 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 146271610">
+          <source>Billing Period</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Header Archive - Field Red Reg Billing Period - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2614715280 - Field 271734050 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 146271610">
+          <source>Contract Iteration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Header Archive - Field Red Reg Contract Iteration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2614715280 - Field 584985834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 146271610">
+          <source>Contract No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Header Archive - Field Red Reg Contract No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2614715280 - Field 2321072599 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 146271610">
+          <source>Contract Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Header Archive - Field Red Reg Contract Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2614715280 - Field 3555410607 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 146271610">
+          <source>Duration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Header Archive - Field Red Reg Duration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2614715280 - Field 723471740 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 146271610">
+          <source>End Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Header Archive - Field Red Reg End Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2614715280 - Field 3736527384 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 146271610">
+          <source>Group</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Header Archive - Field Red Reg Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2614715280 - Field 1690750677 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 146271610">
+          <source>Next Billing Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Header Archive - Field Red Reg Next Billing Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2614715280 - Field 3347821753 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 146271610">
+          <source>Originating Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Header Archive - Field Red Reg Org. Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2614715280 - Field 649548132 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 146271610">
+          <source>Originating Document Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Header Archive - Field Red Reg Org. Document Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2614715280 - Field 1800180612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 146271610">
+          <source>Originating Shipment No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Header Archive - Field Red Reg Org. Shipment No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2614715280 - Field 1885245730 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 146271610">
+          <source>Sales Contract No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Header Archive - Field Red Reg Sales Contract No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2614715280 - Field 3540818101 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 146271610">
+          <source>Sales Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Header Archive - Field Red Reg Sales Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2614715280 - Field 1371337016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 146271610">
+          <source>Sales Document Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Header Archive - Field Red Reg Sales Document Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2614715280 - Field 1740117905 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 146271610">
+          <source>Start Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Header Archive - Field Red Reg Start Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2614715280 - Field 1458026096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 146271610">
+          <source>Work Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Header Archive - Field Red Reg Work Description - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1075391843 - Field 271734050 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1592379974">
           <source>Contract Iteration</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5297,6 +6762,51 @@
           <source>Sales Contract No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Inv. Line - Field Red Reg Sales Contract No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2243061255 - Field 270264612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2809873457">
+          <source>Contract Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Line Archive - Field Red Reg Contract Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2243061255 - Field 584985834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2809873457">
+          <source>Contract No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Line Archive - Field Red Reg Contract No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2243061255 - Field 2249350859 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2809873457">
+          <source>Originating Document Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Line Archive - Field Red Reg Org. Document Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2243061255 - Field 3347821753 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2809873457">
+          <source>Originating Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Line Archive - Field Red Reg Org. Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2243061255 - Field 649548132 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2809873457">
+          <source>Originating Document Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Line Archive - Field Red Reg Org. Document Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2243061255 - Field 3265208666 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2809873457">
+          <source>Originating Shipment Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Line Archive - Field Red Reg Org. Shipment Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2243061255 - Field 1800180612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2809873457">
+          <source>Originating Shipment No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Line Archive - Field Red Reg Org. Shipment No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2243061255 - Field 2538860862 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2809873457">
+          <source>Sales Contract Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Line Archive - Field Red Reg Sales Contract Ln. No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2243061255 - Field 1885245730 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2809873457">
+          <source>Sales Contract No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Purch. Line Archive - Field Red Reg Sales Contract No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3771343727 - Field 271734050 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1052755578">
           <source>Contract Iteration</source>

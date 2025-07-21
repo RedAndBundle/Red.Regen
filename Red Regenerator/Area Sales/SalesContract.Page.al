@@ -1178,7 +1178,7 @@ page 70621 "Red Reg Sales Contract"
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Renew';
-                    // Enabled = ShowRenew;
+                    Enabled = ShowRenew;
                     Image = Redo;
                     ToolTip = 'Renews the contract, it can be extended.';
 
@@ -1274,6 +1274,26 @@ page 70621 "Red Reg Sales Contract"
                 //     end;
                 // }
             }
+            group(archive)
+            {
+                Caption = 'Archive';
+                Image = Archive;
+                action("Archive Document")
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'Archi&ve Document';
+                    Image = Archive;
+                    ToolTip = 'Send the document to the archive, for example because it is too soon to delete it. Later, you delete or reprocess the archived document.';
+
+                    trigger OnAction()
+                    var
+                        ArchiveManagement: Codeunit ArchiveManagement;
+                    begin
+                        ArchiveManagement.ArchiveSalesDocument(Rec);
+                        CurrPage.Update(false);
+                    end;
+                }
+            }
             group("&Contract Confirmation")
             {
                 Caption = '&Contract Confirmation';
@@ -1348,9 +1368,9 @@ page 70621 "Red Reg Sales Contract"
                     {
                     }
                 }
-                // actionref("Archive Document_Promoted"; "Archive Document")
-                // {
-                // }
+                actionref("Archive Document_Promoted"; "Archive Document")
+                {
+                }
             }
             group(Category_Category4)
             {
@@ -1580,6 +1600,7 @@ page 70621 "Red Reg Sales Contract"
         ShowClose: Boolean;
         ShowCancel: Boolean;
         ShowRegenerate: Boolean;
+        ShowRenew: Boolean;
 
     protected var
         ShipToOptions: Enum "Sales Ship-to Options";
@@ -1664,6 +1685,7 @@ page 70621 "Red Reg Sales Contract"
         ShowCancel := Rec.RedRegShowCancel();
         ShowActivate := Rec.RedRegShowActivate();
         ShowRegenerate := Rec.RedRegShowRegenerate();
+        ShowRenew := Rec.RedRegShowRenew();
     end;
 
     protected procedure UpdatePaymentService()
