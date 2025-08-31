@@ -18,7 +18,6 @@ codeunit 70650 "Red Reg Sales Generator"
         ContractTemplate: Record "Red Reg Sales Contr. Template";
         Setup: Record "Red Reg Setup";
     begin
-        // ContractTemplate.SetFilter("Application Area", '%1|%2', ContractTemplate."Application Area"::Sales, ContractTemplate."Application Area"::" ");
         if ContractTemplate.IsEmpty() then
             exit;
 

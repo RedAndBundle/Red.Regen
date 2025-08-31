@@ -17,22 +17,22 @@ page 70670 "Red Reg Setup"
                 field("Action on Cancel"; Rec."Action on Cancel")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies if you want to automatically archive sales contracts when cancelled.';
                 }
                 field("Action on Close"; Rec."Action on Close")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies if you want to automatically archive sales contracts when closed.';
+                }
+                field("Action on Renew"; Rec."Action on Renew")
+                {
+                    ApplicationArea = All;
                 }
                 field("Archive Sales Contracts"; Rec."Archive Sales Contracts")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies if you want to automatically archive sales contracts when they are closed or cancelled.';
                 }
                 field("Archive Purchase Contracts"; Rec."Archive Purchase Contracts")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies if you want to automatically archive purchase contracts when they are closed or cancelled.';
                 }
                 field("Suppress Sales Post Commit"; Rec."Suppress Sales Post Commit")
                 {

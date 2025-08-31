@@ -301,8 +301,15 @@ tableextension 70620 "Red Reg Sales Header" extends "Sales Header"
 
     internal procedure RedRegRenew()
     var
+        Setup: Record "Red Reg Setup";
         Regenerator: Codeunit "Red Reg Regenerator";
     begin
+        Setup.Get();
+        case Setup."Action on Renew" of
+            Setup."Action on Renew"::Archive:
+                RedRegArchive();
+        end;
+
         Regenerator.RenewContract(Rec);
     end;
 
@@ -382,5 +389,39 @@ tableextension 70620 "Red Reg Sales Header" extends "Sales Header"
                 SalesLine := TempSalesLine;
                 SalesLine.Insert();
             until TempSalesLine.Next() = 0;
+    end;
+
+    internal procedure RedRegShowOriginalDocument()
+    var
+        SalesHeader: Record "Sales Header";
+        SalesShipmentHeader: Record "Sales Shipment Header";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
+    begin
+        SalesHeader.SetRange("No.", "Red Reg Org. Document No.");
+        SalesHeader.SetRange("Document Type", "Red Reg Org. Document Type");
+        if SalesHeader.FindFirst() then begin
+            case "Red Reg Org. Document Type" of
+                "Red Reg Org. Document Type"::Order:
+                    Page.Run(Page::"Sales Order", SalesHeader);
+                "Red Reg Org. Document Type"::Invoice:
+                    Page.Run(Page::"Sales Invoice", SalesHeader);
+                else
+                    Page.Run(0, SalesHeader);
+            end;
+            exit;
+        end;
+
+        case "Red Reg Org. Document Type" of
+            "Red Reg Org. Document Type"::Order:
+                begin
+                    SalesShipmentHeader.SetRange("Order No.", "Red Reg Org. Document No.");
+                    Page.Run(Page::"Posted Sales Shipments", SalesShipmentHeader);
+                end;
+            "Red Reg Org. Document Type"::Invoice:
+                begin
+                    SalesInvoiceHeader.SetRange("Pre-Assigned No.", "Red Reg Org. Document No.");
+                    Page.Run(Page::"Posted Sales Invoices", SalesInvoiceHeader);
+                end;
+        end;
     end;
 }

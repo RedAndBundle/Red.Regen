@@ -243,6 +243,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Action on Close - Property OptionCaption</note>
         </trans-unit>
+        <trans-unit id="Table 97696520 - Field 1476679248 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want to automatically archive sales contracts when renewed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Action on Renew - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 97696520 - Field 1476679248 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Action on Renew</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Action on Renew - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 97696520 - Field 1476679248 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source> ,Archive</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Action on Renew - Property OptionCaption</note>
+        </trans-unit>
         <trans-unit id="Table 97696520 - Field 1898572372 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if the purchase contracts should be archived when it is deleted.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4658,25 +4673,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Documents - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 408510027 - Action 502423214 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View a list of ongoing sales invoices for the order.</source>
+        <trans-unit id="Page 408510027 - Action 2100054979 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View the original document related to this sales contract.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Invoices - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action ShowOrgDoc - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 408510027 - Action 502423214 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Invoices</source>
+        <trans-unit id="Page 408510027 - Action 2100054979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Original Document</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action Invoices - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Action 2787584647 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View related posted sales shipments.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action S&amp;hipments - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 408510027 - Action 2787584647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>S&amp;hipments</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action S&amp;hipments - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contract - Action ShowOrgDoc - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 408510027 - Action 1042458757 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Contract Confirmation</source>
@@ -6352,16 +6357,6 @@
           <source>Regenerator Setup</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Setup - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 97696520 - Control 464905299 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if you want to automatically archive sales contracts when cancelled.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Setup - Control Action on Cancel - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 97696520 - Control 4080363819 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if you want to automatically archive sales contracts when closed.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Setup - Control Action on Close - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 97696520 - Control 2557018133 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if the purchase post commit should be suppressed. Suppressing the commit ensures that the purchase document cannot be posted without generating the new contract.</source>
