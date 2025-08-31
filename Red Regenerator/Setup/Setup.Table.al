@@ -1,5 +1,6 @@
 namespace Red.Regenerator;
 using Microsoft.Foundation.NoSeries;
+using Microsoft.Warehouse.History;
 table 70670 "Red Reg Setup"
 {
     DataClassification = OrganizationIdentifiableInformation;
@@ -60,6 +61,13 @@ table 70670 "Red Reg Setup"
             OptionCaption = ' ,Archive,Archive and delete';
             OptionMembers = " ",Archive,"Archive and delete";
             ToolTip = 'Specifies if you want to automatically archive sales contracts when canceled.';
+        }
+        field(32; "Action on Renew"; Option)
+        {
+            Caption = 'Action on Renew';
+            OptionCaption = ' ,Archive';
+            OptionMembers = " ",Archive;
+            ToolTip = 'Specifies if you want to automatically archive sales contracts when renewed.';
         }
         field(35; "Archive Sales Contracts"; Boolean)
         {
@@ -124,7 +132,6 @@ table 70670 "Red Reg Setup"
 
     internal procedure JobQueueSalesActive(): Boolean
     var
-    // p: Page "Purchase Order"
     begin
 
     end;

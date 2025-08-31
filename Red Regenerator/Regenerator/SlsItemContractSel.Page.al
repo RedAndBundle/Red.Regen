@@ -3,8 +3,6 @@ using Microsoft.Sales.Document;
 page 70652 "Red Reg Sls Item Contract Sel"
 {
     PageType = List;
-    ApplicationArea = All;
-    UsageCategory = Lists;
     SourceTable = "Red Reg Sales Item Contract";
     Caption = 'Choose Item Contract';
     InsertAllowed = false;

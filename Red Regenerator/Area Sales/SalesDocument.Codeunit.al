@@ -9,6 +9,7 @@ codeunit 70620 "Red Reg Sales Document"
         ItemContract: Record "Red Reg Sales Item Contract";
         Quantity: Decimal;
     begin
+        Clear(NewSalesLine);
         if not (SalesLine."Document Type" in [SalesLine."Document Type"::Order, SalesLine."Document Type"::Invoice]) then
             exit;
 
@@ -68,7 +69,7 @@ codeunit 70620 "Red Reg Sales Document"
             NewSalesLine."Line No." := SalesLine."Line No." + 1
         else
             NewSalesLine."Line No." += 1;
-        ;
+
         NewSalesLine.Type := ItemContract."Template Type";
         NewSalesLine.Validate("No.", ItemContract."Template No.");
         NewSalesLine.Description := ItemContract."Template Description";

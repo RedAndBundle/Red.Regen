@@ -1010,33 +1010,16 @@ page 70621 "Red Reg Sales Contract"
             {
                 Caption = 'Documents';
                 Image = Documents;
-                // TODO add orders
-                action("S&hipments")
+                action(ShowOrgDoc)
                 {
-                    // TODO Fix
                     ApplicationArea = Basic, Suite;
-                    Caption = 'S&hipments';
-                    Image = Shipment;
-                    RunObject = Page "Posted Sales Shipments";
-                    RunPageLink = "Order No." = field("No.");
-                    RunPageView = sorting("Order No.");
-                    ToolTip = 'View related posted sales shipments.';
-                }
-                action(Invoices)
-                {
-                    // TODO Fix
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'Invoices';
-                    Image = Invoice;
-                    ToolTip = 'View a list of ongoing sales invoices for the order.';
+                    Caption = 'Original Document';
+                    Image = Order;
+                    ToolTip = 'View the original document related to this sales contract.';
 
                     trigger OnAction()
-                    var
-                        TempSalesInvoiceHeader: Record "Sales Invoice Header" temporary;
-                        SalesGetShipment: Codeunit "Sales-Get Shipment";
                     begin
-                        SalesGetShipment.GetSalesOrderInvoices(TempSalesInvoiceHeader, Rec."No.");
-                        Page.Run(Page::"Posted Sales Invoices", TempSalesInvoiceHeader);
+                        Rec.RedRegShowOriginalDocument();
                     end;
                 }
             }
@@ -1427,13 +1410,10 @@ page 70621 "Red Reg Sales Contract"
                 separator(Navigate_Separator)
                 {
                 }
-                actionref(Invoices_Promoted; Invoices)
+                actionref(ShowOrgDoc_Promoted; ShowOrgDoc)
                 {
                 }
                 actionref(Customer_Promoted; Customer)
-                {
-                }
-                actionref("S&hipments_Promoted"; "S&hipments")
                 {
                 }
             }
