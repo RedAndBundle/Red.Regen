@@ -85,4 +85,47 @@ codeunit 70621 "Red Reg Sales Events"
     begin
         IsHandled := SalesHeader.RedRegAutoArchive();
     end;
+
+    [EventSubscriber(ObjectType::Page, Page::"Sales Order Subform", OnBeforeNoOnAfterValidate, '', false, false)]
+    local procedure OnBeforeNoOnAfterValidate(var SalesLine: Record "Sales Line"; xSalesLine: Record "Sales Line")
+    var
+        SalesDocument: Codeunit "Red Reg Sales Document";
+    begin
+        // Page runmodal to select the item contract template
+        if SalesLine."No." = xSalesLine."No." then
+            exit;
+        SalesDocument.SelectItemContract(SalesLine);
+    end;
+
+    [EventSubscriber(ObjectType::Page, Page::"Sales Order Subform", OnAfterNoOnAfterValidate, '', false, false)]
+    local procedure OnAfterNoOnAfterValidate(var SalesLine: Record "Sales Line"; xSalesLine: Record "Sales Line")
+    begin
+        // Create the new sales line(s) from the selected item contract template
+        if SalesLine."No." = xSalesLine."No." then
+            exit;
+    end;
+
+    [EventSubscriber(ObjectType::Page, Page::"Sales Order Subform", OnInsertRecordEvent, '', false, false)]
+    local procedure OnInsertRecordEvent(var Rec: Record "Sales Line"; var xRec: Record "Sales Line")
+    begin
+        // Create the new sales line(s) from the selected item contract template
+        if Rec."No." = xRec."No." then
+            exit;
+    end;
+
+    [EventSubscriber(ObjectType::Page, Page::"Sales Order Subform", OnModifyRecordEvent, '', false, false)]
+    local procedure OnModifyRecordEvent(var Rec: Record "Sales Line"; var xRec: Record "Sales Line")
+    begin
+        // Create the new sales line(s) from the selected item contract template
+        if Rec."No." = xRec."No." then
+            exit;
+    end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Sales Line", OnAfterModifyEvent, '', false, false)]
+    local procedure OnAfterModifyEventSalesLine(var Rec: Record "Sales Line"; var xRec: Record "Sales Line")
+    var
+        SalesDocument: Codeunit "Red Reg Sales Document";
+    begin
+        SalesDocument.GenerateContractDocumentLine(Rec);
+    end;
 }

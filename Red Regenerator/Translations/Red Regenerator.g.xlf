@@ -303,6 +303,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Red Reg Setup - Field Suppress Sales Post Commit - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2385325045 - Method 4230590133 - NamedType 2953347575" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1: %2 %3: %4</source>
+          <note from="Developer" annotates="general" priority="2">%1 = item name, %2= item nop %3= qry name %4= qty</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Red Reg Purchase Generator - Method InsertContractLine - NamedType OrgItemLbl</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1879119529 - Method 232529531 - NamedType 1603716250" size-unit="char" translate="yes" xml:space="preserve">
           <source>The contract has already been billed on %1 %2.</source>
           <note from="Developer" annotates="general" priority="2">%1 = document type, %2 = document no.</note>
@@ -312,6 +317,11 @@
           <source>The contract has already been billed on %1 %2.</source>
           <note from="Developer" annotates="general" priority="2">%1 = document type, %2 = document no.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Red Reg Regenerator - Method CheckSalesDocumentForNextIteration - NamedType AlreadyBilledLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2849875812 - Method 4230590133 - NamedType 2953347575" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1: %2 %3: %4</source>
+          <note from="Developer" annotates="general" priority="2">%1 = item name, %2= item nop %3= qry name %4= qty</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Red Reg Sales Generator - Method InsertContractLine - NamedType OrgItemLbl</note>
         </trans-unit>
         <trans-unit id="Page 536103655 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contract Groups</source>
@@ -7257,6 +7267,11 @@
           <source>Contract No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Invoice Line - Field Red Reg Contract No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3673108687 - Method 3339891640 - NamedType 3858482446" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 3673108687">
+          <source>A contract line exists for this sales line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Red Reg Sales Line - Method RedRegValidateNo - NamedType ContractLineExistErr</note>
         </trans-unit>
         <trans-unit id="TableExtension 3673108687 - Field 270264612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
           <source>Contract Line No.</source>

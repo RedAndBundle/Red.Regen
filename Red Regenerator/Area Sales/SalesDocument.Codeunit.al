@@ -3,6 +3,44 @@ using Microsoft.Sales.Document;
 codeunit 70620 "Red Reg Sales Document"
 {
     Access = Internal;
+    SingleInstance = true;
+
+    var
+        OriginalSalesLine: Record "Sales Line";
+        SelectedItemContract: Record "Red Reg Sales Item Contract";
+        ContractQuantity: Decimal;
+        ItemContractSelected: Boolean;
+
+    internal procedure SelectItemContract(SalesLine: Record "Sales Line")
+    var
+    begin
+        if not (SalesLine."Document Type" in [SalesLine."Document Type"::Order, SalesLine."Document Type"::Invoice]) then
+            exit;
+
+        if HasContractSalesLine(SalesLine) then
+            exit;
+
+        ClearGlobals();
+        if not GetItemContract(SelectedItemContract, ContractQuantity, SalesLine) then
+            exit;
+
+        OriginalSalesLine := SalesLine;
+        ItemContractSelected := true;
+    end;
+
+    internal procedure GenerateContractDocumentLine(SalesLine: Record "Sales Line")
+    var
+        NewSalesLine: Record "Sales Line";
+    begin
+        if not ItemContractSelected then
+            exit;
+
+        repeat
+            CreateSalesLineFromItemContract(NewSalesLine, SelectedItemContract, SalesLine, ContractQuantity);
+        until SelectedItemContract.Next() = 0;
+
+        ClearGlobals();
+    end;
 
     procedure GenerateContractDocumentLine(var NewSalesLine: Record "Sales Line"; SalesLine: Record "Sales Line")
     var
@@ -50,7 +88,6 @@ codeunit 70620 "Red Reg Sales Document"
         if not (ItemContractSelect.RunModal() in [Action::LookupOK, Action::OK]) then
             exit(false);
 
-
         Quantity := ItemContractSelect.GetQuantity();
         ItemContractSelect.SetSelectionFilter(ItemContract);
         exit(ItemContract.FindSet());
@@ -58,9 +95,6 @@ codeunit 70620 "Red Reg Sales Document"
 
     local procedure CreateSalesLineFromItemContract(var NewSalesLine: Record "Sales Line"; ItemContract: Record "Red Reg Sales Item Contract"; SalesLine: Record "Sales Line"; Quantity: Decimal)
     begin
-        if Quantity = 0 then
-            exit;
-
         ItemContract.CalcFields("Template Description");
         NewSalesLine.Init();
         NewSalesLine."Document Type" := SalesLine."Document Type";
@@ -76,12 +110,13 @@ codeunit 70620 "Red Reg Sales Document"
         NewSalesLine."Attached to Line No." := SalesLine."Line No.";
         NewSalesLine.Validate(Quantity, Quantity);
         NewSalesLine.Insert(true);
+    end;
 
-        // NewSalesLine.Validate("Unit Price", ItemContract."Unit Price");
-        // NewSalesLine.Validate("Quantity", ItemContract.Quantity);
-        // NewSalesLine.Validate("Unit of Measure", ItemContract."Unit of Measure");
-        // NewSalesLine.Validate("Posting Date", SalesLine."Posting Date");
-        // NewSalesLine.Validate("Document Date", SalesLine."Document Date");
-        // NewSalesLine."Red Reg Contract Line No." := ItemContract."Red Reg Contract Line No.";
+    local procedure ClearGlobals()
+    begin
+        Clear(OriginalSalesLine);
+        Clear(SelectedItemContract);
+        ContractQuantity := 0;
+        ItemContractSelected := false;
     end;
 }

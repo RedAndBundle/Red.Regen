@@ -66,6 +66,7 @@ codeunit 70645 "Red Reg Regenerator"
 
     procedure RenewContract(var ContractSalesHeader: Record "Sales Header")
     begin
+        ContractSalesHeader."Red Reg Contract Status" := ContractSalesHeader."Red Reg Contract Status"::Active;
         ContractSalesHeader."Red Reg End Date" := CalcDate(ContractSalesHeader."Red Reg Duration", ContractSalesHeader."Red Reg End Date");
         ContractSalesHeader.RedRegCalculateNextBillingDate();
         ContractSalesHeader.Modify();
@@ -73,7 +74,8 @@ codeunit 70645 "Red Reg Regenerator"
 
     procedure RenewContract(var ContractPurchaseHeader: Record "Purchase Header")
     begin
-        ContractPurchaseHeader."Red Reg End Date" := CalcDate(ContractPurchaseHeader."Red Reg Duration", ContractPurchaseHeader."Red Reg Next Billing Date");
+        ContractPurchaseHeader."Red Reg Contract Status" := ContractPurchaseHeader."Red Reg Contract Status"::Active;
+        ContractPurchaseHeader."Red Reg End Date" := CalcDate(ContractPurchaseHeader."Red Reg Duration", ContractPurchaseHeader."Red Reg End Date");
         ContractPurchaseHeader.RedRegCalculateNextBillingDate();
         ContractPurchaseHeader.Modify();
     end;
