@@ -4,6 +4,7 @@ using Microsoft.Sales.Receivables;
 using Microsoft.Sales.Document;
 using Microsoft.Utilities;
 using Microsoft.Finance.GeneralLedger.Posting;
+using Microsoft.Purchases.Document;
 using Microsoft.Sales.Posting;
 codeunit 70621 "Red Reg Sales Events"
 {
@@ -84,5 +85,66 @@ codeunit 70621 "Red Reg Sales Events"
     local procedure OnBeforeAutoArchiveSalesDocument(var SalesHeader: Record "Sales Header"; var IsHandled: Boolean)
     begin
         IsHandled := SalesHeader.RedRegAutoArchive();
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, CodeUnit::ArchiveManagement, OnBeforeStoreSalesDocument, '', false, false)]
+    local procedure OnBeforeStoreSalesDocument(var SalesHeader: Record "Sales Header"; var IsHandled: Boolean)
+    begin
+        if SalesHeader."Document Type" <> SalesHeader."Document Type"::"Red Regenerator" then
+            exit;
+
+        SalesHeader.TestField("Red Reg Archive Reason Code");
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, CodeUnit::ArchiveManagement, OnBeforeStorePurchDocument, '', false, false)]
+    local procedure OnBeforeStorePurchDocument(var PurchHeader: Record "Purchase Header"; var IsHandled: Boolean)
+    begin
+        if PurchHeader."Document Type" <> PurchHeader."Document Type"::"Red Regenerator" then
+            exit;
+
+        PurchHeader.TestField("Red Reg Archive Reason Code");
+    end;
+
+    [EventSubscriber(ObjectType::Page, Page::"Sales Order Subform", OnBeforeNoOnAfterValidate, '', false, false)]
+    local procedure OnBeforeNoOnAfterValidate(var SalesLine: Record "Sales Line"; xSalesLine: Record "Sales Line")
+    var
+        SalesDocument: Codeunit "Red Reg Sales Document";
+    begin
+        // Page runmodal to select the item contract template
+        if SalesLine."No." = xSalesLine."No." then
+            exit;
+        SalesDocument.SelectItemContract(SalesLine);
+    end;
+
+    [EventSubscriber(ObjectType::Page, Page::"Sales Order Subform", OnAfterNoOnAfterValidate, '', false, false)]
+    local procedure OnAfterNoOnAfterValidate(var SalesLine: Record "Sales Line"; xSalesLine: Record "Sales Line")
+    begin
+        // Create the new sales line(s) from the selected item contract template
+        if SalesLine."No." = xSalesLine."No." then
+            exit;
+    end;
+
+    [EventSubscriber(ObjectType::Page, Page::"Sales Order Subform", OnInsertRecordEvent, '', false, false)]
+    local procedure OnInsertRecordEvent(var Rec: Record "Sales Line"; var xRec: Record "Sales Line")
+    begin
+        // Create the new sales line(s) from the selected item contract template
+        if Rec."No." = xRec."No." then
+            exit;
+    end;
+
+    [EventSubscriber(ObjectType::Page, Page::"Sales Order Subform", OnModifyRecordEvent, '', false, false)]
+    local procedure OnModifyRecordEvent(var Rec: Record "Sales Line"; var xRec: Record "Sales Line")
+    begin
+        // Create the new sales line(s) from the selected item contract template
+        if Rec."No." = xRec."No." then
+            exit;
+    end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Sales Line", OnAfterModifyEvent, '', false, false)]
+    local procedure OnAfterModifyEventSalesLine(var Rec: Record "Sales Line"; var xRec: Record "Sales Line")
+    var
+        SalesDocument: Codeunit "Red Reg Sales Document";
+    begin
+        SalesDocument.GenerateContractDocumentLine(Rec);
     end;
 }

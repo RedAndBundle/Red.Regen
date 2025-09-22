@@ -77,33 +77,33 @@ codeunit 70640 "Red Reg Purchase Generator"
             until PurchRcptLine.Next() = 0;
     end;
 
-    procedure GenerateContracts(var PurchaseHeader: Record "Purchase Header")
-    var
-        ContractPurchaseHeader: Record "Purchase Header";
-        PurchaseLine: Record "Purchase Line";
-        ContractTemplate: Record "Red Reg Purch. Contr. Template";
-    begin
-        case PurchaseHeader."Document Type" of
-            PurchaseHeader."Document Type"::"Blanket Order",
-            PurchaseHeader."Document Type"::"Credit Memo",
-            PurchaseHeader."Document Type"::Quote,
-            PurchaseHeader."Document Type"::"Return Order":
-                exit;
-        end;
+    // procedure GenerateContracts(var PurchaseHeader: Record "Purchase Header")
+    // var
+    //     ContractPurchaseHeader: Record "Purchase Header";
+    //     PurchaseLine: Record "Purchase Line";
+    //     ContractTemplate: Record "Red Reg Purch. Contr. Template";
+    // begin
+    //     case PurchaseHeader."Document Type" of
+    //         PurchaseHeader."Document Type"::"Blanket Order",
+    //         PurchaseHeader."Document Type"::"Credit Memo",
+    //         PurchaseHeader."Document Type"::Quote,
+    //         PurchaseHeader."Document Type"::"Return Order":
+    //             exit;
+    //     end;
 
-        if PurchaseHeader."Red Reg Contract No." <> '' then
-            exit;
+    //     if PurchaseHeader."Red Reg Contract No." <> '' then
+    //         exit;
 
-        PurchaseLine.SetRange("Document No.", PurchaseHeader."No.");
-        PurchaseLine.SetRange("Document Type", PurchaseHeader."Document Type");
-        if PurchaseLine.FindSet() then
-            repeat
-                if GetContractTemplate(ContractTemplate, PurchaseLine.Type, PurchaseLine."No.") then begin
-                    ContractPurchaseHeader := GetContractHeader(PurchaseHeader, PurchaseHeader."Document Date", ContractTemplate);
-                    InsertContractLine(ContractPurchaseHeader, PurchaseLine);
-                end;
-            until PurchaseLine.Next() = 0;
-    end;
+    //     PurchaseLine.SetRange("Document No.", PurchaseHeader."No.");
+    //     PurchaseLine.SetRange("Document Type", PurchaseHeader."Document Type");
+    //     if PurchaseLine.FindSet() then
+    //         repeat
+    //             if GetContractTemplate(ContractTemplate, PurchaseLine.Type, PurchaseLine."No.") then begin
+    //                 ContractPurchaseHeader := GetContractHeader(PurchaseHeader, PurchaseHeader."Document Date", ContractTemplate);
+    //                 InsertContractLine(ContractPurchaseHeader, PurchaseLine);
+    //             end;
+    //         until PurchaseLine.Next() = 0;
+    // end;
 
     // local procedure HasContractTemplate(Type: Enum "Purchase Line Type"; No: Code[20]; ItemCategoryCode: Code[20]): Boolean
     // var
@@ -218,21 +218,33 @@ codeunit 70640 "Red Reg Purchase Generator"
     local procedure InsertContractLine(var ContractPurchaseHeader: Record "Purchase Header"; PurchRcptLine: Record "Purch. Rcpt. Line")
     var
         ContractPurchaseLine: Record "Purchase Line";
+        AttdPurchRcptLine: Record "Purch. Rcpt. Line";
+        OrgItemLbl: Label '%1: %2 %3: %4', Comment = '%1 = item name, %2= item nop %3= qry name %4= qty';
     begin
-        ContractPurchaseLine.SetRange("Document Type", ContractPurchaseHeader."Document Type");
-        ContractPurchaseLine.SetRange("Document No.", ContractPurchaseHeader."No.");
-        ContractPurchaseLine.SetRange("Red Reg Org. Document Type", ContractPurchaseHeader."Red Reg Org. Document Type");
-        ContractPurchaseLine.SetRange("Red Reg Org. Document No.", ContractPurchaseHeader."Red Reg Org. Document No.");
-        ContractPurchaseLine.SetRange("Red Reg Org. Document Line No.", PurchRcptLine."Line No.");
-        ContractPurchaseLine.SetRange("Red Reg Org. Shipment No.", PurchRcptLine."Document No.");
-        ContractPurchaseLine.SetRange("Red Reg Org. Shipment Line No.", PurchRcptLine."Line No.");
-        if ContractPurchaseLine.FindFirst() then begin
-            ContractPurchaseLine.Validate("Quantity", PurchRcptLine.Quantity);
-            ContractPurchaseLine.Modify(true);
+        if PurchRcptLine.Quantity = 0 then
             exit;
+
+        if PurchRcptLine."Attached to Line No." <> 0 then begin
+            AttdPurchRcptLine.Get(PurchRcptLine."Document No.", PurchRcptLine."Attached to Line No.");
+            if not ContractPurchaseLine.Get(ContractPurchaseHeader."Document Type", ContractPurchaseHeader."No.", AttdPurchRcptLine."Line No.") then begin
+                ContractPurchaseLine."Document Type" := ContractPurchaseHeader."Document Type";
+                ContractPurchaseLine."Document No." := ContractPurchaseHeader."No.";
+                ContractPurchaseLine."Line No." := AttdPurchRcptLine."Line No.";
+                ContractPurchaseLine.Type := ContractPurchaseLine.Type::" ";
+                ContractPurchaseLine.Description := CopyStr(StrSubstNo(OrgItemLbl, AttdPurchRcptLine.Type, AttdPurchRcptLine."No.", AttdPurchRcptLine.FieldCaption(Quantity), AttdPurchRcptLine.Quantity), 1, MaxStrLen(ContractPurchaseLine.Description));
+
+                ContractPurchaseLine."Red Reg Org. Document Type" := ContractPurchaseHeader."Red Reg Org. Document Type";
+                ContractPurchaseLine."Red Reg Org. Document No." := ContractPurchaseHeader."Red Reg Org. Document No.";
+                ContractPurchaseLine."Red Reg Org. Document Line No." := AttdPurchRcptLine."Line No.";
+                ContractPurchaseLine."Red Reg Org. Shipment No." := AttdPurchRcptLine."Document No.";
+                ContractPurchaseLine."Red Reg Org. Shipment Line No." := AttdPurchRcptLine."Line No.";
+                ContractPurchaseLine.Insert(true);
+            end;
         end;
 
-        ContractPurchaseLine.RedRegInitNewLine(ContractPurchaseHeader);
+        ContractPurchaseLine."Document Type" := ContractPurchaseHeader."Document Type";
+        ContractPurchaseLine."Document No." := ContractPurchaseHeader."No.";
+        ContractPurchaseLine."Line No." := PurchRcptLine."Line No.";
         ContractPurchaseLine.TransferFields(PurchRcptLine, false);
         ContractPurchaseLine.Validate(Quantity, PurchRcptLine.Quantity);
         ContractPurchaseLine."Red Reg Org. Document Type" := ContractPurchaseHeader."Red Reg Org. Document Type";
@@ -243,32 +255,32 @@ codeunit 70640 "Red Reg Purchase Generator"
         ContractPurchaseLine.Insert(true);
     end;
 
-    local procedure InsertContractLine(var ContractPurchaseHeader: Record "Purchase Header"; PurchaseLine: Record "Purchase Line")
-    var
-        ContractPurchaseLine: Record "Purchase Line";
-    begin
-        ContractPurchaseLine.SetRange("Document Type", ContractPurchaseHeader."Document Type");
-        ContractPurchaseLine.SetRange("Document No.", ContractPurchaseHeader."No.");
-        ContractPurchaseLine.SetRange("Red Reg Org. Document Type", ContractPurchaseHeader."Red Reg Org. Document Type");
-        ContractPurchaseLine.SetRange("Red Reg Org. Document No.", ContractPurchaseHeader."Red Reg Org. Document No.");
-        ContractPurchaseLine.SetRange("Red Reg Org. Document Line No.", PurchaseLine."Line No.");
-        ContractPurchaseLine.SetRange("Red Reg Org. Shipment No.", PurchaseLine."Document No.");
-        ContractPurchaseLine.SetRange("Red Reg Org. Shipment Line No.", PurchaseLine."Line No.");
-        if ContractPurchaseLine.FindFirst() then begin
-            ContractPurchaseLine.Validate("Quantity", PurchaseLine.Quantity);
-            ContractPurchaseLine.Modify(true);
-            exit;
-        end;
+    // local procedure InsertContractLine(var ContractPurchaseHeader: Record "Purchase Header"; PurchaseLine: Record "Purchase Line")
+    // var
+    //     ContractPurchaseLine: Record "Purchase Line";
+    // begin
+    //     ContractPurchaseLine.SetRange("Document Type", ContractPurchaseHeader."Document Type");
+    //     ContractPurchaseLine.SetRange("Document No.", ContractPurchaseHeader."No.");
+    //     ContractPurchaseLine.SetRange("Red Reg Org. Document Type", ContractPurchaseHeader."Red Reg Org. Document Type");
+    //     ContractPurchaseLine.SetRange("Red Reg Org. Document No.", ContractPurchaseHeader."Red Reg Org. Document No.");
+    //     ContractPurchaseLine.SetRange("Red Reg Org. Document Line No.", PurchaseLine."Line No.");
+    //     ContractPurchaseLine.SetRange("Red Reg Org. Shipment No.", PurchaseLine."Document No.");
+    //     ContractPurchaseLine.SetRange("Red Reg Org. Shipment Line No.", PurchaseLine."Line No.");
+    //     if ContractPurchaseLine.FindFirst() then begin
+    //         ContractPurchaseLine.Validate("Quantity", PurchaseLine.Quantity);
+    //         ContractPurchaseLine.Modify(true);
+    //         exit;
+    //     end;
 
-        ContractPurchaseLine.RedRegInitNewLine(ContractPurchaseHeader);
-        ContractPurchaseLine.TransferFields(PurchaseLine, false);
-        ContractPurchaseLine."Red Reg Org. Document Type" := ContractPurchaseHeader."Red Reg Org. Document Type";
-        ContractPurchaseLine."Red Reg Org. Document No." := ContractPurchaseHeader."Red Reg Org. Document No.";
-        ContractPurchaseLine."Red Reg Org. Document Line No." := PurchaseLine."Line No.";
-        ContractPurchaseLine."Red Reg Org. Shipment No." := PurchaseLine."Document No.";
-        ContractPurchaseLine."Red Reg Org. Shipment Line No." := PurchaseLine."Line No.";
-        ContractPurchaseLine.Insert(true);
-    end;
+    //     ContractPurchaseLine.RedRegInitNewLine(ContractPurchaseHeader);
+    //     ContractPurchaseLine.TransferFields(PurchaseLine, false);
+    //     ContractPurchaseLine."Red Reg Org. Document Type" := ContractPurchaseHeader."Red Reg Org. Document Type";
+    //     ContractPurchaseLine."Red Reg Org. Document No." := ContractPurchaseHeader."Red Reg Org. Document No.";
+    //     ContractPurchaseLine."Red Reg Org. Document Line No." := PurchaseLine."Line No.";
+    //     ContractPurchaseLine."Red Reg Org. Shipment No." := PurchaseLine."Document No.";
+    //     ContractPurchaseLine."Red Reg Org. Shipment Line No." := PurchaseLine."Line No.";
+    //     ContractPurchaseLine.Insert(true);
+    // end;
 
     local procedure InsertContractLine(var ContractPurchaseHeader: Record "Purchase Header"; SalesLine: Record "Sales Line")
     var

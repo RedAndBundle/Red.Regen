@@ -287,10 +287,17 @@ page 70621 "Red Reg Sales Contract"
                     Editable = false;
                     ToolTip = 'Specifies how many times the contract has been billed.';
                 }
+                field("Red Reg Archive Reason Code"; Rec."Red Reg Archive Reason Code")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Importance = Standard;
+                    ToolTip = 'Specifies the reason code for archiving the sales contract.';
+                }
                 field("Red Reg Has Purchase Contract"; Rec."Red Reg Has Purchase Contract")
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
+                    Visible = false;
                     ToolTip = 'Specifies if there are purchase contracts that were created from this sales contract';
                 }
                 field("External Document No."; Rec."External Document No.")

@@ -4,8 +4,6 @@ page 70622 "Red Reg Sales Contract Lines"
 {
     Caption = 'Sales Contract Lines';
     DataCaptionFields = "Sell-to Customer No.";
-    ApplicationArea = All;
-    UsageCategory = Lists;
     Editable = false;
     PageType = List;
     InsertAllowed = false;

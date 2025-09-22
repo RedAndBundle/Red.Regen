@@ -92,5 +92,11 @@ tableextension 70628 "Red Reg Sales Header Archive" extends "Sales Header Archiv
             FieldClass = FlowField;
             CalcFormula = exist("Purchase Header" where("Document Type" = const("Red Regenerator"), "Red Reg Sales Contract No." = field("No.")));
         }
+        field(70618; "Red Reg Archive Reason Code"; Code[10])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Archive Reason Code';
+            TableRelation = "Red Reg Archive Reason Code".Code where("Document Type" = const(Sales));
+        }
     }
 }

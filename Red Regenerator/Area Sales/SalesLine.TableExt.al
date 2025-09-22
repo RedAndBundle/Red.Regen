@@ -4,6 +4,20 @@ tableextension 70621 "Red Reg Sales Line" extends "Sales Line"
 {
     fields
     {
+        modify("No.")
+        {
+            trigger OnBeforeValidate()
+            begin
+                RedRegValidateNo();
+            end;
+        }
+        modify(Quantity)
+        {
+            trigger OnAfterValidate()
+            begin
+                RedRegSetContractLineQuantity();
+            end;
+        }
         field(70600; "Red Reg Org. Document Type"; Enum "Sales Document Type")
         {
             DataClassification = CustomerContent;
@@ -113,7 +127,7 @@ tableextension 70621 "Red Reg Sales Line" extends "Sales Line"
         // RedRegCreatePurchaseContract();
     end;
 
-    trigger OnDelete()
+    trigger OnAfterDelete()
     begin
         // TODO cannot modify active contract, cannot change document + posting date if sales doc is linked to a contract
         // RedRegCreatePurchaseContract();
@@ -134,6 +148,43 @@ tableextension 70621 "Red Reg Sales Line" extends "Sales Line"
             "Line No." := 0;
 
         "Line No." += 10000;
+    end;
+
+    local procedure RedRegSetContractLineQuantity()
+    var
+        ContractSalesLine: Record "Sales Line";
+    begin
+        if "Line No." = 0 then
+            exit;
+
+        ContractSalesLine.SetRange("Document Type", "Document Type");
+        ContractSalesLine.SetRange("Document No.", "Document No.");
+        ContractSalesLine.SetRange("Attached to Line No.", "Line No.");
+        ContractSalesLine.SetRange("Red Reg Generates Contract", true);
+        if ContractSalesLine.FindSet() then
+            repeat
+                ContractSalesLine.Validate(Quantity, Quantity);
+                ContractSalesLine.Modify(true);
+            until ContractSalesLine.Next() = 0;
+    end;
+
+    local procedure RedRegValidateNo()
+    var
+        ContractSalesLine: Record "Sales Line";
+        ContractLineExistErr: Label 'A contract line exists for this sales line.';
+    begin
+        if "Line No." = 0 then
+            exit;
+
+        if rec."No." = xRec."No." then
+            exit;
+
+        ContractSalesLine.SetRange("Document Type", "Document Type");
+        ContractSalesLine.SetRange("Document No.", "Document No.");
+        ContractSalesLine.SetRange("Attached to Line No.", "Line No.");
+        ContractSalesLine.SetRange("Red Reg Generates Contract", true);
+        if not ContractSalesLine.IsEmpty() then
+            Error(ContractLineExistErr);
     end;
 
     // local procedure RedRegCreatePurchaseContract()
