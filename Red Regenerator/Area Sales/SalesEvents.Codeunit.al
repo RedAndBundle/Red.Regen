@@ -4,6 +4,7 @@ using Microsoft.Sales.Receivables;
 using Microsoft.Sales.Document;
 using Microsoft.Utilities;
 using Microsoft.Finance.GeneralLedger.Posting;
+using Microsoft.Purchases.Document;
 using Microsoft.Sales.Posting;
 codeunit 70621 "Red Reg Sales Events"
 {
@@ -84,6 +85,24 @@ codeunit 70621 "Red Reg Sales Events"
     local procedure OnBeforeAutoArchiveSalesDocument(var SalesHeader: Record "Sales Header"; var IsHandled: Boolean)
     begin
         IsHandled := SalesHeader.RedRegAutoArchive();
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, CodeUnit::ArchiveManagement, OnBeforeStoreSalesDocument, '', false, false)]
+    local procedure OnBeforeStoreSalesDocument(var SalesHeader: Record "Sales Header"; var IsHandled: Boolean)
+    begin
+        if SalesHeader."Document Type" <> SalesHeader."Document Type"::"Red Regenerator" then
+            exit;
+
+        SalesHeader.TestField("Red Reg Archive Reason Code");
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, CodeUnit::ArchiveManagement, OnBeforeStorePurchDocument, '', false, false)]
+    local procedure OnBeforeStorePurchDocument(var PurchHeader: Record "Purchase Header"; var IsHandled: Boolean)
+    begin
+        if PurchHeader."Document Type" <> PurchHeader."Document Type"::"Red Regenerator" then
+            exit;
+
+        PurchHeader.TestField("Red Reg Archive Reason Code");
     end;
 
     [EventSubscriber(ObjectType::Page, Page::"Sales Order Subform", OnBeforeNoOnAfterValidate, '', false, false)]

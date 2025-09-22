@@ -216,6 +216,12 @@ page 70604 "Red Reg Pur. Contract Archive"
                     Editable = false;
                     ToolTip = 'Specifies how many times the contract has been billed.';
                 }
+                field("Red Reg Archive Reason Code"; Rec."Red Reg Archive Reason Code")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Importance = Standard;
+                    ToolTip = 'Specifies the reason code for archiving the sales contract.';
+                }
                 field("Order Address Code"; Rec."Order Address Code")
                 {
                     ApplicationArea = Suite;

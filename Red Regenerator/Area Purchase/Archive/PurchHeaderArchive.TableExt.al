@@ -107,5 +107,12 @@ tableextension 70610 "Red Reg Purch. Header Archive" extends "Purchase Header Ar
             DataClassification = CustomerContent;
             Caption = 'Work Description';
         }
+        field(70620; "Red Reg Archive Reason Code"; Code[10])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Archive Reason Code';
+            TableRelation = "Red Reg Archive Reason Code".Code where("Document Type" = const(Purchase));
+            ToolTip = 'Specifies the reason code for archiving the sales contract.';
+        }
     }
 }
