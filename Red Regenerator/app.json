@@ -2,7 +2,7 @@
   "id": "c01aa9a9-ac64-490f-bdc4-a61f7f4ff05e",
   "name": "Red Regenerator",
   "publisher": "Red and Bundle",
-  "version": "1.1.0.14",
+  "version": "28.0.0.0",
   "brief": "A lightweight extension to create and renew contracts",
   "description": "Create and renew contracts for licenses, extended warranties, rentals, etc.",
   "privacyStatement": "https://redandbundle.com/privacy/",
@@ -11,9 +11,16 @@
   "url": "https://github.com/RedAndBundle/Red.Regen/tree/main?tab=readme-ov-file",
   "logo": "images/Logo_appsource_large.png",
   "dependencies": [],
+  "internalsVisibleTo": [
+    {
+      "id": "394d1045-a51d-4870-92d6-9b437390ca1e",
+      "name": "Red Regenerator Test",
+      "publisher": "Red and Bundle"
+    }
+  ],
   "screenshots": [],
-  "platform": "26.0.0.0",
-  "application": "26.0.0.0",
+  "platform": "28.0.0.0",
+  "application": "28.0.0.0",
   "idRanges": [
     {
       "from": 70600,

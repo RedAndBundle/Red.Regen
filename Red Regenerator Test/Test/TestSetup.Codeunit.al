@@ -69,7 +69,7 @@ codeunit 70800 "Test Setup"
         exit(SalesTemplate);
     end;
 
-    local procedure EnsureContractGroup(): Code[20]
+    procedure EnsureContractGroup(): Code[20]
     var
         ContractGroup: Record "Red Reg Contract Group";
     begin

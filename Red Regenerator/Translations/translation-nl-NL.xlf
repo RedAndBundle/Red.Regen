@@ -4839,6 +4839,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contr. Templates - Control Type - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3491209726 - Action 1881139469 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Creates a contract template for multiple items at once, based on item filters such as Item Category Code.</source>
+          <target>Maakt in één keer een contractsjabloon voor meerdere artikelen, op basis van artikelfilters zoals Artikelcategoriecode.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contr. Templates - Action CreateSalesContrTemplates - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3491209726 - Action 1881139469 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Contract Templates</source>
+          <target>Contractsjablonen maken</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sales Contr. Templates - Action CreateSalesContrTemplates - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 408510027 - Property 1064389655" size-unit="char" translate="yes" xml:space="preserve">
           <source>About sales contract details</source>
           <target>Informatie over details van verkoopcontracten</target>
@@ -7808,6 +7820,78 @@
           <target>Maateenheid</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Red Reg Sls Item Contract Sel - Control SalesLineUnitOfMeasure - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2485207864 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Sales Contract Templates</source>
+          <target>Verkoopcontractsjablonen maken</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Red Reg Create Sales Templates - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2485207864 - NamedType 428739894" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must select a Contract Group before you can create contract templates.</source>
+          <target>U moet een Contractgroep selecteren voordat u contractsjablonen kunt maken.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Red Reg Create Sales Templates - NamedType ContractGroupBlankErr</note>
+        </trans-unit>
+        <trans-unit id="Report 2485207864 - NamedType 1000503204" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Created %1 contract template(s).\Skipped %2 that already had a template.\Skipped %3 that could not be sold (blocked or missing setup).</source>
+          <target>%1 contractsjabloon/sjablonen aangemaakt.\%2 overgeslagen omdat er al een sjabloon bestond.\%3 overgeslagen omdat verkoop niet mogelijk was (geblokkeerd of ontbrekende instellingen).</target>
+          <note from="Developer" annotates="general" priority="2">%1 = created count, %2 = already existing count, %3 = error count</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Red Reg Create Sales Templates - NamedType ResultMsg</note>
+        </trans-unit>
+        <trans-unit id="Report 2485207864 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contract Template Settings</source>
+          <target>Instellingen contractsjabloon</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Red Reg Create Sales Templates - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2485207864 - Control 1783398978 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the billing period to set on the contract template, as a date formula. If you do not specify a billing period the contract duration is used.</source>
+          <target>Geeft de factureringsperiode op die wordt ingesteld voor het contractsjabloon, in een datumformule. Als u geen factureringsperiode opgeeft, wordt de duur van het contract gebruikt.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Red Reg Create Sales Templates - Control BillingPeriod - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2485207864 - Control 1783398978 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Billing Period</source>
+          <target>Facturering periode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Red Reg Create Sales Templates - Control BillingPeriod - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2485207864 - Control 359018447 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the contract group to set on the contract template created for every item that matches the filters below.</source>
+          <target>Hiermee geeft u de contractgroep op die wordt ingesteld voor het contractsjabloon dat wordt gemaakt voor elk artikel dat overeenkomt met de onderstaande filters.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Red Reg Create Sales Templates - Control ContractGroup - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2485207864 - Control 359018447 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contract Group</source>
+          <target>Contract Groep</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Red Reg Create Sales Templates - Control ContractGroup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2485207864 - Control 1637095154 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the duration to set on the contract template, as a date formula. If you do not specify a duration you must set one manually after the template is created.</source>
+          <target>Geeft de duur op die wordt ingesteld voor het contractsjabloon, in een datumformule. Als u geen duur opgeeft, moet u deze handmatig instellen nadat het sjabloon is gemaakt.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Red Reg Create Sales Templates - Control Duration - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2485207864 - Control 1637095154 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Duration</source>
+          <target>Duur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Red Reg Create Sales Templates - Control Duration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2485207864 - Control 1716678546 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the contract lines should be shown on documents.</source>
+          <target>Geeft aan of de contractregels op documenten moeten worden weergegeven.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Red Reg Create Sales Templates - Control ShowOnDocuments - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2485207864 - Control 1716678546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show On Documents</source>
+          <target>Weergeven op documenten</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Red Reg Create Sales Templates - Control ShowOnDocuments - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3090149715 - Control 584985834 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4048657685">
           <source>Specifies the contract that this document was created from.</source>

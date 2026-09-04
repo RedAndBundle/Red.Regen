@@ -66,15 +66,14 @@ page 70650 "Red Reg Sales Contr. Templates"
     {
         area(Processing)
         {
-            // action(ActionName)
-            // {
-            //     ApplicationArea = All;
-
-            //     trigger OnAction()
-            //     begin
-
-            //     end;
-            // }
+            action(CreateSalesContrTemplates)
+            {
+                ApplicationArea = All;
+                Caption = 'Create Contract Templates';
+                ToolTip = 'Creates a contract template for multiple items at once, based on item filters such as Item Category Code.';
+                Image = CreateForm;
+                RunObject = report "Red Reg Create Sales Templates";
+            }
         }
     }
 }
