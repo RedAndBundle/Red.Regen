@@ -47,20 +47,4 @@ page 70651 "Red Reg Sales Item Contracts"
             }
         }
     }
-
-    actions
-    {
-        area(Processing)
-        {
-            // action(ActionName)
-            // {
-            //     ApplicationArea = All;
-
-            //     trigger OnAction()
-            //     begin
-
-            //     end;
-            // }
-        }
-    }
 }
