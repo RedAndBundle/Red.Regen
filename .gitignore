@@ -5,6 +5,9 @@
 **/.alpackages/
 *.app
 
+# AL MCP server config (machine-specific absolute paths)
+.mcp.json
+
 # dependencies
 **/node_modules/
 /.pnp

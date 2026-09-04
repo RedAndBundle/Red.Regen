@@ -1,0 +1,9 @@
+{
+  "enabledMcpjsonServers": [
+    "al-language"
+  ],
+  "enabledPlugins": {
+    "red-al-tools@red-and-bundle": true,
+    "fornav-al-tools@fornav-claude-plugins": true
+  }
+}
